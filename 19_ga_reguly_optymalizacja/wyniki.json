@@ -1,0 +1,227 @@
+{
+  "model": "GA-optimized TCN+Mamdani",
+  "dataset": "SP500",
+  "ga_parametry": {
+    "populacja": 30,
+    "generacje": 50,
+    "krzyzowanie": 0.8,
+    "mutacja": 0.1,
+    "selekcja": "turniejowa (k=3)",
+    "elityzm": 2
+  },
+  "baseline_reczne": {
+    "MAPE_val": 1.0365,
+    "MAPE_test": 1.3823,
+    "RMSE_test": 99.037594,
+    "MAE_test": 82.80157,
+    "aktywne_reguly": 15
+  },
+  "ga_optymalizowane": {
+    "MAPE_val": 0.6911,
+    "MAPE_test": 0.6976,
+    "RMSE_test": 61.180128,
+    "MAE_test": 41.106382,
+    "aktywne_reguly": 8,
+    "reguly_aktywne": [
+      1,
+      2,
+      3,
+      4,
+      7,
+      9,
+      10,
+      15
+    ],
+    "reguly_wylaczone": [
+      5,
+      6,
+      8,
+      11,
+      12,
+      13,
+      14
+    ]
+  },
+  "poprawa_MAPE_pp": 0.6847,
+  "optimized_mf_params": {
+    "trend_duzy_spadek": {
+      "center": -2.0921,
+      "width": 0.5585
+    },
+    "trend_spadek": {
+      "center": -1.041,
+      "width": 0.293
+    },
+    "trend_neutralny": {
+      "center": -0.5024,
+      "width": 0.301
+    },
+    "trend_wzrost": {
+      "center": 0.9338,
+      "width": 0.3804
+    },
+    "trend_duzy_wzrost": {
+      "center": 1.8861,
+      "width": 0.3882
+    },
+    "zmiennosc_niska": {
+      "center": -0.3203,
+      "width": 0.7095
+    },
+    "zmiennosc_srednia": {
+      "center": 1.9378,
+      "width": 0.4079
+    },
+    "zmiennosc_wysoka": {
+      "center": 4.1167,
+      "width": 1.351
+    },
+    "momentum_duzy_spadek": {
+      "center": -2.5039,
+      "width": 0.1
+    },
+    "momentum_spadek": {
+      "center": -1.128,
+      "width": 0.292
+    },
+    "momentum_neutralny": {
+      "center": -0.1948,
+      "width": 0.5056
+    },
+    "momentum_wzrost": {
+      "center": 1.9517,
+      "width": 0.5223
+    },
+    "momentum_duzy_wzrost": {
+      "center": 2.0656,
+      "width": 0.1
+    },
+    "prognoza_duzy_spadek": {
+      "center": -2.7174,
+      "width": 0.3854
+    },
+    "prognoza_spadek": {
+      "center": -1.1538,
+      "width": 0.3125
+    },
+    "prognoza_neutralny": {
+      "center": 0.0248,
+      "width": 0.8245
+    },
+    "prognoza_wzrost": {
+      "center": 1.1052,
+      "width": 0.1
+    },
+    "prognoza_duzy_wzrost": {
+      "center": 1.9465,
+      "width": 0.219
+    }
+  },
+  "fitness_history": {
+    "best": [
+      -0.7752,
+      -0.7239,
+      -0.7106,
+      -0.6997,
+      -0.6997,
+      -0.6955,
+      -0.6953,
+      -0.6929,
+      -0.6929,
+      -0.6928,
+      -0.6928,
+      -0.6927,
+      -0.6927,
+      -0.6926,
+      -0.6924,
+      -0.6924,
+      -0.6924,
+      -0.6924,
+      -0.6921,
+      -0.692,
+      -0.692,
+      -0.692,
+      -0.6919,
+      -0.6914,
+      -0.6914,
+      -0.6914,
+      -0.6914,
+      -0.6914,
+      -0.6914,
+      -0.6914,
+      -0.6914,
+      -0.6913,
+      -0.6913,
+      -0.6912,
+      -0.6912,
+      -0.6912,
+      -0.6912,
+      -0.6912,
+      -0.6911,
+      -0.6911,
+      -0.6911,
+      -0.6911,
+      -0.6911,
+      -0.6911,
+      -0.6911,
+      -0.6911,
+      -0.6911,
+      -0.6911,
+      -0.6911,
+      -0.6911
+    ],
+    "mean": [
+      -0.9519,
+      -0.8658,
+      -0.7708,
+      -0.723,
+      -0.7184,
+      -0.7078,
+      -0.7036,
+      -0.6978,
+      -0.7007,
+      -0.7049,
+      -0.695,
+      -0.6939,
+      -0.701,
+      -0.7066,
+      -0.6935,
+      -0.7082,
+      -0.6935,
+      -0.6933,
+      -0.6941,
+      -0.6937,
+      -0.6928,
+      -0.6929,
+      -0.6923,
+      -0.6928,
+      -0.6926,
+      -0.6927,
+      -0.6925,
+      -0.6925,
+      -0.6922,
+      -0.6927,
+      -0.6925,
+      -0.7068,
+      -0.6925,
+      -0.6917,
+      -0.6928,
+      -0.6929,
+      -0.6928,
+      -0.7069,
+      -0.7029,
+      -0.6921,
+      -0.6997,
+      -0.692,
+      -0.708,
+      -0.6923,
+      -0.6923,
+      -0.6934,
+      -0.6928,
+      -0.6976,
+      -0.6919,
+      -0.699
+    ]
+  },
+  "czas_s": 7476.7
+}

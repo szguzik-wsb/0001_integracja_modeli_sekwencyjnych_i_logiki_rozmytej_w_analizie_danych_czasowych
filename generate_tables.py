@@ -12,13 +12,19 @@ print(f"IMG_DIR: {IMG_DIR}")
 PAGE_WIDTH = 7.5
 
 
-def make_table(data, col_labels, title, filename, fontsize=10, col_widths=None, highlight_min_cols=None):
+REPO_SHORT = "github.com/szguzik-wsb/0001_integracja_..."
+
+
+def make_table(data, col_labels, title, filename, fontsize=10, col_widths=None, highlight_min_cols=None, source=None):
     n_rows = len(data)
     n_cols = len(col_labels)
-    fig_height = max((n_rows + 1) * 0.4 + 0.9, 2.5)
+    row_h = 0.35
+    fig_height = (n_rows + 1) * row_h + 0.7
 
     fig, ax = plt.subplots(figsize=(PAGE_WIDTH, fig_height))
     ax.axis('off')
+    ax.set_xlim(-0.02, 1.02)
+    ax.set_ylim(-0.05, 1.05)
 
     table = ax.table(
         cellText=data,
@@ -26,10 +32,10 @@ def make_table(data, col_labels, title, filename, fontsize=10, col_widths=None, 
         loc='center',
         cellLoc='center',
         edges='closed',
+        bbox=[0.0, 0.06, 1.0, 0.88],
     )
     table.auto_set_font_size(False)
     table.set_fontsize(fontsize)
-    table.scale(1, 1.5)
 
     # Szerokosci kolumn
     if col_widths:
@@ -77,15 +83,16 @@ def make_table(data, col_labels, title, filename, fontsize=10, col_widths=None, 
                 cell = table[best_i + 1, j]
                 cell.set_text_props(fontweight='bold', color='#C00000')
 
-    ax.set_title(title, fontsize=fontsize + 1, fontweight='bold', pad=12, loc='center')
+    ax.set_title(title, fontsize=fontsize + 1, fontweight='bold', pad=6, loc='center')
 
-    # Zrodlo pod tabela
-    GITHUB_URL = "https://github.com/szguzik/tcn-mamdani-hybrid"
-    ax.text(0.5, 0.02, f'Zrodlo: opracowanie wlasne. Kod: {GITHUB_URL}',
-            transform=ax.transAxes, fontsize=7.5, ha='center', va='bottom',
+    # Przypis zrodlowy pod tabela (APA 7)
+    if source is None:
+        source = f'Zrodlo: opracowanie wlasne. Kod: {REPO_SHORT}'
+    ax.text(0.5, 0.0, source,
+            transform=ax.transAxes, fontsize=7, ha='center', va='bottom',
             style='italic', color='#555555')
 
-    plt.subplots_adjust(left=0.0, right=1.0, top=0.88, bottom=0.06)
+    plt.subplots_adjust(left=0.01, right=0.99, top=0.93, bottom=0.01)
     plt.savefig(os.path.join(IMG_DIR, filename), dpi=250, bbox_inches='tight',
                 facecolor='white', edgecolor='none', pad_inches=0.05)
     plt.close()
@@ -115,6 +122,7 @@ make_table(
     title='Tabela 1. Baza regul systemu Mamdaniego',
     filename='tab1_reguly.png',
     col_widths=[0.06, 0.7, 0.24],
+    source=f'Zrodlo: opracowanie wlasne na podstawie Mamdani i Assilian (1975). Kod: {REPO_SHORT}',
 )
 
 # TABELA 2: Dane
@@ -129,6 +137,7 @@ make_table(
     title='Tabela 2. Charakterystyka zbiorow danych',
     filename='tab2_dane.png',
     col_widths=[0.14, 0.16, 0.14, 0.14, 0.14, 0.18],
+    source='Zrodlo: opracowanie wlasne na podstawie danych z Yahoo Finance (yfinance) oraz Stooq.pl.',
 )
 
 # TABELA 3: MAPE
@@ -146,6 +155,7 @@ make_table(
     filename='tab3_mape.png',
     highlight_min_cols=[1, 2, 3, 4, 5, 6, 7],
     col_widths=[0.16, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12, 0.12],
+    source=f'Zrodlo: opracowanie wlasne. Najlepszy wynik w kolumnie wyrozniany. Kod: {REPO_SHORT}',
 )
 
 # TABELA 4: DM test
@@ -161,6 +171,7 @@ make_table(
     filename='tab4_dm_test.png',
     col_widths=[0.14, 0.215, 0.215, 0.215, 0.215],
     fontsize=9.5,
+    source=f'Zrodlo: opracowanie wlasne na podstawie Diebold i Mariano (1995). * p < 0,05. DM > 0 = przewaga TCN-Mamdani.',
 )
 
 # TABELA 5: Zlozonosc
@@ -176,6 +187,7 @@ make_table(
     title='Tabela 5. Zlozonosc obliczeniowa modeli (S&P 500)',
     filename='tab5_zlozonosc.png',
     col_widths=[0.25, 0.25, 0.25, 0.25],
+    source=f'Zrodlo: opracowanie wlasne. Kod: {REPO_SHORT}',
 )
 
 # TABELA 6: Interpretowalnosc
@@ -192,6 +204,7 @@ make_table(
     title='Tabela 6. Porownanie interpretowalnosci: Mamdani vs SHAP',
     filename='tab6_interpretowalnosc.png',
     col_widths=[0.25, 0.375, 0.375],
+    source='Zrodlo: opracowanie wlasne na podstawie Lundberg i Lee (2017) oraz Mamdani i Assilian (1975).',
 )
 
 print("\nWSZYSTKIE TABELE GOTOWE (v4 - pelna siatka)")

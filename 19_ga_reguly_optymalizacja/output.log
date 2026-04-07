@@ -17,3 +17,28 @@
     Gen   1/50: best_fitness=-0.7752 (MAPE=0.7752%), mean=-0.9519, active_rules=15/15
     Gen  10/50: best_fitness=-0.6928 (MAPE=0.6928%), mean=-0.7049, active_rules=14/15
     Gen  20/50: best_fitness=-0.6920 (MAPE=0.6920%), mean=-0.6937, active_rules=12/15
+    Gen  30/50: best_fitness=-0.6914 (MAPE=0.6914%), mean=-0.6927, active_rules=11/15
+    Gen  40/50: best_fitness=-0.6911 (MAPE=0.6911%), mean=-0.6921, active_rules=8/15
+    Gen  50/50: best_fitness=-0.6911 (MAPE=0.6911%), mean=-0.6990, active_rules=9/15
+
+  --- Wyniki GA-optymalizowane ---
+
+  Aktywne reguly GA (8/15):
+    R1:  trend=duzy_wzrost AND momentum=duzy_wzrost -> duzy_wzrost
+    R2:  trend=wzrost AND momentum=wzrost -> wzrost
+    R3:  trend=spadek AND momentum=spadek -> spadek
+    R4:  trend=duzy_spadek AND momentum=duzy_spadek -> duzy_spadek
+    R7:  trend=neutralny AND momentum=neutralny -> neutralny
+    R9:  trend=neutralny AND momentum=spadek -> spadek
+    R10: trend=duzy_wzrost AND zmiennosc=wysoka -> neutralny
+    R15: momentum=duzy_spadek AND zmiennosc=srednia -> spadek
+  Wylaczone reguly: [5, 6, 8, 11, 12, 13, 14]
+
+  POROWNANIE (test set):
+    Reczne reguly:       MAPE = 1.3823%
+    GA-optymalizowane:   MAPE = 0.6976%
+    Poprawa:             0.6847 pp
+    Czas calkowity:      7608.8s
+Wyniki zapisane: C:\Users\szymo\Mój dysk\MojeArtyku³y\0001_integracja_modeli_sekwencyjnych_i_logiki_rozmytej_w_analizie_danych_czasowych\badania\wewnetrzne\19_ga_reguly_optymalizacja\wyniki.json
+
+=== GA OPTYMALIZACJA ZAKONCZONA ===
