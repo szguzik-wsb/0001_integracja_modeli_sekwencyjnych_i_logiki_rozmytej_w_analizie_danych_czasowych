@@ -1,0 +1,66 @@
+{
+  "opis": "Prognozowanie wielokrokowe: MAPE na ostatnim kroku horyzontu",
+  "zbior_danych": "SP500",
+  "horyzonty": [
+    1,
+    5,
+    10,
+    30
+  ],
+  "modele": {
+    "ARIMA": {
+      "h=1": {
+        "MAPE": 0.6822,
+        "czas_s": 70.0
+      },
+      "h=5": {
+        "MAPE": 1.6181,
+        "czas_s": 67.92
+      },
+      "h=10": {
+        "MAPE": 2.1822,
+        "czas_s": 45.72
+      },
+      "h=30": {
+        "MAPE": 3.8562,
+        "czas_s": 35.48
+      }
+    },
+    "LSTM": {
+      "h=1": {
+        "MAPE": 6.0155,
+        "czas_s": 15.3
+      },
+      "h=5": {
+        "MAPE": 9.44,
+        "czas_s": 22.56
+      },
+      "h=10": {
+        "MAPE": 13.4907,
+        "czas_s": 8.35
+      },
+      "h=30": {
+        "MAPE": 17.9325,
+        "czas_s": 6.4
+      }
+    },
+    "TCN_Mamdani": {
+      "h=1": {
+        "MAPE": 1.3823,
+        "czas_s": 9.22
+      },
+      "h=5": {
+        "MAPE": 6.6523,
+        "czas_s": 26.55
+      },
+      "h=10": {
+        "MAPE": 13.9714,
+        "czas_s": 50.38
+      },
+      "h=30": {
+        "MAPE": 54.0855,
+        "czas_s": 126.73
+      }
+    }
+  }
+}

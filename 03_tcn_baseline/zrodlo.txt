@@ -1,0 +1,93 @@
+================================================================================
+ZRODLO EKSPERYMENTU: 03_tcn_baseline
+================================================================================
+
+METODA
+------
+Model TCN (Temporal Convolutional Network) — siec konwolucyjna zaprojektowana
+do przetwarzania danych sekwencyjnych. Wykorzystuje konwolucje przyczynowe
+(causal convolutions) z dylatacjami rosnacymi wykladniczo, co pozwala na
+efektywne modelowanie dlugoterminowych zaleznosci bez uzycia rekurencji.
+Architektura zawiera polaczenia rezydualne (residual connections) i normalizacje
+BatchNorm w kazdym bloku temporalnym.
+
+TCN stanowi kluczowy komponent proponowanego modelu hybrydowego (TCN + Mamdani)
+i jednoczesnie baseline do oceny wartosci dodanej integracji z logika rozmyta.
+
+Architektura:
+  - Kanaly:              [32, 32, 32] (3 bloki temporalne)
+  - Rozmiar jadra:       kernel_size = 3
+  - Dylatacje:           [1, 2, 4] (rosna wykladniczo)
+  - Polaczenia rezydualne: tak (residual connections)
+  - Normalizacja:        BatchNorm po kazdej konwolucji
+  - Konwolucje:          przyczynowe (causal) — brak wycieku informacji z przyszlosci
+  - Warstwa wyjscia:     Linear na ostatnim kroku czasowym
+
+CYTOWANIE APA 7
+---------------
+Bai, S., Kolter, J. Z., & Koltun, V. (2018). An empirical evaluation of
+    generic convolutional and recurrent networks for sequence modeling.
+    arXiv preprint arXiv:1803.01271.
+
+van den Oord, A., Dieleman, S., Zen, H., Simonyan, K., Vinyals, O.,
+    Graves, A., Kalchbrenner, N., Senior, A., & Kavukcuoglu, K. (2016).
+    WaveNet: A generative model for raw audio. arXiv preprint
+    arXiv:1609.03499.
+
+DOI / URL
+---------
+Bai et al. (2018):
+    https://arxiv.org/abs/1803.01271
+
+van den Oord et al. (2016) — WaveNet (inspiracja architekturalna):
+    https://arxiv.org/abs/1609.03499
+
+DANE
+----
+Zrodlo danych:
+  - Yahoo Finance (pobierane przez biblioteke yfinance)
+  - stooq.pl (eksport CSV)
+Instrumenty: S&P 500 (^GSPC), WIG20 (WIG20.PL)
+Granulacja: dzienna (ceny zamkniecia)
+Okres: zgodny z konfiguracja eksperymentu (patrz config.py)
+
+IMPLEMENTACJA
+-------------
+Jezyk:           Python 3.14
+Framework:       PyTorch 2.11.0
+                 https://pytorch.org/
+Implementacja:   wlasna (na podstawie architektury z Bai et al., 2018)
+Dane wejsciowe:  znormalizowany szereg cen zamkniecia (Close)
+Normalizacja:    MinMaxScaler (zakres [0, 1])
+
+Parametry implementacyjne:
+  - input_size = 1
+  - num_channels = [32, 32, 32]
+  - kernel_size = 3
+  - dilations = [1, 2, 4]
+  - dropout = 0.2
+  - batch_first = True
+  - optimizer = Adam(lr=0.001)
+  - loss = MSELoss
+  - early_stopping_patience = 15
+  - lookback_window = 30
+  - forecast_horizon = 1
+
+Pole recepcyjne (receptive field):
+  R = 2 * (kernel_size - 1) * sum(dilations) + 1
+  R = 2 * (3 - 1) * (1 + 2 + 4) + 1 = 29
+  Przy lookback=30 model obejmuje cale okno wejsciowe.
+
+REPRODUKOWALNOSC
+----------------
+Ziarno losowosci (seed):  42
+  - torch.manual_seed(42)
+  - torch.cuda.manual_seed_all(42)
+  - np.random.seed(42)
+  - torch.backends.cudnn.deterministic = True
+  - torch.backends.cudnn.benchmark = False
+Wersja Pythona:           3.14
+Wersja PyTorch:           2.11.0
+Walidacja:                walk-forward (expanding window)
+Metryki:                  MAPE, RMSE, MAE
+Urzadzenie:               CUDA (GPU) jesli dostepne, w przeciwnym razie CPU

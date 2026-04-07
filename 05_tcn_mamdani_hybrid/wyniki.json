@@ -1,0 +1,87 @@
+{
+  "model": "TCN(channels=[32,32]) + Mamdani(15 regul, gaussMF, COG)",
+  "architektura": "TCN feature extractor → fuzzyfikacja → Mamdani inference → defuzyfikacja COG",
+  "wyniki": {
+    "SP500": {
+      "MAPE": 1.3823,
+      "RMSE": 99.037594,
+      "MAE": 82.80157,
+      "czas_s": 19.66,
+      "tcn_channels": [
+        32,
+        32
+      ],
+      "mamdani_reguly": 15,
+      "cechy_tcn": [
+        "trend",
+        "zmiennosc",
+        "momentum"
+      ]
+    },
+    "WIG20": {
+      "MAPE": 1.0757,
+      "RMSE": 36.879023,
+      "MAE": 28.084826,
+      "czas_s": 76.61,
+      "tcn_channels": [
+        32,
+        32
+      ],
+      "mamdani_reguly": 15,
+      "cechy_tcn": [
+        "trend",
+        "zmiennosc",
+        "momentum"
+      ]
+    },
+    "EURUSD": {
+      "MAPE": 0.392,
+      "RMSE": 0.005859,
+      "MAE": 0.004377,
+      "czas_s": 58.66,
+      "tcn_channels": [
+        32,
+        32
+      ],
+      "mamdani_reguly": 15,
+      "cechy_tcn": [
+        "trend",
+        "zmiennosc",
+        "momentum"
+      ]
+    },
+    "BTCUSD": {
+      "MAPE": 1.8271,
+      "RMSE": 2359.93183,
+      "MAE": 1828.648999,
+      "czas_s": 22.5,
+      "tcn_channels": [
+        32,
+        32
+      ],
+      "mamdani_reguly": 15,
+      "cechy_tcn": [
+        "trend",
+        "zmiennosc",
+        "momentum"
+      ]
+    }
+  },
+  "reguly_mamdaniego": [
+    "R1: IF trend=duzy_wzrost AND momentum=duzy_wzrost THEN prognoza=duzy_wzrost",
+    "R2: IF trend=wzrost AND momentum=wzrost THEN prognoza=wzrost",
+    "R3: IF trend=spadek AND momentum=spadek THEN prognoza=spadek",
+    "R4: IF trend=duzy_spadek AND momentum=duzy_spadek THEN prognoza=duzy_spadek",
+    "R5: IF trend=wzrost AND momentum=spadek THEN prognoza=neutralny",
+    "R6: IF trend=spadek AND momentum=wzrost THEN prognoza=neutralny",
+    "R7: IF trend=neutralny AND momentum=neutralny THEN prognoza=neutralny",
+    "R8: IF trend=neutralny AND momentum=wzrost THEN prognoza=wzrost",
+    "R9: IF trend=neutralny AND momentum=spadek THEN prognoza=spadek",
+    "R10: IF trend=duzy_wzrost AND zmiennosc=wysoka THEN prognoza=neutralny",
+    "R11: IF trend=duzy_spadek AND zmiennosc=wysoka THEN prognoza=neutralny",
+    "R12: IF trend=wzrost AND zmiennosc=niska THEN prognoza=duzy_wzrost",
+    "R13: IF trend=spadek AND zmiennosc=niska THEN prognoza=duzy_spadek",
+    "R14: IF momentum=duzy_wzrost AND zmiennosc=srednia THEN prognoza=wzrost",
+    "R15: IF momentum=duzy_spadek AND zmiennosc=srednia THEN prognoza=spadek"
+  ]
+}

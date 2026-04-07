@@ -1,0 +1,159 @@
+================================================================================
+EKSPERYMENT 05: MODEL HYBRYDOWY TCN-MAMDANI
+================================================================================
+Plik zrodlowy eksperymentu — metoda, cytowania, dane, implementacja
+
+================================================================================
+METODA
+================================================================================
+
+Model hybrydowy laczacy ekstrakcje cech za pomoca Temporal Convolutional Network
+(TCN) z systemem wnioskowania rozmytego Mamdaniego. Jest to ORYGINALNA
+KONTYBUCJA NAUKOWA — w literaturze nie istnieja prace laczace TCN z klasycznym
+systemem Mamdaniego.
+
+Architektura:
+  [Dane finansowe] -> [TCN(channels=[32,32])]
+                          |
+                          v
+                   [3 cechy: trend, zmiennosc, momentum]
+                          |
+                          v
+                   [System Mamdaniego: 15 regul, Gaussian MF, defuzyfikacja COG]
+                          |
+                          v
+                   [Prognoza]
+
+TCN: Siec konwolucyjna przyczynowa z dwiema warstwami (po 32 kanaly),
+dylatacjami rosnacymi wykladniczo, skip connections i dropout.
+
+Mamdani: 15 regul rozmytych z funkcjami przynaleznosci Gaussa (gaussMF),
+defuzyfikacja metoda srodka ciezkosci (Center of Gravity, COG).
+Zmienne wejsciowe: trend (5 termow), zmiennosc (3 termy), momentum (5 termow).
+Zmienna wyjsciowa: prognoza zmiany (5 termow).
+
+Pokrewne podejscia hybrydowe (porownanie, NIE zrodlo naszej metody):
+  - Fuzzformer (Ozbot i in., 2025): LSTM + Attention + Fuzzy Inference
+  - FANTF (Chakraborty i Heintz, 2025): Transformer + Fuzzy Attention
+  - DFCNN (Zhan i in., 2023): CNN + Fuzzy Time Series
+  - DCNFIS (Yeganejou i in., 2023): Deep Convolutional Neuro-Fuzzy
+
+================================================================================
+CYTOWANIE APA 7
+================================================================================
+
+Zrodla fundamentalne metody:
+
+Bai, S., Kolter, J. Z., & Koltun, V. (2018). An empirical evaluation of
+    generic convolutional and recurrent networks for sequence modeling.
+    arXiv preprint arXiv:1803.01271.
+
+Mamdani, E. H., & Assilian, S. (1975). An experiment in linguistic synthesis
+    with a fuzzy logic controller. International Journal of Man-Machine
+    Studies, 7(1), 1-13. https://doi.org/10.1016/S0020-7373(75)80002-2
+
+Prace pokrewne (porownanie hybrydowych podejsc DL+Fuzzy):
+
+Ozbot, A., Sadikov, A., & Gams, M. (2025). Fuzzformer: A fuzzy
+    logic-empowered transformer for time series forecasting. University
+    of Ljubljana.
+
+Chakraborty, S., & Heintz, F. (2025). FANTF: Fuzzy adaptive neural
+    transformer for time-series forecasting. arXiv preprint
+    arXiv:2501.13751.
+
+Zhan, T., Xu, H., Li, X., & He, Y. (2023). A deep fuzzy convolutional
+    neural network for time series classification. IEEE Transactions on
+    Fuzzy Systems, 31(10), 3508-3520.
+    https://doi.org/10.1109/TFUZZ.2023.3298957
+
+Yeganejou, M., Dick, S., & Asvadi, A. (2023). Deep convolutional
+    neuro-fuzzy inference system. IEEE Transactions on Fuzzy Systems,
+    31(7), 2395-2408. https://doi.org/10.1109/TFUZZ.2023.3234605
+
+================================================================================
+DOI / URL
+================================================================================
+
+TCN (Bai i in., 2018):
+  arXiv:  https://arxiv.org/abs/1803.01271
+  PDF:    https://arxiv.org/pdf/1803.01271
+  GitHub: https://github.com/locuslab/TCN
+
+Mamdani & Assilian (1975):
+  DOI:    https://doi.org/10.1016/S0020-7373(75)80002-2
+
+FANTF (Chakraborty i Heintz, 2025):
+  arXiv:  https://arxiv.org/abs/2501.13751
+
+DFCNN (Zhan i in., 2023):
+  DOI:    https://doi.org/10.1109/TFUZZ.2023.3298957
+
+DCNFIS (Yeganejou i in., 2023):
+  DOI:    https://doi.org/10.1109/TFUZZ.2023.3234605
+
+================================================================================
+DANE
+================================================================================
+
+Zrodlo danych:     Yahoo Finance (API yfinance) / stooq.pl
+Instrumenty:       S&P 500 (^GSPC), WIG20 (WIG20.PL)
+Okres:             2015-01-01 do 2024-12-31 (10 lat)
+Granulacja:        dzienna (ceny zamkniecia)
+Podzial:           train 70% / val 15% / test 15% (chronologiczny)
+Preprocessing:     normalizacja min-max, okno przesuwne (lookback=60 dni)
+
+================================================================================
+IMPLEMENTACJA
+================================================================================
+
+Jezyk:             Python 3.11+
+Framework DL:      PyTorch 2.11.0
+Fuzzy logic:       scikit-fuzzy 0.5.0
+Dane:              yfinance 0.2.x / pandas-datareader
+Obliczenia:        NumPy 1.26+, pandas 2.2+
+Wizualizacja:      matplotlib 3.8+, seaborn 0.13+
+Metryki:           scikit-learn 1.4+ (MAE, RMSE, MAPE)
+Statystyka:        statsmodels 0.14+ (test Diebold-Mariano)
+Srodowisko:        CUDA 12.x (GPU) lub CPU
+Reprodukowalnosc:  random seed = 42
+
+================================================================================
+REPRODUKOWALNOSC
+================================================================================
+
+1. Ziarno losowosci (seed): 42 — ustawione globalnie dla:
+   - torch.manual_seed(42)
+   - torch.cuda.manual_seed_all(42)
+   - np.random.seed(42)
+   - torch.backends.cudnn.deterministic = True
+   - torch.backends.cudnn.benchmark = False
+
+2. Wersje bibliotek: pinowane w requirements.txt
+
+3. Dane: pobierane automatycznie z Yahoo Finance (yfinance) — daty poczatkowa
+   i koncowa sa stalymi w konfiguracji (config.py)
+
+4. Hiperparametry TCN:
+   - num_channels = [32, 32]
+   - kernel_size = 3
+   - dropout = 0.2
+   - learning_rate = 0.001
+   - epochs = 100
+   - batch_size = 32
+   - optimizer = Adam
+   - loss = MSELoss
+
+5. Parametry Mamdaniego:
+   - 15 regul rozmytych
+   - Funkcje przynaleznosci: Gaussian (gaussmf)
+   - Defuzyfikacja: Center of Gravity (centroid)
+   - 3 zmienne wejsciowe: trend (5 termow), zmiennosc (3 termy),
+     momentum (5 termow)
+   - 1 zmienna wyjsciowa: prognoza (5 termow)
+
+6. UWAGA: To jest NOWATORSKA KONTYBUCJA. W literaturze nie istnieja prace
+   laczace TCN z klasycznym systemem wnioskowania Mamdaniego.
+   Najblizsze podejscia (Fuzzformer, FANTF, DFCNN, DCNFIS) uzywaja
+   innych architektur bazowych (LSTM, Transformer, CNN) i/lub innych
+   systemow rozmytych (TSK, ANFIS).

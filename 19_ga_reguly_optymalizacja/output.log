@@ -1,0 +1,18 @@
+
+============================================================
+  EKSPERYMENT 19: GA OPTYMALIZACJA REGUL MAMDANIEGO
+  Zbior danych: S&P 500
+============================================================
+  Trening TCN feature extractor...
+    TCN early stopping epoch 16
+
+  --- Baseline: reczne reguly (15/15 aktywnych) ---
+  Baseline MAPE (val): 1.0365%
+  Baseline MAPE (test): 1.3823%
+
+  --- Optymalizacja GA ---
+
+  GA: populacja=30, generacje=50
+      krzyzowanie=0.8, mutacja=0.1
+    Gen   1/50: best_fitness=-0.7752 (MAPE=0.7752%), mean=-0.9519, active_rules=15/15
+    Gen  10/50: best_fitness=-0.6928 (MAPE=0.6928%), mean=-0.7049, active_rules=14/15

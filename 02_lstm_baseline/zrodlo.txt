@@ -1,0 +1,80 @@
+================================================================================
+ZRODLO EKSPERYMENTU: 02_lstm_baseline
+================================================================================
+
+METODA
+------
+Model LSTM (Long Short-Term Memory) — rekurencyjna siec neuronowa zaprojektowana
+do uczenia dlugoterminowych zaleznosci w danych sekwencyjnych. Architektura
+wykorzystuje bramki (forget, input, output) do selektywnego zapamietywania
+i zapominania informacji. Model sluzy jako baseline reprezentujacy klasyczne
+podejscie rekurencyjne do prognozowania szeregow czasowych.
+
+Architektura:
+  - Warstwy LSTM:    2 (stacked)
+  - Neurony ukryte:  64 na warstwe
+  - Dropout:         0.2 (miedzy warstwami LSTM)
+  - Warstwa wyjscia: Linear(64, 1)
+
+Trening:
+  - Optymalizator:       Adam (lr=0.001)
+  - Funkcja straty:      MSELoss
+  - Early stopping:      patience=15 (na zbiorze walidacyjnym)
+  - Normalizacja danych: MinMaxScaler (zakres [0, 1])
+  - Lookback (okno):     30 krokow czasowych
+  - Horyzont prognozy:   1 krok naprzod
+
+CYTOWANIE APA 7
+---------------
+Hochreiter, S., & Schmidhuber, J. (1997). Long short-term memory. Neural
+    Computation, 9(8), 1735-1780.
+
+DOI / URL
+---------
+https://doi.org/10.1162/neco.1997.9.8.1735
+
+DANE
+----
+Zrodlo danych:
+  - Yahoo Finance (pobierane przez biblioteke yfinance)
+  - stooq.pl (eksport CSV)
+Instrumenty: S&P 500 (^GSPC), WIG20 (WIG20.PL)
+Granulacja: dzienna (ceny zamkniecia)
+Okres: zgodny z konfiguracja eksperymentu (patrz config.py)
+
+IMPLEMENTACJA
+-------------
+Jezyk:           Python 3.14
+Framework:       PyTorch 2.11.0
+                 https://pytorch.org/
+Klasa modelu:    torch.nn.LSTM + torch.nn.Linear
+Normalizacja:    sklearn.preprocessing.MinMaxScaler
+Dane wejsciowe:  znormalizowany szereg cen zamkniecia (Close)
+
+Parametry implementacyjne:
+  - input_size = 1
+  - hidden_size = 64
+  - num_layers = 2
+  - dropout = 0.2
+  - batch_first = True
+  - optimizer = Adam(lr=0.001)
+  - loss = MSELoss
+  - early_stopping_patience = 15
+  - lookback_window = 30
+  - forecast_horizon = 1
+
+REPRODUKOWALNOSC
+----------------
+Ziarno losowosci (seed):  42
+  - torch.manual_seed(42)
+  - torch.cuda.manual_seed_all(42)
+  - np.random.seed(42)
+  - torch.backends.cudnn.deterministic = True
+  - torch.backends.cudnn.benchmark = False
+Wersja Pythona:           3.14
+Wersja PyTorch:           2.11.0
+Walidacja:                walk-forward (expanding window)
+Metryki:                  MAPE, RMSE, MAE
+Urzadzenie:               CUDA (GPU) jesli dostepne, w przeciwnym razie CPU
+Uwaga: pelna determinizm na GPU nie jest gwarantowany przez PyTorch
+(operacje atomowe). Dla pelnej reprodukowalnosci uzyc CPU.

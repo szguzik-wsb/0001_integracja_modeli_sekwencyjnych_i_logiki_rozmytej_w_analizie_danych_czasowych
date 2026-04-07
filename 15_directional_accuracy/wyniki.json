@@ -1,0 +1,193 @@
+{
+  "eksperyment": "Directional Accuracy",
+  "wyniki": {
+    "SP500": {
+      "ARIMA": {
+        "DA": 51.45,
+        "DA_up": 47.3,
+        "DA_down": 57.23,
+        "n_up": 241,
+        "n_down": 173,
+        "correct_up": 114,
+        "correct_down": 99
+      },
+      "LSTM": {
+        "DA": 42.45,
+        "DA_up": 0.9,
+        "DA_down": 98.77,
+        "n_up": 221,
+        "n_down": 163,
+        "correct_up": 2,
+        "correct_down": 161
+      },
+      "TCN": {
+        "DA": 42.45,
+        "DA_up": 0.0,
+        "DA_down": 100.0,
+        "n_up": 221,
+        "n_down": 163,
+        "correct_up": 0,
+        "correct_down": 163
+      },
+      "Mamdani": {
+        "DA": 49.64,
+        "DA_up": 57.08,
+        "DA_down": 39.31,
+        "n_up": 240,
+        "n_down": 173,
+        "correct_up": 137,
+        "correct_down": 68
+      },
+      "TCN-Mamdani": {
+        "DA": 57.55,
+        "DA_up": 100.0,
+        "DA_down": 0.0,
+        "n_up": 221,
+        "n_down": 163,
+        "correct_up": 221,
+        "correct_down": 0
+      }
+    },
+    "WIG20": {
+      "ARIMA": {
+        "DA": 56.07,
+        "DA_up": 55.81,
+        "DA_down": 56.35,
+        "n_up": 215,
+        "n_down": 197,
+        "correct_up": 120,
+        "correct_down": 111
+      },
+      "LSTM": {
+        "DA": 52.36,
+        "DA_up": 53.5,
+        "DA_down": 51.1,
+        "n_up": 200,
+        "n_down": 182,
+        "correct_up": 107,
+        "correct_down": 93
+      },
+      "TCN": {
+        "DA": 47.91,
+        "DA_up": 8.5,
+        "DA_down": 91.21,
+        "n_up": 200,
+        "n_down": 182,
+        "correct_up": 17,
+        "correct_down": 166
+      },
+      "Mamdani": {
+        "DA": 45.99,
+        "DA_up": 48.84,
+        "DA_down": 42.86,
+        "n_up": 215,
+        "n_down": 196,
+        "correct_up": 105,
+        "correct_down": 84
+      },
+      "TCN-Mamdani": {
+        "DA": 52.36,
+        "DA_up": 100.0,
+        "DA_down": 0.0,
+        "n_up": 200,
+        "n_down": 182,
+        "correct_up": 200,
+        "correct_down": 0
+      }
+    },
+    "EURUSD": {
+      "ARIMA": {
+        "DA": 52.21,
+        "DA_up": 50.96,
+        "DA_down": 53.39,
+        "n_up": 208,
+        "n_down": 221,
+        "correct_up": 106,
+        "correct_down": 118
+      },
+      "LSTM": {
+        "DA": 51.88,
+        "DA_up": 1.55,
+        "DA_down": 99.03,
+        "n_up": 193,
+        "n_down": 206,
+        "correct_up": 3,
+        "correct_down": 204
+      },
+      "TCN": {
+        "DA": 48.12,
+        "DA_up": 67.88,
+        "DA_down": 29.61,
+        "n_up": 193,
+        "n_down": 206,
+        "correct_up": 131,
+        "correct_down": 61
+      },
+      "Mamdani": {
+        "DA": 52.57,
+        "DA_up": 51.21,
+        "DA_down": 53.85,
+        "n_up": 207,
+        "n_down": 221,
+        "correct_up": 106,
+        "correct_down": 119
+      },
+      "TCN-Mamdani": {
+        "DA": 51.38,
+        "DA_up": 0.0,
+        "DA_down": 99.51,
+        "n_up": 193,
+        "n_down": 206,
+        "correct_up": 0,
+        "correct_down": 205
+      }
+    },
+    "BTCUSD": {
+      "ARIMA": {
+        "DA": 50.91,
+        "DA_up": 52.49,
+        "DA_down": 49.31,
+        "n_up": 221,
+        "n_down": 217,
+        "correct_up": 116,
+        "correct_down": 107
+      },
+      "LSTM": {
+        "DA": 49.51,
+        "DA_up": 0.0,
+        "DA_down": 100.0,
+        "n_up": 206,
+        "n_down": 202,
+        "correct_up": 0,
+        "correct_down": 202
+      },
+      "TCN": {
+        "DA": 49.51,
+        "DA_up": 0.0,
+        "DA_down": 100.0,
+        "n_up": 206,
+        "n_down": 202,
+        "correct_up": 0,
+        "correct_down": 202
+      },
+      "Mamdani": {
+        "DA": 46.22,
+        "DA_up": 48.87,
+        "DA_down": 43.52,
+        "n_up": 221,
+        "n_down": 216,
+        "correct_up": 108,
+        "correct_down": 94
+      },
+      "TCN-Mamdani": {
+        "DA": 49.51,
+        "DA_up": 0.0,
+        "DA_down": 100.0,
+        "n_up": 206,
+        "n_down": 202,
+        "correct_up": 0,
+        "correct_down": 202
+      }
+    }
+  }
+}

@@ -1,0 +1,147 @@
+================================================================================
+EKSPERYMENT 07: ANALIZA INTERPRETOWALNOSCI MODELU HYBRYDOWEGO TCN-MAMDANI
+================================================================================
+Plik zrodlowy eksperymentu — metoda, cytowania, dane, implementacja
+
+================================================================================
+METODA
+================================================================================
+
+Analiza interpretowalnosci (Explainable AI / XAI) modelu hybrydowego
+TCN-Mamdani z eksperymentu 05. Dwa poziomy interpretowalnosci:
+
+1. INTERPRETOWALNOSC WBUDOWANA (ante-hoc / inherent):
+   System Mamdaniego jest z natury interpretowalny — reguly rozmyte
+   sa czytelne dla czlowieka w formie lingwistycznej:
+     "JESLI trend jest ROSNACY I zmiennosc jest NISKA
+      TO prognoza jest UMIARKOWANIE_POZYTYWNA"
+   Analiza obejmuje:
+   - Wizualizacje regul rozmytych i funkcji przynaleznosci
+   - Aktywacje regul dla przykladowych predykcji
+   - Interpretacje lingwistyczna wynikow wnioskowania
+
+2. INTERPRETOWALNOSC POST-HOC (dla czesci TCN):
+   TCN jako model deep learning wymaga metod post-hoc XAI:
+   - SHAP (SHapley Additive exPlanations) — atrybuacja cech wejsciowych
+   - Analiza waznosci cech wyekstrahowanych przez TCN
+   - Porownanie interpretowalnosci: hybrid vs czysty TCN vs czysty Mamdani
+
+3. KONTEKST REGULACYJNY:
+   EU AI Act (Rozporzadzenie PE i Rady 2024/1689) wymaga przejrzystosci
+   systemow AI. Model hybrydowy TCN-Mamdani spelnia te wymagania dzieki
+   interpretowalnej warstwie Mamdaniego — argument za praktycznym
+   zastosowaniem w sektorze finansowym.
+
+================================================================================
+CYTOWANIE APA 7
+================================================================================
+
+Interpretowalnosc / XAI — zrodla fundamentalne:
+
+Barredo Arrieta, A., Diaz-Rodriguez, N., Del Ser, J., Bennetot, A.,
+    Tabik, S., Barbado, A., Garcia, S., Gil-Lopez, S., Molina, D.,
+    Benjamins, R., Chatila, R., & Herrera, F. (2020). Explainable
+    Artificial Intelligence (XAI): Concepts, taxonomies, opportunities
+    and challenges toward responsible AI. Information Fusion, 58,
+    82-115. https://doi.org/10.1016/j.inffus.2019.12.012
+
+Lundberg, S. M., & Lee, S.-I. (2017). A unified approach to interpreting
+    model predictions. In I. Guyon, U. V. Luxburg, S. Bengio, H. Wallach,
+    R. Fergus, S. Vishwanathan, & R. Garnett (Eds.), Advances in Neural
+    Information Processing Systems 30 (pp. 4765-4774). Curran Associates.
+
+XAI w finansowych szeregach czasowych:
+
+Arsenault, E., De Baets, B., & Vanderschueren, T. (2024). Explainability
+    in financial time series forecasting: A survey. [Z materialow
+    zrodlowych projektu — Materialy/].
+
+Zhao, Z., Chen, W., Wu, X., Chen, P. C. Y., & Liu, J. (2023).
+    Interpretation of time-series deep models: A survey. [Z materialow
+    zrodlowych projektu — Materialy/].
+
+Regulacje:
+
+Rozporzadzenie Parlamentu Europejskiego i Rady (UE) 2024/1689 z dnia
+    13 czerwca 2024 r. ustanawiajace zharmonizowane przepisy dotyczace
+    sztucznej inteligencji (akt w sprawie sztucznej inteligencji).
+    Dziennik Urzedowy Unii Europejskiej, L 2024/1689.
+
+================================================================================
+DOI / URL
+================================================================================
+
+Barredo Arrieta i in. (2020) — XAI Survey:
+  DOI:    https://doi.org/10.1016/j.inffus.2019.12.012
+
+Lundberg & Lee (2017) — SHAP:
+  arXiv:  https://arxiv.org/abs/1705.07874
+  PDF:    https://arxiv.org/pdf/1705.07874
+  GitHub: https://github.com/shap/shap
+
+EU AI Act (2024):
+  EUR-Lex: https://eur-lex.europa.eu/eli/reg/2024/1689/oj
+
+================================================================================
+DANE
+================================================================================
+
+Dane identyczne jak w eksperymentach 05 i 06:
+
+Zrodlo danych:     Yahoo Finance (API yfinance) / stooq.pl
+Instrumenty:       S&P 500 (^GSPC), WIG20 (WIG20.PL)
+Okres:             2015-01-01 do 2024-12-31 (10 lat)
+Granulacja:        dzienna (ceny zamkniecia)
+
+Analiza interpretowalnosci przeprowadzana na:
+  - Zbiorze testowym (15%) — glowna analiza SHAP
+  - Wybranych przypadkach (case studies) — ilustracja regul Mamdaniego
+
+================================================================================
+IMPLEMENTACJA
+================================================================================
+
+Jezyk:             Python 3.11+
+Framework DL:      PyTorch 2.11.0
+Fuzzy logic:       scikit-fuzzy 0.5.0
+XAI:               shap 0.45+ (SHAP values, DeepExplainer / KernelExplainer)
+Dane:              yfinance 0.2.x / pandas-datareader
+Obliczenia:        NumPy 1.26+, pandas 2.2+
+Wizualizacja:      matplotlib 3.8+, seaborn 0.13+
+Srodowisko:        CUDA 12.x (GPU) lub CPU
+Reprodukowalnosc:  random seed = 42
+
+Skrypty:
+  - interpretability_analysis.py  (glowna analiza)
+  - shap_analysis.py              (SHAP dla TCN)
+  - fuzzy_rules_viz.py            (wizualizacja regul Mamdaniego)
+
+================================================================================
+REPRODUKOWALNOSC
+================================================================================
+
+1. Ziarno losowosci (seed): 42 — identyczne ustawienia jak exp. 05/06
+
+2. Model bazowy: wczytywany z checkpointu exp. 05 (nie trenowany ponownie)
+
+3. SHAP:
+   - Metoda: KernelExplainer (model-agnostic) lub DeepExplainer (PyTorch)
+   - Probka tla (background): 100 losowych probek ze zbioru treningowego
+   - Obliczenia SHAP na calym zbiorze testowym
+   - Wizualizacje: summary plot, force plot, dependence plot
+
+4. Reguly Mamdaniego:
+   - Eksport pelnej bazy regul do formatu czytelnego (tabela)
+   - Wizualizacja funkcji przynaleznosci dla kazdej zmiennej
+   - Sledzenie aktywacji regul (rule firing) dla wybranych predykcji
+
+5. Metryki interpretowalnosci:
+   - Liczba aktywnych regul na predykcje (srednia, min, max)
+   - Spójnosc SHAP z regulami Mamdaniego (korelacja atrybuacji)
+   - Czytelnosc regul (ocena ekspercka — skala 1-5)
+
+6. Porownanie interpretowalnosci:
+   - Czysty TCN: tylko SHAP (post-hoc) — brak wbudowanej interpretowalnosci
+   - Czysty Mamdani: pelna interpretowalnosc (ante-hoc)
+   - Hybrid TCN-Mamdani: SHAP + reguly rozmyte (oba poziomy)
+   Argument: hybrid laczy skutecznosc DL z interpretowalnoscia Mamdaniego

@@ -1,0 +1,68 @@
+{
+  "opis": "Analiza stabilnosci TCN+Mamdani: 5 uruchomien z roznymi seeds",
+  "zbior_danych": "SP500",
+  "seeds": [
+    42,
+    123,
+    456,
+    789,
+    1024
+  ],
+  "wyniki_per_run": [
+    {
+      "MAPE": 1.3811,
+      "RMSE": 99.005537,
+      "MAE": 82.738946,
+      "czas_s": 19.0,
+      "seed": 42
+    },
+    {
+      "MAPE": 0.7255,
+      "RMSE": 63.646838,
+      "MAE": 42.610179,
+      "czas_s": 22.17,
+      "seed": 123
+    },
+    {
+      "MAPE": 1.0197,
+      "RMSE": 75.888701,
+      "MAE": 60.944125,
+      "czas_s": 15.27,
+      "seed": 456
+    },
+    {
+      "MAPE": 1.2983,
+      "RMSE": 94.487059,
+      "MAE": 77.659606,
+      "czas_s": 10.87,
+      "seed": 789
+    },
+    {
+      "MAPE": 0.715,
+      "RMSE": 61.73902,
+      "MAE": 42.270994,
+      "czas_s": 77.15,
+      "seed": 1024
+    }
+  ],
+  "statystyki_zbiorcze": {
+    "MAPE": {
+      "mean": 1.0279,
+      "std": 0.2783,
+      "min": 0.715,
+      "max": 1.3811
+    },
+    "RMSE": {
+      "mean": 78.953431,
+      "std": 15.384413,
+      "min": 61.73902,
+      "max": 99.005537
+    },
+    "MAE": {
+      "mean": 61.24477,
+      "std": 16.963425,
+      "min": 42.270994,
+      "max": 82.738946
+    }
+  }
+}

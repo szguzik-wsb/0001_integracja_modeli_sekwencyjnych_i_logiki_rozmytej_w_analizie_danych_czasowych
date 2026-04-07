@@ -1,0 +1,72 @@
+================================================================================
+ZRODLO EKSPERYMENTU: 09_stabilnosc
+================================================================================
+
+METODA
+------
+Analiza stabilnosci (replicability) modelu hybrydowego TCN+Mamdani.
+Model jest uruchamiany 5 razy z roznymi ziarnami losowosci (seeds: 42, 123,
+456, 789, 1024) na zbiorze S&P 500. Dla kazdego uruchomienia rejestrowane sa
+metryki MAPE, RMSE, MAE. Obliczane sa srednia i odchylenie standardowe,
+co pozwala ocenic, czy wyniki sa powtarzalne i nie wynikaja z losowej
+inicjalizacji wag sieci.
+
+CYTOWANIE APA 7
+---------------
+Bouckaert, R. R., & Frank, E. (2004). Evaluating the replicability of
+    significance tests for comparing learning algorithms. In H. Dai,
+    R. Srikant, & C. Zhang (Eds.), Advances in knowledge discovery and
+    data mining (PAKDD 2004). Lecture Notes in Computer Science (Vol. 3056,
+    pp. 3-12). Springer.
+
+Demsar, J. (2006). Statistical comparisons of classifiers over multiple
+    data sets. Journal of Machine Learning Research, 7, 1-30.
+
+Bai, S., Kolter, J. Z., & Koltun, V. (2018). An empirical evaluation of
+    generic convolutional and recurrent networks for sequence modeling.
+    arXiv preprint arXiv:1803.01271.
+
+DOI / URL
+---------
+Bouckaert & Frank (2004):
+    https://doi.org/10.1007/978-3-540-30116-5_3
+
+Demsar (2006):
+    https://jmlr.org/papers/v7/demsar06a.html
+
+Bai et al. (2018):
+    https://arxiv.org/abs/1803.01271
+
+DANE
+----
+Zrodlo danych:
+  - Yahoo Finance (pobierane przez biblioteke yfinance)
+Instrument: S&P 500 (^GSPC)
+Granulacja: dzienna (ceny zamkniecia)
+Okres: zgodny z konfiguracja eksperymentu (patrz config.py)
+
+IMPLEMENTACJA
+-------------
+Jezyk:           Python 3.14
+Biblioteki:      PyTorch (TCN), scikit-fuzzy (Mamdani)
+Architektura:    TCN(channels=[32,32]) + Mamdani(15 regul, gaussMF, COG)
+Seeds:           [42, 123, 456, 789, 1024]
+Liczba uruchomien: 5
+
+Kazde uruchomienie:
+  - Resetuje torch.manual_seed(seed), np.random.seed(seed)
+  - Inicjalizuje TCN od nowa z losowymi wagami
+  - Trenuje z early stopping (patience=15)
+  - System Mamdaniego jest deterministyczny (nie zalezy od seed)
+  - Rejestruje MAPE, RMSE, MAE na zbiorze testowym
+
+REPRODUKOWALNOSC
+----------------
+Ziarna losowosci:         [42, 123, 456, 789, 1024]
+Wersja Pythona:           3.14
+DataLoader generator:     torch.Generator().manual_seed(seed) — zapewnia
+                          deterministyczne tasowanie danych treningowych
+Walidacja:                early stopping (patience=15)
+Metryki:                  MAPE, RMSE, MAE (per run + mean +/- std)
+Wyniki sa deterministyczne dla kazdego pojedynczego seed.
+Analiza rozrzutu miedzy seeds pozwala ocenic stabilnosc modelu.

@@ -1,0 +1,233 @@
+{
+  "eksperyment": "Strategia inwestycyjna + Calmar ratio",
+  "wyniki": {
+    "SP500": {
+      "ARIMA": {
+        "final_capital": 12267.69,
+        "total_return_pct": 22.68,
+        "annual_return_pct": 13.25,
+        "max_drawdown_pct": 8.57,
+        "calmar_ratio": 1.5453,
+        "n_trades": 414,
+        "accuracy_pct": 48.79,
+        "buy_hold_capital": 13311.3,
+        "buy_hold_return_pct": 33.11
+      },
+      "LSTM": {
+        "final_capital": 8478.18,
+        "total_return_pct": -15.22,
+        "annual_return_pct": -10.27,
+        "max_drawdown_pct": 24.47,
+        "calmar_ratio": -0.4196,
+        "n_trades": 384,
+        "accuracy_pct": 42.71,
+        "buy_hold_capital": 12568.26,
+        "buy_hold_return_pct": 25.68
+      },
+      "TCN": {
+        "final_capital": 9047.0,
+        "total_return_pct": -9.53,
+        "annual_return_pct": -6.36,
+        "max_drawdown_pct": 24.47,
+        "calmar_ratio": -0.2599,
+        "n_trades": 384,
+        "accuracy_pct": 42.97,
+        "buy_hold_capital": 12568.26,
+        "buy_hold_return_pct": 25.68
+      },
+      "Mamdani": {
+        "final_capital": 13889.2,
+        "total_return_pct": 38.89,
+        "annual_return_pct": 22.2,
+        "max_drawdown_pct": 9.99,
+        "calmar_ratio": 2.2224,
+        "n_trades": 413,
+        "accuracy_pct": 54.72,
+        "buy_hold_capital": 13293.44,
+        "buy_hold_return_pct": 32.93
+      },
+      "TCN-Mamdani": {
+        "final_capital": 12469.96,
+        "total_return_pct": 24.7,
+        "annual_return_pct": 15.59,
+        "max_drawdown_pct": 17.33,
+        "calmar_ratio": 0.8995,
+        "n_trades": 384,
+        "accuracy_pct": 56.77,
+        "buy_hold_capital": 12568.26,
+        "buy_hold_return_pct": 25.68
+      }
+    },
+    "WIG20": {
+      "ARIMA": {
+        "final_capital": 15846.53,
+        "total_return_pct": 58.47,
+        "annual_return_pct": 32.52,
+        "max_drawdown_pct": 12.85,
+        "calmar_ratio": 2.5314,
+        "n_trades": 412,
+        "accuracy_pct": 54.37,
+        "buy_hold_capital": 12498.46,
+        "buy_hold_return_pct": 24.98
+      },
+      "LSTM": {
+        "final_capital": 13031.31,
+        "total_return_pct": 30.31,
+        "annual_return_pct": 19.08,
+        "max_drawdown_pct": 10.06,
+        "calmar_ratio": 1.8965,
+        "n_trades": 382,
+        "accuracy_pct": 52.36,
+        "buy_hold_capital": 12968.95,
+        "buy_hold_return_pct": 29.69
+      },
+      "TCN": {
+        "final_capital": 11470.31,
+        "total_return_pct": 14.7,
+        "annual_return_pct": 9.47,
+        "max_drawdown_pct": 15.97,
+        "calmar_ratio": 0.5931,
+        "n_trades": 382,
+        "accuracy_pct": 52.09,
+        "buy_hold_capital": 12968.95,
+        "buy_hold_return_pct": 29.69
+      },
+      "Mamdani": {
+        "final_capital": 11801.37,
+        "total_return_pct": 18.01,
+        "annual_return_pct": 10.69,
+        "max_drawdown_pct": 15.65,
+        "calmar_ratio": 0.6832,
+        "n_trades": 411,
+        "accuracy_pct": 50.61,
+        "buy_hold_capital": 12550.38,
+        "buy_hold_return_pct": 25.5
+      },
+      "TCN-Mamdani": {
+        "final_capital": 12096.69,
+        "total_return_pct": 20.97,
+        "annual_return_pct": 13.38,
+        "max_drawdown_pct": 21.16,
+        "calmar_ratio": 0.6321,
+        "n_trades": 382,
+        "accuracy_pct": 53.66,
+        "buy_hold_capital": 12968.95,
+        "buy_hold_return_pct": 29.69
+      }
+    },
+    "EURUSD": {
+      "ARIMA": {
+        "final_capital": 10222.78,
+        "total_return_pct": 2.23,
+        "annual_return_pct": 1.3,
+        "max_drawdown_pct": 11.34,
+        "calmar_ratio": 0.1149,
+        "n_trades": 429,
+        "accuracy_pct": 47.32,
+        "buy_hold_capital": 10980.56,
+        "buy_hold_return_pct": 9.81
+      },
+      "LSTM": {
+        "final_capital": 9149.52,
+        "total_return_pct": -8.5,
+        "annual_return_pct": -5.46,
+        "max_drawdown_pct": 13.85,
+        "calmar_ratio": -0.394,
+        "n_trades": 399,
+        "accuracy_pct": 49.37,
+        "buy_hold_capital": 10887.56,
+        "buy_hold_return_pct": 8.88
+      },
+      "TCN": {
+        "final_capital": 10452.87,
+        "total_return_pct": 4.53,
+        "annual_return_pct": 2.84,
+        "max_drawdown_pct": 6.38,
+        "calmar_ratio": 0.4444,
+        "n_trades": 399,
+        "accuracy_pct": 48.12,
+        "buy_hold_capital": 10887.56,
+        "buy_hold_return_pct": 8.88
+      },
+      "Mamdani": {
+        "final_capital": 10020.61,
+        "total_return_pct": 0.21,
+        "annual_return_pct": 0.12,
+        "max_drawdown_pct": 11.35,
+        "calmar_ratio": 0.0107,
+        "n_trades": 428,
+        "accuracy_pct": 46.5,
+        "buy_hold_capital": 10968.79,
+        "buy_hold_return_pct": 9.69
+      },
+      "TCN-Mamdani": {
+        "final_capital": 9747.89,
+        "total_return_pct": -2.52,
+        "annual_return_pct": -1.6,
+        "max_drawdown_pct": 10.91,
+        "calmar_ratio": -0.1466,
+        "n_trades": 399,
+        "accuracy_pct": 49.37,
+        "buy_hold_capital": 10887.56,
+        "buy_hold_return_pct": 8.88
+      }
+    },
+    "BTCUSD": {
+      "ARIMA": {
+        "final_capital": 9171.72,
+        "total_return_pct": -8.28,
+        "annual_return_pct": -4.85,
+        "max_drawdown_pct": 32.18,
+        "calmar_ratio": -0.1508,
+        "n_trades": 438,
+        "accuracy_pct": 51.14,
+        "buy_hold_capital": 12924.83,
+        "buy_hold_return_pct": 29.25
+      },
+      "LSTM": {
+        "final_capital": 8772.03,
+        "total_return_pct": -12.28,
+        "annual_return_pct": -7.77,
+        "max_drawdown_pct": 42.44,
+        "calmar_ratio": -0.1832,
+        "n_trades": 408,
+        "accuracy_pct": 50.0,
+        "buy_hold_capital": 9842.43,
+        "buy_hold_return_pct": -1.58
+      },
+      "TCN": {
+        "final_capital": 8319.37,
+        "total_return_pct": -16.81,
+        "annual_return_pct": -10.74,
+        "max_drawdown_pct": 42.44,
+        "calmar_ratio": -0.2531,
+        "n_trades": 408,
+        "accuracy_pct": 49.51,
+        "buy_hold_capital": 9842.43,
+        "buy_hold_return_pct": -1.58
+      },
+      "Mamdani": {
+        "final_capital": 10355.6,
+        "total_return_pct": 3.56,
+        "annual_return_pct": 2.04,
+        "max_drawdown_pct": 31.97,
+        "calmar_ratio": 0.0637,
+        "n_trades": 437,
+        "accuracy_pct": 51.26,
+        "buy_hold_capital": 12935.43,
+        "buy_hold_return_pct": 29.35
+      },
+      "TCN-Mamdani": {
+        "final_capital": 8595.65,
+        "total_return_pct": -14.04,
+        "annual_return_pct": -8.92,
+        "max_drawdown_pct": 49.65,
+        "calmar_ratio": -0.1797,
+        "n_trades": 408,
+        "accuracy_pct": 49.51,
+        "buy_hold_capital": 9842.43,
+        "buy_hold_return_pct": -1.58
+      }
+    }
+  }
+}

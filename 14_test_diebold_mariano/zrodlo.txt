@@ -1,0 +1,112 @@
+================================================================================
+EKSPERYMENT 14: TEST ISTOTNOSCI STATYSTYCZNEJ DIEBOLD-MARIANO
+================================================================================
+Plik zrodlowy eksperymentu — metoda, cytowania, dane, implementacja
+
+================================================================================
+METODA
+================================================================================
+
+Test Diebold-Mariano (DM) do porownania dokladnosci prognoz dwoch modeli.
+Stosowany do weryfikacji, czy roznice w metykach (MAPE, RMSE, MAE) miedzy
+modelem hybrydowym TCN+Mamdani a baselinami sa istotne statystycznie.
+
+Hipotezy:
+  H0: Oba modele sa rownie dobre (E[d_t] = 0, gdzie d_t = e1_t^2 - e2_t^2)
+  H1: Modele roznia sie istotnie w dokladnosci prognoz
+
+Statystyka testowa:
+  DM = d_mean / sqrt(V/n)
+  gdzie d_t = e1_t^2 - e2_t^2 (roznica kwadratow bledow)
+  V uwzglednia autokorelacje bledow dla h-krokowej prognozy
+
+Porownania:
+  - TCN+Mamdani vs ARIMA (eksperyment 01 vs 05)
+  - TCN+Mamdani vs LSTM (eksperyment 02 vs 05)
+  - TCN+Mamdani vs TCN (eksperyment 03 vs 05)
+  - TCN+Mamdani vs Mamdani (eksperyment 04 vs 05)
+
+Zbiory danych: SP500, WIG20, EURUSD, BTCUSD (lacznie 16 porownan)
+Poziom istotnosci: alpha = 0.05
+
+Interpretacja:
+  - DM > 0 i p < alpha: TCN+Mamdani istotnie lepszy
+  - DM < 0 i p < alpha: baseline istotnie lepszy
+  - p >= alpha: brak istotnej roznicy
+
+Diebold i Mariano (1995) zaproponowali ten test jako standardowe narzedzie
+do porownywania dokladnosci prognoz. Jest powszechnie stosowany w literaturze
+dotyczacej prognozowania szeregow czasowych finansowych.
+
+================================================================================
+CYTOWANIE APA 7
+================================================================================
+
+Diebold, F. X., & Mariano, R. S. (1995). Comparing predictive accuracy.
+    Journal of Business & Economic Statistics, 13(3), 253-263.
+    https://doi.org/10.1080/07350015.1995.10524599
+
+Harvey, D., Leybourne, S., & Newbold, P. (1997). Testing the equality of
+    prediction mean squared errors. International Journal of Forecasting,
+    13(2), 281-291. https://doi.org/10.1016/S0169-2070(96)00719-4
+
+================================================================================
+DOI / URL
+================================================================================
+
+Diebold & Mariano (1995):
+  DOI:    https://doi.org/10.1080/07350015.1995.10524599
+
+Harvey i in. (1997):
+  DOI:    https://doi.org/10.1016/S0169-2070(96)00719-4
+
+================================================================================
+DANE
+================================================================================
+
+Dane wejsciowe: pliki prognozy z eksperymentow 01-05:
+  - 01_arima_baseline/prognozy_{SP500,WIG20,EURUSD,BTCUSD}.csv
+  - 02_lstm_baseline/prognozy_{SP500,WIG20,EURUSD,BTCUSD}.csv
+  - 03_tcn_baseline/prognozy_{SP500,WIG20,EURUSD,BTCUSD}.csv
+  - 04_mamdani_baseline/prognozy_{SP500,WIG20,EURUSD,BTCUSD}.csv
+  - 05_tcn_mamdani_hybrid/prognozy_{SP500,WIG20,EURUSD,BTCUSD}.csv
+
+Format CSV: kolumny Actual, Predicted (ewentualnie Date)
+Kazdy plik zawiera wartosci rzeczywiste i prognozowane na zbiorze testowym.
+
+================================================================================
+IMPLEMENTACJA
+================================================================================
+
+Jezyk:             Python 3.11+
+Statystyka:        scipy.stats (rozklad t-Studenta)
+Obliczenia:        NumPy 1.26+, pandas 2.2+
+Implementacja DM:  utils.py — funkcja diebold_mariano(e1, e2, h=1)
+
+Funkcja diebold_mariano:
+  - Wejscie: e1 (bledy modelu 1), e2 (bledy modelu 2), h (horyzont)
+  - d = e1^2 - e2^2
+  - Uwzglednia autokowariancje gamma(k) dla k = 0, ..., h-1
+  - Statystyka DM ~ t(n-1)
+  - Wyjscie: (DM_stat, p_value) — test dwustronny
+
+================================================================================
+REPRODUKOWALNOSC
+================================================================================
+
+1. Test nie wymaga ziarnia losowosci (deterministyczny)
+
+2. Wymaga wczesniejszego uruchomienia eksperymentow 01-05:
+   - Kazdy musi wygenerowac pliki prognozy_{DATASET}.csv
+   - Format: kolumny Actual, Predicted
+
+3. Parametry testu:
+   - Horyzont prognozy: h = 1 (jednokrokowa)
+   - Poziom istotnosci: alpha = 0.05
+   - Funkcja straty: kwadrat bledow (e^2)
+   - Test dwustronny
+
+4. Wynik: wyniki.json z:
+   - Statystyka DM i p-value dla kazdego porownania
+   - Interpretacja (istotnosc/brak istotnosci)
+   - Tabela podsumowania 16 porownan (4 baselines x 4 datasety)

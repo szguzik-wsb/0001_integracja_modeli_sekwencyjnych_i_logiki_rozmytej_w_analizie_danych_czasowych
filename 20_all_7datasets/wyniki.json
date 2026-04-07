@@ -1,0 +1,165 @@
+{
+  "model": "TCN(channels=[32,32]) + Mamdani(15 regul, gaussMF, COG)",
+  "architektura": "TCN feature extractor -> fuzzyfikacja -> Mamdani inference -> defuzyfikacja COG",
+  "zbiory_danych": [
+    "SP500",
+    "WIG20",
+    "EURUSD",
+    "BTCUSD",
+    "DAX",
+    "NIKKEI",
+    "GOLD"
+  ],
+  "wyniki_hybrid": {
+    "SP500": {
+      "MAPE": 1.3823,
+      "RMSE": 99.037594,
+      "MAE": 82.80157,
+      "czas_s": 15.16,
+      "tcn_channels": [
+        32,
+        32
+      ],
+      "mamdani_reguly": 15,
+      "cechy_tcn": [
+        "trend",
+        "zmiennosc",
+        "momentum"
+      ]
+    },
+    "WIG20": {
+      "MAPE": 1.0357,
+      "RMSE": 35.753429,
+      "MAE": 27.027612,
+      "czas_s": 44.18,
+      "tcn_channels": [
+        32,
+        32
+      ],
+      "mamdani_reguly": 15,
+      "cechy_tcn": [
+        "trend",
+        "zmiennosc",
+        "momentum"
+      ]
+    },
+    "EURUSD": {
+      "MAPE": 0.3392,
+      "RMSE": 0.005166,
+      "MAE": 0.003763,
+      "czas_s": 57.73,
+      "tcn_channels": [
+        32,
+        32
+      ],
+      "mamdani_reguly": 15,
+      "cechy_tcn": [
+        "trend",
+        "zmiennosc",
+        "momentum"
+      ]
+    },
+    "BTCUSD": {
+      "MAPE": 1.5986,
+      "RMSE": 2157.480438,
+      "MAE": 1586.104497,
+      "czas_s": 14.22,
+      "tcn_channels": [
+        32,
+        32
+      ],
+      "mamdani_reguly": 15,
+      "cechy_tcn": [
+        "trend",
+        "zmiennosc",
+        "momentum"
+      ]
+    },
+    "DAX": {
+      "MAPE": 1.3913,
+      "RMSE": 371.74165,
+      "MAE": 306.089541,
+      "czas_s": 12.05,
+      "tcn_channels": [
+        32,
+        32
+      ],
+      "mamdani_reguly": 15,
+      "cechy_tcn": [
+        "trend",
+        "zmiennosc",
+        "momentum"
+      ]
+    },
+    "NIKKEI": {
+      "MAPE": 1.0837,
+      "RMSE": 647.85142,
+      "MAE": 432.198286,
+      "czas_s": 10.96,
+      "tcn_channels": [
+        32,
+        32
+      ],
+      "mamdani_reguly": 15,
+      "cechy_tcn": [
+        "trend",
+        "zmiennosc",
+        "momentum"
+      ]
+    },
+    "GOLD": {
+      "MAPE": 1.3741,
+      "RMSE": 59.128709,
+      "MAE": 44.375647,
+      "czas_s": 10.59,
+      "tcn_channels": [
+        32,
+        32
+      ],
+      "mamdani_reguly": 15,
+      "cechy_tcn": [
+        "trend",
+        "zmiennosc",
+        "momentum"
+      ]
+    }
+  },
+  "wyniki_arima_nowe": {
+    "DAX": {
+      "MAPE": 0.7462,
+      "RMSE": 216.381682,
+      "MAE": 160.246077,
+      "czas_s": 36.2
+    },
+    "NIKKEI": {
+      "MAPE": 1.0638,
+      "RMSE": 633.803,
+      "MAE": 423.864786,
+      "czas_s": 33.98
+    },
+    "GOLD": {
+      "MAPE": 0.9025,
+      "RMSE": 40.451425,
+      "MAE": 28.457325,
+      "czas_s": 34.97
+    }
+  },
+  "arima_order": "(5,1,0)",
+  "reguly_mamdaniego": [
+    "R1:  IF trend=duzy_wzrost AND momentum=duzy_wzrost THEN prognoza=duzy_wzrost",
+    "R2:  IF trend=wzrost AND momentum=wzrost THEN prognoza=wzrost",
+    "R3:  IF trend=spadek AND momentum=spadek THEN prognoza=spadek",
+    "R4:  IF trend=duzy_spadek AND momentum=duzy_spadek THEN prognoza=duzy_spadek",
+    "R5:  IF trend=wzrost AND momentum=spadek THEN prognoza=neutralny",
+    "R6:  IF trend=spadek AND momentum=wzrost THEN prognoza=neutralny",
+    "R7:  IF trend=neutralny AND momentum=neutralny THEN prognoza=neutralny",
+    "R8:  IF trend=neutralny AND momentum=wzrost THEN prognoza=wzrost",
+    "R9:  IF trend=neutralny AND momentum=spadek THEN prognoza=spadek",
+    "R10: IF trend=duzy_wzrost AND zmiennosc=wysoka THEN prognoza=neutralny",
+    "R11: IF trend=duzy_spadek AND zmiennosc=wysoka THEN prognoza=neutralny",
+    "R12: IF trend=wzrost AND zmiennosc=niska THEN prognoza=duzy_wzrost",
+    "R13: IF trend=spadek AND zmiennosc=niska THEN prognoza=duzy_spadek",
+    "R14: IF momentum=duzy_wzrost AND zmiennosc=srednia THEN prognoza=wzrost",
+    "R15: IF momentum=duzy_spadek AND zmiennosc=srednia THEN prognoza=spadek"
+  ]
+}

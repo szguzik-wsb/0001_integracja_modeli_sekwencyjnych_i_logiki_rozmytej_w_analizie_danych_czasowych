@@ -1,0 +1,113 @@
+================================================================================
+EKSPERYMENT 12: ANALIZA AKTYWACJI REGUL MAMDANIEGO
+================================================================================
+Plik zrodlowy eksperymentu — metoda, cytowania, dane, implementacja
+
+================================================================================
+METODA
+================================================================================
+
+Analiza interpretowalnosci modelu hybrydowego TCN+Mamdani poprzez badanie
+aktywacji regul rozmytych systemu Mamdaniego. Dla kazdej probki testowej
+(S&P 500) obliczane sa sily aktywacji (firing strengths) wszystkich 15 regul
+poprzez reczne obliczenie wartosci funkcji przynaleznosci i zastosowanie
+t-normy minimum (operator AND Mamdaniego).
+
+Analiza obejmuje:
+  1. Czestotliwosc aktywacji kazdej reguly (prog > 0.1)
+  2. Srednia sila aktywacji (ogolna i warunkowa — gdy regula jest aktywna)
+  3. Identyfikacja top-5 najczesciej aktywnych regul
+  4. Identyfikacja bottom-5 najrzadziej aktywnych regul
+  5. Srednia liczba aktywnych regul na probke
+
+Metoda obliczania sily aktywacji:
+  - Fuzzyfikacja: wartosc przynaleznosci = gaussmf(x, mean, sigma)
+  - Agregacja: AND = min(mu_1, mu_2) (t-norma minimum)
+  - Prog aktywacji: firing_strength > 0.1
+
+Uzasadnienie: Barredo Arrieta i in. (2020) w swoim przeglądzie metod XAI
+(Explainable Artificial Intelligence) identyfikuja systemy rozmyte jako
+naturalnie interpretowalne (inherently interpretable) dzieki lingwistycznym
+regulam IF-THEN. Analiza aktywacji regul pozwala okreslic, ktore wzorce
+rynkowe model najczesciej identyfikuje.
+
+================================================================================
+CYTOWANIE APA 7
+================================================================================
+
+Barredo Arrieta, A., Diaz-Rodriguez, N., Del Ser, J., Bennetot, A.,
+    Tabik, S., Barbado, A., Garcia, S., Gil-Lopez, S., Molina, D.,
+    Benjamins, R., Chatila, R., & Herrera, F. (2020). Explainable
+    Artificial Intelligence (XAI): Concepts, taxonomies, opportunities
+    and challenges toward responsible AI. Information Fusion, 58,
+    82-115. https://doi.org/10.1016/j.inffus.2019.12.012
+
+Mamdani, E. H., & Assilian, S. (1975). An experiment in linguistic synthesis
+    with a fuzzy logic controller. International Journal of Man-Machine
+    Studies, 7(1), 1-13. https://doi.org/10.1016/S0020-7373(75)80002-2
+
+Bai, S., Kolter, J. Z., & Koltun, V. (2018). An empirical evaluation of
+    generic convolutional and recurrent networks for sequence modeling.
+    arXiv preprint arXiv:1803.01271.
+
+================================================================================
+DOI / URL
+================================================================================
+
+Barredo Arrieta i in. (2020):
+  DOI:    https://doi.org/10.1016/j.inffus.2019.12.012
+
+Mamdani & Assilian (1975):
+  DOI:    https://doi.org/10.1016/S0020-7373(75)80002-2
+
+Bai i in. (2018):
+  arXiv:  https://arxiv.org/abs/1803.01271
+
+================================================================================
+DANE
+================================================================================
+
+Zrodlo danych:     Yahoo Finance (API yfinance) / stooq.pl
+Instrument:        S&P 500 (^GSPC)
+Okres:             2015-01-01 do 2024-12-31 (10 lat)
+Granulacja:        dzienna (ceny zamkniecia)
+Podzial:           train 70% / val 15% / test 15% (chronologiczny)
+Preprocessing:     normalizacja min-max, okno przesuwne (lookback=30 dni)
+
+================================================================================
+IMPLEMENTACJA
+================================================================================
+
+Jezyk:             Python 3.11+
+Framework DL:      PyTorch 2.11.0
+Fuzzy logic:       scikit-fuzzy 0.5.0 (do porownania), obliczenia reczne
+Obliczenia:        NumPy 1.26+, pandas 2.2+
+Srodowisko:        CUDA 12.x (GPU) lub CPU
+Reprodukowalnosc:  random seed = 42
+
+Kluczowa roznica: sily aktywacji regul obliczane sa RECZNIE (bez skfuzzy
+ControlSystemSimulation), aby miec pelna kontrole nad procesem i mozliwosc
+inspekcji kazdej reguly indywidualnie. Funkcje przynaleznosci i parametry
+sa identyczne jak w systemie z eksperymentu 05.
+
+================================================================================
+REPRODUKOWALNOSC
+================================================================================
+
+1. Ziarno losowosci (seed): 42
+
+2. Identyczny TCN jak w eksperymencie 05:
+   - num_channels = [32, 32], kernel_size = 3, dropout = 0.2
+   - Trening end-to-end z proxy fc layer
+
+3. Identyczne funkcje przynaleznosci jak w eksperymencie 05:
+   - trend/momentum/prognoza: 5 termow, Gaussian MF
+   - zmiennosc: 3 termy, Gaussian MF
+   - Parametry (mean, sigma) identyczne
+
+4. Reczne obliczanie firing strengths:
+   - mu(x) = exp(-0.5 * ((x - mean) / sigma)^2)
+   - AND = min(mu_1, mu_2)
+   - Prog aktywacji: firing_strength > 0.1
+
+5. Wynik: wyniki.json z pelna statystyka aktywacji regul

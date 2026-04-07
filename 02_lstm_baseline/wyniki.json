@@ -1,0 +1,33 @@
+{
+  "model": "LSTM(hidden=64, layers=2)",
+  "wyniki": {
+    "SP500": {
+      "MAPE": 6.0155,
+      "RMSE": 412.04078,
+      "MAE": 373.422962,
+      "czas_s": 26.85,
+      "best_epoch": 85
+    },
+    "WIG20": {
+      "MAPE": 1.3156,
+      "RMSE": 44.22871,
+      "MAE": 34.757817,
+      "czas_s": 52.15,
+      "best_epoch": 85
+    },
+    "EURUSD": {
+      "MAPE": 0.3814,
+      "RMSE": 0.005789,
+      "MAE": 0.004243,
+      "czas_s": 68.04,
+      "best_epoch": 93
+    },
+    "BTCUSD": {
+      "MAPE": 9.4676,
+      "RMSE": 10523.128777,
+      "MAE": 9835.236438,
+      "czas_s": 64.82,
+      "best_epoch": 85
+    }
+  }
+}

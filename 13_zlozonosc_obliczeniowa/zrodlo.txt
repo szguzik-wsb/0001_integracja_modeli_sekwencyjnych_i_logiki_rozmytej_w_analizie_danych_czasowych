@@ -1,0 +1,108 @@
+================================================================================
+EKSPERYMENT 13: ZLOZONOSC OBLICZENIOWA — POROWNANIE 5 MODELI
+================================================================================
+Plik zrodlowy eksperymentu — metoda, cytowania, dane, implementacja
+
+================================================================================
+METODA
+================================================================================
+
+Porownanie zlozonosci obliczeniowej pieciu modeli uzywanych w artykule:
+  1. ARIMA(5,1,0) — model statystyczny (baseline)
+  2. LSTM (hidden=64, layers=2) — rekurencyjna siec neuronowa (baseline)
+  3. TCN (channels=[32,32,32]) — siec konwolucyjna przyczynowa (baseline)
+  4. Mamdani (15 regul) — system rozmyty (baseline)
+  5. TCN+Mamdani (hybrid) — proponowany model
+
+Mierzone metryki zlozonosci:
+  - Czas treningu (sekundy)
+  - Czas inferencji na zbiorze testowym (sekundy)
+  - Czas inferencji na probke (sekundy)
+  - Liczba parametrow (total i trenowalnych — dla modeli DL)
+  - Zuzycie pamieci modelu (MB)
+
+Bai i in. (2018) wykazali, ze TCN moze byc znacznie szybszy niz modele
+rekurencyjne (LSTM, GRU) dzieki mozliwosci pelnej rownoleglizacji konwolucji,
+w przeciwienstwie do sekwencyjnego przetwarzania RNN. Nasz eksperyment
+weryfikuje te obserwacje w kontekscie modelu hybrydowego TCN+Mamdani.
+
+Uwaga: ARIMA mierzona jest metodą walk-forward (refitting na kazdym kroku),
+co jest kosztowne obliczeniowo. Mamdani nie wymaga treningu (reguly eksperckie).
+
+================================================================================
+CYTOWANIE APA 7
+================================================================================
+
+Bai, S., Kolter, J. Z., & Koltun, V. (2018). An empirical evaluation of
+    generic convolutional and recurrent networks for sequence modeling.
+    arXiv preprint arXiv:1803.01271.
+
+Mamdani, E. H., & Assilian, S. (1975). An experiment in linguistic synthesis
+    with a fuzzy logic controller. International Journal of Man-Machine
+    Studies, 7(1), 1-13. https://doi.org/10.1016/S0020-7373(75)80002-2
+
+Hochreiter, S., & Schmidhuber, J. (1997). Long short-term memory. Neural
+    Computation, 9(8), 1735-1780. https://doi.org/10.1162/neco.1997.9.8.1735
+
+================================================================================
+DOI / URL
+================================================================================
+
+Bai i in. (2018):
+  arXiv:  https://arxiv.org/abs/1803.01271
+  PDF:    https://arxiv.org/pdf/1803.01271
+  GitHub: https://github.com/locuslab/TCN
+
+Mamdani & Assilian (1975):
+  DOI:    https://doi.org/10.1016/S0020-7373(75)80002-2
+
+Hochreiter & Schmidhuber (1997):
+  DOI:    https://doi.org/10.1162/neco.1997.9.8.1735
+
+================================================================================
+DANE
+================================================================================
+
+Zrodlo danych:     Yahoo Finance (API yfinance) / stooq.pl
+Instrument:        S&P 500 (^GSPC)
+Okres:             2015-01-01 do 2024-12-31 (10 lat)
+Granulacja:        dzienna (ceny zamkniecia)
+Podzial:           train 70% / val 15% / test 15% (chronologiczny)
+Preprocessing:     normalizacja min-max, okno przesuwne (lookback=30 dni)
+
+================================================================================
+IMPLEMENTACJA
+================================================================================
+
+Jezyk:             Python 3.11+
+Framework DL:      PyTorch 2.11.0
+Fuzzy logic:       scikit-fuzzy 0.5.0
+Statystyka:        statsmodels 0.14+ (ARIMA)
+Obliczenia:        NumPy 1.26+, pandas 2.2+
+Pomiar pamieci:    sys.getsizeof, PyTorch parameter counting
+Pomiar czasu:      time.time() (wall-clock time)
+Srodowisko:        CUDA 12.x (GPU) lub CPU
+Reprodukowalnosc:  random seed = 42
+
+================================================================================
+REPRODUKOWALNOSC
+================================================================================
+
+1. Ziarno losowosci (seed): 42 — resetowane przed kazdym modelem
+
+2. Identyczne hiperparametry jak w eksperymentach 01-05:
+   - ARIMA: order=(5,1,0), walk-forward (50 krokow do pomiaru inferencji)
+   - LSTM: hidden=64, layers=2, dropout=0.2
+   - TCN: channels=[32,32,32], kernel=3, dropout=0.2
+   - Mamdani: 15 regul, gaussMF, COG
+   - TCN+Mamdani: channels=[32,32], kernel=3, 15 regul
+
+3. Pomiar czasu: time.time() (wall-clock time)
+   - Trening: caly proces uczenia (z early stopping)
+   - Inferencja: tylko forward pass na zbiorze testowym
+
+4. Pomiar pamieci:
+   - Modele DL: suma parameter.nelement() * element_size() + buffers
+   - ARIMA/Mamdani: sys.getsizeof() (przyblizone)
+
+5. Wynik: wyniki.json z pelnym porownaniem zlozonosci

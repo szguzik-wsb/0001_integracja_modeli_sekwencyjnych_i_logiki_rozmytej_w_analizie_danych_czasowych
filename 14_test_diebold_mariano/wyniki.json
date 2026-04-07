@@ -1,0 +1,282 @@
+{
+  "eksperyment": "Test istotnosci statystycznej Diebold-Mariano",
+  "opis": "Porownanie TCN+Mamdani vs kazdy baseline na 4 zbiorach danych",
+  "alpha": 0.05,
+  "H0": "Oba modele sa rownie dobre (brak roznic w dokladnosci prognoz)",
+  "metoda_bledow": "e = actual - predicted, d = e1^2 - e2^2",
+  "wyniki_po_datasecie": {
+    "SP500": {
+      "ARIMA": {
+        "DM_statystyka": -3.324283,
+        "p_value": 0.000972,
+        "istotne": "True",
+        "interpretacja": "Baseline LEPSZY (istotnie statystycznie)",
+        "n_probek": 385,
+        "alpha": 0.05
+      },
+      "LSTM": {
+        "DM_statystyka": 12.132193,
+        "p_value": 0.0,
+        "istotne": "True",
+        "interpretacja": "TCN+Mamdani LEPSZY (istotnie statystycznie)",
+        "n_probek": 385,
+        "alpha": 0.05
+      },
+      "TCN": {
+        "DM_statystyka": 14.211142,
+        "p_value": 0.0,
+        "istotne": "True",
+        "interpretacja": "TCN+Mamdani LEPSZY (istotnie statystycznie)",
+        "n_probek": 385,
+        "alpha": 0.05
+      },
+      "Mamdani": {
+        "DM_statystyka": -2.07818,
+        "p_value": 0.038356,
+        "istotne": "True",
+        "interpretacja": "Baseline LEPSZY (istotnie statystycznie)",
+        "n_probek": 385,
+        "alpha": 0.05
+      }
+    },
+    "WIG20": {
+      "ARIMA": {
+        "DM_statystyka": -0.309943,
+        "p_value": 0.756774,
+        "istotne": "False",
+        "interpretacja": "BRAK istotnej roznicy",
+        "n_probek": 383,
+        "alpha": 0.05
+      },
+      "LSTM": {
+        "DM_statystyka": 2.672754,
+        "p_value": 0.007846,
+        "istotne": "True",
+        "interpretacja": "TCN+Mamdani LEPSZY (istotnie statystycznie)",
+        "n_probek": 383,
+        "alpha": 0.05
+      },
+      "TCN": {
+        "DM_statystyka": 4.649047,
+        "p_value": 5e-06,
+        "istotne": "True",
+        "interpretacja": "TCN+Mamdani LEPSZY (istotnie statystycznie)",
+        "n_probek": 383,
+        "alpha": 0.05
+      },
+      "Mamdani": {
+        "DM_statystyka": 1.151118,
+        "p_value": 0.250404,
+        "istotne": "False",
+        "interpretacja": "BRAK istotnej roznicy",
+        "n_probek": 383,
+        "alpha": 0.05
+      }
+    },
+    "EURUSD": {
+      "ARIMA": {
+        "DM_statystyka": -0.894306,
+        "p_value": 0.371697,
+        "istotne": "False",
+        "interpretacja": "BRAK istotnej roznicy",
+        "n_probek": 400,
+        "alpha": 0.05
+      },
+      "LSTM": {
+        "DM_statystyka": -0.648749,
+        "p_value": 0.516874,
+        "istotne": "False",
+        "interpretacja": "BRAK istotnej roznicy",
+        "n_probek": 400,
+        "alpha": 0.05
+      },
+      "TCN": {
+        "DM_statystyka": -1.329038,
+        "p_value": 0.184595,
+        "istotne": "False",
+        "interpretacja": "BRAK istotnej roznicy",
+        "n_probek": 400,
+        "alpha": 0.05
+      },
+      "Mamdani": {
+        "DM_statystyka": 2.270345,
+        "p_value": 0.023719,
+        "istotne": "True",
+        "interpretacja": "TCN+Mamdani LEPSZY (istotnie statystycznie)",
+        "n_probek": 400,
+        "alpha": 0.05
+      }
+    },
+    "BTCUSD": {
+      "ARIMA": {
+        "DM_statystyka": -0.587248,
+        "p_value": 0.557362,
+        "istotne": "False",
+        "interpretacja": "BRAK istotnej roznicy",
+        "n_probek": 409,
+        "alpha": 0.05
+      },
+      "LSTM": {
+        "DM_statystyka": 16.376999,
+        "p_value": 0.0,
+        "istotne": "True",
+        "interpretacja": "TCN+Mamdani LEPSZY (istotnie statystycznie)",
+        "n_probek": 409,
+        "alpha": 0.05
+      },
+      "TCN": {
+        "DM_statystyka": 23.954653,
+        "p_value": 0.0,
+        "istotne": "True",
+        "interpretacja": "TCN+Mamdani LEPSZY (istotnie statystycznie)",
+        "n_probek": 409,
+        "alpha": 0.05
+      },
+      "Mamdani": {
+        "DM_statystyka": -0.188666,
+        "p_value": 0.850448,
+        "istotne": "False",
+        "interpretacja": "BRAK istotnej roznicy",
+        "n_probek": 409,
+        "alpha": 0.05
+      }
+    }
+  },
+  "tabela_podsumowania": [
+    {
+      "dataset": "SP500",
+      "baseline": "ARIMA",
+      "DM_stat": -3.3243,
+      "p_value": 0.000972,
+      "istotne": "True",
+      "interpretacja": "Baseline LEPSZY (istotnie statystycznie)"
+    },
+    {
+      "dataset": "SP500",
+      "baseline": "LSTM",
+      "DM_stat": 12.1322,
+      "p_value": 0.0,
+      "istotne": "True",
+      "interpretacja": "TCN+Mamdani LEPSZY (istotnie statystycznie)"
+    },
+    {
+      "dataset": "SP500",
+      "baseline": "TCN",
+      "DM_stat": 14.2111,
+      "p_value": 0.0,
+      "istotne": "True",
+      "interpretacja": "TCN+Mamdani LEPSZY (istotnie statystycznie)"
+    },
+    {
+      "dataset": "SP500",
+      "baseline": "Mamdani",
+      "DM_stat": -2.0782,
+      "p_value": 0.038356,
+      "istotne": "True",
+      "interpretacja": "Baseline LEPSZY (istotnie statystycznie)"
+    },
+    {
+      "dataset": "WIG20",
+      "baseline": "ARIMA",
+      "DM_stat": -0.3099,
+      "p_value": 0.756774,
+      "istotne": "False",
+      "interpretacja": "BRAK istotnej roznicy"
+    },
+    {
+      "dataset": "WIG20",
+      "baseline": "LSTM",
+      "DM_stat": 2.6728,
+      "p_value": 0.007846,
+      "istotne": "True",
+      "interpretacja": "TCN+Mamdani LEPSZY (istotnie statystycznie)"
+    },
+    {
+      "dataset": "WIG20",
+      "baseline": "TCN",
+      "DM_stat": 4.649,
+      "p_value": 5e-06,
+      "istotne": "True",
+      "interpretacja": "TCN+Mamdani LEPSZY (istotnie statystycznie)"
+    },
+    {
+      "dataset": "WIG20",
+      "baseline": "Mamdani",
+      "DM_stat": 1.1511,
+      "p_value": 0.250404,
+      "istotne": "False",
+      "interpretacja": "BRAK istotnej roznicy"
+    },
+    {
+      "dataset": "EURUSD",
+      "baseline": "ARIMA",
+      "DM_stat": -0.8943,
+      "p_value": 0.371697,
+      "istotne": "False",
+      "interpretacja": "BRAK istotnej roznicy"
+    },
+    {
+      "dataset": "EURUSD",
+      "baseline": "LSTM",
+      "DM_stat": -0.6487,
+      "p_value": 0.516874,
+      "istotne": "False",
+      "interpretacja": "BRAK istotnej roznicy"
+    },
+    {
+      "dataset": "EURUSD",
+      "baseline": "TCN",
+      "DM_stat": -1.329,
+      "p_value": 0.184595,
+      "istotne": "False",
+      "interpretacja": "BRAK istotnej roznicy"
+    },
+    {
+      "dataset": "EURUSD",
+      "baseline": "Mamdani",
+      "DM_stat": 2.2703,
+      "p_value": 0.023719,
+      "istotne": "True",
+      "interpretacja": "TCN+Mamdani LEPSZY (istotnie statystycznie)"
+    },
+    {
+      "dataset": "BTCUSD",
+      "baseline": "ARIMA",
+      "DM_stat": -0.5872,
+      "p_value": 0.557362,
+      "istotne": "False",
+      "interpretacja": "BRAK istotnej roznicy"
+    },
+    {
+      "dataset": "BTCUSD",
+      "baseline": "LSTM",
+      "DM_stat": 16.377,
+      "p_value": 0.0,
+      "istotne": "True",
+      "interpretacja": "TCN+Mamdani LEPSZY (istotnie statystycznie)"
+    },
+    {
+      "dataset": "BTCUSD",
+      "baseline": "TCN",
+      "DM_stat": 23.9547,
+      "p_value": 0.0,
+      "istotne": "True",
+      "interpretacja": "TCN+Mamdani LEPSZY (istotnie statystycznie)"
+    },
+    {
+      "dataset": "BTCUSD",
+      "baseline": "Mamdani",
+      "DM_stat": -0.1887,
+      "p_value": 0.850448,
+      "istotne": "False",
+      "interpretacja": "BRAK istotnej roznicy"
+    }
+  ],
+  "statystyki_ogolne": {
+    "liczba_porownan": 16,
+    "istotne_statystycznie": 9,
+    "tcn_mamdani_lepszy": 7,
+    "baseline_lepszy": 2,
+    "brak_roznicy": 7
+  }
+}

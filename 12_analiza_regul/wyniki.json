@@ -1,0 +1,241 @@
+{
+  "eksperyment": "Analiza aktywacji regul Mamdaniego w modelu TCN+Mamdani",
+  "dataset": "SP500",
+  "prog_aktywacji": 0.1,
+  "liczba_regul": 15,
+  "liczba_probek_testowych": 385,
+  "srednia_aktywnych_regul_na_probke": 2.0,
+  "laczna_liczba_aktywacji": 770,
+  "top5_najczesciej_aktywne": [
+    {
+      "regula": "R01: IF trend=duzy_wzrost AND momentum=duzy_wzrost THEN prognoza=duzy_wzrost",
+      "aktywacje_ponad_prog": 385,
+      "czestotliwosc_pct": 100.0,
+      "srednia_sila": 0.867926,
+      "srednia_sila_gdy_aktywna": 0.867926,
+      "max_sila": 0.973438,
+      "min_sila": 0.800737
+    },
+    {
+      "regula": "R14: IF momentum=duzy_wzrost AND zmiennosc=srednia THEN prognoza=wzrost",
+      "aktywacje_ponad_prog": 385,
+      "czestotliwosc_pct": 100.0,
+      "srednia_sila": 0.891804,
+      "srednia_sila_gdy_aktywna": 0.891804,
+      "max_sila": 0.998615,
+      "min_sila": 0.696069
+    },
+    {
+      "regula": "R02: IF trend=wzrost AND momentum=wzrost THEN prognoza=wzrost",
+      "aktywacje_ponad_prog": 0,
+      "czestotliwosc_pct": 0.0,
+      "srednia_sila": 4e-05,
+      "srednia_sila_gdy_aktywna": 0.0,
+      "max_sila": 0.000226,
+      "min_sila": 1.3e-05
+    },
+    {
+      "regula": "R03: IF trend=spadek AND momentum=spadek THEN prognoza=spadek",
+      "aktywacje_ponad_prog": 0,
+      "czestotliwosc_pct": 0.0,
+      "srednia_sila": 0.0,
+      "srednia_sila_gdy_aktywna": 0.0,
+      "max_sila": 0.0,
+      "min_sila": 0.0
+    },
+    {
+      "regula": "R04: IF trend=duzy_spadek AND momentum=duzy_spadek THEN prognoza=duzy_spadek",
+      "aktywacje_ponad_prog": 0,
+      "czestotliwosc_pct": 0.0,
+      "srednia_sila": 0.0,
+      "srednia_sila_gdy_aktywna": 0.0,
+      "max_sila": 0.0,
+      "min_sila": 0.0
+    }
+  ],
+  "bottom5_najrzadziej_aktywne": [
+    {
+      "regula": "R10: IF trend=duzy_wzrost AND zmiennosc=wysoka THEN prognoza=neutralny",
+      "aktywacje_ponad_prog": 0,
+      "czestotliwosc_pct": 0.0,
+      "srednia_sila": 0.008426,
+      "srednia_sila_gdy_aktywna": 0.0,
+      "max_sila": 0.026793,
+      "min_sila": 0.001608
+    },
+    {
+      "regula": "R11: IF trend=duzy_spadek AND zmiennosc=wysoka THEN prognoza=neutralny",
+      "aktywacje_ponad_prog": 0,
+      "czestotliwosc_pct": 0.0,
+      "srednia_sila": 0.0,
+      "srednia_sila_gdy_aktywna": 0.0,
+      "max_sila": 0.0,
+      "min_sila": 0.0
+    },
+    {
+      "regula": "R12: IF trend=wzrost AND zmiennosc=niska THEN prognoza=duzy_wzrost",
+      "aktywacje_ponad_prog": 0,
+      "czestotliwosc_pct": 0.0,
+      "srednia_sila": 4e-05,
+      "srednia_sila_gdy_aktywna": 0.0,
+      "max_sila": 0.000213,
+      "min_sila": 1.3e-05
+    },
+    {
+      "regula": "R13: IF trend=spadek AND zmiennosc=niska THEN prognoza=duzy_spadek",
+      "aktywacje_ponad_prog": 0,
+      "czestotliwosc_pct": 0.0,
+      "srednia_sila": 0.0,
+      "srednia_sila_gdy_aktywna": 0.0,
+      "max_sila": 0.0,
+      "min_sila": 0.0
+    },
+    {
+      "regula": "R15: IF momentum=duzy_spadek AND zmiennosc=srednia THEN prognoza=spadek",
+      "aktywacje_ponad_prog": 0,
+      "czestotliwosc_pct": 0.0,
+      "srednia_sila": 0.0,
+      "srednia_sila_gdy_aktywna": 0.0,
+      "max_sila": 0.0,
+      "min_sila": 0.0
+    }
+  ],
+  "wszystkie_reguly_statystyki": [
+    {
+      "regula": "R01: IF trend=duzy_wzrost AND momentum=duzy_wzrost THEN prognoza=duzy_wzrost",
+      "aktywacje_ponad_prog": 385,
+      "czestotliwosc_pct": 100.0,
+      "srednia_sila": 0.867926,
+      "srednia_sila_gdy_aktywna": 0.867926,
+      "max_sila": 0.973438,
+      "min_sila": 0.800737
+    },
+    {
+      "regula": "R14: IF momentum=duzy_wzrost AND zmiennosc=srednia THEN prognoza=wzrost",
+      "aktywacje_ponad_prog": 385,
+      "czestotliwosc_pct": 100.0,
+      "srednia_sila": 0.891804,
+      "srednia_sila_gdy_aktywna": 0.891804,
+      "max_sila": 0.998615,
+      "min_sila": 0.696069
+    },
+    {
+      "regula": "R02: IF trend=wzrost AND momentum=wzrost THEN prognoza=wzrost",
+      "aktywacje_ponad_prog": 0,
+      "czestotliwosc_pct": 0.0,
+      "srednia_sila": 4e-05,
+      "srednia_sila_gdy_aktywna": 0.0,
+      "max_sila": 0.000226,
+      "min_sila": 1.3e-05
+    },
+    {
+      "regula": "R03: IF trend=spadek AND momentum=spadek THEN prognoza=spadek",
+      "aktywacje_ponad_prog": 0,
+      "czestotliwosc_pct": 0.0,
+      "srednia_sila": 0.0,
+      "srednia_sila_gdy_aktywna": 0.0,
+      "max_sila": 0.0,
+      "min_sila": 0.0
+    },
+    {
+      "regula": "R04: IF trend=duzy_spadek AND momentum=duzy_spadek THEN prognoza=duzy_spadek",
+      "aktywacje_ponad_prog": 0,
+      "czestotliwosc_pct": 0.0,
+      "srednia_sila": 0.0,
+      "srednia_sila_gdy_aktywna": 0.0,
+      "max_sila": 0.0,
+      "min_sila": 0.0
+    },
+    {
+      "regula": "R05: IF trend=wzrost AND momentum=spadek THEN prognoza=neutralny",
+      "aktywacje_ponad_prog": 0,
+      "czestotliwosc_pct": 0.0,
+      "srednia_sila": 0.0,
+      "srednia_sila_gdy_aktywna": 0.0,
+      "max_sila": 0.0,
+      "min_sila": 0.0
+    },
+    {
+      "regula": "R06: IF trend=spadek AND momentum=wzrost THEN prognoza=neutralny",
+      "aktywacje_ponad_prog": 0,
+      "czestotliwosc_pct": 0.0,
+      "srednia_sila": 0.0,
+      "srednia_sila_gdy_aktywna": 0.0,
+      "max_sila": 0.0,
+      "min_sila": 0.0
+    },
+    {
+      "regula": "R07: IF trend=neutralny AND momentum=neutralny THEN prognoza=neutralny",
+      "aktywacje_ponad_prog": 0,
+      "czestotliwosc_pct": 0.0,
+      "srednia_sila": 0.0,
+      "srednia_sila_gdy_aktywna": 0.0,
+      "max_sila": 0.0,
+      "min_sila": 0.0
+    },
+    {
+      "regula": "R08: IF trend=neutralny AND momentum=wzrost THEN prognoza=wzrost",
+      "aktywacje_ponad_prog": 0,
+      "czestotliwosc_pct": 0.0,
+      "srednia_sila": 0.0,
+      "srednia_sila_gdy_aktywna": 0.0,
+      "max_sila": 0.0,
+      "min_sila": 0.0
+    },
+    {
+      "regula": "R09: IF trend=neutralny AND momentum=spadek THEN prognoza=spadek",
+      "aktywacje_ponad_prog": 0,
+      "czestotliwosc_pct": 0.0,
+      "srednia_sila": 0.0,
+      "srednia_sila_gdy_aktywna": 0.0,
+      "max_sila": 0.0,
+      "min_sila": 0.0
+    },
+    {
+      "regula": "R10: IF trend=duzy_wzrost AND zmiennosc=wysoka THEN prognoza=neutralny",
+      "aktywacje_ponad_prog": 0,
+      "czestotliwosc_pct": 0.0,
+      "srednia_sila": 0.008426,
+      "srednia_sila_gdy_aktywna": 0.0,
+      "max_sila": 0.026793,
+      "min_sila": 0.001608
+    },
+    {
+      "regula": "R11: IF trend=duzy_spadek AND zmiennosc=wysoka THEN prognoza=neutralny",
+      "aktywacje_ponad_prog": 0,
+      "czestotliwosc_pct": 0.0,
+      "srednia_sila": 0.0,
+      "srednia_sila_gdy_aktywna": 0.0,
+      "max_sila": 0.0,
+      "min_sila": 0.0
+    },
+    {
+      "regula": "R12: IF trend=wzrost AND zmiennosc=niska THEN prognoza=duzy_wzrost",
+      "aktywacje_ponad_prog": 0,
+      "czestotliwosc_pct": 0.0,
+      "srednia_sila": 4e-05,
+      "srednia_sila_gdy_aktywna": 0.0,
+      "max_sila": 0.000213,
+      "min_sila": 1.3e-05
+    },
+    {
+      "regula": "R13: IF trend=spadek AND zmiennosc=niska THEN prognoza=duzy_spadek",
+      "aktywacje_ponad_prog": 0,
+      "czestotliwosc_pct": 0.0,
+      "srednia_sila": 0.0,
+      "srednia_sila_gdy_aktywna": 0.0,
+      "max_sila": 0.0,
+      "min_sila": 0.0
+    },
+    {
+      "regula": "R15: IF momentum=duzy_spadek AND zmiennosc=srednia THEN prognoza=spadek",
+      "aktywacje_ponad_prog": 0,
+      "czestotliwosc_pct": 0.0,
+      "srednia_sila": 0.0,
+      "srednia_sila_gdy_aktywna": 0.0,
+      "max_sila": 0.0,
+      "min_sila": 0.0
+    }
+  ],
+  "czas_s": 13.55
+}

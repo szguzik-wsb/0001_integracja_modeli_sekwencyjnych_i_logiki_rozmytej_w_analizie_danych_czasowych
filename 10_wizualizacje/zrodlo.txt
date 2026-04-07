@@ -1,0 +1,59 @@
+================================================================================
+ZRODLO EKSPERYMENTU: 10_wizualizacje
+================================================================================
+
+METODA
+------
+Wizualizacja wynikow eksperymentow 01-05 w postaci trzech wykresow:
+  1. Actual vs Predicted — porownanie prognoz 5 modeli (ARIMA, LSTM, TCN,
+     Mamdani, TCN+Mamdani) na zbiorze S&P 500 (ostatnie 100 dni testowych)
+  2. Rozklad bledow predykcji — histogramy bledow (actual - predicted)
+     dla kazdego modelu, z oznaczeniem sredniej i odchylenia standardowego
+  3. Funkcje przynaleznosci systemu Mamdaniego — wizualizacja gaussowskich
+     funkcji przynaleznosci dla zmiennych: trend, zmiennosc, momentum, prognoza
+
+CYTOWANIE APA 7
+---------------
+Hunter, J. D. (2007). Matplotlib: A 2D graphics environment. Computing in
+    Science & Engineering, 9(3), 90-95.
+
+DOI / URL
+---------
+Hunter (2007):
+    https://doi.org/10.1109/MCSE.2007.55
+
+Matplotlib — dokumentacja:
+    https://matplotlib.org/
+
+DANE
+----
+Dane wejsciowe: pliki prognozy_SP500.csv z eksperymentow 01-05
+  - 01_arima_baseline/prognozy_SP500.csv
+  - 02_lstm_baseline/prognozy_SP500.csv
+  - 03_tcn_baseline/prognozy_SP500.csv
+  - 04_mamdani_baseline/prognozy_SP500.csv
+  - 05_tcn_mamdani_hybrid/prognozy_SP500.csv
+Kazdy plik zawiera kolumny: Actual, Predicted
+
+Funkcje przynaleznosci Mamdaniego: odtworzone na podstawie definicji
+w eksperymencie 05_tcn_mamdani_hybrid/run.py (gaussMF z identycznymi
+parametrami mean i sigma).
+
+IMPLEMENTACJA
+-------------
+Jezyk:           Python 3.14
+Biblioteki:      matplotlib 3.10.x, numpy, pandas, scikit-fuzzy
+Backend:         Agg (renderowanie bez okna graficznego)
+Format wyjscia:  PNG, 150 DPI
+
+Wykresy:
+  - 01_actual_vs_predicted.png (14x6 cali)
+  - 02_rozklad_bledow.png (4*N x 4 cali, N = liczba modeli)
+  - 03_funkcje_przynaleznosci.png (12x8 cali, siatka 2x2)
+
+REPRODUKOWALNOSC
+----------------
+Skrypt nie zawiera komponentow stochastycznych.
+Wykresy sa w pelni deterministyczne — zalezy jedynie od danych
+wejsciowych (plikow CSV z eksperymentow 01-05).
+Styl: siatka z alpha=0.3, czcionka 11pt, tytuly 13pt.

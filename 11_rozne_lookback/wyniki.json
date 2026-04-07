@@ -1,0 +1,59 @@
+{
+  "eksperyment": "Wplyw rozmiaru okna wejsciowego (lookback) na TCN+Mamdani",
+  "dataset": "SP500",
+  "lookback_values": [
+    10,
+    20,
+    30,
+    60,
+    90
+  ],
+  "najlepszy_lookback_MAPE": 90,
+  "wyniki": {
+    "lookback_10": {
+      "MAPE": 0.6838,
+      "RMSE": 59.989333,
+      "MAE": 40.184671,
+      "czas_s": 66.19,
+      "lookback": 10,
+      "n_train": 1925,
+      "n_test": 405
+    },
+    "lookback_20": {
+      "MAPE": 0.685,
+      "RMSE": 60.502981,
+      "MAE": 40.30286,
+      "czas_s": 70.84,
+      "lookback": 20,
+      "n_train": 1915,
+      "n_test": 395
+    },
+    "lookback_30": {
+      "MAPE": 1.3823,
+      "RMSE": 99.037594,
+      "MAE": 82.80157,
+      "czas_s": 14.89,
+      "lookback": 30,
+      "n_train": 1905,
+      "n_test": 385
+    },
+    "lookback_60": {
+      "MAPE": 1.4048,
+      "RMSE": 101.245352,
+      "MAE": 84.752756,
+      "czas_s": 13.07,
+      "lookback": 60,
+      "n_train": 1875,
+      "n_test": 355
+    },
+    "lookback_90": {
+      "MAPE": 0.6822,
+      "RMSE": 62.350738,
+      "MAE": 40.749376,
+      "czas_s": 12.54,
+      "lookback": 90,
+      "n_train": 1845,
+      "n_test": 325
+    }
+  }
+}

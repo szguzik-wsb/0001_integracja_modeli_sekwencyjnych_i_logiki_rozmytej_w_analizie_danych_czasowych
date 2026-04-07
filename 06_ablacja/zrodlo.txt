@@ -1,0 +1,133 @@
+================================================================================
+EKSPERYMENT 06: BADANIE ABLACYJNE MODELU HYBRYDOWEGO TCN-MAMDANI
+================================================================================
+Plik zrodlowy eksperymentu — metoda, cytowania, dane, implementacja
+
+================================================================================
+METODA
+================================================================================
+
+Badanie ablacyjne (ablation study) modelu hybrydowego TCN-Mamdani
+z eksperymentu 05. Standardowa praktyka w badaniach deep learning —
+systematyczne usuwanie lub modyfikowanie komponentow modelu w celu
+okreslenia wkladu kazdego z nich do ogolnej skutecznosci.
+
+Warianty testowane:
+
+  A) Liczba regul rozmytych:
+     - 5 regul (uproszczony system)
+     - 15 regul (pelny system — bazowy z exp. 05)
+
+  B) Typ funkcji przynaleznosci:
+     - Gaussowska (gaussmf) — bazowa z exp. 05
+     - Trojkatna (trimf) — alternatywa
+
+  Macierz eksperymentow (2x2 = 4 warianty):
+     1. 5 regul + Gaussian MF
+     2. 5 regul + Triangular MF
+     3. 15 regul + Gaussian MF  (= bazowy model z exp. 05)
+     4. 15 regul + Triangular MF
+
+  C) Dodatkowe ablacje komponentowe:
+     - TCN-only (bez systemu Mamdaniego) — porownanie z exp. 03
+     - Mamdani-only (bez TCN, reczne cechy) — porownanie z exp. 04
+     - Hybrid bez skip connections w TCN
+     - Hybrid bez dropout w TCN
+
+Cel: Okreslenie, ktore komponenty sa krytyczne dla skutecznosci modelu
+hybrydowego i czy zlozonosc systemu rozmytego (15 vs 5 regul) jest
+uzasadniona poprawa jakosci predykcji.
+
+================================================================================
+CYTOWANIE APA 7
+================================================================================
+
+Zrodlo metodologiczne badania ablacyjnego:
+
+Meyes, R., Lu, M., de Puiseau, C. W., & Meisen, T. (2019). Ablation
+    studies in artificial neural networks. arXiv preprint
+    arXiv:1901.08644.
+
+Zrodla modelu bazowego (jak w exp. 05):
+
+Bai, S., Kolter, J. Z., & Koltun, V. (2018). An empirical evaluation of
+    generic convolutional and recurrent networks for sequence modeling.
+    arXiv preprint arXiv:1803.01271.
+
+Mamdani, E. H., & Assilian, S. (1975). An experiment in linguistic synthesis
+    with a fuzzy logic controller. International Journal of Man-Machine
+    Studies, 7(1), 1-13. https://doi.org/10.1016/S0020-7373(75)80002-2
+
+================================================================================
+DOI / URL
+================================================================================
+
+Meyes i in. (2019) — Ablation Studies:
+  arXiv:  https://arxiv.org/abs/1901.08644
+  PDF:    https://arxiv.org/pdf/1901.08644
+
+Bai i in. (2018) — TCN:
+  arXiv:  https://arxiv.org/abs/1803.01271
+
+Mamdani & Assilian (1975):
+  DOI:    https://doi.org/10.1016/S0020-7373(75)80002-2
+
+================================================================================
+DANE
+================================================================================
+
+Dane identyczne jak w eksperymencie 05 (ten sam split, te same instrumenty):
+
+Zrodlo danych:     Yahoo Finance (API yfinance) / stooq.pl
+Instrumenty:       S&P 500 (^GSPC), WIG20 (WIG20.PL)
+Okres:             2015-01-01 do 2024-12-31 (10 lat)
+Granulacja:        dzienna (ceny zamkniecia)
+Podzial:           train 70% / val 15% / test 15% (chronologiczny)
+
+UWAGA: Aby wyniki ablacji byly porownywalne z modelem bazowym (exp. 05),
+uzyty jest dokladnie ten sam podzial danych i preprocessing.
+
+================================================================================
+IMPLEMENTACJA
+================================================================================
+
+Jezyk:             Python 3.11+
+Framework DL:      PyTorch 2.11.0
+Fuzzy logic:       scikit-fuzzy 0.5.0
+Dane:              yfinance 0.2.x / pandas-datareader
+Obliczenia:        NumPy 1.26+, pandas 2.2+
+Wizualizacja:      matplotlib 3.8+, seaborn 0.13+
+Metryki:           scikit-learn 1.4+ (MAE, RMSE, MAPE)
+Statystyka:        statsmodels 0.14+ (test Diebold-Mariano)
+Srodowisko:        CUDA 12.x (GPU) lub CPU
+Reprodukowalnosc:  random seed = 42
+
+Skrypt:            ablation_study.py
+Konfiguracja:      config.py (wspoldzielona z innymi eksperymentami)
+
+================================================================================
+REPRODUKOWALNOSC
+================================================================================
+
+1. Ziarno losowosci (seed): 42 — identyczne ustawienia jak exp. 05:
+   - torch.manual_seed(42)
+   - torch.cuda.manual_seed_all(42)
+   - np.random.seed(42)
+   - torch.backends.cudnn.deterministic = True
+   - torch.backends.cudnn.benchmark = False
+
+2. Wersje bibliotek: identyczne z exp. 05, pinowane w requirements.txt
+
+3. Dane: ten sam split co exp. 05 (zapewnia porownywalnosc)
+
+4. Kazdy wariant trenowany od zera z tym samym seedem — zapewnia
+   sprawiedliwe porownanie wplywu komponentow
+
+5. Metryki porownawcze: MAPE, RMSE, MAE — obliczane na identycznym
+   zbiorze testowym dla kazdego wariantu
+
+6. Wyniki zapisywane w formacie CSV do analizy statystycznej
+   (test Diebold-Mariano miedzy wariantami)
+
+7. Raportowana jest roznica wzgledem modelu bazowego (exp. 05) w %
+   dla kazdej metryki

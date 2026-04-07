@@ -1,0 +1,133 @@
+================================================================================
+EKSPERYMENT 18: PATCHTST — TRANSFORMER BASELINE
+================================================================================
+Plik zrodlowy eksperymentu — metoda, cytowania, dane, implementacja
+
+================================================================================
+METODA
+================================================================================
+
+PatchTST (Patch Time Series Transformer) — architektura Transformer
+zaprojektowana specjalnie do prognozowania szeregow czasowych. Zamiast
+podawac pojedyncze kroki czasowe jako tokeny, PatchTST dzieli szereg na
+nakladajace sie fragmenty (patche), co redukuje dlugosc sekwencji wejsciowej
+i pozwala na efektywniejsze modelowanie dlugoterminowych zaleznosci.
+
+Kluczowe cechy PatchTST:
+  - Patchowanie: szereg jest dzielony na fragmenty o dlugosci patch_len
+    z krokiem stride. Kazdy patch jest projektowany liniowo do przestrzeni
+    embeddingowej d_model.
+  - Pozycyjne kodowanie: learnable positional embeddings dodawane do
+    reprezentacji patchow.
+  - Transformer encoder: standardowy encoder z wieloglowicowa self-attention
+    i siecia feedforward.
+  - Liniowa glowica: prognoza generowana z ostatniego tokena encodera.
+
+Architektura w tym eksperymencie:
+  - patch_len = 8, stride = 4
+  - d_model = 32, nhead = 4
+  - num_layers = 2, dim_feedforward = 64
+  - dropout = 0.2
+  - lookback = 30 (z konfiguracji globalnej)
+  - num_patches = (30 - 8) / 4 + 1 = 6 patchow
+
+Eksperyment sluzy jako baseline Transformer dla porownania z modelem
+hybrydowym TCN + Mamdani.
+
+================================================================================
+CYTOWANIE APA 7
+================================================================================
+
+Zrodlo fundamentalne:
+
+Nie, Y., Nguyen, N. H., Sinthong, P., & Kalagnanam, J. (2023). A time
+    series is worth 64 words: Long-term forecasting with transformers.
+    In Proceedings of the 11th International Conference on Learning
+    Representations (ICLR 2023). arXiv preprint arXiv:2211.14730.
+
+Prace pokrewne (kontekst architektury Transformer w szeregach czasowych):
+
+Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez,
+    A. N., Kaiser, L., & Polosukhin, I. (2017). Attention is all you need.
+    In Advances in Neural Information Processing Systems 30 (NeurIPS 2017).
+    arXiv preprint arXiv:1706.03762.
+
+Zhou, H., Zhang, S., Peng, J., Zhang, S., Li, J., Xiong, H., & Zhang, W.
+    (2021). Informer: Beyond efficient transformer for long sequence
+    time-series forecasting. In Proceedings of the AAAI Conference on
+    Artificial Intelligence, 35(12), 11106-11115.
+    https://doi.org/10.1609/aaai.v35i12.17325
+
+================================================================================
+DOI / URL
+================================================================================
+
+PatchTST (Nie i in., 2023):
+  arXiv:  https://arxiv.org/abs/2211.14730
+  PDF:    https://arxiv.org/pdf/2211.14730
+  GitHub: https://github.com/yuqinie98/PatchTST
+  DOI:    https://doi.org/10.48550/arXiv.2211.14730
+  ICLR:   https://openreview.net/forum?id=Jbdc0vTOcol
+
+Vaswani i in. (2017) — Attention is All You Need:
+  arXiv:  https://arxiv.org/abs/1706.03762
+  DOI:    https://doi.org/10.48550/arXiv.1706.03762
+
+Informer (Zhou i in., 2021):
+  DOI:    https://doi.org/10.1609/aaai.v35i12.17325
+
+================================================================================
+DANE
+================================================================================
+
+Zrodlo danych:     Yahoo Finance (API yfinance) / stooq.pl
+Instrumenty:       S&P 500, WIG20, EUR/USD, BTC/USD, DAX, Nikkei 225, Gold
+                   (7 zbiorow danych zdefiniowanych w config.py)
+Granulacja:        dzienna (ceny zamkniecia)
+Podzial:           train 70% / val 15% / test 15% (chronologiczny)
+Preprocessing:     normalizacja min-max [0, 1], okno przesuwne (lookback=30)
+
+================================================================================
+IMPLEMENTACJA
+================================================================================
+
+Jezyk:             Python 3.11+
+Framework DL:      PyTorch 2.x
+                   nn.TransformerEncoderLayer, nn.TransformerEncoder
+Implementacja:     wlasna (uproszczona wersja na podstawie Nie i in., 2023)
+Obliczenia:        NumPy, pandas
+Metryki:           MAPE, RMSE, MAE (z utils.py)
+
+Parametry:
+  - patch_len = 8
+  - stride = 4
+  - d_model = 32
+  - nhead = 4
+  - num_layers = 2
+  - dim_feedforward = 64
+  - dropout = 0.2
+  - optimizer = Adam(lr=0.001)
+  - loss = MSELoss
+  - batch_size = 32
+  - epochs = 100 (z early stopping, patience=15)
+  - lookback = 30
+
+================================================================================
+REPRODUKOWALNOSC
+================================================================================
+
+1. Ziarno losowosci (seed): 42
+   - torch.manual_seed(42)
+   - np.random.seed(42)
+
+2. Wersje bibliotek: zgodne z requirements.txt projektu
+
+3. Dane: pliki CSV w folderze zewnetrzne/ (config.py definiuje sciezki)
+
+4. Architektura: deterministyczna przy ustalonym seed
+   - Patch embedding: Linear(8, 32)
+   - Positional encoding: learnable (zainicjalizowane z N(0, 0.02))
+   - TransformerEncoder: 2 warstwy, 4 glowice, ff=64
+   - Head: Linear(32, 1) na ostatnim tokenie
+
+5. Early stopping: patience=15 na walidacji (val_loss, MSE)

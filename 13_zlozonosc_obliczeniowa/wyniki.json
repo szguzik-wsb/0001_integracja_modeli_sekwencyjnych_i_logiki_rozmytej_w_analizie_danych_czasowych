@@ -1,0 +1,55 @@
+{
+  "eksperyment": "Porownanie zlozonosci obliczeniowej 5 modeli",
+  "dataset": "SP500",
+  "modele": {
+    "ARIMA": {
+      "czas_treningu_s": 0.1173,
+      "czas_inferencji_s": 6.3263,
+      "czas_inferencji_na_probke_s": 0.126526,
+      "n_probek_inferencji": 50,
+      "parametry_total": "N/A (model statystyczny, rzad (5,1,0))",
+      "parametry_trenowalnych": "N/A",
+      "pamiec_modelu_MB": 0.0
+    },
+    "LSTM": {
+      "czas_treningu_s": 38.5227,
+      "czas_inferencji_s": 0.0053,
+      "czas_inferencji_na_probke_s": 1.4e-05,
+      "n_probek_inferencji": 385,
+      "parametry_total": 50497,
+      "parametry_trenowalnych": 50497,
+      "pamiec_modelu_MB": 0.1926
+    },
+    "TCN": {
+      "czas_treningu_s": 92.7469,
+      "czas_inferencji_s": 0.0063,
+      "czas_inferencji_na_probke_s": 1.6e-05,
+      "n_probek_inferencji": 385,
+      "parametry_total": 16129,
+      "parametry_trenowalnych": 16129,
+      "pamiec_modelu_MB": 0.063
+    },
+    "Mamdani": {
+      "czas_treningu_s": 0.1563,
+      "czas_inferencji_s": 2.0826,
+      "czas_inferencji_na_probke_s": 0.010413,
+      "n_probek_inferencji": 200,
+      "parametry_total": "N/A (15 regul, system ekspertowy)",
+      "parametry_trenowalnych": "N/A (brak treningu — reguly eksperckie)",
+      "pamiec_modelu_MB": 0.0,
+      "liczba_regul": 15
+    },
+    "TCN_Mamdani": {
+      "czas_treningu_s": 10.0528,
+      "czas_inferencji_s": 4.4147,
+      "czas_inferencji_na_probke_s": 0.011467,
+      "n_probek_inferencji": 385,
+      "parametry_total": 9863,
+      "parametry_trenowalnych": 9863,
+      "parametry_tcn": 9859,
+      "parametry_proxy_fc": 4,
+      "pamiec_modelu_MB": 0.0386,
+      "liczba_regul_mamdani": 15
+    }
+  }
+}

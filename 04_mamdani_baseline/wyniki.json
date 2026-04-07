@@ -1,0 +1,33 @@
+{
+  "model": "Mamdani(15 regul, gaussMF, COG)",
+  "wyniki": {
+    "SP500": {
+      "MAPE": 0.921,
+      "RMSE": 74.563386,
+      "MAE": 54.288108,
+      "czas_s": 3.15,
+      "liczba_regul": 15
+    },
+    "WIG20": {
+      "MAPE": 1.2553,
+      "RMSE": 41.641436,
+      "MAE": 32.603013,
+      "czas_s": 3.51,
+      "liczba_regul": 15
+    },
+    "EURUSD": {
+      "MAPE": 0.5041,
+      "RMSE": 0.007449,
+      "MAE": 0.005592,
+      "czas_s": 3.67,
+      "liczba_regul": 15
+    },
+    "BTCUSD": {
+      "MAPE": 1.7312,
+      "RMSE": 2281.092019,
+      "MAE": 1688.268593,
+      "czas_s": 3.91,
+      "liczba_regul": 15
+    }
+  }
+}

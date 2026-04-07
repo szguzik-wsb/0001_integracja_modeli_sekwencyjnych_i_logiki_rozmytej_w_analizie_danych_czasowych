@@ -1,0 +1,173 @@
+{
+  "eksperyment": "Analiza reżimów zmienności",
+  "wyniki": {
+    "SP500": {
+      "spokojna": {
+        "ARIMA": {
+          "MAPE": 0.3712,
+          "RMSE": 26.9902,
+          "n": 310
+        },
+        "LSTM": {
+          "MAPE": 6.316,
+          "RMSE": 430.0864,
+          "n": 288
+        },
+        "TCN": {
+          "MAPE": 4.6291,
+          "RMSE": 300.4852,
+          "n": 288
+        },
+        "Mamdani": {
+          "MAPE": 0.6231,
+          "RMSE": 47.085,
+          "n": 310
+        },
+        "TCN-Mamdani": {
+          "MAPE": 1.2441,
+          "RMSE": 80.8084,
+          "n": 288
+        }
+      },
+      "niestabilna": {
+        "ARIMA": {
+          "MAPE": 1.6059,
+          "RMSE": 108.6231,
+          "n": 104
+        },
+        "LSTM": {
+          "MAPE": 5.1369,
+          "RMSE": 354.2528,
+          "n": 96
+        },
+        "TCN": {
+          "MAPE": 3.9387,
+          "RMSE": 262.9492,
+          "n": 96
+        },
+        "Mamdani": {
+          "MAPE": 1.821,
+          "RMSE": 125.1618,
+          "n": 103
+        },
+        "TCN-Mamdani": {
+          "MAPE": 1.8007,
+          "RMSE": 140.4058,
+          "n": 96
+        }
+      }
+    },
+    "WIG20": {
+      "spokojna": {
+        "ARIMA": {
+          "MAPE": 0.606,
+          "RMSE": 19.384,
+          "n": 309
+        },
+        "LSTM": {
+          "MAPE": 0.9964,
+          "RMSE": 33.8108,
+          "n": 286
+        },
+        "TCN": {
+          "MAPE": 1.3529,
+          "RMSE": 48.1392,
+          "n": 286
+        },
+        "Mamdani": {
+          "MAPE": 0.8971,
+          "RMSE": 29.5864,
+          "n": 308
+        },
+        "TCN-Mamdani": {
+          "MAPE": 0.7026,
+          "RMSE": 23.2327,
+          "n": 286
+        }
+      },
+      "niestabilna": {
+        "ARIMA": {
+          "MAPE": 2.2295,
+          "RMSE": 61.35,
+          "n": 103
+        },
+        "LSTM": {
+          "MAPE": 2.2715,
+          "RMSE": 66.287,
+          "n": 96
+        },
+        "TCN": {
+          "MAPE": 2.4791,
+          "RMSE": 74.1714,
+          "n": 96
+        },
+        "Mamdani": {
+          "MAPE": 2.3173,
+          "RMSE": 65.485,
+          "n": 103
+        },
+        "TCN-Mamdani": {
+          "MAPE": 2.1941,
+          "RMSE": 61.7819,
+          "n": 96
+        }
+      }
+    },
+    "BTCUSD": {
+      "spokojna": {
+        "ARIMA": {
+          "MAPE": 0.9095,
+          "RMSE": 1140.5794,
+          "n": 328
+        },
+        "LSTM": {
+          "MAPE": 9.6618,
+          "RMSE": 10691.3445,
+          "n": 306
+        },
+        "TCN": {
+          "MAPE": 16.6174,
+          "RMSE": 17630.1572,
+          "n": 306
+        },
+        "Mamdani": {
+          "MAPE": 1.0033,
+          "RMSE": 1242.6214,
+          "n": 328
+        },
+        "TCN-Mamdani": {
+          "MAPE": 1.205,
+          "RMSE": 1499.0099,
+          "n": 306
+        }
+      },
+      "niestabilna": {
+        "ARIMA": {
+          "MAPE": 3.83,
+          "RMSE": 3907.097,
+          "n": 110
+        },
+        "LSTM": {
+          "MAPE": 8.9057,
+          "RMSE": 10034.4416,
+          "n": 102
+        },
+        "TCN": {
+          "MAPE": 15.7092,
+          "RMSE": 16372.954,
+          "n": 102
+        },
+        "Mamdani": {
+          "MAPE": 3.9275,
+          "RMSE": 4032.038,
+          "n": 109
+        },
+        "TCN-Mamdani": {
+          "MAPE": 3.7097,
+          "RMSE": 3948.4646,
+          "n": 102
+        }
+      }
+    }
+  }
+}

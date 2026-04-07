@@ -1,0 +1,63 @@
+{
+  "model": "PatchTST(patch=8, stride=4, d=32, heads=4, layers=2, ff=64)",
+  "architektura": "Patch embedding + TransformerEncoder + Linear head",
+  "lookback": 30,
+  "wyniki": {
+    "SP500": {
+      "MAPE": 10.3484,
+      "RMSE": 718.243314,
+      "MAE": 644.396812,
+      "czas_s": 20.31,
+      "best_epoch": 85,
+      "num_patches": 6
+    },
+    "WIG20": {
+      "MAPE": 3.1625,
+      "RMSE": 109.453323,
+      "MAE": 86.193892,
+      "czas_s": 25.1,
+      "best_epoch": 85,
+      "num_patches": 6
+    },
+    "EURUSD": {
+      "MAPE": 0.6115,
+      "RMSE": 0.009003,
+      "MAE": 0.006781,
+      "czas_s": 16.44,
+      "best_epoch": 85,
+      "num_patches": 6
+    },
+    "BTCUSD": {
+      "MAPE": 26.2478,
+      "RMSE": 28867.034423,
+      "MAE": 27281.78209,
+      "czas_s": 11.35,
+      "best_epoch": 85,
+      "num_patches": 6
+    },
+    "DAX": {
+      "MAPE": 16.8275,
+      "RMSE": 4236.234485,
+      "MAE": 3816.313564,
+      "czas_s": 21.17,
+      "best_epoch": 85,
+      "num_patches": 6
+    },
+    "NIKKEI": {
+      "MAPE": 17.9413,
+      "RMSE": 8541.018662,
+      "MAE": 7605.54759,
+      "czas_s": 7.72,
+      "best_epoch": 85,
+      "num_patches": 6
+    },
+    "GOLD": {
+      "MAPE": 23.9981,
+      "RMSE": 953.897686,
+      "MAE": 813.127477,
+      "czas_s": 31.71,
+      "best_epoch": 85,
+      "num_patches": 6
+    }
+  }
+}

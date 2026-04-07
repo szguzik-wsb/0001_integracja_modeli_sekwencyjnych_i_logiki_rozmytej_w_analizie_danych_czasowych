@@ -1,0 +1,71 @@
+================================================================================
+ZRODLO EKSPERYMENTU: 08_multi_step
+================================================================================
+
+METODA
+------
+Prognozowanie wielokrokowe (multi-step forecasting) — porownanie trzech modeli
+(ARIMA, LSTM, TCN+Mamdani) dla horyzontow h = 1, 5, 10, 30 dni na zbiorze
+S&P 500. Zastosowane strategie prognozowania wielokrokowego:
+  - ARIMA: natywna prognoza wielokrokowa (forecast(steps=h))
+  - LSTM: strategia bezposrednia (direct) — osobny model dla kazdego h
+  - TCN+Mamdani: strategia rekurencyjna (recursive/iterative) — model
+    jednokrokowy stosowany iteracyjnie h razy
+
+CYTOWANIE APA 7
+---------------
+Taieb, S. B., Bontempi, G., Atiya, A. F., & Sorjamaa, A. (2012). A review
+    and comparison of strategies for multi-step ahead time series forecasting
+    based on the NN5 forecasting competition. Expert Systems with
+    Applications, 39(8), 7067-7083.
+
+Bai, S., Kolter, J. Z., & Koltun, V. (2018). An empirical evaluation of
+    generic convolutional and recurrent networks for sequence modeling.
+    arXiv preprint arXiv:1803.01271.
+
+Box, G. E. P., Jenkins, G. M., Reinsel, G. C., & Ljung, G. M. (2015).
+    Time series analysis: Forecasting and control (5th ed.). Wiley.
+
+DOI / URL
+---------
+Taieb et al. (2012):
+    https://doi.org/10.1016/j.ejor.2011.09.028
+
+Bai et al. (2018):
+    https://arxiv.org/abs/1803.01271
+
+Box et al. (2015):
+    https://doi.org/10.1002/9781118619193
+
+DANE
+----
+Zrodlo danych:
+  - Yahoo Finance (pobierane przez biblioteke yfinance)
+Instrument: S&P 500 (^GSPC)
+Granulacja: dzienna (ceny zamkniecia)
+Okres: zgodny z konfiguracja eksperymentu (patrz config.py)
+
+IMPLEMENTACJA
+-------------
+Jezyk:           Python 3.14
+Biblioteki:      PyTorch (TCN, LSTM), statsmodels (ARIMA), scikit-fuzzy (Mamdani)
+Strategia ARIMA: natywna prognoza wielokrokowa (forecast(steps=h))
+Strategia LSTM:  bezposrednia (direct) — warstwa wyjsciowa fc: hidden -> h
+Strategia TCN+M: rekurencyjna (recursive) — model 1-krokowy iterowany h razy
+Metryka:         MAPE na ostatnim kroku horyzontu
+
+Parametry modeli:
+  - ARIMA: order=(5,1,0)
+  - LSTM: hidden=64, layers=2, dropout=0.2
+  - TCN: channels=[32,32], kernel_size=3
+  - Mamdani: 15 regul, gaussMF, defuzyfikacja COG
+
+REPRODUKOWALNOSC
+----------------
+Ziarno losowosci (seed):  42 (torch.manual_seed + np.random.seed)
+Wersja Pythona:           3.14
+Horyzonty:                [1, 5, 10, 30]
+Walidacja:                early stopping (patience=15) na zbiorze walidacyjnym
+Metryki:                  MAPE (ostatni krok horyzontu)
+Wyniki TCN+Mamdani i LSTM sa deterministyczne przy ustalonym RANDOM_SEED.
+Wyniki ARIMA sa w pelni deterministyczne.

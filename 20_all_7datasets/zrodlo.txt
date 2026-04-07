@@ -1,0 +1,146 @@
+================================================================================
+EKSPERYMENT 20: TCN-MAMDANI HYBRID NA WSZYSTKICH 7 ZBIORACH DANYCH
+================================================================================
+Plik zrodlowy eksperymentu — metoda, cytowania, dane, implementacja
+
+================================================================================
+METODA
+================================================================================
+
+Model hybrydowy laczacy TCN (Temporal Convolutional Network) z systemem
+wnioskowania rozmytego Mamdaniego — identyczna architektura jak w
+eksperymencie 05, uruchomiona na rozszerzonym zestawie 7 zbiorow danych.
+
+Architektura:
+  [Dane finansowe] -> [TCN(channels=[32,32])]
+                          |
+                          v
+                   [3 cechy: trend, zmiennosc, momentum]
+                          |
+                          v
+                   [System Mamdaniego: 15 regul, Gaussian MF, defuzyfikacja COG]
+                          |
+                          v
+                   [Prognoza]
+
+Cel: weryfikacja generalizowalnosci modelu hybrydowego TCN-Mamdani na
+roznorodnych instrumentach finansowych:
+  - Indeksy gieldowe: S&P 500, WIG20, DAX, Nikkei 225
+  - Waluty: EUR/USD
+  - Kryptowaluty: BTC/USD
+  - Surowce: Gold (zloto)
+
+Dodatkowo: ARIMA(5,1,0) jako baseline porownawczy na 3 nowych zbiorach
+(DAX, Nikkei 225, Gold), poniewaz ARIMA zostal wczesniej uruchomiony
+tylko na 4 pierwotnych zbiorach.
+
+================================================================================
+CYTOWANIE APA 7
+================================================================================
+
+Zrodla fundamentalne metody:
+
+Bai, S., Kolter, J. Z., & Koltun, V. (2018). An empirical evaluation of
+    generic convolutional and recurrent networks for sequence modeling.
+    arXiv preprint arXiv:1803.01271.
+
+Mamdani, E. H., & Assilian, S. (1975). An experiment in linguistic synthesis
+    with a fuzzy logic controller. International Journal of Man-Machine
+    Studies, 7(1), 1-13. https://doi.org/10.1016/S0020-7373(75)80002-2
+
+Baseline porownawczy:
+
+Box, G. E. P., Jenkins, G. M., Reinsel, G. C., & Ljung, G. M. (2015).
+    Time series analysis: Forecasting and control (5th ed.). Wiley.
+
+Prace pokrewne (porownanie hybrydowych podejsc DL+Fuzzy):
+
+Zhan, T., Xu, H., Li, X., & He, Y. (2023). A deep fuzzy convolutional
+    neural network for time series classification. IEEE Transactions on
+    Fuzzy Systems, 31(10), 3508-3520.
+    https://doi.org/10.1109/TFUZZ.2023.3298957
+
+Yeganejou, M., Dick, S., & Asvadi, A. (2023). Deep convolutional
+    neuro-fuzzy inference system. IEEE Transactions on Fuzzy Systems,
+    31(7), 2395-2408. https://doi.org/10.1109/TFUZZ.2023.3234605
+
+================================================================================
+DOI / URL
+================================================================================
+
+TCN (Bai i in., 2018):
+  arXiv:  https://arxiv.org/abs/1803.01271
+  GitHub: https://github.com/locuslab/TCN
+
+Mamdani & Assilian (1975):
+  DOI:    https://doi.org/10.1016/S0020-7373(75)80002-2
+
+Box i in. (2015) — Time Series Analysis:
+  ISBN:   978-1-118-67502-1
+
+DFCNN (Zhan i in., 2023):
+  DOI:    https://doi.org/10.1109/TFUZZ.2023.3298957
+
+DCNFIS (Yeganejou i in., 2023):
+  DOI:    https://doi.org/10.1109/TFUZZ.2023.3234605
+
+================================================================================
+DANE
+================================================================================
+
+Zrodlo danych:     Yahoo Finance (API yfinance) / stooq.pl
+Instrumenty:       7 zbiorow danych:
+  1. S&P 500   (^GSPC)     — indeks gieldowy USA
+  2. WIG20     (WIG20.PL)  — indeks gieldowy Polska
+  3. EUR/USD               — para walutowa
+  4. BTC/USD               — kryptowaluta
+  5. DAX                   — indeks gieldowy Niemcy
+  6. Nikkei 225            — indeks gieldowy Japonia
+  7. Gold                  — surowiec (zloto)
+Granulacja:        dzienna (ceny zamkniecia)
+Podzial:           train 70% / val 15% / test 15% (chronologiczny)
+Preprocessing:     normalizacja min-max [0, 1], okno przesuwne (lookback=30)
+
+================================================================================
+IMPLEMENTACJA
+================================================================================
+
+Jezyk:             Python 3.11+
+Framework DL:      PyTorch 2.x
+Fuzzy logic:       scikit-fuzzy 0.5.0
+ARIMA:             statsmodels 0.14+ (walk-forward, order=(5,1,0))
+Obliczenia:        NumPy 1.26+, pandas 2.2+
+Metryki:           MAPE, RMSE, MAE (z utils.py)
+
+Parametry TCN-Mamdani (identyczne z eksperymentem 05):
+  - TCN: num_channels = [32, 32], kernel_size = 3, dropout = 0.2
+  - Mamdani: 15 regul, gaussMF, COG defuzyfikacja
+  - Trening: Adam(lr=0.001), MSELoss, epochs=100, early stopping (patience=15)
+  - batch_size = 32, lookback = 30
+
+Parametry ARIMA:
+  - order = (5, 1, 0)
+  - walk-forward: retrenowanie na kazdym kroku testowym
+
+================================================================================
+REPRODUKOWALNOSC
+================================================================================
+
+1. Ziarno losowosci (seed): 42
+   - torch.manual_seed(42) — resetowane przed kazdym zbiorem danych
+   - np.random.seed(42) — resetowane przed kazdym zbiorem danych
+
+2. Wersje bibliotek: zgodne z requirements.txt projektu
+
+3. Dane: pliki CSV w folderze zewnetrzne/ (config.py definiuje sciezki
+   dla wszystkich 7 zbiorow)
+
+4. Architektura: identyczna z eksperymentem 05 — TCN feature extractor
+   trenowany end-to-end z proxy FC, nastepnie cechy TCN podawane do
+   systemu Mamdaniego
+
+5. ARIMA: walk-forward na 3 nowych zbiorach (DAX, NIKKEI, GOLD)
+   z retrenowaniem modelu na kazdym kroku testowym
+
+6. Wyniki: wyniki.json zawiera metryki TCN-Mamdani dla wszystkich 7 zbiorow
+   oraz ARIMA dla 3 nowych zbiorow

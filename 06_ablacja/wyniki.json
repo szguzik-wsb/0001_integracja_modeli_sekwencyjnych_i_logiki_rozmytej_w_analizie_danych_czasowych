@@ -1,0 +1,17 @@
+{
+  "model": "Ablacja TCN+Mamdani",
+  "wyniki": {
+    "SP500": {
+      "5_regul_gauss": {
+        "MAPE": 1.3287,
+        "RMSE": 96.331958,
+        "MAE": 79.631877
+      },
+      "15_regul_trimf": {
+        "MAPE": 1.2943,
+        "RMSE": 94.57672,
+        "MAE": 77.584407
+      }
+    }
+  }
+}

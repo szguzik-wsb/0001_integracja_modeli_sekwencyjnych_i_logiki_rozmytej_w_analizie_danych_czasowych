@@ -1,0 +1,64 @@
+================================================================================
+ZRODLO EKSPERYMENTU: 01_arima_baseline
+================================================================================
+
+METODA
+------
+Model ARIMA(5,1,0) — Autoregressive Integrated Moving Average.
+Rzad autoregresji p=5, stopien roznicowania d=1, rzad sredniej ruchomej q=0.
+Walidacja typu walk-forward (krocz¡ca): model jest trenowany na rosnacym oknie
+danych historycznych i generuje prognoze na jeden krok naprzod, po czym okno
+jest przesuwane o jeden okres. Pozwala to na realistyczna ocene jakosci
+prognozowania w warunkach zblizonych do rzeczywistego zastosowania.
+
+CYTOWANIE APA 7
+---------------
+Box, G. E. P., & Jenkins, G. M. (1970). Time series analysis: Forecasting
+    and control. Holden-Day.
+
+Box, G. E. P., Jenkins, G. M., Reinsel, G. C., & Ljung, G. M. (2015).
+    Time series analysis: Forecasting and control (5th ed.). Wiley.
+
+Hyndman, R. J., & Athanasopoulos, G. (2021). Forecasting: Principles and
+    practice (3rd ed.). OTexts.
+
+DOI / URL
+---------
+Box & Jenkins (wyd. 5, Wiley):
+    https://doi.org/10.1002/9781118619193
+
+Hyndman & Athanasopoulos (2021) — pelny tekst online:
+    https://otexts.com/fpp3/
+
+DANE
+----
+Zrodlo danych:
+  - Yahoo Finance (pobierane przez biblioteke yfinance)
+  - stooq.pl (eksport CSV)
+Instrumenty: S&P 500 (^GSPC), WIG20 (WIG20.PL)
+Granulacja: dzienna (ceny zamkniecia)
+Okres: zgodny z konfiguracj¡ eksperymentu (patrz config.py)
+
+IMPLEMENTACJA
+-------------
+Jezyk:           Python 3.14
+Biblioteka:      statsmodels 0.14.6
+                 https://www.statsmodels.org/
+Klasa modelu:    statsmodels.tsa.arima.model.ARIMA
+Optymalizacja:   MLE (Maximum Likelihood Estimation)
+Dane wejsciowe:  szereg cen zamkniecia (Close)
+Normalizacja:    brak (ARIMA operuje na surowych wartosciach/roznicach)
+
+Parametry modelu:
+  - order = (5, 1, 0)
+  - trend = 'n' (brak trendu deterministycznego)
+
+REPRODUKOWALNOSC
+----------------
+Ziarno losowosci (seed):  42 (np.random.seed(42))
+Wersja Pythona:           3.14
+Wersja statsmodels:       0.14.6
+Walidacja:                walk-forward (expanding window)
+Metryki:                  MAPE, RMSE, MAE
+Wyniki sa deterministyczne — ARIMA nie zawiera komponentow stochastycznych
+w fazie predykcji (przy ustalonych parametrach).

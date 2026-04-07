@@ -1,0 +1,149 @@
+================================================================================
+EKSPERYMENT 19: OPTYMALIZACJA BAZY REGUL MAMDANIEGO ALGORYTMEM GENETYCZNYM
+================================================================================
+Plik zrodlowy eksperymentu — metoda, cytowania, dane, implementacja
+
+================================================================================
+METODA
+================================================================================
+
+Optymalizacja bazy regul i parametrow funkcji przynaleznosci systemu Mamdaniego
+za pomoca algorytmu genetycznego (GA). Punkt wyjscia stanowi 15 recznie
+zdefiniowanych regul z eksperymentu 05 (TCN-Mamdani hybrid).
+
+GA optymalizuje jednoczesnie:
+  (a) Parametry funkcji przynaleznosci — centra i szerokosci kazdej
+      gaussowskiej MF (18 termow x 2 parametry = 36 zmiennych ciaglych)
+  (b) Selekcje regul — ktore z 15 regul zachowac w systemie
+      (15 zmiennych binarnych, progowanych na 0.5)
+
+Chromosom: wektor 51-elementowy (36 float + 15 float progowanych na 0/1).
+Fitness: -MAPE na zbiorze walidacyjnym (GA maksymalizuje, wiec negujemy blad).
+
+Operatory GA:
+  - Inicjalizacja: pierwszy osobnik = domyslne parametry reczne,
+    pozostali = losowe perturbacje domyslnych wartosci
+  - Selekcja: turniejowa (k=3)
+  - Krzyzowanie: jednolite (uniform crossover), prawdopodobienstwo 0.8
+  - Mutacja: szum gaussowski (std=0.15 dla MF, std=0.3 dla bitow regul),
+    prawdopodobienstwo 0.1 per gen
+  - Elityzm: 2 najlepszych osobnikow kopiowanych bez zmian
+
+Podejscie to laczy tradycje ewolucyjnego uczenia systemow rozmytych
+(Cordon, 2011) z nowatorska architektura TCN-Mamdani. Genetyczna
+optymalizacja regresorow Mamdaniego byla ostatnio eksplorowana przez
+Alves i Aguiar (2025) w ramach podejscia GEN-NMR.
+
+================================================================================
+CYTOWANIE APA 7
+================================================================================
+
+Zrodla fundamentalne:
+
+Holland, J. H. (1975). Adaptation in natural and artificial systems: An
+    introductory analysis with applications to biology, control, and
+    artificial intelligence. University of Michigan Press.
+
+Cordon, O. (2011). A historical review of evolutionary learning methods
+    for Mamdani-type fuzzy rule-based systems: Designing interpretable
+    genetic fuzzy systems. International Journal of Approximate Reasoning,
+    52(6), 894-913. https://doi.org/10.1016/j.ijar.2011.03.004
+
+Alves, D. R., & Aguiar, L. A. (2025). GEN-NMR: A new Mamdani regressor
+    approach with genetic algorithm optimization. Universidade Federal de
+    Juiz de Fora (UFJF).
+
+Prace dodatkowe (kontekst metody):
+
+Bai, S., Kolter, J. Z., & Koltun, V. (2018). An empirical evaluation of
+    generic convolutional and recurrent networks for sequence modeling.
+    arXiv preprint arXiv:1803.01271.
+
+Mamdani, E. H., & Assilian, S. (1975). An experiment in linguistic synthesis
+    with a fuzzy logic controller. International Journal of Man-Machine
+    Studies, 7(1), 1-13. https://doi.org/10.1016/S0020-7373(75)80002-2
+
+Herrera, F. (2008). Genetic fuzzy systems: Taxonomy, current research trends
+    and prospects. Evolutionary Intelligence, 1(1), 27-46.
+    https://doi.org/10.1007/s12065-007-0001-5
+
+================================================================================
+DOI / URL
+================================================================================
+
+Holland (1975):
+  ISBN:   978-0-472-08460-9
+  Uwaga:  Klasyczna monografia, brak DOI — cytowanie ksiazkowe
+
+Cordon (2011):
+  DOI:    https://doi.org/10.1016/j.ijar.2011.03.004
+
+Mamdani & Assilian (1975):
+  DOI:    https://doi.org/10.1016/S0020-7373(75)80002-2
+
+Bai i in. (2018):
+  arXiv:  https://arxiv.org/abs/1803.01271
+
+Herrera (2008):
+  DOI:    https://doi.org/10.1007/s12065-007-0001-5
+
+================================================================================
+DANE
+================================================================================
+
+Zrodlo danych:     Yahoo Finance (API yfinance) / stooq.pl
+Instrument:        S&P 500 (^GSPC) — tylko jeden zbior danych
+Granulacja:        dzienna (ceny zamkniecia)
+Podzial:           train 70% / val 15% / test 15% (chronologiczny)
+Preprocessing:     normalizacja min-max [0, 1], okno przesuwne (lookback=30)
+
+GA operuje na zbiorze walidacyjnym (fitness = -MAPE_val).
+Ewaluacja koncowa na zbiorze testowym (porownanie: reczne vs GA-optymalizowane).
+
+================================================================================
+IMPLEMENTACJA
+================================================================================
+
+Jezyk:             Python 3.11+
+Framework DL:      PyTorch 2.x (TCN feature extractor)
+Fuzzy logic:       scikit-fuzzy 0.5.0
+GA:                wlasna implementacja w NumPy (bez zewnetrznej biblioteki GA)
+Obliczenia:        NumPy 1.26+, pandas 2.2+
+
+Parametry GA:
+  - populacja = 30
+  - generacje = 50
+  - krzyzowanie = 0.8 (jednolite)
+  - mutacja = 0.1 (gaussowska, std_mf=0.15, std_rule=0.3)
+  - selekcja = turniejowa (k=3)
+  - elityzm = 2
+  - chromosom = 51 genow (36 MF params + 15 rule selection bits)
+
+Parametry TCN (identyczne z eksperymentem 05):
+  - num_channels = [32, 32]
+  - kernel_size = 3
+  - dropout = 0.2
+  - learning_rate = 0.001
+  - epochs = 100 (early stopping, patience=15)
+
+================================================================================
+REPRODUKOWALNOSC
+================================================================================
+
+1. Ziarno losowosci (seed): 42
+   - np.random.seed(42)
+   - torch.manual_seed(42)
+
+2. Wersje bibliotek: zgodne z requirements.txt projektu
+
+3. Dane: pliki CSV w folderze zewnetrzne/ (config.py definiuje sciezki)
+
+4. Inicjalizacja populacji:
+   - Osobnik 0: domyslne parametry recznie zdefiniowane (z eksperymentu 05)
+   - Osobniki 1-29: losowe perturbacje (N(0, 0.3) dla MF, N(0, 0.2) dla regul)
+
+5. Ewaluacja: kazdy osobnik buduje system Mamdaniego, prognozuje na walidacji,
+   fitness = -MAPE. Minimum 2 aktywne reguly wymagane (inaczej fitness = -100).
+
+6. Porownanie: reczne reguly (15/15) vs GA-optymalizowane (najlepszy osobnik)
+   na zbiorze testowym.
