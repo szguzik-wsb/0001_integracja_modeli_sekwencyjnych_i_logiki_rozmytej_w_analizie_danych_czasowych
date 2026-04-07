@@ -1,3 +1,4 @@
+# Autor: mgr inz. Szymon Guzik, Uniwersytet WSB Merito w Gdansku
 """
 Eksperyment 19: Optymalizacja bazy regul Mamdaniego algorytmem genetycznym.
 

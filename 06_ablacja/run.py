@@ -1,3 +1,4 @@
+# Autor: mgr inz. Szymon Guzik, Uniwersytet WSB Merito w Gdansku
 """
 Eksperyment 06: Ablacja — badanie wplywu komponentow modelu hybrydowego.
 

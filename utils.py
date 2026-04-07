@@ -1,3 +1,4 @@
+# Autor: mgr inz. Szymon Guzik, Uniwersytet WSB Merito w Gdansku
 """
 Wspolne narzedzia: ladowanie danych, metryki, podzial train/val/test.
 """

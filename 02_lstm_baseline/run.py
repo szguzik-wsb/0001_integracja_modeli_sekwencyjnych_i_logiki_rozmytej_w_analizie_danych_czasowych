@@ -1,3 +1,4 @@
+# Autor: mgr inz. Szymon Guzik, Uniwersytet WSB Merito w Gdansku
 """Eksperyment 02: LSTM baseline na 4 zbiorach danych."""
 import sys, os, time, warnings
 warnings.filterwarnings("ignore")

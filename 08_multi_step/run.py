@@ -1,3 +1,4 @@
+# Autor: mgr inz. Szymon Guzik, Uniwersytet WSB Merito w Gdansku
 """
 Eksperyment 08: Prognozowanie wielokrokowe (multi-step forecasting).
 

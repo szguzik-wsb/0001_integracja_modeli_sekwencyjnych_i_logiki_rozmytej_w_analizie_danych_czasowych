@@ -1,3 +1,4 @@
+# Autor: mgr inz. Szymon Guzik, Uniwersytet WSB Merito w Gdansku
 """
 Eksperyment 10: Wizualizacje wynikow eksperymentow 01-05.
 

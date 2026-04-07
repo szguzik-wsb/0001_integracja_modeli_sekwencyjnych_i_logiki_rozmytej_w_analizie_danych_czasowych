@@ -1,3 +1,4 @@
+# Autor: mgr inz. Szymon Guzik, Uniwersytet WSB Merito w Gdansku
 """
 Eksperyment 17: Strategia inwestycyjna + Calmar ratio.
 Symuluje prosta strategie: kup jesli model prognozuje wzrost, sprzedaj jesli spadek.

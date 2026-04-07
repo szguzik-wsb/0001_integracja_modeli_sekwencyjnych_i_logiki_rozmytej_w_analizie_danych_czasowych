@@ -1,3 +1,4 @@
+# Autor: mgr inz. Szymon Guzik, Uniwersytet WSB Merito w Gdansku
 """Eksperyment 01: ARIMA baseline na 4 zbiorach danych."""
 import sys, os, time, json, warnings
 warnings.filterwarnings("ignore")

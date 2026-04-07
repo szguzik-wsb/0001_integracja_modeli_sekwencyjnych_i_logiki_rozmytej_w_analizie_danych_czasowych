@@ -1,3 +1,4 @@
+# Autor: mgr inz. Szymon Guzik, Uniwersytet WSB Merito w Gdansku
 """Eksperyment 04: System Mamdaniego baseline na 4 zbiorach danych."""
 import sys, os, time, warnings
 warnings.filterwarnings("ignore")

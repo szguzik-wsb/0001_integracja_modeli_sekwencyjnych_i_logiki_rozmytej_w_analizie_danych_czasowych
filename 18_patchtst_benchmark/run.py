@@ -1,3 +1,4 @@
+# Autor: mgr inz. Szymon Guzik, Uniwersytet WSB Merito w Gdansku
 """
 Eksperyment 18: PatchTST — Transformer baseline na wszystkich 7 zbiorach danych.
 

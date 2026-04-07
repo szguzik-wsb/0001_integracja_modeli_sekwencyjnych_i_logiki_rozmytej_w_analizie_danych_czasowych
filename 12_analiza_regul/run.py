@@ -1,3 +1,4 @@
+# Autor: mgr inz. Szymon Guzik, Uniwersytet WSB Merito w Gdansku
 """
 Eksperyment 12: Analiza aktywacji regul Mamdaniego w modelu TCN+Mamdani.
 

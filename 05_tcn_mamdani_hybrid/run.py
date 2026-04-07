@@ -1,3 +1,4 @@
+# Autor: mgr inz. Szymon Guzik, Uniwersytet WSB Merito w Gdansku
 """
 Eksperyment 05: Model hybrydowy TCN + Mamdani — GLOWNY WKLAD ARTYKULU.
 

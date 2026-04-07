@@ -1,3 +1,4 @@
+# Autor: mgr inz. Szymon Guzik, Uniwersytet WSB Merito w Gdansku
 """Eksperyment 03: TCN baseline na 4 zbiorach danych."""
 import sys, os, time, warnings
 warnings.filterwarnings("ignore")

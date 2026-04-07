@@ -1,3 +1,4 @@
+# Autor: mgr inz. Szymon Guzik, Uniwersytet WSB Merito w Gdansku
 """
 Wspolna konfiguracja dla wszystkich eksperymentow.
 """

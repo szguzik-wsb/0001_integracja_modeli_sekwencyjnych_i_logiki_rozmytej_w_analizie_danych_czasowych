@@ -1,3 +1,4 @@
+# Autor: mgr inz. Szymon Guzik, Uniwersytet WSB Merito w Gdansku
 """
 Eksperyment 16: Test na okresach kryzysowych.
 Wydziela okresy wysokiej zmiennosci (COVID crash 2020, bear market 2022)

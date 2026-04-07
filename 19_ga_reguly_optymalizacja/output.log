@@ -16,3 +16,4 @@
       krzyzowanie=0.8, mutacja=0.1
     Gen   1/50: best_fitness=-0.7752 (MAPE=0.7752%), mean=-0.9519, active_rules=15/15
     Gen  10/50: best_fitness=-0.6928 (MAPE=0.6928%), mean=-0.7049, active_rules=14/15
+    Gen  20/50: best_fitness=-0.6920 (MAPE=0.6920%), mean=-0.6937, active_rules=12/15

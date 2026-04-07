@@ -1,3 +1,4 @@
+# Autor: mgr inz. Szymon Guzik, Uniwersytet WSB Merito w Gdansku
 """
 Eksperyment 11: Wplyw rozmiaru okna wejsciowego (lookback) na jakosc prognoz TCN+Mamdani.
 

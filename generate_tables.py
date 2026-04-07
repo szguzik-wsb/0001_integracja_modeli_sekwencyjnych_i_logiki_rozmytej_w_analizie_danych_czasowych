@@ -1,3 +1,4 @@
+# Autor: mgr inz. Szymon Guzik, Uniwersytet WSB Merito w Gdansku
 """Generowanie tabel jako PNG — v4: pelna siatka, klasyczny styl naukowy."""
 import matplotlib
 matplotlib.use('Agg')

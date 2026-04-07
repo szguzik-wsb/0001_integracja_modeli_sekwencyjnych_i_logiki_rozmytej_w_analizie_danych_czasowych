@@ -1,3 +1,4 @@
+# Autor: mgr inz. Szymon Guzik, Uniwersytet WSB Merito w Gdansku
 """
 Eksperyment 15: Dokladnosc kierunkowa (Directional Accuracy).
 Mierzy % poprawnych prognoz kierunku zmiany ceny (wzrost/spadek).

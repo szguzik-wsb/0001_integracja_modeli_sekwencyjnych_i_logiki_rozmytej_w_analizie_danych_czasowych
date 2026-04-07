@@ -1,3 +1,4 @@
+# Autor: mgr inz. Szymon Guzik, Uniwersytet WSB Merito w Gdansku
 """
 Eksperyment 20: TCN-Mamdani hybrid na WSZYSTKICH 7 zbiorach danych.
 
