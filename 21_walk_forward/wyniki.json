@@ -1,0 +1,427 @@
+{
+  "SP500": {
+    "folds": [
+      {
+        "fold": 1,
+        "train_size": 1106,
+        "test_size": 414,
+        "period": "2015-01-02 - 2021-08-03",
+        "hybrid": {
+          "MAPE": 1.1139,
+          "RMSE": 53.551477,
+          "MAE": 35.737375
+        },
+        "arima": {
+          "MAPE": 1.0882,
+          "RMSE": 54.059856,
+          "MAE": 35.025788
+        }
+      },
+      {
+        "fold": 2,
+        "train_size": 1382,
+        "test_size": 414,
+        "period": "2015-01-02 - 2022-09-07",
+        "hybrid": {
+          "MAPE": 1.533,
+          "RMSE": 78.218905,
+          "MAE": 65.532143
+        },
+        "arima": {
+          "MAPE": 0.9235,
+          "RMSE": 61.275252,
+          "MAE": 38.706138
+        }
+      },
+      {
+        "fold": 3,
+        "train_size": 1658,
+        "test_size": 414,
+        "period": "2015-01-02 - 2023-10-12",
+        "hybrid": {
+          "MAPE": 1.1019,
+          "RMSE": 57.638078,
+          "MAE": 44.824885
+        },
+        "arima": {
+          "MAPE": 0.9899,
+          "RMSE": 52.49744,
+          "MAE": 40.310621
+        }
+      },
+      {
+        "fold": 4,
+        "train_size": 1934,
+        "test_size": 414,
+        "period": "2015-01-02 - 2024-11-15",
+        "hybrid": {
+          "MAPE": 0.7297,
+          "RMSE": 46.321638,
+          "MAE": 36.16151
+        },
+        "arima": {
+          "MAPE": 0.6039,
+          "RMSE": 39.012049,
+          "MAE": 29.50031
+        }
+      },
+      {
+        "fold": 5,
+        "train_size": 2210,
+        "test_size": 414,
+        "period": "2015-01-02 - 2025-12-24",
+        "hybrid": {
+          "MAPE": 0.7066,
+          "RMSE": 61.386777,
+          "MAE": 41.629437
+        },
+        "arima": {
+          "MAPE": 0.7199,
+          "RMSE": 69.104386,
+          "MAE": 41.895897
+        }
+      }
+    ],
+    "hybrid_mapes": [
+      1.1139,
+      1.533,
+      1.1019,
+      0.7297,
+      0.7066
+    ],
+    "arima_mapes": [
+      1.0882,
+      0.9235,
+      0.9899,
+      0.6039,
+      0.7199
+    ],
+    "summary": {
+      "hybrid_MAPE_mean": 1.037,
+      "hybrid_MAPE_std": 0.3032,
+      "arima_MAPE_mean": 0.8651,
+      "arima_MAPE_std": 0.1778,
+      "hybrid_wins": 1,
+      "total_folds": 5
+    }
+  },
+  "WIG20": {
+    "folds": [
+      {
+        "fold": 1,
+        "train_size": 1099,
+        "test_size": 412,
+        "period": "2015-01-02 - 2021-08-05",
+        "hybrid": {
+          "MAPE": 1.2308,
+          "RMSE": 31.023422,
+          "MAE": 22.171338
+        },
+        "arima": {
+          "MAPE": 1.2344,
+          "RMSE": 31.744453,
+          "MAE": 22.407608
+        }
+      },
+      {
+        "fold": 2,
+        "train_size": 1374,
+        "test_size": 412,
+        "period": "2015-01-02 - 2022-09-08",
+        "hybrid": {
+          "MAPE": 1.1678,
+          "RMSE": 31.965828,
+          "MAE": 23.554794
+        },
+        "arima": {
+          "MAPE": 1.1525,
+          "RMSE": 31.976622,
+          "MAE": 23.071158
+        }
+      },
+      {
+        "fold": 3,
+        "train_size": 1649,
+        "test_size": 412,
+        "period": "2015-01-02 - 2023-10-12",
+        "hybrid": {
+          "MAPE": 1.2374,
+          "RMSE": 27.29353,
+          "MAE": 22.061543
+        },
+        "arima": {
+          "MAPE": 1.3083,
+          "RMSE": 32.94537,
+          "MAE": 23.711231
+        }
+      },
+      {
+        "fold": 4,
+        "train_size": 1924,
+        "test_size": 412,
+        "period": "2015-01-02 - 2024-11-18",
+        "hybrid": {
+          "MAPE": 1.2284,
+          "RMSE": 34.389922,
+          "MAE": 27.699602
+        },
+        "arima": {
+          "MAPE": 0.9985,
+          "RMSE": 29.095708,
+          "MAE": 22.05457
+        }
+      },
+      {
+        "fold": 5,
+        "train_size": 2199,
+        "test_size": 412,
+        "period": "2015-01-02 - 2025-12-29",
+        "hybrid": {
+          "MAPE": 1.0997,
+          "RMSE": 37.393877,
+          "MAE": 28.661414
+        },
+        "arima": {
+          "MAPE": 1.0672,
+          "RMSE": 44.928595,
+          "MAE": 27.736107
+        }
+      }
+    ],
+    "hybrid_mapes": [
+      1.2308,
+      1.1678,
+      1.2374,
+      1.2284,
+      1.0997
+    ],
+    "arima_mapes": [
+      1.2344,
+      1.1525,
+      1.3083,
+      0.9985,
+      1.0672
+    ],
+    "summary": {
+      "hybrid_MAPE_mean": 1.1928,
+      "hybrid_MAPE_std": 0.0529,
+      "arima_MAPE_mean": 1.1522,
+      "arima_MAPE_std": 0.1113,
+      "hybrid_wins": 2,
+      "total_folds": 5
+    }
+  },
+  "EURUSD": {
+    "folds": [
+      {
+        "fold": 1,
+        "train_size": 1144,
+        "test_size": 429,
+        "period": "2015-01-01 - 2021-08-02",
+        "hybrid": {
+          "MAPE": 0.3821,
+          "RMSE": 0.005657,
+          "MAE": 0.004454
+        },
+        "arima": {
+          "MAPE": 0.3277,
+          "RMSE": 0.004986,
+          "MAE": 0.003794
+        }
+      },
+      {
+        "fold": 2,
+        "train_size": 1430,
+        "test_size": 429,
+        "period": "2015-01-01 - 2022-09-06",
+        "hybrid": {
+          "MAPE": 0.3426,
+          "RMSE": 0.005031,
+          "MAE": 0.003821
+        },
+        "arima": {
+          "MAPE": 0.3538,
+          "RMSE": 0.006672,
+          "MAE": 0.003978
+        }
+      },
+      {
+        "fold": 3,
+        "train_size": 1716,
+        "test_size": 429,
+        "period": "2015-01-01 - 2023-10-11",
+        "hybrid": {
+          "MAPE": 0.4378,
+          "RMSE": 0.005868,
+          "MAE": 0.004598
+        },
+        "arima": {
+          "MAPE": 0.4497,
+          "RMSE": 0.006526,
+          "MAE": 0.004748
+        }
+      },
+      {
+        "fold": 4,
+        "train_size": 2002,
+        "test_size": 429,
+        "period": "2015-01-01 - 2024-11-15",
+        "hybrid": {
+          "MAPE": 0.2971,
+          "RMSE": 0.004263,
+          "MAE": 0.003224
+        },
+        "arima": {
+          "MAPE": 0.3237,
+          "RMSE": 0.006141,
+          "MAE": 0.003515
+        }
+      },
+      {
+        "fold": 5,
+        "train_size": 2288,
+        "test_size": 429,
+        "period": "2015-01-01 - 2025-12-26",
+        "hybrid": {
+          "MAPE": 0.4219,
+          "RMSE": 0.005983,
+          "MAE": 0.004697
+        },
+        "arima": {
+          "MAPE": 0.3337,
+          "RMSE": 0.005077,
+          "MAE": 0.003697
+        }
+      }
+    ],
+    "hybrid_mapes": [
+      0.3821,
+      0.3426,
+      0.4378,
+      0.2971,
+      0.4219
+    ],
+    "arima_mapes": [
+      0.3277,
+      0.3538,
+      0.4497,
+      0.3237,
+      0.3337
+    ],
+    "summary": {
+      "hybrid_MAPE_mean": 0.3763,
+      "hybrid_MAPE_std": 0.0516,
+      "arima_MAPE_mean": 0.3577,
+      "arima_MAPE_std": 0.0471,
+      "hybrid_wins": 3,
+      "total_folds": 5
+    }
+  },
+  "BTCUSD": {
+    "folds": [
+      {
+        "fold": 1,
+        "train_size": 1168,
+        "test_size": 438,
+        "period": "2018-01-01 - 2022-10-18",
+        "hybrid": {
+          "MAPE": 2.5022,
+          "RMSE": 1379.013802,
+          "MAE": 943.653214
+        },
+        "arima": {
+          "MAPE": 2.5756,
+          "RMSE": 1604.434686,
+          "MAE": 988.582152
+        }
+      },
+      {
+        "fold": 2,
+        "train_size": 1460,
+        "test_size": 438,
+        "period": "2018-01-01 - 2023-08-06",
+        "hybrid": {
+          "MAPE": 2.1644,
+          "RMSE": 691.664347,
+          "MAE": 506.229819
+        },
+        "arima": {
+          "MAPE": 2.0261,
+          "RMSE": 1087.430827,
+          "MAE": 477.226754
+        }
+      },
+      {
+        "fold": 3,
+        "train_size": 1752,
+        "test_size": 438,
+        "period": "2018-01-01 - 2024-05-24",
+        "hybrid": {
+          "MAPE": 1.8955,
+          "RMSE": 1273.986566,
+          "MAE": 828.376856
+        },
+        "arima": {
+          "MAPE": 1.7445,
+          "RMSE": 1232.334315,
+          "MAE": 751.819653
+        }
+      },
+      {
+        "fold": 4,
+        "train_size": 2044,
+        "test_size": 438,
+        "period": "2018-01-01 - 2025-03-12",
+        "hybrid": {
+          "MAPE": 2.039,
+          "RMSE": 2064.56647,
+          "MAE": 1485.076512
+        },
+        "arima": {
+          "MAPE": 2.0896,
+          "RMSE": 2107.54502,
+          "MAE": 1454.883178
+        }
+      },
+      {
+        "fold": 5,
+        "train_size": 2336,
+        "test_size": 438,
+        "period": "2018-01-01 - 2025-12-29",
+        "hybrid": {
+          "MAPE": 1.5986,
+          "RMSE": 2158.680946,
+          "MAE": 1586.436867
+        },
+        "arima": {
+          "MAPE": 1.6418,
+          "RMSE": 2193.099501,
+          "MAE": 1598.172115
+        }
+      }
+    ],
+    "hybrid_mapes": [
+      2.5022,
+      2.1644,
+      1.8955,
+      2.039,
+      1.5986
+    ],
+    "arima_mapes": [
+      2.5756,
+      2.0261,
+      1.7445,
+      2.0896,
+      1.6418
+    ],
+    "summary": {
+      "hybrid_MAPE_mean": 2.0399,
+      "hybrid_MAPE_std": 0.2983,
+      "arima_MAPE_mean": 2.0155,
+      "arima_MAPE_std": 0.3263,
+      "hybrid_wins": 3,
+      "total_folds": 5
+    }
+  },
+  "czas_calkowity_s": 1461.3
+}

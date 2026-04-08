@@ -1,0 +1,27 @@
+# Autor: mgr inz. Szymon Guzik, Uniwersytet WSB Merito w Gdansku
+
+Eksperyment 21: Walk-forward validation
+
+Metoda badawcza:
+  Walk-forward validation (expanding/sliding window cross-validation for time series)
+
+Zrodla metodologiczne:
+  - Tashman, L. J. (2000). Out-of-sample tests of forecasting accuracy: an analysis and review.
+    International Journal of Forecasting, 16(4), 437-450.
+    DOI: 10.1016/S0169-2070(00)00065-0
+  - Bergmeir, C., & Benitez, J. M. (2012). On the use of cross-validation for time series
+    predictor evaluation. Information Sciences, 191, 192-213.
+    DOI: 10.1016/j.ins.2011.12.028
+
+Dane:
+  - S&P 500, WIG20, EUR/USD, BTC/USD (z badania/zewnetrzne/)
+  - Yahoo Finance (yfinance) oraz Stooq.pl
+
+Implementacja:
+  - Python 3.14, PyTorch (TCN), scikit-fuzzy (Mamdani), statsmodels (ARIMA)
+  - 5 rund walk-forward, 60/10/30 split, przesuniecie 10%
+  - Seed: 42
+
+Reprodukowalnosc:
+  - RANDOM_SEED = 42
+  - Parametry identyczne z eksperymentem 05 (TCN-Mamdani hybrid)

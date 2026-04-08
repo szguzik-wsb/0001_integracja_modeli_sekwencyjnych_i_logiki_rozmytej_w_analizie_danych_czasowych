@@ -190,7 +190,7 @@ make_table(
     source=f'Zrodlo: opracowanie wlasne. Kod: {REPO_SHORT}',
 )
 
-# TABELA 6: Interpretowalnosc
+# TABELA 4: Interpretowalnosc (dawna Tabela 6, przenumerowana)
 make_table(
     data=[
         ['Typ', 'inherentna (ante-hoc)', 'post-hoc'],
@@ -201,8 +201,8 @@ make_table(
         ['Zgodnosc z EU AI Act', 'pelna', 'czesciowa'],
     ],
     col_labels=['Kryterium', 'Mamdani (TCN-Mamdani)', 'SHAP (czysty TCN)'],
-    title='Tabela 6. Porownanie interpretowalnosci: Mamdani vs SHAP',
-    filename='tab6_interpretowalnosc.png',
+    title='Tabela 4. Porownanie interpretowalnosci: Mamdani vs SHAP',
+    filename='tab4_interpretowalnosc.png',
     col_widths=[0.25, 0.375, 0.375],
     source='Zrodlo: opracowanie wlasne na podstawie Lundberg i Lee (2017) oraz Mamdani i Assilian (1975).',
 )
