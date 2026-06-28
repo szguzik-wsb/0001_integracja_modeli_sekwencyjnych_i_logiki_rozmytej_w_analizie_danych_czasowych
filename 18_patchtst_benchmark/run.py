@@ -32,6 +32,7 @@ warnings.filterwarnings("ignore")
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 import numpy as np
+import pandas as pd
 import math
 import torch
 import torch.nn as nn
@@ -204,6 +205,9 @@ def train_and_evaluate(dataset_key):
     print(f"  MAE:  {metrics['MAE']}")
     print(f"  Czas: {metrics['czas_s']}s")
     print(f"  Patche: {model.num_patches}")
+
+    pred_df = pd.DataFrame({"Date": data["dates_test"], "Actual": actuals, "Predicted": predictions})
+    pred_df.to_csv(os.path.join(os.path.dirname(__file__), f"prognozy_{dataset_key}.csv"), index=False)
 
     return metrics
 

@@ -254,6 +254,7 @@ def train_hybrid(dataset_key):
 
     # Zapisz prognozy
     pred_df = pd.DataFrame({
+        "Date": data["dates_test"],
         "Actual": actuals,
         "Predicted": predictions,
         "TCN_trend": test_features[:, 0],
@@ -312,6 +313,7 @@ def run_arima_baseline(dataset_key):
     print(f"  Czas: {metrics['czas_s']}s")
 
     pred_df = pd.DataFrame({
+        "Date": test_df["Date"].values,
         "Actual": test_vals,
         "Predicted": predictions,
     })

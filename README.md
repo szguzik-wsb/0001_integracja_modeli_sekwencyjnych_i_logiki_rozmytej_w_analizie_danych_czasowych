@@ -11,7 +11,11 @@ Kod źródłowy eksperymentów do artykułu *„Integracja modeli sekwencyjnych 
 python -m pip install -r requirements.txt
 ```
 
-Dokładne wersje bibliotek użytych do wygenerowania wyników są przypięte w [`requirements.txt`](requirements.txt). Wszystkie eksperymenty są deterministyczne (`RANDOM_SEED = 42`, ustawiany w `config.py` oraz `torch.manual_seed`/`np.random.seed` na początku każdego skryptu).
+Dokładne wersje bibliotek użytych do wygenerowania wyników są przypięte w [`requirements.txt`](requirements.txt). Eksperymenty uruchamiano z ustalonym ziarnem losowości 42 (`RANDOM_SEED = 42` w `config.py` oraz `torch.manual_seed`/`np.random.seed` na początku każdego skryptu); pełna deterministyczność może zależeć od backendu obliczeniowego (wersje bibliotek, CPU/GPU, wielowątkowość).
+
+## Licencja
+
+Licencja kodu zostanie określona przy publikacji artykułu. Do tego czasu kod udostępniony wyłącznie w celu recenzji naukowej i weryfikacji reprodukowalności.
 
 ## Dane wejściowe
 

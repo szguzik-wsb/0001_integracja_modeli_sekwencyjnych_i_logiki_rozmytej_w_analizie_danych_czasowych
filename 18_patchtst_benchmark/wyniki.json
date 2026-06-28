@@ -7,7 +7,7 @@
       "MAPE": 10.8118,
       "RMSE": 746.699683,
       "MAE": 672.745159,
-      "czas_s": 19.55,
+      "czas_s": 22.11,
       "best_epoch": 85,
       "num_patches": 6
     },
@@ -15,7 +15,7 @@
       "MAPE": 3.8769,
       "RMSE": 136.551497,
       "MAE": 107.699496,
-      "czas_s": 24.39,
+      "czas_s": 26.43,
       "best_epoch": 85,
       "num_patches": 6
     },
@@ -23,7 +23,7 @@
       "MAPE": 0.6353,
       "RMSE": 0.00945,
       "MAE": 0.007059,
-      "czas_s": 16.26,
+      "czas_s": 17.54,
       "best_epoch": 85,
       "num_patches": 6
     },
@@ -31,7 +31,7 @@
       "MAPE": 23.6094,
       "RMSE": 26297.546811,
       "MAE": 24622.492932,
-      "czas_s": 10.83,
+      "czas_s": 12.26,
       "best_epoch": 85,
       "num_patches": 6
     },
@@ -39,7 +39,7 @@
       "MAPE": 14.5685,
       "RMSE": 3768.201518,
       "MAE": 3323.937711,
-      "czas_s": 20.07,
+      "czas_s": 22.11,
       "best_epoch": 85,
       "num_patches": 6
     },
@@ -47,7 +47,7 @@
       "MAPE": 16.8909,
       "RMSE": 8169.179447,
       "MAE": 7184.348189,
-      "czas_s": 7.38,
+      "czas_s": 8.47,
       "best_epoch": 85,
       "num_patches": 6
     },
@@ -55,7 +55,7 @@
       "MAPE": 22.9507,
       "RMSE": 933.683218,
       "MAE": 783.118572,
-      "czas_s": 32.39,
+      "czas_s": 35.43,
       "best_epoch": 85,
       "num_patches": 6
     }
