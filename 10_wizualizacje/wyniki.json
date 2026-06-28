@@ -1,0 +1,18 @@
+{
+  "eksperyment": "Generowanie wizualizacji rysunkow wspierajacych",
+  "typ": "post-processing (brak metryk numerycznych)",
+  "dataset": "SP500 (pojedynczy zbior do rysunkow)",
+  "wygenerowane_pliki": [
+    "wykresy/01_actual_vs_predicted.png",
+    "wykresy/02_rozklad_bledow.png",
+    "wykresy/03_funkcje_przynaleznosci.png"
+  ],
+  "zrodlo_danych": {
+    "01_arima_baseline": "prognozy_SP500.csv",
+    "02_lstm_baseline": "prognozy_SP500.csv",
+    "03_tcn_baseline": "prognozy_SP500.csv",
+    "04_mamdani_baseline": "prognozy_SP500.csv",
+    "05_tcn_mamdani_hybrid": "prognozy_SP500.csv"
+  },
+  "uwaga": "Ten eksperyment nie generuje metryk numerycznych - jest post-processingiem produkujacym PNG dla artykulu. Plik istnieje, aby zachowac jednolita konwencje 'kazdy folder badan ma run.py + wyniki.json + zrodlo.txt'."
+}

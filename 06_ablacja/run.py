@@ -11,6 +11,7 @@ Warianty:
 Cel: Ktory komponent ile wnosi do jakosci prognoz.
 """
 import sys, os, time, warnings
+import copy
 warnings.filterwarnings("ignore")
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
@@ -212,7 +213,7 @@ for ds_key in ["SP500"]:  # Ablacja na 1 zbiorze (S&P500) — wystarczy do anali
             vl = criterion(fc_proxy(tcn(X_val)).squeeze(), y_val).item()
         if vl < best_val:
             best_val = vl
-            best_state = tcn.state_dict().copy()
+            best_state = copy.deepcopy(tcn.state_dict())
             patience_count = 0
         else:
             patience_count += 1

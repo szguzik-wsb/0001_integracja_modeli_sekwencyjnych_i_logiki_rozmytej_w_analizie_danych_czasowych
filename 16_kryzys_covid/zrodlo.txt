@@ -1,0 +1,18 @@
+Eksperyment 16_kryzys_covid: Analiza rezimow zmiennosci (spokojna vs niestabilna)
+Seed: 42
+Dane wejsciowe: prognozy 01, 02, 03, 04, 05 z eksperymentow baseline (prognozy_*.csv dla SP500/WIG20/BTCUSD)
+
+Metoda: Podzial zbioru testowego na dwa podzbiory w oparciu o kroczace odchylenie standardowe zwrotow (window=20):
+    rezim spokojny   : dnie, w ktorych sigma_rolling <= 75. percentyl
+    rezim niestabilny: dnie, w ktorych sigma_rolling > 75. percentyl
+Nastepnie dla kazdego modelu, zbioru i rezimu obliczane sa MAPE i RMSE osobno.
+
+Cel: weryfikacja hipotezy, ze komponent Mamdaniego w hybrydzie dziala jako stabilizator w warunkach wysokiej zmiennosci (pelni rolé tlumienia ekstremalnych prognoz).
+
+Nazwa folderu '16_kryzys_covid' pochodzi z oryginalnego projektu ze skupieniem na COVID-19 (Marzec 2020), ale ostateczne rozszerzenie obejmuje caly percentyl 75+ na zbiorze 2015-2025.
+
+Zrodlo metody: klasyczna analiza rezimowa w finansach (Hamilton, J. D. (1989). A new approach to the economic analysis of nonstationary time series and the business cycle. Econometrica, 57(2), 357-384. https://doi.org/10.2307/1912559)
+Implementacja: run.py wykorzystuje pandas.rolling(window=20).std() na zwrotach dziennych i np.percentile() dla progu 75.
+Biblioteki: pandas, numpy.
+
+Wyniki zgodne z artykul.md sekcja 3.2 (reżimy zmiennosci, linia 163): WIG20 niestabilna 2,194% vs 2,229%, BTCUSD niestabilna 3,710% vs 3,830%.

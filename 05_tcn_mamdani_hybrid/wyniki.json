@@ -3,10 +3,10 @@
   "architektura": "TCN feature extractor → fuzzyfikacja → Mamdani inference → defuzyfikacja COG",
   "wyniki": {
     "SP500": {
-      "MAPE": 1.3823,
-      "RMSE": 99.037594,
-      "MAE": 82.80157,
-      "czas_s": 19.66,
+      "MAPE": 1.3253,
+      "RMSE": 96.080117,
+      "MAE": 79.384604,
+      "czas_s": 13.46,
       "tcn_channels": [
         32,
         32
@@ -22,7 +22,7 @@
       "MAPE": 1.0757,
       "RMSE": 36.879023,
       "MAE": 28.084826,
-      "czas_s": 76.61,
+      "czas_s": 53.78,
       "tcn_channels": [
         32,
         32
@@ -35,10 +35,10 @@
       ]
     },
     "EURUSD": {
-      "MAPE": 0.392,
-      "RMSE": 0.005859,
-      "MAE": 0.004377,
-      "czas_s": 58.66,
+      "MAPE": 0.3903,
+      "RMSE": 0.00584,
+      "MAE": 0.004357,
+      "czas_s": 36.88,
       "tcn_channels": [
         32,
         32
@@ -51,10 +51,58 @@
       ]
     },
     "BTCUSD": {
-      "MAPE": 1.8271,
-      "RMSE": 2359.93183,
-      "MAE": 1828.648999,
-      "czas_s": 22.5,
+      "MAPE": 1.8272,
+      "RMSE": 2360.021485,
+      "MAE": 1828.740403,
+      "czas_s": 14.22,
+      "tcn_channels": [
+        32,
+        32
+      ],
+      "mamdani_reguly": 15,
+      "cechy_tcn": [
+        "trend",
+        "zmiennosc",
+        "momentum"
+      ]
+    },
+    "DAX": {
+      "MAPE": 1.4577,
+      "RMSE": 381.945237,
+      "MAE": 319.32209,
+      "czas_s": 33.16,
+      "tcn_channels": [
+        32,
+        32
+      ],
+      "mamdani_reguly": 15,
+      "cechy_tcn": [
+        "trend",
+        "zmiennosc",
+        "momentum"
+      ]
+    },
+    "NIKKEI": {
+      "MAPE": 1.1853,
+      "RMSE": 687.486891,
+      "MAE": 473.432812,
+      "czas_s": 13.44,
+      "tcn_channels": [
+        32,
+        32
+      ],
+      "mamdani_reguly": 15,
+      "cechy_tcn": [
+        "trend",
+        "zmiennosc",
+        "momentum"
+      ]
+    },
+    "GOLD": {
+      "MAPE": 0.9682,
+      "RMSE": 42.353008,
+      "MAE": 30.80767,
+      "czas_s": 14.25,
       "tcn_channels": [
         32,
         32

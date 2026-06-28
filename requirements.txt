@@ -1,0 +1,12 @@
+# Pakiet reprodukowalnosci — artykul "Integracja modeli sekwencyjnych i logiki rozmytej
+# w analizie danych czasowych" (TCN-Mamdani). Python 3.14.
+# Wersje uzyte do wygenerowania wynikow w wyniki.json (re-run 2026-06-28, po naprawie
+# bledu wczesnego zatrzymania: copy.deepcopy(state_dict) zamiast plytkiej kopii).
+torch==2.11.0
+numpy==2.5.0
+pandas==3.0.3
+scipy==1.18.0
+scikit-learn==1.9.0
+statsmodels==0.14.6
+matplotlib==3.11.0
+scikit-fuzzy==0.5.0

@@ -3,36 +3,36 @@
   "dataset": "SP500",
   "modele": {
     "ARIMA": {
-      "czas_treningu_s": 0.1173,
-      "czas_inferencji_s": 6.3263,
-      "czas_inferencji_na_probke_s": 0.126526,
+      "czas_treningu_s": 0.1901,
+      "czas_inferencji_s": 6.1351,
+      "czas_inferencji_na_probke_s": 0.122702,
       "n_probek_inferencji": 50,
       "parametry_total": "N/A (model statystyczny, rzad (5,1,0))",
       "parametry_trenowalnych": "N/A",
       "pamiec_modelu_MB": 0.0
     },
     "LSTM": {
-      "czas_treningu_s": 38.5227,
-      "czas_inferencji_s": 0.0053,
-      "czas_inferencji_na_probke_s": 1.4e-05,
+      "czas_treningu_s": 19.4305,
+      "czas_inferencji_s": 0.0059,
+      "czas_inferencji_na_probke_s": 1.5e-05,
       "n_probek_inferencji": 385,
       "parametry_total": 50497,
       "parametry_trenowalnych": 50497,
       "pamiec_modelu_MB": 0.1926
     },
     "TCN": {
-      "czas_treningu_s": 92.7469,
-      "czas_inferencji_s": 0.0063,
-      "czas_inferencji_na_probke_s": 1.6e-05,
+      "czas_treningu_s": 67.1172,
+      "czas_inferencji_s": 0.0044,
+      "czas_inferencji_na_probke_s": 1.1e-05,
       "n_probek_inferencji": 385,
       "parametry_total": 16129,
       "parametry_trenowalnych": 16129,
       "pamiec_modelu_MB": 0.063
     },
     "Mamdani": {
-      "czas_treningu_s": 0.1563,
-      "czas_inferencji_s": 2.0826,
-      "czas_inferencji_na_probke_s": 0.010413,
+      "czas_treningu_s": 0.0464,
+      "czas_inferencji_s": 1.8823,
+      "czas_inferencji_na_probke_s": 0.009412,
       "n_probek_inferencji": 200,
       "parametry_total": "N/A (15 regul, system ekspertowy)",
       "parametry_trenowalnych": "N/A (brak treningu — reguly eksperckie)",
@@ -40,9 +40,9 @@
       "liczba_regul": 15
     },
     "TCN_Mamdani": {
-      "czas_treningu_s": 10.0528,
-      "czas_inferencji_s": 4.4147,
-      "czas_inferencji_na_probke_s": 0.011467,
+      "czas_treningu_s": 8.2681,
+      "czas_inferencji_s": 4.1201,
+      "czas_inferencji_na_probke_s": 0.010701,
       "n_probek_inferencji": 385,
       "parametry_total": 9863,
       "parametry_trenowalnych": 9863,

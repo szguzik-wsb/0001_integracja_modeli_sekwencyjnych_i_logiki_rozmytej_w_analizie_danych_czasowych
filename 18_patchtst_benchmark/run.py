@@ -27,6 +27,7 @@ Zrodlo: Nie, Y., Nguyen, N. H., Sinthong, P., & Kalagnanam, J. (2023).
         A Time Series is Worth 64 Words. ICLR 2023.
 """
 import sys, os, time, warnings
+import copy
 warnings.filterwarnings("ignore")
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
@@ -172,7 +173,7 @@ def train_and_evaluate(dataset_key):
 
         if val_loss < best_val_loss:
             best_val_loss = val_loss
-            best_state = model.state_dict().copy()
+            best_state = copy.deepcopy(model.state_dict())
             patience_count = 0
         else:
             patience_count += 1

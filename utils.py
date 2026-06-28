@@ -106,9 +106,10 @@ def diebold_mariano(e1, e2, h=1):
     d_mean = np.mean(d)
     d_var = np.var(d, ddof=1)
 
-    # Autokowariancja dla h-krokowej prognozy
+    # Autokowariancja dla h-krokowej prognozy (lagi 1..h-1; dla h=1 brak korekty,
+    # bo roznica strat prognoz jednokrokowych jest nieskorelowana szeregowo przy H0)
     gamma = []
-    for k in range(h):
+    for k in range(1, h):
         gamma.append(np.mean((d[k:] - d_mean) * (d[:n - k] - d_mean)))
 
     V = (d_var + 2 * sum(gamma)) / n

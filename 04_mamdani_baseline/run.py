@@ -146,7 +146,7 @@ for ds_key, ds_info in DATASETS.items():
     print(f"  MAE:  {metrics['MAE']}")
     print(f"  Czas: {metrics['czas_s']}s")
 
-    pred_df = pd.DataFrame({"Actual": actuals, "Predicted": predictions})
+    pred_df = pd.DataFrame({"Date": test_df["Date"].values[1:len(predictions) + 1], "Actual": actuals, "Predicted": predictions})
     pred_df.to_csv(os.path.join(os.path.dirname(__file__), f"prognozy_{ds_key}.csv"), index=False)
 
 save_results({"model": "Mamdani(15 regul, gaussMF, COG)", "wyniki": RESULTS},

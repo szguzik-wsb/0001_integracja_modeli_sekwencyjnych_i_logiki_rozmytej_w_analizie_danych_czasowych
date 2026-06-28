@@ -1,5 +1,16 @@
 # Autor: mgr inz. Szymon Guzik, Uniwersytet WSB Merito w Gdansku
-"""Generowanie tabel jako PNG — v4: pelna siatka, klasyczny styl naukowy."""
+# =============================================================================
+# PRZESTARZALE / ZDEPRECOWANE (2026-06-28) — NIE UZYWAC.
+# Ten skrypt zawiera recznie wpisane, NIEAKTUALNE wartosci tabel (PNG) sprzed
+# przeliczenia modeli (np. TCN 4,453; PatchTST 10,348; DM -3,32). Artykul NIE
+# korzysta juz z tabel PNG — wszystkie tabele sa tabelami markdown w artykul.md.
+# JEDYNYM zrodlem prawdy dla liczb sa pliki badania/wewnetrzne/NN_*/wyniki.json
+# (oraz odpowiadajace im tabele w artykul.md). Wykresy generuje badania/generate_figures.py.
+# Plik pozostawiony wylacznie jako slad historyczny; nie uruchamiac.
+# =============================================================================
+import sys
+sys.exit("generate_tables.py jest zdeprecowany — zrodlo prawdy: wyniki.json + tabele markdown w artykul.md")
+"""Generowanie tabel jako PNG — v4: pelna siatka, klasyczny styl naukowy. (ZDEPRECOWANE)"""
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
@@ -133,7 +144,7 @@ make_table(
         ['EUR/USD', '2015\u20132025', '2 862', '0,960', '1,251', 'Yahoo Finance'],
         ['BTC/USD', '2018\u20132025', '2 921', '3 237', '124 753', 'Yahoo Finance'],
     ],
-    col_labels=['Zbior', 'Okres', 'Obserwacje', 'Close min', 'Close max', 'Zrodlo'],
+    col_labels=['Zbior', 'Okres', 'Obserwacje (surowe)', 'Close min', 'Close max', 'Zrodlo'],
     title='Tabela 2. Charakterystyka zbiorow danych',
     filename='tab2_dane.png',
     col_widths=[0.14, 0.16, 0.14, 0.14, 0.14, 0.18],

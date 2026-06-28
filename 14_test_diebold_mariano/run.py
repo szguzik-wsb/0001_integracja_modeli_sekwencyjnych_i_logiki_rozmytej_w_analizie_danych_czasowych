@@ -36,21 +36,22 @@ DATASET_KEYS = ["SP500", "WIG20", "EURUSD", "BTCUSD"]
 
 
 def load_predictions(experiment_name, dataset_key):
-    """Laduje prognozy z pliku CSV danego eksperymentu."""
+    """Laduje prognozy z pliku CSV danego eksperymentu (z kolumna Date)."""
     exp_dir = EXPERIMENT_DIRS[experiment_name]
     csv_path = os.path.join(exp_dir, f"prognozy_{dataset_key}.csv")
 
     if not os.path.exists(csv_path):
         print(f"  BRAK PLIKU: {csv_path}")
-        return None, None
+        return None
 
     df = pd.read_csv(csv_path)
 
-    if "Actual" in df.columns and "Predicted" in df.columns:
-        return df["Actual"].values, df["Predicted"].values
-    else:
-        print(f"  BLEDNE KOLUMNY w {csv_path}: {list(df.columns)}")
-        return None, None
+    if not ({"Date", "Actual", "Predicted"} <= set(df.columns)):
+        print(f"  BLEDNE KOLUMNY w {csv_path}: {list(df.columns)} (wymagane: Date, Actual, Predicted)")
+        return None
+    df = df[["Date", "Actual", "Predicted"]].copy()
+    df["Date"] = df["Date"].astype(str)
+    return df
 
 
 print("=== Eksperyment 14: Test Diebold-Mariano ===")
@@ -65,20 +66,18 @@ for ds_key in DATASET_KEYS:
     ds_name = DATASETS[ds_key]["name"]
     print(f"\n=== {ds_name} ({ds_key}) ===")
 
-    # Zaladuj prognozy modelu hybrydowego
-    actual_hybrid, pred_hybrid = load_predictions(HYBRID, ds_key)
-    if actual_hybrid is None:
+    # Zaladuj prognozy modelu hybrydowego (z kolumna Date)
+    hybrid_df = load_predictions(HYBRID, ds_key)
+    if hybrid_df is None:
         print(f"  POMINIETO: brak prognoz TCN+Mamdani dla {ds_key}")
         continue
-
-    errors_hybrid = actual_hybrid - pred_hybrid
 
     ds_results = {}
 
     for baseline in BASELINES:
-        actual_bl, pred_bl = load_predictions(baseline, ds_key)
+        bl_df = load_predictions(baseline, ds_key)
 
-        if actual_bl is None:
+        if bl_df is None:
             print(f"  POMINIETO: brak prognoz {baseline} dla {ds_key}")
             ds_results[baseline] = {
                 "status": "brak_danych",
@@ -88,12 +87,23 @@ for ds_key in DATASET_KEYS:
             }
             continue
 
-        # Wyrownanie dlugosci (rozne modele moga miec rozne dlugosci prognoz)
-        n_min = min(len(errors_hybrid), len(actual_bl))
-        errors_bl = actual_bl[:n_min] - pred_bl[:n_min]
-        errors_h = errors_hybrid[:n_min]
+        # Wyrownanie po DACIE (inner merge) — porownujemy te same dni handlowe,
+        # nie prefiks tablic. Eliminuje niedopasowanie dlugosci szeregow
+        # (ARIMA ~415, hybryda/LSTM/TCN ~385 po lookbacku, Mamdani ~414).
+        merged = pd.merge(hybrid_df, bl_df, on="Date", suffixes=("_h", "_bl"))
+        n_min = len(merged)
+        if n_min < 10:
+            print(f"  POMINIETO: za malo wspolnych dat ({n_min}) dla {baseline}/{ds_key}")
+            ds_results[baseline] = {
+                "status": "za_malo_wspolnych_dat",
+                "DM_statystyka": None, "p_value": None,
+                "istotne": None, "n_probek": n_min,
+            }
+            continue
+        errors_h = (merged["Actual_h"] - merged["Predicted_h"]).values
+        errors_bl = (merged["Actual_bl"] - merged["Predicted_bl"]).values
 
-        # Test Diebold-Mariano
+        # Test Diebold-Mariano (d = e_bl^2 - e_h^2; DM>0 => hybryda lepsza)
         dm_stat, p_value = diebold_mariano(errors_bl, errors_h, h=1)
 
         # Interpretacja
@@ -155,7 +165,7 @@ result_data = {
     "opis": "Porownanie TCN+Mamdani vs kazdy baseline na 4 zbiorach danych",
     "alpha": ALPHA,
     "H0": "Oba modele sa rownie dobre (brak roznic w dokladnosci prognoz)",
-    "metoda_bledow": "e = actual - predicted, d = e1^2 - e2^2",
+    "metoda_bledow": "e = actual - predicted, d = e_baseline^2 - e_hybryda^2; prognozy wyrownane po DACIE (inner merge), nie po prefiksie tablic",
     "wyniki_po_datasecie": RESULTS,
     "tabela_podsumowania": summary_table,
     "statystyki_ogolne": {

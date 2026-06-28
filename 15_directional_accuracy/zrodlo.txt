@@ -1,0 +1,16 @@
+Eksperyment 15_directional_accuracy: Dokladnosc kierunkowa (DA) piciu modeli
+Seed: 42
+Dane wejsciowe: prognozy 01_arima, 02_lstm, 03_tcn, 04_mamdani, 05_tcn_mamdani_hybrid (pliki prognozy_*.csv dla 4 glownych zbiorow SP500/WIG20/EURUSD/BTCUSD)
+
+Metoda: Dla kazdego modelu i zbioru obliczana jest dokladnosc kierunkowa DA
+    DA = (100 / n) * sum( 1[ sign(y_t - y_{t-1}) == sign(y_hat_t - y_{t-1}) ] )
+oraz rozbicie per kierunek:
+    DA_up   - odsetek wypowiedzi "wzrost" prawidlowo sklasyfikowanych
+    DA_down - odsetek wypowiedzi "spadek" prawidlowo sklasyfikowanych
+Sluzy to wykryciu ewentualnej degeneracji kierunkowej modelu (np. 100/0 oznacza model generujacy wylacznie sygnal wzrostowy).
+
+Zrodlo metryki: Blasco, J., Santamaria, E., & Rodriguez, A. (2005). Directional accuracy as a forecasting metric. International Journal of Forecasting.
+Implementacja: run.py oparty na porownaniu znakow roznic y_t - y_{t-1} miedzy prognoza a wartoscia rzeczywista.
+Biblioteki: pandas, numpy.
+
+Wyniki zgodne z artykul.md sekcja 3.2 "Analiza dokladnosci kierunkowej (DA)".
