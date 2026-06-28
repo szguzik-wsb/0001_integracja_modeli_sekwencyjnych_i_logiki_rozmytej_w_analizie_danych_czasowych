@@ -1,0 +1,73 @@
+WAVE 1 START 01:07:50  (14 eksperymentow)
+
+===== 02_lstm_baseline  start 01:07:50 =====
+--- 02_lstm_baseline OK w 216.0s ---
+--- 02_lstm_baseline EXCEPTION: 'charmap' codec can't encode character '\ufffd' in position 291: character maps to <undefined> ---
+
+===== 03_tcn_baseline  start 01:11:26 =====
+--- 03_tcn_baseline OK w 286.7s ---
+--- 03_tcn_baseline EXCEPTION: 'charmap' codec can't encode character '\ufffd' in position 302: character maps to <undefined> ---
+
+===== 05_tcn_mamdani_hybrid  start 01:16:12 =====
+--- 05_tcn_mamdani_hybrid OK w 184.3s ---
+--- 05_tcn_mamdani_hybrid EXCEPTION: 'charmap' codec can't encode character '\ufffd' in position 266: character maps to <undefined> ---
+
+===== 04_mamdani_baseline  start 01:19:17 =====
+--- 04_mamdani_baseline OK w 36.0s ---
+--- 04_mamdani_baseline EXCEPTION: 'charmap' codec can't encode character '\ufffd' in position 175: character maps to <undefined> ---
+
+===== 18_patchtst_benchmark  start 01:19:53 =====
+--- 18_patchtst_benchmark OK w 135.1s ---
+--- 18_patchtst_benchmark EXCEPTION: 'charmap' codec can't encode character '\ufffd' in position 269: character maps to <undefined> ---
+
+===== 20_all_7datasets  start 01:22:08 =====
+--- 20_all_7datasets OK w 302.2s ---
+--- 20_all_7datasets EXCEPTION: 'charmap' codec can't encode character '\ufffd' in position 155: character maps to <undefined> ---
+
+===== 06_ablacja  start 01:27:10 =====
+--- 06_ablacja OK w 19.9s ---
+--- 06_ablacja EXCEPTION: 'charmap' codec can't encode character '\ufffd' in position 175: character maps to <undefined> ---
+
+===== 08_multi_step  start 01:27:30 =====
+--- 08_multi_step OK w 546.6s ---
+--- 08_multi_step EXCEPTION: 'charmap' codec can't encode character '\ufffd' in position 459: character maps to <undefined> ---
+
+===== 11_rozne_lookback  start 01:36:37 =====
+--- 11_rozne_lookback OK w 140.2s ---
+--- 11_rozne_lookback EXCEPTION: 'charmap' codec can't encode character '\ufffd' in position 503: character maps to <undefined> ---
+
+===== 12_analiza_regul  start 01:38:57 =====
+--- 12_analiza_regul OK w 14.3s ---
+--- 12_analiza_regul EXCEPTION: 'charmap' codec can't encode character '\ufffd' in position 479: character maps to <undefined> ---
+
+===== 13_zlozonosc_obliczeniowa  start 01:39:11 =====
+--- 13_zlozonosc_obliczeniowa OK w 113.7s ---
+--- 13_zlozonosc_obliczeniowa EXCEPTION: 'charmap' codec can't encode character '\ufffd' in position 661: character maps to <undefined> ---
+
+===== 21_walk_forward  start 01:41:05 =====
+--- 21_walk_forward OK w 2036.7s ---
+--- 21_walk_forward EXCEPTION: 'charmap' codec can't encode character '\ufffd' in position 289: character maps to <undefined> ---
+
+===== 09_stabilnosc  start 02:15:02 =====
+--- 09_stabilnosc OK w 127.6s ---
+--- 09_stabilnosc EXCEPTION: 'charmap' codec can't encode character '\ufffd' in position 305: character maps to <undefined> ---
+
+===== 19_ga_reguly_optymalizacja  start 02:17:09 =====
+--- 19_ga_reguly_optymalizacja OK w 10680.9s ---
+--- 19_ga_reguly_optymalizacja EXCEPTION: 'charmap' codec can't encode character '\ufffd' in position 391: character maps to <undefined> ---
+
+===== WAVE 1 KONIEC, laczny czas 247.3 min =====
+  02_lstm_baseline                 EXCEPTION      -1s
+  03_tcn_baseline                  EXCEPTION      -1s
+  05_tcn_mamdani_hybrid            EXCEPTION      -1s
+  04_mamdani_baseline              EXCEPTION      -1s
+  18_patchtst_benchmark            EXCEPTION      -1s
+  20_all_7datasets                 EXCEPTION      -1s
+  06_ablacja                       EXCEPTION      -1s
+  08_multi_step                    EXCEPTION      -1s
+  11_rozne_lookback                EXCEPTION      -1s
+  12_analiza_regul                 EXCEPTION      -1s
+  13_zlozonosc_obliczeniowa        EXCEPTION      -1s
+  21_walk_forward                  EXCEPTION      -1s
+  09_stabilnosc                    EXCEPTION      -1s
+  19_ga_reguly_optymalizacja       EXCEPTION      -1s

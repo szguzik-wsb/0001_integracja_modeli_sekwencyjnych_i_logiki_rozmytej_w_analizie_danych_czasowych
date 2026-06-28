@@ -9,6 +9,7 @@ testowym S&P 500.
 Kluczowe dla argumentu interpretowalnosci w artykule.
 """
 import sys, os, time, warnings
+import copy
 warnings.filterwarnings("ignore")
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
@@ -268,7 +269,7 @@ for epoch in range(EPOCHS):
 
     if val_loss < best_val_loss:
         best_val_loss = val_loss
-        best_tcn_state = tcn.state_dict().copy()
+        best_tcn_state = copy.deepcopy(tcn.state_dict())
         patience_count = 0
     else:
         patience_count += 1

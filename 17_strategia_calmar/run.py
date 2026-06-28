@@ -32,8 +32,10 @@ COLORS = {"ARIMA": "#4472C4", "LSTM": "#ED7D31", "TCN": "#A5A5A5",
 
 def simulate_strategy(actual, predicted, initial_capital=10000):
     """
-    Strategia: jesli predicted[t+1] > actual[t] -> kup (long)
-               jesli predicted[t+1] < actual[t] -> sprzedaj (short)
+    Strategia bez look-ahead: decyzja na dzien t podejmowana na koniec dnia t-1.
+    Cena znana w chwili decyzji = actual[t-1] (ostatni zrealizowany kurs).
+    Sygnal: jesli predicted[t] > actual[t-1] -> long; w przeciwnym razie -> short.
+    Rozliczenie po realnej zmianie actual[t]-actual[t-1].
     Zwraca: kapital skumulowany, Calmar ratio, max drawdown.
     """
     capital = initial_capital
@@ -41,11 +43,11 @@ def simulate_strategy(actual, predicted, initial_capital=10000):
     n_trades = 0
     n_correct = 0
 
-    for i in range(len(predicted) - 1):
-        # Prognoza kierunku
-        pred_direction = predicted[i] - actual[i]  # >0 = prognoza wzrostu
-        actual_change = actual[i + 1] - actual[i]  # rzeczywista zmiana
-        pct_change = actual_change / actual[i]
+    for i in range(1, len(predicted)):
+        known_price = actual[i - 1]                 # cena znana w chwili decyzji (koniec dnia i-1)
+        pred_direction = predicted[i] - known_price  # >0 = prognoza wzrostu wzgledem znanej ceny
+        actual_change = actual[i] - known_price      # rzeczywista zmiana
+        pct_change = actual_change / known_price
 
         if pred_direction > 0:
             # Long — zarabiamy jesli cena rosnie

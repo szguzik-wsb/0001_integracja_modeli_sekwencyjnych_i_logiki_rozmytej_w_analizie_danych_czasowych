@@ -5,28 +5,49 @@
       "MAPE": 0.921,
       "RMSE": 74.563386,
       "MAE": 54.288108,
-      "czas_s": 3.15,
+      "czas_s": 4.26,
       "liczba_regul": 15
     },
     "WIG20": {
       "MAPE": 1.2553,
       "RMSE": 41.641436,
       "MAE": 32.603013,
-      "czas_s": 3.51,
+      "czas_s": 4.57,
       "liczba_regul": 15
     },
     "EURUSD": {
       "MAPE": 0.5041,
       "RMSE": 0.007449,
       "MAE": 0.005592,
-      "czas_s": 3.67,
+      "czas_s": 4.77,
       "liczba_regul": 15
     },
     "BTCUSD": {
       "MAPE": 1.7312,
       "RMSE": 2281.092019,
       "MAE": 1688.268593,
-      "czas_s": 3.91,
+      "czas_s": 4.97,
+      "liczba_regul": 15
+    },
+    "DAX": {
+      "MAPE": 0.9653,
+      "RMSE": 281.445981,
+      "MAE": 207.627712,
+      "czas_s": 4.8,
+      "liczba_regul": 15
+    },
+    "NIKKEI": {
+      "MAPE": 1.2321,
+      "RMSE": 693.601033,
+      "MAE": 493.638681,
+      "czas_s": 4.74,
+      "liczba_regul": 15
+    },
+    "GOLD": {
+      "MAPE": 1.1374,
+      "RMSE": 50.319784,
+      "MAE": 35.560406,
+      "czas_s": 5.01,
       "liczba_regul": 15
     }
   }

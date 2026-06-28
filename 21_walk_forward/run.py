@@ -19,6 +19,7 @@ Zrodla:
   - Bergmeir & Benitez (2012) — cross-validation for time series
 """
 import sys, os, time, warnings, datetime
+import copy
 sys.stdout.reconfigure(line_buffering=True)
 sys.stderr.reconfigure(line_buffering=True)
 warnings.filterwarnings("ignore")
@@ -217,7 +218,7 @@ def run_tcn_mamdani_fold(train_prices, val_prices, test_prices, fold_num):
             vl = criterion(proxy(tcn(X_v)).squeeze(), y_v).item()
         if vl < best_val:
             best_val = vl
-            best_state = tcn.state_dict().copy()
+            best_state = copy.deepcopy(tcn.state_dict())
             patience_count = 0
         else:
             patience_count += 1

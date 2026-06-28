@@ -1,0 +1,25 @@
+Eksperyment 17_strategia_calmar: Symulacja strategii inwestycyjnej i Calmar ratio
+Seed: 42
+Dane wejsciowe: prognozy 01_arima, 02_lstm, 03_tcn, 04_mamdani, 05_tcn_mamdani_hybrid (prognozy_*.csv dla SP500/WIG20/EURUSD/BTCUSD)
+
+Metoda: Prosta strategia long/short oparta na prognozie kierunku:
+    jesli prognoza_t+1 > cena_t  -> pozycja long na t+1
+    jesli prognoza_t+1 < cena_t  -> pozycja short na t+1
+Kapital poczatkowy: 10 000 USD/PLN/EUR/BTC (w zaleznosci od zbioru).
+Zadne prowizje ani poslizgi nie sa modelowane (uproszczenie).
+
+Metryki:
+  - total_return_pct - calkowity zwrot w procentach
+  - annual_return_pct - roczny zwrot w procentach (annualized)
+  - max_drawdown_pct - maksymalny drawdown
+  - calmar_ratio = annual_return / max_drawdown
+  - n_trades, accuracy_pct
+  - buy_hold_capital, buy_hold_return_pct (jako baseline pasywny)
+
+Zrodlo metodologii Calmar ratio: Young, T. W. (1991). Calmar ratio: A smoother tool. Futures Magazine.
+Dodatkowa referencja finansowa: Wilinski, A. (2019). Time series modeling and forecasting based on a Markov chain with changing transition matrices. Expert Systems with Applications, 133, 163-172.
+
+Implementacja: run.py symuluje krok po kroku alokacje kapitalu wedlug sygnalow modelu, akumulujac kapital i obliczajac metryki wydajnosciowe.
+Biblioteki: pandas, numpy.
+
+Wyniki zgodne z artykul.md sekcja 3.2 (linie 171-175): SP500 TCN-Mamdani +24,7% Calmar 0,90, Mamdani +38,89% Calmar 2,22, ARIMA +22,68% Calmar 1,55.

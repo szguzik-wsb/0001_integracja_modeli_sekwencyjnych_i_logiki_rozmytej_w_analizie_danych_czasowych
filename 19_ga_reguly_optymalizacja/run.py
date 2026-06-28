@@ -20,6 +20,7 @@ Zrodla:
   - Alves & Aguiar (2025) — GEN-NMR, genetyczna optymalizacja regresora Mamdaniego
 """
 import sys, os, time, warnings, datetime
+import copy
 
 # Wylacz buforowanie stdout/stderr GLOBALNIE
 sys.stdout.reconfigure(line_buffering=True)
@@ -290,7 +291,7 @@ def train_tcn_extractor(data):
 
         if val_loss < best_val_loss:
             best_val_loss = val_loss
-            best_tcn_state = tcn.state_dict().copy()
+            best_tcn_state = copy.deepcopy(tcn.state_dict())
             patience_count = 0
         else:
             patience_count += 1

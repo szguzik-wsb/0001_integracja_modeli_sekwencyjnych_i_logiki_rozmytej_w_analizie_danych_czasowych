@@ -4,58 +4,58 @@
   "lookback": 30,
   "wyniki": {
     "SP500": {
-      "MAPE": 10.3484,
-      "RMSE": 718.243314,
-      "MAE": 644.396812,
-      "czas_s": 20.31,
+      "MAPE": 10.8118,
+      "RMSE": 746.699683,
+      "MAE": 672.745159,
+      "czas_s": 19.55,
       "best_epoch": 85,
       "num_patches": 6
     },
     "WIG20": {
-      "MAPE": 3.1625,
-      "RMSE": 109.453323,
-      "MAE": 86.193892,
-      "czas_s": 25.1,
+      "MAPE": 3.8769,
+      "RMSE": 136.551497,
+      "MAE": 107.699496,
+      "czas_s": 24.39,
       "best_epoch": 85,
       "num_patches": 6
     },
     "EURUSD": {
-      "MAPE": 0.6115,
-      "RMSE": 0.009003,
-      "MAE": 0.006781,
-      "czas_s": 16.44,
+      "MAPE": 0.6353,
+      "RMSE": 0.00945,
+      "MAE": 0.007059,
+      "czas_s": 16.26,
       "best_epoch": 85,
       "num_patches": 6
     },
     "BTCUSD": {
-      "MAPE": 26.2478,
-      "RMSE": 28867.034423,
-      "MAE": 27281.78209,
-      "czas_s": 11.35,
+      "MAPE": 23.6094,
+      "RMSE": 26297.546811,
+      "MAE": 24622.492932,
+      "czas_s": 10.83,
       "best_epoch": 85,
       "num_patches": 6
     },
     "DAX": {
-      "MAPE": 16.8275,
-      "RMSE": 4236.234485,
-      "MAE": 3816.313564,
-      "czas_s": 21.17,
+      "MAPE": 14.5685,
+      "RMSE": 3768.201518,
+      "MAE": 3323.937711,
+      "czas_s": 20.07,
       "best_epoch": 85,
       "num_patches": 6
     },
     "NIKKEI": {
-      "MAPE": 17.9413,
-      "RMSE": 8541.018662,
-      "MAE": 7605.54759,
-      "czas_s": 7.72,
+      "MAPE": 16.8909,
+      "RMSE": 8169.179447,
+      "MAE": 7184.348189,
+      "czas_s": 7.38,
       "best_epoch": 85,
       "num_patches": 6
     },
     "GOLD": {
-      "MAPE": 23.9981,
-      "RMSE": 953.897686,
-      "MAE": 813.127477,
-      "czas_s": 31.71,
+      "MAPE": 22.9507,
+      "RMSE": 933.683218,
+      "MAE": 783.118572,
+      "czas_s": 32.39,
       "best_epoch": 85,
       "num_patches": 6
     }

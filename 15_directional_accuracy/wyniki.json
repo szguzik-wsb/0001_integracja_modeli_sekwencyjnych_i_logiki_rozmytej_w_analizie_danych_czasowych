@@ -13,12 +13,12 @@
       },
       "LSTM": {
         "DA": 42.45,
-        "DA_up": 0.9,
-        "DA_down": 98.77,
+        "DA_up": 1.36,
+        "DA_down": 98.16,
         "n_up": 221,
         "n_down": 163,
-        "correct_up": 2,
-        "correct_down": 161
+        "correct_up": 3,
+        "correct_down": 160
       },
       "TCN": {
         "DA": 42.45,
@@ -59,22 +59,22 @@
         "correct_down": 111
       },
       "LSTM": {
-        "DA": 52.36,
-        "DA_up": 53.5,
-        "DA_down": 51.1,
+        "DA": 49.48,
+        "DA_up": 22.0,
+        "DA_down": 79.67,
         "n_up": 200,
         "n_down": 182,
-        "correct_up": 107,
-        "correct_down": 93
+        "correct_up": 44,
+        "correct_down": 145
       },
       "TCN": {
-        "DA": 47.91,
-        "DA_up": 8.5,
-        "DA_down": 91.21,
+        "DA": 51.05,
+        "DA_up": 25.5,
+        "DA_down": 79.12,
         "n_up": 200,
         "n_down": 182,
-        "correct_up": 17,
-        "correct_down": 166
+        "correct_up": 51,
+        "correct_down": 144
       },
       "Mamdani": {
         "DA": 45.99,
@@ -106,22 +106,22 @@
         "correct_down": 118
       },
       "LSTM": {
-        "DA": 51.88,
-        "DA_up": 1.55,
-        "DA_down": 99.03,
+        "DA": 51.38,
+        "DA_up": 24.87,
+        "DA_down": 76.21,
         "n_up": 193,
         "n_down": 206,
-        "correct_up": 3,
-        "correct_down": 204
+        "correct_up": 48,
+        "correct_down": 157
       },
       "TCN": {
-        "DA": 48.12,
-        "DA_up": 67.88,
-        "DA_down": 29.61,
+        "DA": 49.62,
+        "DA_up": 36.79,
+        "DA_down": 61.65,
         "n_up": 193,
         "n_down": 206,
-        "correct_up": 131,
-        "correct_down": 61
+        "correct_up": 71,
+        "correct_down": 127
       },
       "Mamdani": {
         "DA": 52.57,
@@ -187,6 +187,147 @@
         "n_down": 202,
         "correct_up": 0,
         "correct_down": 202
+      }
+    },
+    "DAX": {
+      "ARIMA": {
+        "DA": 49.52,
+        "DA_up": 53.81,
+        "DA_down": 44.62,
+        "n_up": 223,
+        "n_down": 195,
+        "correct_up": 120,
+        "correct_down": 87
+      },
+      "LSTM": {
+        "DA": 46.65,
+        "DA_up": 0.48,
+        "DA_down": 100.0,
+        "n_up": 208,
+        "n_down": 180,
+        "correct_up": 1,
+        "correct_down": 180
+      },
+      "TCN": {
+        "DA": 47.94,
+        "DA_up": 4.33,
+        "DA_down": 98.33,
+        "n_up": 208,
+        "n_down": 180,
+        "correct_up": 9,
+        "correct_down": 177
+      },
+      "Mamdani": {
+        "DA": 51.8,
+        "DA_up": 55.41,
+        "DA_down": 47.69,
+        "n_up": 222,
+        "n_down": 195,
+        "correct_up": 123,
+        "correct_down": 93
+      },
+      "TCN-Mamdani": {
+        "DA": 53.61,
+        "DA_up": 100.0,
+        "DA_down": 0.0,
+        "n_up": 208,
+        "n_down": 180,
+        "correct_up": 208,
+        "correct_down": 0
+      }
+    },
+    "NIKKEI": {
+      "ARIMA": {
+        "DA": 48.88,
+        "DA_up": 47.03,
+        "DA_down": 51.09,
+        "n_up": 219,
+        "n_down": 184,
+        "correct_up": 103,
+        "correct_down": 94
+      },
+      "LSTM": {
+        "DA": 46.65,
+        "DA_up": 3.92,
+        "DA_down": 98.22,
+        "n_up": 204,
+        "n_down": 169,
+        "correct_up": 8,
+        "correct_down": 166
+      },
+      "TCN": {
+        "DA": 45.31,
+        "DA_up": 1.47,
+        "DA_down": 98.22,
+        "n_up": 204,
+        "n_down": 169,
+        "correct_up": 3,
+        "correct_down": 166
+      },
+      "Mamdani": {
+        "DA": 50.75,
+        "DA_up": 56.16,
+        "DA_down": 44.26,
+        "n_up": 219,
+        "n_down": 183,
+        "correct_up": 123,
+        "correct_down": 81
+      },
+      "TCN-Mamdani": {
+        "DA": 54.69,
+        "DA_up": 100.0,
+        "DA_down": 0.0,
+        "n_up": 204,
+        "n_down": 169,
+        "correct_up": 204,
+        "correct_down": 0
+      }
+    },
+    "GOLD": {
+      "ARIMA": {
+        "DA": 49.76,
+        "DA_up": 45.08,
+        "DA_down": 56.47,
+        "n_up": 244,
+        "n_down": 170,
+        "correct_up": 110,
+        "correct_down": 96
+      },
+      "LSTM": {
+        "DA": 40.62,
+        "DA_up": 0.0,
+        "DA_down": 100.0,
+        "n_up": 228,
+        "n_down": 156,
+        "correct_up": 0,
+        "correct_down": 156
+      },
+      "TCN": {
+        "DA": 40.62,
+        "DA_up": 0.0,
+        "DA_down": 100.0,
+        "n_up": 228,
+        "n_down": 156,
+        "correct_up": 0,
+        "correct_down": 156
+      },
+      "Mamdani": {
+        "DA": 46.0,
+        "DA_up": 53.91,
+        "DA_down": 34.71,
+        "n_up": 243,
+        "n_down": 170,
+        "correct_up": 131,
+        "correct_down": 59
+      },
+      "TCN-Mamdani": {
+        "DA": 40.62,
+        "DA_up": 0.0,
+        "DA_down": 100.0,
+        "n_up": 228,
+        "n_down": 156,
+        "correct_up": 0,
+        "correct_down": 156
       }
     }
   }

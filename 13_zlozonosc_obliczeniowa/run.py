@@ -11,6 +11,7 @@ Modele: ARIMA, LSTM, TCN, Mamdani, TCN+Mamdani
 Zbior: S&P 500
 """
 import sys, os, time, warnings
+import copy
 warnings.filterwarnings("ignore")
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
@@ -257,7 +258,7 @@ def train_dl_model(model, train_loader, X_val, y_val, model_name):
 
         if val_loss < best_val_loss:
             best_val_loss = val_loss
-            best_state = model.state_dict().copy()
+            best_state = copy.deepcopy(model.state_dict())
             patience_count = 0
         else:
             patience_count += 1
@@ -470,7 +471,7 @@ for epoch in range(EPOCHS):
 
     if val_loss < best_val_loss:
         best_val_loss = val_loss
-        best_state = tcn_fe.state_dict().copy()
+        best_state = copy.deepcopy(tcn_fe.state_dict())
         patience_count = 0
     else:
         patience_count += 1

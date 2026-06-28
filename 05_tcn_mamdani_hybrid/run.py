@@ -11,6 +11,7 @@ Architektura:
 Nowatorstwo: TCN nie byl dotad integrowany z systemem Mamdaniego.
 """
 import sys, os, time, warnings
+import copy
 warnings.filterwarnings("ignore")
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
@@ -208,7 +209,7 @@ def train_hybrid(dataset_key):
 
         if val_loss < best_val_loss:
             best_val_loss = val_loss
-            best_tcn_state = tcn.state_dict().copy()
+            best_tcn_state = copy.deepcopy(tcn.state_dict())
             patience_count = 0
         else:
             patience_count += 1
@@ -258,6 +259,7 @@ def train_hybrid(dataset_key):
 
     # Zapisz prognozy i cechy
     pred_df = pd.DataFrame({
+        "Date": data["dates_test"],
         "Actual": actuals,
         "Predicted": predictions,
         "TCN_trend": test_features[:, 0],
