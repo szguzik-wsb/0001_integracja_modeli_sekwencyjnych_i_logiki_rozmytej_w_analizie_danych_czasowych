@@ -348,6 +348,28 @@ WYN["J_walidacja_SP500_GA"] = {
     "MAPE_val_naiwna": R(mape(val_sp[LOOKBACK:], val_sp[LOOKBACK - 1:-1])), "n": len(val_sp) - LOOKBACK}
 print("J:", WYN["J_walidacja_SP500_GA"])
 
+# ---------------- L: warianty ablacji z eksp. 06 na cechach TCN glownego przebiegu (05, S&P 500)
+# Definicje funkcji wczytane z 06/run.py bez wykonywania reszty skryptu (ten sam kod, zero kopiowania).
+import ast
+src06 = open(os.path.join(BASE, "06_ablacja", "run.py"), encoding="utf-8").read()
+defs = [n for n in ast.parse(src06).body if isinstance(n, ast.FunctionDef)
+        and n.name in ("build_mamdani_5_rules", "build_mamdani_triangular")]
+ns06 = {"np": np, "fuzz": fuzz, "ctrl": ctrl}
+exec(compile(ast.Module(body=defs, type_ignores=[]), "06_ablacja/run.py", "exec"), ns06)
+w06 = json.load(open(os.path.join(BASE, "06_ablacja", "wyniki.json"), encoding="utf-8"))["wyniki"]["SP500"]
+d05 = prepare_data("SP500")
+h05 = load_pred(*HYB["SP500"])
+F05 = h05[["TCN_trend", "TCN_volatility", "TCN_momentum"]].values
+WYN["L_ablacja_na_cechach_05_SP500"] = {}
+for nazwa, fn, klucz in [("5_regul", "build_mamdani_5_rules", "5_regul_gauss"), ("15_regul_trimf", "build_mamdani_triangular", "15_regul_trimf")]:
+    sim_ = ns06[fn]()
+    pc_ = np.array([mamdani_predict(sim_, f) for f in F05])
+    pr_ = d05["scaler"].inverse_transform((d05["X_test"][:, -1] * (1 + pc_ / 100)).reshape(-1, 1)).ravel()
+    WYN["L_ablacja_na_cechach_05_SP500"][nazwa] = {
+        "MAPE_na_cechach_05": R(mape(h05["Actual"].values, pr_)), "MAPE_eksp06": w06[klucz]["MAPE"],
+        "MAPE_15_regul_gauss_05": R(mape(h05["Actual"].values, h05["Predicted"].values))}
+print("L:", WYN["L_ablacja_na_cechach_05_SP500"])
+
 save_results({"eksperyment": "27: kontrole na wspolnych datach (koszty, rezimy ex ante, DM Newey-West, "
                              "wariant skali cen, zakres treningu, korelacje z poziomem, sila regul)",
               "zrodla_prognoz": {"ARIMA": "01", "LSTM": "02", "TCN": "03", "Mamdani": "04",

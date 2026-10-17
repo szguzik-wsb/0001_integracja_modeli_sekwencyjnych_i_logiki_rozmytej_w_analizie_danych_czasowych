@@ -2585,13 +2585,6 @@
           "DA_down": 0.0,
           "n": 384,
           "odsetek_prognoz_wzrostu": 100.0
-        },
-        "Naiwna": {
-          "DA": 7.29,
-          "DA_up": 8.14,
-          "DA_down": 6.13,
-          "n": 384,
-          "odsetek_prognoz_wzrostu": 9.6
         }
       },
       "WIG20": {
@@ -2629,13 +2622,6 @@
           "DA_down": 0.0,
           "n": 382,
           "odsetek_prognoz_wzrostu": 100.0
-        },
-        "Naiwna": {
-          "DA": 3.93,
-          "DA_up": 4.0,
-          "DA_down": 3.85,
-          "n": 382,
-          "odsetek_prognoz_wzrostu": 3.1
         }
       },
       "EURUSD": {
@@ -2673,13 +2659,6 @@
           "DA_down": 99.51,
           "n": 399,
           "odsetek_prognoz_wzrostu": 0.0
-        },
-        "Naiwna": {
-          "DA": 2.01,
-          "DA_up": 2.07,
-          "DA_down": 1.94,
-          "n": 399,
-          "odsetek_prognoz_wzrostu": 1.8
         }
       },
       "BTCUSD": {
@@ -2717,13 +2696,6 @@
           "DA_down": 100.0,
           "n": 408,
           "odsetek_prognoz_wzrostu": 0.0
-        },
-        "Naiwna": {
-          "DA": 0.0,
-          "DA_up": 0.0,
-          "DA_down": 0.0,
-          "n": 408,
-          "odsetek_prognoz_wzrostu": 0.0
         }
       }
     },
@@ -2732,6 +2704,18 @@
       "MAPE_val_GA_eksp19": 0.6906,
       "MAPE_val_naiwna": 0.695,
       "n": 385
+    },
+    "L_ablacja_na_cechach_05_SP500": {
+      "5_regul": {
+        "MAPE_na_cechach_05": 1.0348,
+        "MAPE_eksp06": 1.0348,
+        "MAPE_15_regul_gauss_05": 1.3253
+      },
+      "15_regul_trimf": {
+        "MAPE_na_cechach_05": 1.2115,
+        "MAPE_eksp06": 1.2115,
+        "MAPE_15_regul_gauss_05": 1.3253
+      }
     }
   }
 }

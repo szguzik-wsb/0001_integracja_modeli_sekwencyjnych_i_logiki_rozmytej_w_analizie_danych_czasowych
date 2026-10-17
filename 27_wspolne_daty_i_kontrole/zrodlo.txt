@@ -18,6 +18,8 @@ Trzy skrypty, kazdy z wlasnym plikiem wynikow:
    I. Prognoza naiwna na probkach eksp. 11 (rozne okna wejsciowe, S&P 500).
    J. Prognoza naiwna na probce walidacyjnej S&P 500 (ta sama, na ktorej GA w eksp. 19 liczyl MAPE walidacyjne).
    K. Trafnosc kierunkowa (jak w eksp. 15) na wspolnych datach.
+   L. Warianty ablacji z eksp. 06 (5 regul; 15 regul z trojkatnymi MF) nalozone na cechy TCN glownego przebiegu 05
+      (S&P 500); definicje funkcji wczytane z 06/run.py przez ast; wynik identyczny z 06 = ten sam ekstraktor.
 2. walk_forward.py -> wyniki_walk_forward.json: foldy jak w eksp. 21; ARIMA(5,1,0) szacowana w kazdym kroku na pelnej
    historii do t-1 (trening + walidacja + wczesniejsze dni testu) oraz prognoza naiwna, obie na dokladnie tych dniach,
    na ktorych liczono MAPE hybrydy w 21 (test[30:]); MAPE hybrydy z 21/wyniki.json; dlugosc nakladania okien testowych.
