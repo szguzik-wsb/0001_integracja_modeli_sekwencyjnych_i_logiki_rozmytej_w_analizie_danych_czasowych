@@ -1,0 +1,40 @@
+Eksperyment 27_wspolne_daty_i_kontrole: kontrole po drugiej rundzie recenzji wewnetrznej (rewizja WSB JBF, 2026-10)
+
+Trzy skrypty, kazdy z wlasnym plikiem wynikow:
+1. run.py -> wyniki.json, krzywe_kapitalu_*.csv, run_output.log (bez trenowania modeli; tylko zapisane prognozy 01-05, 18, 20, 23):
+   A. MAPE wszystkich modeli na WSPOLNYCH datach (dni, dla ktorych prognozuje kazdy model = test bez pierwszych 30 obserwacji);
+      test Diebolda-Mariano (h=1, strata kwadratowa, rozklad t, jak w eksp. 14) oraz wariant z wariancja Neweya-Westa
+      (jadro Bartletta, L = floor(4 (n/100)^(2/9)) = 5) jako test odpornosci; autokorelacja rzedu 1 roznic strat.
+   B. Strategia long/short z eksp. 17/22 na wspolnych datach: koszt c od kazdej transakcji jednostronnej (wejscie 1,
+      odwrocenie 2, wyjscie 1; kup-i-trzymaj 2), koszty 0/5/10/20 pb; koszt progowy wzgledem kup-i-trzymaj i wzgledem
+      zerowego zysku (bisekcja); Calmar z annualizacja 365 dni dla BTC/USD i 252 dla pozostalych zbiorow.
+   C. Rezimy zmiennosci ex ante: odchylenie std. dziennych log-zwrotow z 20 sesji, znane na zamknieciu dnia t-1;
+      rezim wysoki = gorny kwartyl tej wielkosci na wspolnych datach testu.
+   E. Wariant skali cen: wyjscie Mamdaniego y* odtworzone z zapisanych cech TCN (blad odtworzenia prognoz < 1e-9)
+      i zastosowane do ostatniej ceny zamiast ostatniej wartosci znormalizowanej.
+   F. Odsetek dni testu z cena powyzej maksimum / ponizej minimum zbioru treningowego (skaler MinMax).
+   G. Korelacje Pearsona wyjsc TCN z poziomem ceny i trend-momentum; p nominalne (okna 30-dniowe nakladaja sie).
+   H. Sila odpalenia regul (min t-norma na funkcjach Gaussa z 05/run.py, prog 0,1).
+   I. Prognoza naiwna na probkach eksp. 11 (rozne okna wejsciowe, S&P 500).
+   J. Prognoza naiwna na probce walidacyjnej S&P 500 (ta sama, na ktorej GA w eksp. 19 liczyl MAPE walidacyjne).
+   K. Trafnosc kierunkowa (jak w eksp. 15) na wspolnych datach.
+2. walk_forward.py -> wyniki_walk_forward.json: foldy jak w eksp. 21; ARIMA(5,1,0) szacowana w kazdym kroku na pelnej
+   historii do t-1 (trening + walidacja + wczesniejsze dni testu) oraz prognoza naiwna, obie na dokladnie tych dniach,
+   na ktorych liczono MAPE hybrydy w 21 (test[30:]); MAPE hybrydy z 21/wyniki.json; dlugosc nakladania okien testowych.
+3. epoki_05_20.py -> wyniki_epoki.json, log_powtorka_05.txt, log_powtorka_20.txt: uruchomienie BEZ ZMIAN kodu 05/run.py
+   i 20/run.py z kopii w katalogu tymczasowym (zapisane wyniki 05 i 20 nie sa nadpisywane); z logu odczytana epoka
+   wczesnego zatrzymania (najlepsza epoka walidacyjna = epoka zatrzymania - 15); porownanie MAPE z zapisanym
+   (roznice do 0,006 pp: obliczenia nie sa bit-identyczne).
+
+Zrodla:
+  Diebold, F. X., & Mariano, R. S. (1995). Comparing predictive accuracy. Journal of Business & Economic Statistics,
+    13(3), 253-263. https://doi.org/10.1080/07350015.1995.10524599
+  Newey, W. K., & West, K. D. (1987). A simple, positive semi-definite, heteroskedasticity and autocorrelation consistent
+    covariance matrix. Econometrica, 55(3), 703-708. https://doi.org/10.2307/1913610
+  Tashman, L. J. (2000). Out-of-sample tests of forecasting accuracy: An analysis and review. International Journal of
+    Forecasting, 16(4), 437-450. https://doi.org/10.1016/S0169-2070(00)00065-0
+  GPW (b.d.). Poland developed market. https://www.gpw.pl/Polanddevelopedmarket (FTSE Russell: rynek rozwiniety od 24.09.2018)
+  MSCI (2025). MSCI 2025 Global Market Accessibility Review: Country Comparison (Polska w grupie Emerging Markets).
+Implementacja: Python 3.14.7 (macOS, CPU), numpy 2.5.0, pandas 3.0.3, scipy 1.18.0, scikit-learn 1.9.0, statsmodels 0.14.6, scikit-fuzzy 0.5.0, torch 2.11.0 (wersje jak w requirements.txt).
+Reprodukowalnosc: uruchomienie: python 27_wspolne_daty_i_kontrole/<skrypt>.py z katalogu wewnetrzne (dane w ../zewnetrzne).
+Data uruchomienia: 2026-10-17 (rewizja po recenzjach WSB Journal of Business and Finance).

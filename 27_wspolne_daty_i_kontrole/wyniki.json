@@ -1,0 +1,2737 @@
+{
+  "eksperyment": "27: kontrole na wspolnych datach (koszty, rezimy ex ante, DM Newey-West, wariant skali cen, zakres treningu, korelacje z poziomem, sila regul)",
+  "zrodla_prognoz": {
+    "ARIMA": "01",
+    "LSTM": "02",
+    "TCN": "03",
+    "Mamdani": "04",
+    "TCN-Mamdani": "05 (S&P 500, WIG20, EUR/USD, BTC/USD), 20 (DAX, Nikkei 225, Gold)",
+    "ARIMA_stale i Naiwna": "23"
+  },
+  "wyniki": {
+    "A_mape_i_DM_wspolne_daty": {
+      "SP500": {
+        "n_wspolnych_dat": 385,
+        "od": "2024-06-18",
+        "do": "2025-12-30",
+        "max_wzgl_roznica_Actual_miedzy_plikami": 1.53e-16,
+        "MAPE": {
+          "ARIMA": 0.7022,
+          "LSTM": 5.0969,
+          "TCN": 4.6283,
+          "Mamdani": 0.9503,
+          "TCN-Mamdani": 1.3253,
+          "ARIMA_stale": 0.6995,
+          "Naiwna": 0.6998
+        },
+        "DM_hybryda_vs": {
+          "ARIMA": {
+            "DM": -12.912,
+            "p": 6.28e-32,
+            "DM_NW": -12.618,
+            "p_NW": 8.89e-31,
+            "L_NW": 5,
+            "rho1_d": -0.009,
+            "n": 385
+          },
+          "ARIMA_stale": {
+            "DM": -12.825,
+            "p": 1.38e-31,
+            "DM_NW": -12.626,
+            "p_NW": 8.29e-31,
+            "L_NW": 5,
+            "rho1_d": -0.022,
+            "n": 385
+          },
+          "Naiwna": {
+            "DM": -12.214,
+            "p": 3.27e-29,
+            "DM_NW": -12.451,
+            "p_NW": 3.98e-30,
+            "L_NW": 5,
+            "rho1_d": -0.021,
+            "n": 385
+          },
+          "LSTM": {
+            "DM": 18.878,
+            "p": 1.06e-56,
+            "DM_NW": 8.19,
+            "p_NW": 3.92e-15,
+            "L_NW": 5,
+            "rho1_d": 0.932,
+            "n": 385
+          },
+          "TCN": {
+            "DM": 24.264,
+            "p": 1.64e-79,
+            "DM_NW": 11.411,
+            "p_NW": 3.6e-26,
+            "L_NW": 5,
+            "rho1_d": 0.736,
+            "n": 385
+          },
+          "Mamdani": {
+            "DM": -5.136,
+            "p": 4.46e-07,
+            "DM_NW": -6.382,
+            "p_NW": 5.05e-10,
+            "L_NW": 5,
+            "rho1_d": -0.144,
+            "n": 385
+          }
+        },
+        "DM_ARIMA_vs_Naiwna": {
+          "DM": 0.446,
+          "p": 0.656,
+          "DM_NW": 0.539,
+          "p_NW": 0.59,
+          "L_NW": 5,
+          "rho1_d": 0.174,
+          "n": 385
+        },
+        "DM_ARIMA_stale_vs_Naiwna": {
+          "DM": 0.807,
+          "p": 0.42,
+          "DM_NW": 0.799,
+          "p_NW": 0.425,
+          "L_NW": 5,
+          "rho1_d": 0.354,
+          "n": 385
+        },
+        "DM_ARIMA_stale_vs_ARIMA": {
+          "DM": 1.172,
+          "p": 0.242,
+          "DM_NW": 1.029,
+          "p_NW": 0.304,
+          "L_NW": 5,
+          "rho1_d": -0.035,
+          "n": 385
+        }
+      },
+      "WIG20": {
+        "n_wspolnych_dat": 383,
+        "od": "2024-06-18",
+        "do": "2025-12-30",
+        "max_wzgl_roznica_Actual_miedzy_plikami": 3.35e-16,
+        "MAPE": {
+          "ARIMA": 1.025,
+          "LSTM": 1.4723,
+          "TCN": 1.5298,
+          "Mamdani": 1.2648,
+          "TCN-Mamdani": 1.0757,
+          "ARIMA_stale": 1.0252,
+          "Naiwna": 1.0272
+        },
+        "DM_hybryda_vs": {
+          "ARIMA": {
+            "DM": -2.033,
+            "p": 0.0427,
+            "DM_NW": -2.082,
+            "p_NW": 0.038,
+            "L_NW": 5,
+            "rho1_d": -0.038,
+            "n": 383
+          },
+          "ARIMA_stale": {
+            "DM": -2.133,
+            "p": 0.0335,
+            "DM_NW": -2.195,
+            "p_NW": 0.0288,
+            "L_NW": 5,
+            "rho1_d": -0.031,
+            "n": 383
+          },
+          "Naiwna": {
+            "DM": -2.255,
+            "p": 0.0247,
+            "DM_NW": -2.397,
+            "p_NW": 0.017,
+            "L_NW": 5,
+            "rho1_d": -0.032,
+            "n": 383
+          },
+          "LSTM": {
+            "DM": 6.574,
+            "p": 1.61e-10,
+            "DM_NW": 4.383,
+            "p_NW": 1.51e-05,
+            "L_NW": 5,
+            "rho1_d": 0.206,
+            "n": 383
+          },
+          "TCN": {
+            "DM": 7.15,
+            "p": 4.43e-12,
+            "DM_NW": 4.446,
+            "p_NW": 1.15e-05,
+            "L_NW": 5,
+            "rho1_d": 0.336,
+            "n": 383
+          },
+          "Mamdani": {
+            "DM": 4.604,
+            "p": 5.65e-06,
+            "DM_NW": 5.355,
+            "p_NW": 1.48e-07,
+            "L_NW": 5,
+            "rho1_d": -0.05,
+            "n": 383
+          }
+        },
+        "DM_ARIMA_vs_Naiwna": {
+          "DM": -0.572,
+          "p": 0.568,
+          "DM_NW": -0.545,
+          "p_NW": 0.586,
+          "L_NW": 5,
+          "rho1_d": -0.017,
+          "n": 383
+        },
+        "DM_ARIMA_stale_vs_Naiwna": {
+          "DM": -0.137,
+          "p": 0.891,
+          "DM_NW": -0.139,
+          "p_NW": 0.89,
+          "L_NW": 5,
+          "rho1_d": -0.018,
+          "n": 383
+        },
+        "DM_ARIMA_stale_vs_ARIMA": {
+          "DM": 1.192,
+          "p": 0.234,
+          "DM_NW": 1.051,
+          "p_NW": 0.294,
+          "L_NW": 5,
+          "rho1_d": 0.023,
+          "n": 383
+        }
+      },
+      "EURUSD": {
+        "n_wspolnych_dat": 400,
+        "od": "2024-06-12",
+        "do": "2025-12-30",
+        "max_wzgl_roznica_Actual_miedzy_plikami": 3.81e-16,
+        "MAPE": {
+          "ARIMA": 0.3384,
+          "LSTM": 0.3816,
+          "TCN": 0.4117,
+          "Mamdani": 0.512,
+          "TCN-Mamdani": 0.3903,
+          "ARIMA_stale": 0.3382,
+          "Naiwna": 0.3389
+        },
+        "DM_hybryda_vs": {
+          "ARIMA": {
+            "DM": -5.768,
+            "p": 1.61e-08,
+            "DM_NW": -5.664,
+            "p_NW": 2.83e-08,
+            "L_NW": 5,
+            "rho1_d": -0.001,
+            "n": 400
+          },
+          "ARIMA_stale": {
+            "DM": -5.802,
+            "p": 1.34e-08,
+            "DM_NW": -5.688,
+            "p_NW": 2.49e-08,
+            "L_NW": 5,
+            "rho1_d": 0.002,
+            "n": 400
+          },
+          "Naiwna": {
+            "DM": -5.814,
+            "p": 1.25e-08,
+            "DM_NW": -5.679,
+            "p_NW": 2.61e-08,
+            "L_NW": 5,
+            "rho1_d": 0.005,
+            "n": 400
+          },
+          "LSTM": {
+            "DM": -2.598,
+            "p": 0.00974,
+            "DM_NW": -2.854,
+            "p_NW": 0.00454,
+            "L_NW": 5,
+            "rho1_d": -0.027,
+            "n": 400
+          },
+          "TCN": {
+            "DM": 1.334,
+            "p": 0.183,
+            "DM_NW": 1.351,
+            "p_NW": 0.177,
+            "L_NW": 5,
+            "rho1_d": 0.056,
+            "n": 400
+          },
+          "Mamdani": {
+            "DM": 5.593,
+            "p": 4.15e-08,
+            "DM_NW": 5.053,
+            "p_NW": 6.63e-07,
+            "L_NW": 5,
+            "rho1_d": 0.068,
+            "n": 400
+          }
+        },
+        "DM_ARIMA_vs_Naiwna": {
+          "DM": 0.16,
+          "p": 0.873,
+          "DM_NW": 0.198,
+          "p_NW": 0.843,
+          "L_NW": 5,
+          "rho1_d": -0.226,
+          "n": 400
+        },
+        "DM_ARIMA_stale_vs_Naiwna": {
+          "DM": 0.719,
+          "p": 0.473,
+          "DM_NW": 0.863,
+          "p_NW": 0.389,
+          "L_NW": 5,
+          "rho1_d": -0.132,
+          "n": 400
+        },
+        "DM_ARIMA_stale_vs_ARIMA": {
+          "DM": 1.594,
+          "p": 0.112,
+          "DM_NW": 1.888,
+          "p_NW": 0.0598,
+          "L_NW": 5,
+          "rho1_d": -0.284,
+          "n": 400
+        }
+      },
+      "BTCUSD": {
+        "n_wspolnych_dat": 409,
+        "od": "2024-11-17",
+        "do": "2025-12-30",
+        "max_wzgl_roznica_Actual_miedzy_plikami": 0.0,
+        "MAPE": {
+          "ARIMA": 1.6055,
+          "LSTM": 5.2188,
+          "TCN": 15.4667,
+          "Mamdani": 1.6902,
+          "TCN-Mamdani": 1.8272,
+          "ARIMA_stale": 1.6012,
+          "Naiwna": 1.5986
+        },
+        "DM_hybryda_vs": {
+          "ARIMA": {
+            "DM": -4.137,
+            "p": 4.27e-05,
+            "DM_NW": -4.331,
+            "p_NW": 1.87e-05,
+            "L_NW": 5,
+            "rho1_d": 0.007,
+            "n": 409
+          },
+          "ARIMA_stale": {
+            "DM": -4.303,
+            "p": 2.11e-05,
+            "DM_NW": -4.454,
+            "p_NW": 1.09e-05,
+            "L_NW": 5,
+            "rho1_d": 0.016,
+            "n": 409
+          },
+          "Naiwna": {
+            "DM": -4.421,
+            "p": 1.26e-05,
+            "DM_NW": -4.707,
+            "p_NW": 3.45e-06,
+            "L_NW": 5,
+            "rho1_d": -0.023,
+            "n": 409
+          },
+          "LSTM": {
+            "DM": 15.806,
+            "p": 3.06e-44,
+            "DM_NW": 7.154,
+            "p_NW": 3.93e-12,
+            "L_NW": 5,
+            "rho1_d": 0.768,
+            "n": 409
+          },
+          "TCN": {
+            "DM": 36.365,
+            "p": 4.42e-130,
+            "DM_NW": 18.79,
+            "p_NW": 3.35e-57,
+            "L_NW": 5,
+            "rho1_d": 0.617,
+            "n": 409
+          },
+          "Mamdani": {
+            "DM": -1.726,
+            "p": 0.0851,
+            "DM_NW": -1.896,
+            "p_NW": 0.0587,
+            "L_NW": 5,
+            "rho1_d": -0.079,
+            "n": 409
+          }
+        },
+        "DM_ARIMA_vs_Naiwna": {
+          "DM": -1.589,
+          "p": 0.113,
+          "DM_NW": -1.734,
+          "p_NW": 0.0837,
+          "L_NW": 5,
+          "rho1_d": 0.009,
+          "n": 409
+        },
+        "DM_ARIMA_stale_vs_Naiwna": {
+          "DM": -0.671,
+          "p": 0.502,
+          "DM_NW": -0.755,
+          "p_NW": 0.451,
+          "L_NW": 5,
+          "rho1_d": -0.02,
+          "n": 409
+        },
+        "DM_ARIMA_stale_vs_ARIMA": {
+          "DM": 2.35,
+          "p": 0.0193,
+          "DM_NW": 2.279,
+          "p_NW": 0.0232,
+          "L_NW": 5,
+          "rho1_d": 0.025,
+          "n": 409
+        }
+      },
+      "DAX": {
+        "n_wspolnych_dat": 389,
+        "od": "2024-06-18",
+        "do": "2025-12-29",
+        "max_wzgl_roznica_Actual_miedzy_plikami": 1.51e-16,
+        "MAPE": {
+          "ARIMA": 0.7593,
+          "LSTM": 5.1007,
+          "TCN": 2.3189,
+          "Mamdani": 0.9772,
+          "TCN-Mamdani": 1.1806,
+          "ARIMA_stale": 0.7561,
+          "Naiwna": 0.7562
+        },
+        "DM_hybryda_vs": {
+          "ARIMA": {
+            "DM": -9.467,
+            "p": 2.87e-19,
+            "DM_NW": -8.882,
+            "p_NW": 2.48e-17,
+            "L_NW": 5,
+            "rho1_d": -0.016,
+            "n": 389
+          },
+          "ARIMA_stale": {
+            "DM": -9.533,
+            "p": 1.71e-19,
+            "DM_NW": -8.916,
+            "p_NW": 1.92e-17,
+            "L_NW": 5,
+            "rho1_d": -0.012,
+            "n": 389
+          },
+          "Naiwna": {
+            "DM": -9.455,
+            "p": 3.14e-19,
+            "DM_NW": -8.838,
+            "p_NW": 3.44e-17,
+            "L_NW": 5,
+            "rho1_d": 0.002,
+            "n": 389
+          },
+          "LSTM": {
+            "DM": 21.256,
+            "p": 4.83e-67,
+            "DM_NW": 9.285,
+            "p_NW": 1.17e-18,
+            "L_NW": 5,
+            "rho1_d": 0.871,
+            "n": 389
+          },
+          "TCN": {
+            "DM": 11.514,
+            "p": 1.37e-26,
+            "DM_NW": 6.529,
+            "p_NW": 2.08e-10,
+            "L_NW": 5,
+            "rho1_d": 0.504,
+            "n": 389
+          },
+          "Mamdani": {
+            "DM": -2.385,
+            "p": 0.0175,
+            "DM_NW": -2.137,
+            "p_NW": 0.0332,
+            "L_NW": 5,
+            "rho1_d": 0.147,
+            "n": 389
+          }
+        },
+        "DM_ARIMA_vs_Naiwna": {
+          "DM": -0.279,
+          "p": 0.781,
+          "DM_NW": -0.395,
+          "p_NW": 0.693,
+          "L_NW": 5,
+          "rho1_d": -0.243,
+          "n": 389
+        },
+        "DM_ARIMA_stale_vs_Naiwna": {
+          "DM": 1.06,
+          "p": 0.29,
+          "DM_NW": 1.226,
+          "p_NW": 0.221,
+          "L_NW": 5,
+          "rho1_d": -0.042,
+          "n": 389
+        },
+        "DM_ARIMA_stale_vs_ARIMA": {
+          "DM": 2.321,
+          "p": 0.0208,
+          "DM_NW": 2.129,
+          "p_NW": 0.0339,
+          "L_NW": 5,
+          "rho1_d": -0.012,
+          "n": 389
+        }
+      },
+      "NIKKEI": {
+        "n_wspolnych_dat": 374,
+        "od": "2024-06-20",
+        "do": "2025-12-29",
+        "max_wzgl_roznica_Actual_miedzy_plikami": 0.0,
+        "MAPE": {
+          "ARIMA": 1.0967,
+          "LSTM": 4.8914,
+          "TCN": 7.3273,
+          "Mamdani": 1.2544,
+          "TCN-Mamdani": 1.0838,
+          "ARIMA_stale": 1.0895,
+          "Naiwna": 1.0838
+        },
+        "DM_hybryda_vs": {
+          "ARIMA": {
+            "DM": 0.968,
+            "p": 0.333,
+            "DM_NW": 0.882,
+            "p_NW": 0.378,
+            "L_NW": 5,
+            "rho1_d": 0.064,
+            "n": 374
+          },
+          "ARIMA_stale": {
+            "DM": -0.279,
+            "p": 0.781,
+            "DM_NW": -0.233,
+            "p_NW": 0.816,
+            "L_NW": 5,
+            "rho1_d": 0.339,
+            "n": 374
+          },
+          "Naiwna": {
+            "DM": 0.318,
+            "p": 0.75,
+            "DM_NW": 0.384,
+            "p_NW": 0.701,
+            "L_NW": 5,
+            "rho1_d": -0.156,
+            "n": 374
+          },
+          "LSTM": {
+            "DM": 12.312,
+            "p": 1.83e-29,
+            "DM_NW": 5.286,
+            "p_NW": 2.13e-07,
+            "L_NW": 5,
+            "rho1_d": 0.925,
+            "n": 374
+          },
+          "TCN": {
+            "DM": 27.06,
+            "p": 5.28e-90,
+            "DM_NW": 12.549,
+            "p_NW": 2.24e-30,
+            "L_NW": 5,
+            "rho1_d": 0.823,
+            "n": 374
+          },
+          "Mamdani": {
+            "DM": 3.344,
+            "p": 0.000909,
+            "DM_NW": 3.728,
+            "p_NW": 0.000223,
+            "L_NW": 5,
+            "rho1_d": -0.079,
+            "n": 374
+          }
+        },
+        "DM_ARIMA_vs_Naiwna": {
+          "DM": -0.963,
+          "p": 0.336,
+          "DM_NW": -0.875,
+          "p_NW": 0.382,
+          "L_NW": 5,
+          "rho1_d": 0.065,
+          "n": 374
+        },
+        "DM_ARIMA_stale_vs_Naiwna": {
+          "DM": 0.283,
+          "p": 0.777,
+          "DM_NW": 0.237,
+          "p_NW": 0.812,
+          "L_NW": 5,
+          "rho1_d": 0.34,
+          "n": 374
+        },
+        "DM_ARIMA_stale_vs_ARIMA": {
+          "DM": 1.49,
+          "p": 0.137,
+          "DM_NW": 1.609,
+          "p_NW": 0.109,
+          "L_NW": 5,
+          "rho1_d": -0.114,
+          "n": 374
+        }
+      },
+      "GOLD": {
+        "n_wspolnych_dat": 385,
+        "od": "2024-06-21",
+        "do": "2025-12-30",
+        "max_wzgl_roznica_Actual_miedzy_plikami": 3.37e-16,
+        "MAPE": {
+          "ARIMA": 0.8986,
+          "LSTM": 14.0522,
+          "TCN": 10.5145,
+          "Mamdani": 1.114,
+          "TCN-Mamdani": 1.1925,
+          "ARIMA_stale": 0.8932,
+          "Naiwna": 0.891
+        },
+        "DM_hybryda_vs": {
+          "ARIMA": {
+            "DM": -5.1,
+            "p": 5.34e-07,
+            "DM_NW": -5.89,
+            "p_NW": 8.46e-09,
+            "L_NW": 5,
+            "rho1_d": -0.13,
+            "n": 385
+          },
+          "ARIMA_stale": {
+            "DM": -5.31,
+            "p": 1.86e-07,
+            "DM_NW": -5.925,
+            "p_NW": 6.94e-09,
+            "L_NW": 5,
+            "rho1_d": -0.109,
+            "n": 385
+          },
+          "Naiwna": {
+            "DM": -5.284,
+            "p": 2.12e-07,
+            "DM_NW": -5.989,
+            "p_NW": 4.84e-09,
+            "L_NW": 5,
+            "rho1_d": -0.122,
+            "n": 385
+          },
+          "LSTM": {
+            "DM": 15.862,
+            "p": 6.15e-44,
+            "DM_NW": 6.624,
+            "p_NW": 1.18e-10,
+            "L_NW": 5,
+            "rho1_d": 0.978,
+            "n": 385
+          },
+          "TCN": {
+            "DM": 27.496,
+            "p": 9.12e-93,
+            "DM_NW": 12.171,
+            "p_NW": 4.77e-29,
+            "L_NW": 5,
+            "rho1_d": 0.839,
+            "n": 385
+          },
+          "Mamdani": {
+            "DM": -0.181,
+            "p": 0.857,
+            "DM_NW": -0.153,
+            "p_NW": 0.879,
+            "L_NW": 5,
+            "rho1_d": 0.205,
+            "n": 385
+          }
+        },
+        "DM_ARIMA_vs_Naiwna": {
+          "DM": -1.333,
+          "p": 0.183,
+          "DM_NW": -1.359,
+          "p_NW": 0.175,
+          "L_NW": 5,
+          "rho1_d": 0.016,
+          "n": 385
+        },
+        "DM_ARIMA_stale_vs_Naiwna": {
+          "DM": 0.438,
+          "p": 0.662,
+          "DM_NW": 0.379,
+          "p_NW": 0.705,
+          "L_NW": 5,
+          "rho1_d": 0.205,
+          "n": 385
+        },
+        "DM_ARIMA_stale_vs_ARIMA": {
+          "DM": 1.765,
+          "p": 0.0784,
+          "DM_NW": 1.746,
+          "p_NW": 0.0816,
+          "L_NW": 5,
+          "rho1_d": -0.05,
+          "n": 385
+        }
+      }
+    },
+    "B_strategia_wspolne_daty": {
+      "SP500": {
+        "dni_roku_do_annualizacji": 252,
+        "modele": {
+          "ARIMA": {
+            "zmiany_kierunku": 247,
+            "dni_long": 177,
+            "dni_short": 207,
+            "wyniki_wg_kosztu_bp": {
+              "0": {
+                "total_return_pct": 28.38,
+                "annual_return_pct": 17.82,
+                "max_drawdown_pct": 12.84,
+                "calmar_ratio": 1.388
+              },
+              "5": {
+                "total_return_pct": 0.18,
+                "annual_return_pct": 0.12,
+                "max_drawdown_pct": 13.7,
+                "calmar_ratio": 0.009
+              },
+              "10": {
+                "total_return_pct": -21.84,
+                "annual_return_pct": -14.93,
+                "max_drawdown_pct": 22.45,
+                "calmar_ratio": -0.665
+              },
+              "20": {
+                "total_return_pct": -52.44,
+                "annual_return_pct": -38.6,
+                "max_drawdown_pct": 52.59,
+                "calmar_ratio": -0.734
+              }
+            },
+            "koszt_progowy_bp_vs_buy_hold": 0.43,
+            "koszt_progowy_bp_zysk_zero": 5.04
+          },
+          "LSTM": {
+            "zmiany_kierunku": 6,
+            "dni_long": 6,
+            "dni_short": 378,
+            "wyniki_wg_kosztu_bp": {
+              "0": {
+                "total_return_pct": -15.44,
+                "annual_return_pct": -10.42,
+                "max_drawdown_pct": 24.47,
+                "calmar_ratio": -0.426
+              },
+              "5": {
+                "total_return_pct": -16.03,
+                "annual_return_pct": -10.83,
+                "max_drawdown_pct": 24.55,
+                "calmar_ratio": -0.441
+              },
+              "10": {
+                "total_return_pct": -16.62,
+                "annual_return_pct": -11.24,
+                "max_drawdown_pct": 24.62,
+                "calmar_ratio": -0.457
+              },
+              "20": {
+                "total_return_pct": -17.78,
+                "annual_return_pct": -12.06,
+                "max_drawdown_pct": 24.77,
+                "calmar_ratio": -0.487
+              }
+            },
+            "koszt_progowy_bp_vs_buy_hold": null,
+            "koszt_progowy_bp_zysk_zero": null
+          },
+          "TCN": {
+            "zmiany_kierunku": 0,
+            "dni_long": 0,
+            "dni_short": 384,
+            "wyniki_wg_kosztu_bp": {
+              "0": {
+                "total_return_pct": -23.96,
+                "annual_return_pct": -16.45,
+                "max_drawdown_pct": 29.7,
+                "calmar_ratio": -0.554
+              },
+              "5": {
+                "total_return_pct": -24.03,
+                "annual_return_pct": -16.51,
+                "max_drawdown_pct": 29.7,
+                "calmar_ratio": -0.556
+              },
+              "10": {
+                "total_return_pct": -24.11,
+                "annual_return_pct": -16.56,
+                "max_drawdown_pct": 29.7,
+                "calmar_ratio": -0.557
+              },
+              "20": {
+                "total_return_pct": -24.26,
+                "annual_return_pct": -16.67,
+                "max_drawdown_pct": 29.7,
+                "calmar_ratio": -0.561
+              }
+            },
+            "koszt_progowy_bp_vs_buy_hold": null,
+            "koszt_progowy_bp_zysk_zero": null
+          },
+          "Mamdani": {
+            "zmiany_kierunku": 193,
+            "dni_long": 223,
+            "dni_short": 161,
+            "wyniki_wg_kosztu_bp": {
+              "0": {
+                "total_return_pct": -24.36,
+                "annual_return_pct": -16.74,
+                "max_drawdown_pct": 31.73,
+                "calmar_ratio": -0.528
+              },
+              "5": {
+                "total_return_pct": -37.7,
+                "annual_return_pct": -26.7,
+                "max_drawdown_pct": 42.19,
+                "calmar_ratio": -0.633
+              },
+              "10": {
+                "total_return_pct": -48.7,
+                "annual_return_pct": -35.47,
+                "max_drawdown_pct": 51.19,
+                "calmar_ratio": -0.693
+              },
+              "20": {
+                "total_return_pct": -65.22,
+                "annual_return_pct": -49.99,
+                "max_drawdown_pct": 66.17,
+                "calmar_ratio": -0.756
+              }
+            },
+            "koszt_progowy_bp_vs_buy_hold": null,
+            "koszt_progowy_bp_zysk_zero": null
+          },
+          "TCN-Mamdani": {
+            "zmiany_kierunku": 0,
+            "dni_long": 384,
+            "dni_short": 0,
+            "wyniki_wg_kosztu_bp": {
+              "0": {
+                "total_return_pct": 25.68,
+                "annual_return_pct": 16.18,
+                "max_drawdown_pct": 18.9,
+                "calmar_ratio": 0.856
+              },
+              "5": {
+                "total_return_pct": 25.56,
+                "annual_return_pct": 16.11,
+                "max_drawdown_pct": 18.9,
+                "calmar_ratio": 0.852
+              },
+              "10": {
+                "total_return_pct": 25.43,
+                "annual_return_pct": 16.03,
+                "max_drawdown_pct": 18.9,
+                "calmar_ratio": 0.848
+              },
+              "20": {
+                "total_return_pct": 25.18,
+                "annual_return_pct": 15.88,
+                "max_drawdown_pct": 18.9,
+                "calmar_ratio": 0.84
+              }
+            },
+            "koszt_progowy_bp_vs_buy_hold": null,
+            "koszt_progowy_bp_zysk_zero": "powyzej 1000"
+          }
+        },
+        "buy_hold": {
+          "0": {
+            "total_return_pct": 25.68,
+            "annual_return_pct": 16.18,
+            "max_drawdown_pct": 18.9,
+            "calmar_ratio": 0.856
+          },
+          "5": {
+            "total_return_pct": 25.56,
+            "annual_return_pct": 16.11,
+            "max_drawdown_pct": 18.9,
+            "calmar_ratio": 0.852
+          },
+          "10": {
+            "total_return_pct": 25.43,
+            "annual_return_pct": 16.03,
+            "max_drawdown_pct": 18.9,
+            "calmar_ratio": 0.848
+          },
+          "20": {
+            "total_return_pct": 25.18,
+            "annual_return_pct": 15.88,
+            "max_drawdown_pct": 18.9,
+            "calmar_ratio": 0.84
+          }
+        }
+      },
+      "WIG20": {
+        "dni_roku_do_annualizacji": 252,
+        "modele": {
+          "ARIMA": {
+            "zmiany_kierunku": 259,
+            "dni_long": 190,
+            "dni_short": 192,
+            "wyniki_wg_kosztu_bp": {
+              "0": {
+                "total_return_pct": 13.2,
+                "annual_return_pct": 8.52,
+                "max_drawdown_pct": 22.69,
+                "calmar_ratio": 0.376
+              },
+              "5": {
+                "total_return_pct": -12.72,
+                "annual_return_pct": -8.59,
+                "max_drawdown_pct": 29.35,
+                "calmar_ratio": -0.293
+              },
+              "10": {
+                "total_return_pct": -32.72,
+                "annual_return_pct": -23.01,
+                "max_drawdown_pct": 37.98,
+                "calmar_ratio": -0.606
+              },
+              "20": {
+                "total_return_pct": -60.03,
+                "annual_return_pct": -45.39,
+                "max_drawdown_pct": 61.35,
+                "calmar_ratio": -0.74
+              }
+            },
+            "koszt_progowy_bp_vs_buy_hold": null,
+            "koszt_progowy_bp_zysk_zero": 2.38
+          },
+          "LSTM": {
+            "zmiany_kierunku": 46,
+            "dni_long": 81,
+            "dni_short": 301,
+            "wyniki_wg_kosztu_bp": {
+              "0": {
+                "total_return_pct": -13.04,
+                "annual_return_pct": -8.81,
+                "max_drawdown_pct": 32.81,
+                "calmar_ratio": -0.268
+              },
+              "5": {
+                "total_return_pct": -17.03,
+                "annual_return_pct": -11.59,
+                "max_drawdown_pct": 33.77,
+                "calmar_ratio": -0.343
+              },
+              "10": {
+                "total_return_pct": -20.85,
+                "annual_return_pct": -14.29,
+                "max_drawdown_pct": 34.73,
+                "calmar_ratio": -0.412
+              },
+              "20": {
+                "total_return_pct": -27.96,
+                "annual_return_pct": -19.45,
+                "max_drawdown_pct": 36.6,
+                "calmar_ratio": -0.532
+              }
+            },
+            "koszt_progowy_bp_vs_buy_hold": null,
+            "koszt_progowy_bp_zysk_zero": null
+          },
+          "TCN": {
+            "zmiany_kierunku": 50,
+            "dni_long": 89,
+            "dni_short": 293,
+            "wyniki_wg_kosztu_bp": {
+              "0": {
+                "total_return_pct": 24.75,
+                "annual_return_pct": 15.71,
+                "max_drawdown_pct": 20.08,
+                "calmar_ratio": 0.782
+              },
+              "5": {
+                "total_return_pct": 18.55,
+                "annual_return_pct": 11.88,
+                "max_drawdown_pct": 20.2,
+                "calmar_ratio": 0.588
+              },
+              "10": {
+                "total_return_pct": 12.65,
+                "annual_return_pct": 8.17,
+                "max_drawdown_pct": 20.32,
+                "calmar_ratio": 0.402
+              },
+              "20": {
+                "total_return_pct": 1.71,
+                "annual_return_pct": 1.12,
+                "max_drawdown_pct": 20.56,
+                "calmar_ratio": 0.055
+              }
+            },
+            "koszt_progowy_bp_vs_buy_hold": null,
+            "koszt_progowy_bp_zysk_zero": 21.65
+          },
+          "Mamdani": {
+            "zmiany_kierunku": 201,
+            "dni_long": 202,
+            "dni_short": 180,
+            "wyniki_wg_kosztu_bp": {
+              "0": {
+                "total_return_pct": -36.54,
+                "annual_return_pct": -25.92,
+                "max_drawdown_pct": 41.43,
+                "calmar_ratio": -0.626
+              },
+              "5": {
+                "total_return_pct": -48.15,
+                "annual_return_pct": -35.16,
+                "max_drawdown_pct": 51.44,
+                "calmar_ratio": -0.684
+              },
+              "10": {
+                "total_return_pct": -57.64,
+                "annual_return_pct": -43.26,
+                "max_drawdown_pct": 59.97,
+                "calmar_ratio": -0.721
+              },
+              "20": {
+                "total_return_pct": -71.74,
+                "annual_return_pct": -56.55,
+                "max_drawdown_pct": 72.99,
+                "calmar_ratio": -0.775
+              }
+            },
+            "koszt_progowy_bp_vs_buy_hold": null,
+            "koszt_progowy_bp_zysk_zero": null
+          },
+          "TCN-Mamdani": {
+            "zmiany_kierunku": 0,
+            "dni_long": 382,
+            "dni_short": 0,
+            "wyniki_wg_kosztu_bp": {
+              "0": {
+                "total_return_pct": 29.69,
+                "annual_return_pct": 18.71,
+                "max_drawdown_pct": 17.37,
+                "calmar_ratio": 1.077
+              },
+              "5": {
+                "total_return_pct": 29.56,
+                "annual_return_pct": 18.63,
+                "max_drawdown_pct": 17.37,
+                "calmar_ratio": 1.072
+              },
+              "10": {
+                "total_return_pct": 29.43,
+                "annual_return_pct": 18.55,
+                "max_drawdown_pct": 17.37,
+                "calmar_ratio": 1.068
+              },
+              "20": {
+                "total_return_pct": 29.17,
+                "annual_return_pct": 18.4,
+                "max_drawdown_pct": 17.37,
+                "calmar_ratio": 1.059
+              }
+            },
+            "koszt_progowy_bp_vs_buy_hold": null,
+            "koszt_progowy_bp_zysk_zero": "powyzej 1000"
+          }
+        },
+        "buy_hold": {
+          "0": {
+            "total_return_pct": 29.69,
+            "annual_return_pct": 18.71,
+            "max_drawdown_pct": 17.37,
+            "calmar_ratio": 1.077
+          },
+          "5": {
+            "total_return_pct": 29.56,
+            "annual_return_pct": 18.63,
+            "max_drawdown_pct": 17.37,
+            "calmar_ratio": 1.072
+          },
+          "10": {
+            "total_return_pct": 29.43,
+            "annual_return_pct": 18.55,
+            "max_drawdown_pct": 17.37,
+            "calmar_ratio": 1.068
+          },
+          "20": {
+            "total_return_pct": 29.17,
+            "annual_return_pct": 18.4,
+            "max_drawdown_pct": 17.37,
+            "calmar_ratio": 1.059
+          }
+        }
+      },
+      "EURUSD": {
+        "dni_roku_do_annualizacji": 252,
+        "modele": {
+          "ARIMA": {
+            "zmiany_kierunku": 155,
+            "dni_long": 196,
+            "dni_short": 203,
+            "wyniki_wg_kosztu_bp": {
+              "0": {
+                "total_return_pct": 11.63,
+                "annual_return_pct": 7.2,
+                "max_drawdown_pct": 6.02,
+                "calmar_ratio": 1.194
+              },
+              "5": {
+                "total_return_pct": -4.5,
+                "annual_return_pct": -2.87,
+                "max_drawdown_pct": 7.67,
+                "calmar_ratio": -0.374
+              },
+              "10": {
+                "total_return_pct": -18.3,
+                "annual_return_pct": -11.99,
+                "max_drawdown_pct": 18.82,
+                "calmar_ratio": -0.637
+              },
+              "20": {
+                "total_return_pct": -40.23,
+                "annual_return_pct": -27.75,
+                "max_drawdown_pct": 40.43,
+                "calmar_ratio": -0.686
+              }
+            },
+            "koszt_progowy_bp_vs_buy_hold": 0.8,
+            "koszt_progowy_bp_zysk_zero": 3.52
+          },
+          "LSTM": {
+            "zmiany_kierunku": 48,
+            "dni_long": 96,
+            "dni_short": 303,
+            "wyniki_wg_kosztu_bp": {
+              "0": {
+                "total_return_pct": -2.87,
+                "annual_return_pct": -1.82,
+                "max_drawdown_pct": 8.53,
+                "calmar_ratio": -0.214
+              },
+              "5": {
+                "total_return_pct": -7.52,
+                "annual_return_pct": -4.82,
+                "max_drawdown_pct": 10.63,
+                "calmar_ratio": -0.453
+              },
+              "10": {
+                "total_return_pct": -11.94,
+                "annual_return_pct": -7.72,
+                "max_drawdown_pct": 13.1,
+                "calmar_ratio": -0.589
+              },
+              "20": {
+                "total_return_pct": -20.18,
+                "annual_return_pct": -13.27,
+                "max_drawdown_pct": 21.02,
+                "calmar_ratio": -0.631
+              }
+            },
+            "koszt_progowy_bp_vs_buy_hold": null,
+            "koszt_progowy_bp_zysk_zero": null
+          },
+          "TCN": {
+            "zmiany_kierunku": 50,
+            "dni_long": 149,
+            "dni_short": 250,
+            "wyniki_wg_kosztu_bp": {
+              "0": {
+                "total_return_pct": -1.97,
+                "annual_return_pct": -1.25,
+                "max_drawdown_pct": 10.75,
+                "calmar_ratio": -0.116
+              },
+              "5": {
+                "total_return_pct": -6.85,
+                "annual_return_pct": -4.38,
+                "max_drawdown_pct": 12.52,
+                "calmar_ratio": -0.35
+              },
+              "10": {
+                "total_return_pct": -11.48,
+                "annual_return_pct": -7.41,
+                "max_drawdown_pct": 14.25,
+                "calmar_ratio": -0.52
+              },
+              "20": {
+                "total_return_pct": -20.08,
+                "annual_return_pct": -13.2,
+                "max_drawdown_pct": 20.78,
+                "calmar_ratio": -0.635
+              }
+            },
+            "koszt_progowy_bp_vs_buy_hold": null,
+            "koszt_progowy_bp_zysk_zero": null
+          },
+          "Mamdani": {
+            "zmiany_kierunku": 187,
+            "dni_long": 193,
+            "dni_short": 206,
+            "wyniki_wg_kosztu_bp": {
+              "0": {
+                "total_return_pct": -1.57,
+                "annual_return_pct": -1.0,
+                "max_drawdown_pct": 12.83,
+                "calmar_ratio": -0.078
+              },
+              "5": {
+                "total_return_pct": -18.44,
+                "annual_return_pct": -12.08,
+                "max_drawdown_pct": 20.39,
+                "calmar_ratio": -0.592
+              },
+              "10": {
+                "total_return_pct": -32.43,
+                "annual_return_pct": -21.93,
+                "max_drawdown_pct": 32.43,
+                "calmar_ratio": -0.676
+              },
+              "20": {
+                "total_return_pct": -53.63,
+                "annual_return_pct": -38.46,
+                "max_drawdown_pct": 53.63,
+                "calmar_ratio": -0.717
+              }
+            },
+            "koszt_progowy_bp_vs_buy_hold": null,
+            "koszt_progowy_bp_zysk_zero": null
+          },
+          "TCN-Mamdani": {
+            "zmiany_kierunku": 0,
+            "dni_long": 0,
+            "dni_short": 399,
+            "wyniki_wg_kosztu_bp": {
+              "0": {
+                "total_return_pct": -8.95,
+                "annual_return_pct": -5.75,
+                "max_drawdown_pct": 14.2,
+                "calmar_ratio": -0.405
+              },
+              "5": {
+                "total_return_pct": -9.04,
+                "annual_return_pct": -5.81,
+                "max_drawdown_pct": 14.2,
+                "calmar_ratio": -0.409
+              },
+              "10": {
+                "total_return_pct": -9.13,
+                "annual_return_pct": -5.87,
+                "max_drawdown_pct": 14.2,
+                "calmar_ratio": -0.413
+              },
+              "20": {
+                "total_return_pct": -9.31,
+                "annual_return_pct": -5.99,
+                "max_drawdown_pct": 14.2,
+                "calmar_ratio": -0.422
+              }
+            },
+            "koszt_progowy_bp_vs_buy_hold": null,
+            "koszt_progowy_bp_zysk_zero": null
+          }
+        },
+        "buy_hold": {
+          "0": {
+            "total_return_pct": 8.88,
+            "annual_return_pct": 5.52,
+            "max_drawdown_pct": 8.46,
+            "calmar_ratio": 0.652
+          },
+          "5": {
+            "total_return_pct": 8.77,
+            "annual_return_pct": 5.45,
+            "max_drawdown_pct": 8.46,
+            "calmar_ratio": 0.644
+          },
+          "10": {
+            "total_return_pct": 8.66,
+            "annual_return_pct": 5.38,
+            "max_drawdown_pct": 8.46,
+            "calmar_ratio": 0.636
+          },
+          "20": {
+            "total_return_pct": 8.44,
+            "annual_return_pct": 5.25,
+            "max_drawdown_pct": 8.46,
+            "calmar_ratio": 0.621
+          }
+        }
+      },
+      "BTCUSD": {
+        "dni_roku_do_annualizacji": 365,
+        "modele": {
+          "ARIMA": {
+            "zmiany_kierunku": 207,
+            "dni_long": 211,
+            "dni_short": 197,
+            "wyniki_wg_kosztu_bp": {
+              "0": {
+                "total_return_pct": -24.04,
+                "annual_return_pct": -21.81,
+                "max_drawdown_pct": 33.01,
+                "calmar_ratio": -0.661
+              },
+              "5": {
+                "total_return_pct": -38.31,
+                "annual_return_pct": -35.09,
+                "max_drawdown_pct": 41.49,
+                "calmar_ratio": -0.846
+              },
+              "10": {
+                "total_return_pct": -49.9,
+                "annual_return_pct": -46.12,
+                "max_drawdown_pct": 52.34,
+                "calmar_ratio": -0.881
+              },
+              "20": {
+                "total_return_pct": -66.97,
+                "annual_return_pct": -62.88,
+                "max_drawdown_pct": 68.39,
+                "calmar_ratio": -0.919
+              }
+            },
+            "koszt_progowy_bp_vs_buy_hold": null,
+            "koszt_progowy_bp_zysk_zero": null
+          },
+          "LSTM": {
+            "zmiany_kierunku": 0,
+            "dni_long": 0,
+            "dni_short": 408,
+            "wyniki_wg_kosztu_bp": {
+              "0": {
+                "total_return_pct": -16.81,
+                "annual_return_pct": -15.18,
+                "max_drawdown_pct": 42.44,
+                "calmar_ratio": -0.358
+              },
+              "5": {
+                "total_return_pct": -16.89,
+                "annual_return_pct": -15.25,
+                "max_drawdown_pct": 42.44,
+                "calmar_ratio": -0.359
+              },
+              "10": {
+                "total_return_pct": -16.97,
+                "annual_return_pct": -15.33,
+                "max_drawdown_pct": 42.44,
+                "calmar_ratio": -0.361
+              },
+              "20": {
+                "total_return_pct": -17.14,
+                "annual_return_pct": -15.48,
+                "max_drawdown_pct": 42.44,
+                "calmar_ratio": -0.365
+              }
+            },
+            "koszt_progowy_bp_vs_buy_hold": null,
+            "koszt_progowy_bp_zysk_zero": null
+          },
+          "TCN": {
+            "zmiany_kierunku": 0,
+            "dni_long": 0,
+            "dni_short": 408,
+            "wyniki_wg_kosztu_bp": {
+              "0": {
+                "total_return_pct": -16.81,
+                "annual_return_pct": -15.18,
+                "max_drawdown_pct": 42.44,
+                "calmar_ratio": -0.358
+              },
+              "5": {
+                "total_return_pct": -16.89,
+                "annual_return_pct": -15.25,
+                "max_drawdown_pct": 42.44,
+                "calmar_ratio": -0.359
+              },
+              "10": {
+                "total_return_pct": -16.97,
+                "annual_return_pct": -15.33,
+                "max_drawdown_pct": 42.44,
+                "calmar_ratio": -0.361
+              },
+              "20": {
+                "total_return_pct": -17.14,
+                "annual_return_pct": -15.48,
+                "max_drawdown_pct": 42.44,
+                "calmar_ratio": -0.365
+              }
+            },
+            "koszt_progowy_bp_vs_buy_hold": null,
+            "koszt_progowy_bp_zysk_zero": null
+          },
+          "Mamdani": {
+            "zmiany_kierunku": 200,
+            "dni_long": 212,
+            "dni_short": 196,
+            "wyniki_wg_kosztu_bp": {
+              "0": {
+                "total_return_pct": -52.14,
+                "annual_return_pct": -48.27,
+                "max_drawdown_pct": 55.88,
+                "calmar_ratio": -0.864
+              },
+              "5": {
+                "total_return_pct": -60.85,
+                "annual_return_pct": -56.79,
+                "max_drawdown_pct": 63.86,
+                "calmar_ratio": -0.889
+              },
+              "10": {
+                "total_return_pct": -67.99,
+                "annual_return_pct": -63.9,
+                "max_drawdown_pct": 70.4,
+                "calmar_ratio": -0.908
+              },
+              "20": {
+                "total_return_pct": -78.6,
+                "annual_return_pct": -74.82,
+                "max_drawdown_pct": 80.15,
+                "calmar_ratio": -0.933
+              }
+            },
+            "koszt_progowy_bp_vs_buy_hold": null,
+            "koszt_progowy_bp_zysk_zero": null
+          },
+          "TCN-Mamdani": {
+            "zmiany_kierunku": 0,
+            "dni_long": 0,
+            "dni_short": 408,
+            "wyniki_wg_kosztu_bp": {
+              "0": {
+                "total_return_pct": -16.81,
+                "annual_return_pct": -15.18,
+                "max_drawdown_pct": 42.44,
+                "calmar_ratio": -0.358
+              },
+              "5": {
+                "total_return_pct": -16.89,
+                "annual_return_pct": -15.25,
+                "max_drawdown_pct": 42.44,
+                "calmar_ratio": -0.359
+              },
+              "10": {
+                "total_return_pct": -16.97,
+                "annual_return_pct": -15.33,
+                "max_drawdown_pct": 42.44,
+                "calmar_ratio": -0.361
+              },
+              "20": {
+                "total_return_pct": -17.14,
+                "annual_return_pct": -15.48,
+                "max_drawdown_pct": 42.44,
+                "calmar_ratio": -0.365
+              }
+            },
+            "koszt_progowy_bp_vs_buy_hold": null,
+            "koszt_progowy_bp_zysk_zero": null
+          }
+        },
+        "buy_hold": {
+          "0": {
+            "total_return_pct": -1.58,
+            "annual_return_pct": -1.41,
+            "max_drawdown_pct": 32.15,
+            "calmar_ratio": -0.044
+          },
+          "5": {
+            "total_return_pct": -1.67,
+            "annual_return_pct": -1.5,
+            "max_drawdown_pct": 32.15,
+            "calmar_ratio": -0.047
+          },
+          "10": {
+            "total_return_pct": -1.77,
+            "annual_return_pct": -1.59,
+            "max_drawdown_pct": 32.15,
+            "calmar_ratio": -0.049
+          },
+          "20": {
+            "total_return_pct": -1.97,
+            "annual_return_pct": -1.76,
+            "max_drawdown_pct": 32.15,
+            "calmar_ratio": -0.055
+          }
+        }
+      }
+    },
+    "C_rezimy_ex_ante": {
+      "SP500": {
+        "prog_zmiennosci_20d_pct": 0.99,
+        "dni_wysoka": 97,
+        "dni_pozostale": 288,
+        "MAPE_wysoka": {
+          "ARIMA": 1.0807,
+          "LSTM": 3.5274,
+          "TCN": 3.5782,
+          "Mamdani": 1.3323,
+          "TCN-Mamdani": 1.484,
+          "ARIMA_stale": 1.0651,
+          "Naiwna": 1.0657
+        },
+        "MAPE_pozostale": {
+          "ARIMA": 0.5748,
+          "LSTM": 5.6255,
+          "TCN": 4.9819,
+          "Mamdani": 0.8217,
+          "TCN-Mamdani": 1.2719,
+          "ARIMA_stale": 0.5764,
+          "Naiwna": 0.5766
+        },
+        "DM_wysoka_hybryda_vs": {
+          "ARIMA": {
+            "DM": -3.96,
+            "p": 0.000144,
+            "DM_NW": -4.008,
+            "p_NW": 0.000121,
+            "L_NW": 3,
+            "rho1_d": -0.023,
+            "n": 97
+          },
+          "Naiwna": {
+            "DM": -3.437,
+            "p": 0.000871,
+            "DM_NW": -3.517,
+            "p_NW": 0.000669,
+            "L_NW": 3,
+            "rho1_d": -0.025,
+            "n": 97
+          },
+          "Mamdani": {
+            "DM": -1.026,
+            "p": 0.307,
+            "DM_NW": -1.126,
+            "p_NW": 0.263,
+            "L_NW": 3,
+            "rho1_d": -0.076,
+            "n": 97
+          },
+          "LSTM": {
+            "DM": 7.887,
+            "p": 4.92e-12,
+            "DM_NW": 5.305,
+            "p_NW": 7.21e-07,
+            "L_NW": 3,
+            "rho1_d": 0.597,
+            "n": 97
+          },
+          "TCN": {
+            "DM": 7.797,
+            "p": 7.63e-12,
+            "DM_NW": 6.015,
+            "p_NW": 3.26e-08,
+            "L_NW": 3,
+            "rho1_d": 0.332,
+            "n": 97
+          }
+        }
+      },
+      "WIG20": {
+        "prog_zmiennosci_20d_pct": 1.4935,
+        "dni_wysoka": 96,
+        "dni_pozostale": 287,
+        "MAPE_wysoka": {
+          "ARIMA": 1.1337,
+          "LSTM": 1.3089,
+          "TCN": 1.3553,
+          "Mamdani": 1.2692,
+          "TCN-Mamdani": 1.1885,
+          "ARIMA_stale": 1.1245,
+          "Naiwna": 1.12
+        },
+        "MAPE_pozostale": {
+          "ARIMA": 0.9886,
+          "LSTM": 1.527,
+          "TCN": 1.5881,
+          "Mamdani": 1.2633,
+          "TCN-Mamdani": 1.0379,
+          "ARIMA_stale": 0.992,
+          "Naiwna": 0.9962
+        },
+        "DM_wysoka_hybryda_vs": {
+          "ARIMA": {
+            "DM": -0.8,
+            "p": 0.426,
+            "DM_NW": -0.754,
+            "p_NW": 0.453,
+            "L_NW": 3,
+            "rho1_d": 0.007,
+            "n": 96
+          },
+          "Naiwna": {
+            "DM": -1.279,
+            "p": 0.204,
+            "DM_NW": -1.233,
+            "p_NW": 0.22,
+            "L_NW": 3,
+            "rho1_d": 0.043,
+            "n": 96
+          },
+          "Mamdani": {
+            "DM": 0.92,
+            "p": 0.36,
+            "DM_NW": 0.986,
+            "p_NW": 0.327,
+            "L_NW": 3,
+            "rho1_d": -0.036,
+            "n": 96
+          },
+          "LSTM": {
+            "DM": 1.336,
+            "p": 0.185,
+            "DM_NW": 1.57,
+            "p_NW": 0.12,
+            "L_NW": 3,
+            "rho1_d": -0.088,
+            "n": 96
+          },
+          "TCN": {
+            "DM": 1.661,
+            "p": 0.1,
+            "DM_NW": 1.608,
+            "p_NW": 0.111,
+            "L_NW": 3,
+            "rho1_d": 0.051,
+            "n": 96
+          }
+        }
+      },
+      "EURUSD": {
+        "prog_zmiennosci_20d_pct": 0.5549,
+        "dni_wysoka": 100,
+        "dni_pozostale": 300,
+        "MAPE_wysoka": {
+          "ARIMA": 0.346,
+          "LSTM": 0.3733,
+          "TCN": 0.42,
+          "Mamdani": 0.6374,
+          "TCN-Mamdani": 0.3831,
+          "ARIMA_stale": 0.3455,
+          "Naiwna": 0.3468
+        },
+        "MAPE_pozostale": {
+          "ARIMA": 0.3358,
+          "LSTM": 0.3843,
+          "TCN": 0.4089,
+          "Mamdani": 0.4702,
+          "TCN-Mamdani": 0.3927,
+          "ARIMA_stale": 0.3357,
+          "Naiwna": 0.3363
+        },
+        "DM_wysoka_hybryda_vs": {
+          "ARIMA": {
+            "DM": -2.418,
+            "p": 0.0174,
+            "DM_NW": -3.199,
+            "p_NW": 0.00185,
+            "L_NW": 4,
+            "rho1_d": -0.285,
+            "n": 100
+          },
+          "Naiwna": {
+            "DM": -2.427,
+            "p": 0.017,
+            "DM_NW": -3.116,
+            "p_NW": 0.0024,
+            "L_NW": 4,
+            "rho1_d": -0.263,
+            "n": 100
+          },
+          "Mamdani": {
+            "DM": 4.672,
+            "p": 9.41e-06,
+            "DM_NW": 5.335,
+            "p_NW": 6.05e-07,
+            "L_NW": 4,
+            "rho1_d": -0.127,
+            "n": 100
+          },
+          "LSTM": {
+            "DM": -1.167,
+            "p": 0.246,
+            "DM_NW": -1.114,
+            "p_NW": 0.268,
+            "L_NW": 4,
+            "rho1_d": 0.002,
+            "n": 100
+          },
+          "TCN": {
+            "DM": 1.562,
+            "p": 0.121,
+            "DM_NW": 1.566,
+            "p_NW": 0.121,
+            "L_NW": 4,
+            "rho1_d": -0.082,
+            "n": 100
+          }
+        }
+      },
+      "BTCUSD": {
+        "prog_zmiennosci_20d_pct": 2.5053,
+        "dni_wysoka": 103,
+        "dni_pozostale": 306,
+        "MAPE_wysoka": {
+          "ARIMA": 1.8095,
+          "LSTM": 3.6614,
+          "TCN": 13.8655,
+          "Mamdani": 1.8818,
+          "TCN-Mamdani": 1.9892,
+          "ARIMA_stale": 1.7984,
+          "Naiwna": 1.7918
+        },
+        "MAPE_pozostale": {
+          "ARIMA": 1.5368,
+          "LSTM": 5.743,
+          "TCN": 16.0057,
+          "Mamdani": 1.6257,
+          "TCN-Mamdani": 1.7727,
+          "ARIMA_stale": 1.5349,
+          "Naiwna": 1.5335
+        },
+        "DM_wysoka_hybryda_vs": {
+          "ARIMA": {
+            "DM": -1.712,
+            "p": 0.0899,
+            "DM_NW": -1.834,
+            "p_NW": 0.0696,
+            "L_NW": 4,
+            "rho1_d": 0.078,
+            "n": 103
+          },
+          "Naiwna": {
+            "DM": -1.811,
+            "p": 0.0731,
+            "DM_NW": -2.02,
+            "p_NW": 0.046,
+            "L_NW": 4,
+            "rho1_d": 0.053,
+            "n": 103
+          },
+          "Mamdani": {
+            "DM": -0.472,
+            "p": 0.638,
+            "DM_NW": -0.501,
+            "p_NW": 0.618,
+            "L_NW": 4,
+            "rho1_d": 0.031,
+            "n": 103
+          },
+          "LSTM": {
+            "DM": 4.712,
+            "p": 7.79e-06,
+            "DM_NW": 2.752,
+            "p_NW": 0.00702,
+            "L_NW": 4,
+            "rho1_d": 0.593,
+            "n": 103
+          },
+          "TCN": {
+            "DM": 14.44,
+            "p": 2.1e-26,
+            "DM_NW": 9.221,
+            "p_NW": 4.3e-15,
+            "L_NW": 4,
+            "rho1_d": 0.499,
+            "n": 103
+          }
+        }
+      }
+    },
+    "E_wariant_skali_cen": {
+      "SP500": {
+        "zrodlo_prognoz": "05_tcn_mamdani_hybrid/prognozy_SP500.csv",
+        "max_wzgl_blad_odtworzenia_prognoz": 4.21e-10,
+        "MAPE_skala_znormalizowana_(opublikowany_wzor_kodu)": 1.3253,
+        "MAPE_skala_cen_(wzor_tekstowy)": 1.8256,
+        "MAPE_naiwna_ta_sama_probka": 0.6998,
+        "sredni_wynik_Mamdaniego_pc_pct": 1.8183,
+        "odch_std_pc": 0.0586,
+        "srednia_efektywna_zmiana_ceny_pct_dziennie": 1.2648,
+        "odsetek_dni_prognoza_wzrostu_pct": 100.0
+      },
+      "WIG20": {
+        "zrodlo_prognoz": "05_tcn_mamdani_hybrid/prognozy_WIG20.csv",
+        "max_wzgl_blad_odtworzenia_prognoz": 3.61e-10,
+        "MAPE_skala_znormalizowana_(opublikowany_wzor_kodu)": 1.0757,
+        "MAPE_skala_cen_(wzor_tekstowy)": 1.2125,
+        "MAPE_naiwna_ta_sama_probka": 1.0272,
+        "sredni_wynik_Mamdaniego_pc_pct": 0.789,
+        "odch_std_pc": 0.2,
+        "srednia_efektywna_zmiana_ceny_pct_dziennie": 0.4012,
+        "odsetek_dni_prognoza_wzrostu_pct": 100.0
+      },
+      "EURUSD": {
+        "zrodlo_prognoz": "05_tcn_mamdani_hybrid/prognozy_EURUSD.csv",
+        "max_wzgl_blad_odtworzenia_prognoz": 3.12e-11,
+        "MAPE_skala_znormalizowana_(opublikowany_wzor_kodu)": 0.3903,
+        "MAPE_skala_cen_(wzor_tekstowy)": 1.9511,
+        "MAPE_naiwna_ta_sama_probka": 0.3389,
+        "sredni_wynik_Mamdaniego_pc_pct": -1.9297,
+        "odch_std_pc": 0.0404,
+        "srednia_efektywna_zmiana_ceny_pct_dziennie": -0.2112,
+        "odsetek_dni_prognoza_wzrostu_pct": 0.0
+      },
+      "BTCUSD": {
+        "zrodlo_prognoz": "05_tcn_mamdani_hybrid/prognozy_BTCUSD.csv",
+        "max_wzgl_blad_odtworzenia_prognoz": 1.39e-11,
+        "MAPE_skala_znormalizowana_(opublikowany_wzor_kodu)": 1.8272,
+        "MAPE_skala_cen_(wzor_tekstowy)": 1.8408,
+        "MAPE_naiwna_ta_sama_probka": 1.5986,
+        "sredni_wynik_Mamdaniego_pc_pct": -0.9991,
+        "odch_std_pc": 0.0001,
+        "srednia_efektywna_zmiana_ceny_pct_dziennie": -0.9667,
+        "odsetek_dni_prognoza_wzrostu_pct": 0.0
+      },
+      "DAX": {
+        "zrodlo_prognoz": "20_all_7datasets/prognozy_hybrid_DAX.csv",
+        "max_wzgl_blad_odtworzenia_prognoz": 3.48e-10,
+        "MAPE_skala_znormalizowana_(opublikowany_wzor_kodu)": 1.1806,
+        "MAPE_skala_cen_(wzor_tekstowy)": 1.7993,
+        "MAPE_naiwna_ta_sama_probka": 0.7562,
+        "sredni_wynik_Mamdaniego_pc_pct": 1.8269,
+        "odch_std_pc": 0.0661,
+        "srednia_efektywna_zmiana_ceny_pct_dziennie": 1.1103,
+        "odsetek_dni_prognoza_wzrostu_pct": 100.0
+      },
+      "NIKKEI": {
+        "zrodlo_prognoz": "20_all_7datasets/prognozy_hybrid_NIKKEI.csv",
+        "max_wzgl_blad_odtworzenia_prognoz": 1.7e-11,
+        "MAPE_skala_znormalizowana_(opublikowany_wzor_kodu)": 1.0838,
+        "MAPE_skala_cen_(wzor_tekstowy)": 1.0838,
+        "MAPE_naiwna_ta_sama_probka": 1.0838,
+        "sredni_wynik_Mamdaniego_pc_pct": 0.0026,
+        "odch_std_pc": 0.005,
+        "srednia_efektywna_zmiana_ceny_pct_dziennie": 0.0017,
+        "odsetek_dni_prognoza_wzrostu_pct": 93.9
+      },
+      "GOLD": {
+        "zrodlo_prognoz": "20_all_7datasets/prognozy_hybrid_GOLD.csv",
+        "max_wzgl_blad_odtworzenia_prognoz": 5.35e-10,
+        "MAPE_skala_znormalizowana_(opublikowany_wzor_kodu)": 1.1925,
+        "MAPE_skala_cen_(wzor_tekstowy)": 1.6718,
+        "MAPE_naiwna_ta_sama_probka": 0.891,
+        "sredni_wynik_Mamdaniego_pc_pct": 1.7378,
+        "odch_std_pc": 0.0757,
+        "srednia_efektywna_zmiana_ceny_pct_dziennie": 1.132,
+        "odsetek_dni_prognoza_wzrostu_pct": 100.0
+      }
+    },
+    "F_poza_zakresem_treningu": {
+      "SP500": {
+        "max_treningu": 4796.5601,
+        "min_treningu": 1829.08,
+        "odsetek_dni_testu_powyzej_max_treningu_pct": 100.0,
+        "odsetek_dni_testu_ponizej_min_treningu_pct": 0.0,
+        "zakres_skalowanych_cen_testu": [
+          1.063,
+          1.72
+        ]
+      },
+      "WIG20": {
+        "max_treningu": 2630.37,
+        "min_treningu": 1305.73,
+        "odsetek_dni_testu_powyzej_max_treningu_pct": 50.9,
+        "odsetek_dni_testu_ponizej_min_treningu_pct": 0.0,
+        "zakres_skalowanych_cen_testu": [
+          0.617,
+          1.418
+        ]
+      },
+      "EURUSD": {
+        "max_treningu": 1.251,
+        "min_treningu": 0.9898,
+        "odsetek_dni_testu_powyzej_max_treningu_pct": 0.0,
+        "odsetek_dni_testu_ponizej_min_treningu_pct": 0.0,
+        "zakres_skalowanych_cen_testu": [
+          0.133,
+          0.756
+        ]
+      },
+      "BTCUSD": {
+        "max_treningu": 67566.8281,
+        "min_treningu": 3236.7617,
+        "odsetek_dni_testu_powyzej_max_treningu_pct": 100.0,
+        "odsetek_dni_testu_ponizej_min_treningu_pct": 0.0,
+        "zakres_skalowanych_cen_testu": [
+          1.135,
+          1.889
+        ]
+      },
+      "DAX": {
+        "max_treningu": 16271.75,
+        "min_treningu": 8441.71,
+        "odsetek_dni_testu_powyzej_max_treningu_pct": 100.0,
+        "odsetek_dni_testu_ponizej_min_treningu_pct": 0.0,
+        "zakres_skalowanych_cen_testu": [
+          1.136,
+          2.065
+        ]
+      },
+      "NIKKEI": {
+        "max_treningu": 30670.0996,
+        "min_treningu": 14952.0195,
+        "odsetek_dni_testu_powyzej_max_treningu_pct": 100.0,
+        "odsetek_dni_testu_ponizej_min_treningu_pct": 0.0,
+        "zakres_skalowanych_cen_testu": [
+          1.03,
+          2.383
+        ]
+      },
+      "GOLD": {
+        "max_treningu": 2051.5,
+        "min_treningu": 1050.8,
+        "odsetek_dni_testu_powyzej_max_treningu_pct": 100.0,
+        "odsetek_dni_testu_ponizej_min_treningu_pct": 0.0,
+        "zakres_skalowanych_cen_testu": [
+          1.248,
+          3.476
+        ]
+      }
+    },
+    "G_korelacje": {
+      "SP500": {
+        "trend_vs_poziom_ceny": {
+          "r": 0.922,
+          "p_nominalne": 2.78e-160
+        },
+        "zmiennosc_vs_poziom_ceny": {
+          "r": -0.784,
+          "p_nominalne": 3.44e-81
+        },
+        "momentum_vs_poziom_ceny": {
+          "r": 0.976,
+          "p_nominalne": 7.53e-257
+        },
+        "trend_vs_momentum": {
+          "r": 0.962,
+          "p_nominalne": 5.08e-218
+        },
+        "odch_std_wyjsc": {
+          "trend": 0.023,
+          "zmiennosc": 0.062,
+          "momentum": 0.248
+        },
+        "uwaga": "p nominalne: kolejne okna 30-dniowe nakladaja sie, obserwacje nie sa niezalezne"
+      },
+      "WIG20": {
+        "trend_vs_poziom_ceny": {
+          "r": -0.992,
+          "p_nominalne": 0.0
+        },
+        "zmiennosc_vs_poziom_ceny": {
+          "r": -0.727,
+          "p_nominalne": 4.5e-64
+        },
+        "momentum_vs_poziom_ceny": {
+          "r": 0.976,
+          "p_nominalne": 8.29e-255
+        },
+        "trend_vs_momentum": {
+          "r": -0.992,
+          "p_nominalne": 0.0
+        },
+        "odch_std_wyjsc": {
+          "trend": 0.651,
+          "zmiennosc": 0.119,
+          "momentum": 0.388
+        },
+        "uwaga": "p nominalne: kolejne okna 30-dniowe nakladaja sie, obserwacje nie sa niezalezne"
+      },
+      "EURUSD": {
+        "trend_vs_poziom_ceny": {
+          "r": -0.985,
+          "p_nominalne": 6.15e-304
+        },
+        "zmiennosc_vs_poziom_ceny": {
+          "r": -0.993,
+          "p_nominalne": 0.0
+        },
+        "momentum_vs_poziom_ceny": {
+          "r": -0.98,
+          "p_nominalne": 5.01e-281
+        },
+        "trend_vs_momentum": {
+          "r": 0.964,
+          "p_nominalne": 1.75e-231
+        },
+        "odch_std_wyjsc": {
+          "trend": 0.09,
+          "zmiennosc": 0.306,
+          "momentum": 0.247
+        },
+        "uwaga": "p nominalne: kolejne okna 30-dniowe nakladaja sie, obserwacje nie sa niezalezne"
+      },
+      "BTCUSD": {
+        "trend_vs_poziom_ceny": {
+          "r": 0.868,
+          "p_nominalne": 6.72e-126
+        },
+        "zmiennosc_vs_poziom_ceny": {
+          "r": -0.945,
+          "p_nominalne": 4.22e-200
+        },
+        "momentum_vs_poziom_ceny": {
+          "r": -0.799,
+          "p_nominalne": 6.54e-92
+        },
+        "trend_vs_momentum": {
+          "r": -0.967,
+          "p_nominalne": 6.58e-244
+        },
+        "odch_std_wyjsc": {
+          "trend": 0.008,
+          "zmiennosc": 0.139,
+          "momentum": 0.0
+        },
+        "uwaga": "p nominalne: kolejne okna 30-dniowe nakladaja sie, obserwacje nie sa niezalezne"
+      },
+      "DAX": {
+        "trend_vs_poziom_ceny": {
+          "r": 0.968,
+          "p_nominalne": 6.7e-234
+        },
+        "zmiennosc_vs_poziom_ceny": {
+          "r": -0.905,
+          "p_nominalne": 4.27e-146
+        },
+        "momentum_vs_poziom_ceny": {
+          "r": 0.978,
+          "p_nominalne": 3.54e-265
+        },
+        "trend_vs_momentum": {
+          "r": 0.998,
+          "p_nominalne": 0.0
+        },
+        "odch_std_wyjsc": {
+          "trend": 0.06,
+          "zmiennosc": 0.15,
+          "momentum": 0.382
+        },
+        "uwaga": "p nominalne: kolejne okna 30-dniowe nakladaja sie, obserwacje nie sa niezalezne"
+      },
+      "NIKKEI": {
+        "trend_vs_poziom_ceny": {
+          "r": 0.895,
+          "p_nominalne": 2.43e-132
+        },
+        "zmiennosc_vs_poziom_ceny": {
+          "r": 0.954,
+          "p_nominalne": 1.86e-197
+        },
+        "momentum_vs_poziom_ceny": {
+          "r": 0.614,
+          "p_nominalne": 4.54e-40
+        },
+        "trend_vs_momentum": {
+          "r": 0.649,
+          "p_nominalne": 4.29e-46
+        },
+        "odch_std_wyjsc": {
+          "trend": 0.047,
+          "zmiennosc": 0.172,
+          "momentum": 0.097
+        },
+        "uwaga": "p nominalne: kolejne okna 30-dniowe nakladaja sie, obserwacje nie sa niezalezne"
+      },
+      "GOLD": {
+        "trend_vs_poziom_ceny": {
+          "r": 0.681,
+          "p_nominalne": 7.46e-54
+        },
+        "zmiennosc_vs_poziom_ceny": {
+          "r": 0.867,
+          "p_nominalne": 4.54e-118
+        },
+        "momentum_vs_poziom_ceny": {
+          "r": 0.92,
+          "p_nominalne": 3.66e-158
+        },
+        "trend_vs_momentum": {
+          "r": 0.862,
+          "p_nominalne": 6.47e-115
+        },
+        "odch_std_wyjsc": {
+          "trend": 0.01,
+          "zmiennosc": 0.199,
+          "momentum": 0.332
+        },
+        "uwaga": "p nominalne: kolejne okna 30-dniowe nakladaja sie, obserwacje nie sa niezalezne"
+      }
+    },
+    "H_reguly": {
+      "SP500": {
+        "R1": {
+          "srednia_sila": 0.735,
+          "odsetek_dni_sila_>0.1_pct": 100.0
+        },
+        "R2": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R3": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R4": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R5": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R6": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R7": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R8": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R9": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R10": {
+          "srednia_sila": 0.237,
+          "odsetek_dni_sila_>0.1_pct": 100.0
+        },
+        "R11": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R12": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R13": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R14": {
+          "srednia_sila": 0.405,
+          "odsetek_dni_sila_>0.1_pct": 100.0
+        },
+        "R15": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        }
+      },
+      "WIG20": {
+        "R1": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R2": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R3": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R4": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R5": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R6": {
+          "srednia_sila": 0.153,
+          "odsetek_dni_sila_>0.1_pct": 43.1
+        },
+        "R7": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R8": {
+          "srednia_sila": 0.096,
+          "odsetek_dni_sila_>0.1_pct": 25.8
+        },
+        "R9": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R10": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R11": {
+          "srednia_sila": 0.031,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R12": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R13": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R14": {
+          "srednia_sila": 0.63,
+          "odsetek_dni_sila_>0.1_pct": 100.0
+        },
+        "R15": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        }
+      },
+      "EURUSD": {
+        "R1": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R2": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R3": {
+          "srednia_sila": 0.001,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R4": {
+          "srednia_sila": 0.794,
+          "odsetek_dni_sila_>0.1_pct": 100.0
+        },
+        "R5": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R6": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R7": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R8": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R9": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R10": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R11": {
+          "srednia_sila": 0.017,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R12": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R13": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R14": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R15": {
+          "srednia_sila": 0.697,
+          "odsetek_dni_sila_>0.1_pct": 100.0
+        }
+      },
+      "BTCUSD": {
+        "R1": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R2": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R3": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R4": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R5": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R6": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R7": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R8": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R9": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R10": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R11": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R12": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R13": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R14": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R15": {
+          "srednia_sila": 0.215,
+          "odsetek_dni_sila_>0.1_pct": 96.3
+        }
+      },
+      "DAX": {
+        "R1": {
+          "srednia_sila": 0.757,
+          "odsetek_dni_sila_>0.1_pct": 100.0
+        },
+        "R2": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R3": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R4": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R5": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R6": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R7": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R8": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R9": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R10": {
+          "srednia_sila": 0.2,
+          "odsetek_dni_sila_>0.1_pct": 97.4
+        },
+        "R11": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R12": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R13": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R14": {
+          "srednia_sila": 0.489,
+          "odsetek_dni_sila_>0.1_pct": 100.0
+        },
+        "R15": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        }
+      },
+      "NIKKEI": {
+        "R1": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R2": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R3": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R4": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R5": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R6": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R7": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R8": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R9": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R10": {
+          "srednia_sila": 0.756,
+          "odsetek_dni_sila_>0.1_pct": 100.0
+        },
+        "R11": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R12": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R13": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R14": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R15": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        }
+      },
+      "GOLD": {
+        "R1": {
+          "srednia_sila": 0.782,
+          "odsetek_dni_sila_>0.1_pct": 100.0
+        },
+        "R2": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R3": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R4": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R5": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R6": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R7": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R8": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R9": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R10": {
+          "srednia_sila": 0.46,
+          "odsetek_dni_sila_>0.1_pct": 100.0
+        },
+        "R11": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R12": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R13": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        },
+        "R14": {
+          "srednia_sila": 0.197,
+          "odsetek_dni_sila_>0.1_pct": 79.7
+        },
+        "R15": {
+          "srednia_sila": 0.0,
+          "odsetek_dni_sila_>0.1_pct": 0.0
+        }
+      }
+    },
+    "I_lookback_naiwna_SP500": {
+      "lookback_10": {
+        "MAPE_hybryda_eksp11": 0.6825,
+        "MAPE_naiwna_ta_sama_probka": 0.6854,
+        "n": 405
+      },
+      "lookback_20": {
+        "MAPE_hybryda_eksp11": 0.6851,
+        "MAPE_naiwna_ta_sama_probka": 0.6918,
+        "n": 395
+      },
+      "lookback_30": {
+        "MAPE_hybryda_eksp11": 1.3253,
+        "MAPE_naiwna_ta_sama_probka": 0.6998,
+        "n": 385
+      },
+      "lookback_60": {
+        "MAPE_hybryda_eksp11": 1.3716,
+        "MAPE_naiwna_ta_sama_probka": 0.7089,
+        "n": 355
+      },
+      "lookback_90": {
+        "MAPE_hybryda_eksp11": 0.6905,
+        "MAPE_naiwna_ta_sama_probka": 0.6877,
+        "n": 325
+      }
+    },
+    "K_trafnosc_kierunkowa_wspolne_daty": {
+      "SP500": {
+        "ARIMA": {
+          "DA": 53.12,
+          "DA_up": 49.32,
+          "DA_down": 58.28,
+          "n": 384,
+          "odsetek_prognoz_wzrostu": 46.1
+        },
+        "LSTM": {
+          "DA": 42.45,
+          "DA_up": 1.36,
+          "DA_down": 98.16,
+          "n": 384,
+          "odsetek_prognoz_wzrostu": 1.6
+        },
+        "TCN": {
+          "DA": 42.45,
+          "DA_up": 0.0,
+          "DA_down": 100.0,
+          "n": 384,
+          "odsetek_prognoz_wzrostu": 0.0
+        },
+        "Mamdani": {
+          "DA": 49.48,
+          "DA_up": 56.56,
+          "DA_down": 39.88,
+          "n": 384,
+          "odsetek_prognoz_wzrostu": 58.1
+        },
+        "TCN-Mamdani": {
+          "DA": 57.55,
+          "DA_up": 100.0,
+          "DA_down": 0.0,
+          "n": 384,
+          "odsetek_prognoz_wzrostu": 100.0
+        },
+        "Naiwna": {
+          "DA": 7.29,
+          "DA_up": 8.14,
+          "DA_down": 6.13,
+          "n": 384,
+          "odsetek_prognoz_wzrostu": 9.6
+        }
+      },
+      "WIG20": {
+        "ARIMA": {
+          "DA": 55.5,
+          "DA_up": 55.0,
+          "DA_down": 56.04,
+          "n": 382,
+          "odsetek_prognoz_wzrostu": 49.7
+        },
+        "LSTM": {
+          "DA": 49.48,
+          "DA_up": 22.0,
+          "DA_down": 79.67,
+          "n": 382,
+          "odsetek_prognoz_wzrostu": 21.2
+        },
+        "TCN": {
+          "DA": 51.05,
+          "DA_up": 25.5,
+          "DA_down": 79.12,
+          "n": 382,
+          "odsetek_prognoz_wzrostu": 23.3
+        },
+        "Mamdani": {
+          "DA": 46.07,
+          "DA_up": 49.0,
+          "DA_down": 42.86,
+          "n": 382,
+          "odsetek_prognoz_wzrostu": 52.9
+        },
+        "TCN-Mamdani": {
+          "DA": 52.36,
+          "DA_up": 100.0,
+          "DA_down": 0.0,
+          "n": 382,
+          "odsetek_prognoz_wzrostu": 100.0
+        },
+        "Naiwna": {
+          "DA": 3.93,
+          "DA_up": 4.0,
+          "DA_down": 3.85,
+          "n": 382,
+          "odsetek_prognoz_wzrostu": 3.1
+        }
+      },
+      "EURUSD": {
+        "ARIMA": {
+          "DA": 52.13,
+          "DA_up": 51.3,
+          "DA_down": 52.91,
+          "n": 399,
+          "odsetek_prognoz_wzrostu": 49.1
+        },
+        "LSTM": {
+          "DA": 51.38,
+          "DA_up": 24.87,
+          "DA_down": 76.21,
+          "n": 399,
+          "odsetek_prognoz_wzrostu": 24.1
+        },
+        "TCN": {
+          "DA": 49.62,
+          "DA_up": 36.79,
+          "DA_down": 61.65,
+          "n": 399,
+          "odsetek_prognoz_wzrostu": 37.3
+        },
+        "Mamdani": {
+          "DA": 52.63,
+          "DA_up": 51.3,
+          "DA_down": 53.88,
+          "n": 399,
+          "odsetek_prognoz_wzrostu": 48.4
+        },
+        "TCN-Mamdani": {
+          "DA": 51.38,
+          "DA_up": 0.0,
+          "DA_down": 99.51,
+          "n": 399,
+          "odsetek_prognoz_wzrostu": 0.0
+        },
+        "Naiwna": {
+          "DA": 2.01,
+          "DA_up": 2.07,
+          "DA_down": 1.94,
+          "n": 399,
+          "odsetek_prognoz_wzrostu": 1.8
+        }
+      },
+      "BTCUSD": {
+        "ARIMA": {
+          "DA": 50.74,
+          "DA_up": 52.43,
+          "DA_down": 49.01,
+          "n": 408,
+          "odsetek_prognoz_wzrostu": 51.7
+        },
+        "LSTM": {
+          "DA": 49.51,
+          "DA_up": 0.0,
+          "DA_down": 100.0,
+          "n": 408,
+          "odsetek_prognoz_wzrostu": 0.0
+        },
+        "TCN": {
+          "DA": 49.51,
+          "DA_up": 0.0,
+          "DA_down": 100.0,
+          "n": 408,
+          "odsetek_prognoz_wzrostu": 0.0
+        },
+        "Mamdani": {
+          "DA": 45.1,
+          "DA_up": 47.09,
+          "DA_down": 43.07,
+          "n": 408,
+          "odsetek_prognoz_wzrostu": 52.0
+        },
+        "TCN-Mamdani": {
+          "DA": 49.51,
+          "DA_up": 0.0,
+          "DA_down": 100.0,
+          "n": 408,
+          "odsetek_prognoz_wzrostu": 0.0
+        },
+        "Naiwna": {
+          "DA": 0.0,
+          "DA_up": 0.0,
+          "DA_down": 0.0,
+          "n": 408,
+          "odsetek_prognoz_wzrostu": 0.0
+        }
+      }
+    },
+    "J_walidacja_SP500_GA": {
+      "MAPE_val_reczne_eksp19": 0.7623,
+      "MAPE_val_GA_eksp19": 0.6906,
+      "MAPE_val_naiwna": 0.695,
+      "n": 385
+    }
+  }
+}

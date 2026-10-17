@@ -1,0 +1,137 @@
+============================================================
+  EKSPERYMENT 20: TCN-MAMDANI HYBRID NA 7 ZBIORACH DANYCH
+============================================================
+
+=== TCN-Mamdani: S&P 500 ===
+  Faza 1: Trening TCN feature extractor...
+    Early stopping epoch 16
+  Faza 2: Ekstrakcja cech TCN + wnioskowanie Mamdaniego...
+  MAPE: 1.3257%
+  RMSE: 96.095527
+  MAE:  79.403959
+  Czas: 9.61s
+
+=== TCN-Mamdani: WIG20 ===
+  Faza 1: Trening TCN feature extractor...
+    Epoch 20/100, val_loss: 0.000860
+    Epoch 40/100, val_loss: 0.000446
+    Epoch 60/100, val_loss: 0.000446
+    Epoch 80/100, val_loss: 0.000392
+    Epoch 100/100, val_loss: 0.000393
+  Faza 2: Ekstrakcja cech TCN + wnioskowanie Mamdaniego...
+  MAPE: 1.0365%
+  RMSE: 35.771914
+  MAE:  27.051626
+  Czas: 52.37s
+
+=== TCN-Mamdani: EUR/USD ===
+  Faza 1: Trening TCN feature extractor...
+    Epoch 20/100, val_loss: 0.001360
+    Epoch 40/100, val_loss: 0.000467
+    Epoch 60/100, val_loss: 0.000383
+    Early stopping epoch 75
+  Faza 2: Ekstrakcja cech TCN + wnioskowanie Mamdaniego...
+  MAPE: 0.3392%
+  RMSE: 0.005167
+  MAE:  0.003764
+  Czas: 41.5s
+
+=== TCN-Mamdani: BTC/USD ===
+  Faza 1: Trening TCN feature extractor...
+    Early stopping epoch 16
+  Faza 2: Ekstrakcja cech TCN + wnioskowanie Mamdaniego...
+  MAPE: 1.5986%
+  RMSE: 2157.48905
+  MAE:  1586.110889
+  Czas: 9.8s
+
+=== TCN-Mamdani: DAX ===
+  Faza 1: Trening TCN feature extractor...
+    Epoch 20/100, val_loss: 0.014470
+    Early stopping epoch 21
+  Faza 2: Ekstrakcja cech TCN + wnioskowanie Mamdaniego...
+  MAPE: 1.1832%
+  RMSE: 322.34312
+  MAE:  258.361573
+  Czas: 11.95s
+
+=== TCN-Mamdani: Nikkei 225 ===
+  Faza 1: Trening TCN feature extractor...
+    Early stopping epoch 18
+  Faza 2: Ekstrakcja cech TCN + wnioskowanie Mamdaniego...
+  MAPE: 1.0838%
+  RMSE: 647.862277
+  MAE:  432.226334
+  Czas: 9.95s
+
+=== TCN-Mamdani: Gold ===
+  Faza 1: Trening TCN feature extractor...
+    Early stopping epoch 16
+  Faza 2: Ekstrakcja cech TCN + wnioskowanie Mamdaniego...
+  MAPE: 1.1909%
+  RMSE: 51.435745
+  MAE:  37.820065
+  Czas: 9.23s
+
+============================================================
+  ARIMA BASELINE NA NOWYCH ZBIORACH
+============================================================
+
+=== ARIMA: DAX ===
+  50/419
+  100/419
+  150/419
+  200/419
+  250/419
+  300/419
+  350/419
+  400/419
+  MAPE: 0.7462%
+  RMSE: 216.381682
+  MAE:  160.246077
+  Czas: 16.69s
+
+=== ARIMA: Nikkei 225 ===
+  50/404
+  100/404
+  150/404
+  200/404
+  250/404
+  300/404
+  350/404
+  400/404
+  MAPE: 1.0638%
+  RMSE: 633.803
+  MAE:  423.864786
+  Czas: 15.57s
+
+=== ARIMA: Gold ===
+  50/415
+  100/415
+  150/415
+  200/415
+  250/415
+  300/415
+  350/415
+  400/415
+  MAPE: 0.9025%
+  RMSE: 40.451425
+  MAE:  28.457325
+  Czas: 16.15s
+
+============================================================
+  PODSUMOWANIE
+============================================================
+
+  Zbior          TCN-Mamdani MAPE   ARIMA MAPE
+  --------------------------------------------
+  SP500                   1.3257%           —
+  WIG20                   1.0365%           —
+  EURUSD                  0.3392%           —
+  BTCUSD                  1.5986%           —
+  DAX                     1.1832%      0.7462%
+  NIKKEI                  1.0838%      1.0638%
+  GOLD                    1.1909%      0.9025%
+Wyniki zapisane: /var/folders/0g/6mtwpyqj39l94b7ff41fnyww0000gn/T/tmpjf0o7_ba/20_all_7datasets/wyniki.json
+
+=== EKSPERYMENT 20 ZAKONCZONE ===

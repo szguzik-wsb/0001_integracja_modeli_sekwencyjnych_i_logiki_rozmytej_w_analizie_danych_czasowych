@@ -1,0 +1,75 @@
+
+=== S&P 500 ===
+  Faza 1: Trening TCN feature extractor...
+    Early stopping epoch 16
+  Faza 2: Ekstrakcja cech TCN + wnioskowanie Mamdaniego...
+  MAPE: 1.3257%
+  RMSE: 96.095527
+  MAE:  79.403959
+  Czas: 11.05s
+
+=== WIG20 ===
+  Faza 1: Trening TCN feature extractor...
+    Epoch 20/100, val_loss: 0.000887
+    Epoch 40/100, val_loss: 0.000675
+    Epoch 60/100, val_loss: 0.000631
+    Epoch 80/100, val_loss: 0.000493
+    Epoch 100/100, val_loss: 0.000401
+  Faza 2: Ekstrakcja cech TCN + wnioskowanie Mamdaniego...
+  MAPE: 1.0755%
+  RMSE: 36.867495
+  MAE:  28.079181
+  Czas: 53.91s
+
+=== EUR/USD ===
+  Faza 1: Trening TCN feature extractor...
+    Epoch 20/100, val_loss: 0.000666
+    Epoch 40/100, val_loss: 0.000419
+    Epoch 60/100, val_loss: 0.000442
+    Early stopping epoch 62
+  Faza 2: Ekstrakcja cech TCN + wnioskowanie Mamdaniego...
+  MAPE: 0.3903%
+  RMSE: 0.005839
+  MAE:  0.004357
+  Czas: 47.81s
+
+=== BTC/USD ===
+  Faza 1: Trening TCN feature extractor...
+    Early stopping epoch 17
+  Faza 2: Ekstrakcja cech TCN + wnioskowanie Mamdaniego...
+  MAPE: 1.8272%
+  RMSE: 2360.022087
+  MAE:  1828.741078
+  Czas: 12.42s
+
+=== DAX ===
+  Faza 1: Trening TCN feature extractor...
+    Epoch 20/100, val_loss: 0.010544
+    Epoch 40/100, val_loss: 0.010317
+    Early stopping epoch 56
+  Faza 2: Ekstrakcja cech TCN + wnioskowanie Mamdaniego...
+  MAPE: 1.4549%
+  RMSE: 381.487082
+  MAE:  318.753042
+  Czas: 30.06s
+
+=== Nikkei 225 ===
+  Faza 1: Trening TCN feature extractor...
+    Early stopping epoch 17
+  Faza 2: Ekstrakcja cech TCN + wnioskowanie Mamdaniego...
+  MAPE: 1.1853%
+  RMSE: 687.488254
+  MAE:  473.434403
+  Czas: 9.36s
+
+=== Gold ===
+  Faza 1: Trening TCN feature extractor...
+    Early stopping epoch 18
+  Faza 2: Ekstrakcja cech TCN + wnioskowanie Mamdaniego...
+  MAPE: 0.9687%
+  RMSE: 42.363096
+  MAE:  30.820659
+  Czas: 10.16s
+Wyniki zapisane: /var/folders/0g/6mtwpyqj39l94b7ff41fnyww0000gn/T/tmpldi5k34z/05_tcn_mamdani_hybrid/wyniki.json
+
+=== TCN + MAMDANI HYBRID ZAKONCZONE ===

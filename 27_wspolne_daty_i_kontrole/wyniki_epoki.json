@@ -1,0 +1,108 @@
+{
+  "eksperyment": "27: epoka wczesnego zatrzymania TCN w 05 i 20 (powtorka bez zmian kodu)",
+  "cierpliwosc": 15,
+  "wyniki": {
+    "05": {
+      "SP500": {
+        "epoka_zatrzymania": 16,
+        "najlepsza_epoka_walidacyjna": 1,
+        "MAPE_powtorka": 1.3257,
+        "MAPE_zapisane": 1.3253,
+        "zgodne": false
+      },
+      "WIG20": {
+        "epoka_zatrzymania": null,
+        "najlepsza_epoka_walidacyjna": "brak wczesnego zatrzymania (100 epok)",
+        "MAPE_powtorka": 1.0755,
+        "MAPE_zapisane": 1.0757,
+        "zgodne": false
+      },
+      "EURUSD": {
+        "epoka_zatrzymania": 62,
+        "najlepsza_epoka_walidacyjna": 47,
+        "MAPE_powtorka": 0.3903,
+        "MAPE_zapisane": 0.3903,
+        "zgodne": true
+      },
+      "BTCUSD": {
+        "epoka_zatrzymania": 17,
+        "najlepsza_epoka_walidacyjna": 2,
+        "MAPE_powtorka": 1.8272,
+        "MAPE_zapisane": 1.8272,
+        "zgodne": true
+      },
+      "DAX": {
+        "epoka_zatrzymania": 56,
+        "najlepsza_epoka_walidacyjna": 41,
+        "MAPE_powtorka": 1.4549,
+        "MAPE_zapisane": 1.4577,
+        "zgodne": false
+      },
+      "NIKKEI": {
+        "epoka_zatrzymania": 17,
+        "najlepsza_epoka_walidacyjna": 2,
+        "MAPE_powtorka": 1.1853,
+        "MAPE_zapisane": 1.1853,
+        "zgodne": true
+      },
+      "GOLD": {
+        "epoka_zatrzymania": 18,
+        "najlepsza_epoka_walidacyjna": 3,
+        "MAPE_powtorka": 0.9687,
+        "MAPE_zapisane": 0.9682,
+        "zgodne": false
+      }
+    },
+    "20": {
+      "SP500": {
+        "epoka_zatrzymania": 16,
+        "najlepsza_epoka_walidacyjna": 1,
+        "MAPE_powtorka": 1.3257,
+        "MAPE_zapisane": 1.3253,
+        "zgodne": false
+      },
+      "WIG20": {
+        "epoka_zatrzymania": null,
+        "najlepsza_epoka_walidacyjna": "brak wczesnego zatrzymania (100 epok)",
+        "MAPE_powtorka": 1.0365,
+        "MAPE_zapisane": 1.0419,
+        "zgodne": false
+      },
+      "EURUSD": {
+        "epoka_zatrzymania": 75,
+        "najlepsza_epoka_walidacyjna": 60,
+        "MAPE_powtorka": 0.3392,
+        "MAPE_zapisane": 0.3392,
+        "zgodne": true
+      },
+      "BTCUSD": {
+        "epoka_zatrzymania": 16,
+        "najlepsza_epoka_walidacyjna": 1,
+        "MAPE_powtorka": 1.5986,
+        "MAPE_zapisane": 1.5986,
+        "zgodne": true
+      },
+      "DAX": {
+        "epoka_zatrzymania": 21,
+        "najlepsza_epoka_walidacyjna": 6,
+        "MAPE_powtorka": 1.1832,
+        "MAPE_zapisane": 1.1806,
+        "zgodne": false
+      },
+      "NIKKEI": {
+        "epoka_zatrzymania": 18,
+        "najlepsza_epoka_walidacyjna": 3,
+        "MAPE_powtorka": 1.0838,
+        "MAPE_zapisane": 1.0838,
+        "zgodne": true
+      },
+      "GOLD": {
+        "epoka_zatrzymania": 16,
+        "najlepsza_epoka_walidacyjna": 1,
+        "MAPE_powtorka": 1.1909,
+        "MAPE_zapisane": 1.1925,
+        "zgodne": false
+      }
+    }
+  }
+}
