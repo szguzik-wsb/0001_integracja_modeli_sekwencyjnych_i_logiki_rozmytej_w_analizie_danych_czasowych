@@ -1,0 +1,13 @@
+Eksperyment 22_koszty_transakcyjne: wrazliwosc strategii z eksperymentu 17 na koszty transakcyjne
+
+Metoda: strategia long/short identyczna jak w 17 (bez look-ahead, decyzja na podstawie actual[t-1]).
+Koszt c [punkty bazowe] od kazdej transakcji jednostronnej; zmiana kierunku long<->short = 2 transakcje;
+otwarcie i zamkniecie okresu = po 1 transakcji; buy-and-hold = 2 transakcje. Poziomy c: 0, 5, 10, 20 bp.
+Koszt progowy (break-even): bisekcja kosztu, przy ktorym wynik netto strategii aktywnej = buy-and-hold netto
+(liczony tylko gdy strategia aktywna bez kosztow wygrywa z buy-and-hold).
+Kontrola: wyniki dla c = 0 identyczne z 17_strategia_calmar/wyniki.json (total_return_pct).
+Dane wejsciowe: prognozy_*.csv z 01-05 dla SP500, WIG20, EURUSD, BTCUSD (bez trenowania modeli).
+Zrodla: Young, T. W. (1991). Calmar ratio: A smoother tool. Futures Magazine (metryka Calmar, jak w 17).
+Implementacja: Python 3.14.7 (macOS, CPU), numpy 2.5.0, pandas 3.0.3, scipy 1.18.0, scikit-learn 1.9.0, statsmodels 0.14.6, scikit-fuzzy 0.5.0, torch 2.11.0 (wersje jak w requirements.txt).
+Reprodukowalnosc: ziarno 42 tam, gdzie wystepuje losowosc; uruchomienie: python NN_nazwa/run.py z katalogu wewnetrzne (dane w ../zewnetrzne).
+Data uruchomienia: 2026-10-17 (rewizja po recenzjach WSB Journal of Business and Finance).

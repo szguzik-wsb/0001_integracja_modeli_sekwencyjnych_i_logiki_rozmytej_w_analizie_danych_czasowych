@@ -1,0 +1,733 @@
+{
+  "eksperyment": "Korelacje wyjsc ekstraktora TCN ze standardowymi statystykami kroczacymi (okno 30 sesji)",
+  "definicje": {
+    "nachylenie_logcen_pct": "nachylenie MNK log-cen w oknie 30 sesji, % na sesje",
+    "odch_std_log_zwrotow_pct": "odchylenie standardowe 29 dziennych log-stop zwrotu w oknie, %",
+    "roc10_pct": "zmiana ceny ostatniej obserwacji okna wzgledem obserwacji sprzed 10 sesji, %"
+  },
+  "zrodla_cech": {
+    "SP500": "05_tcn_mamdani_hybrid/prognozy_SP500.csv",
+    "WIG20": "05_tcn_mamdani_hybrid/prognozy_WIG20.csv",
+    "EURUSD": "05_tcn_mamdani_hybrid/prognozy_EURUSD.csv",
+    "BTCUSD": "05_tcn_mamdani_hybrid/prognozy_BTCUSD.csv",
+    "DAX": "20_all_7datasets/prognozy_hybrid_DAX.csv",
+    "NIKKEI": "20_all_7datasets/prognozy_hybrid_NIKKEI.csv",
+    "GOLD": "20_all_7datasets/prognozy_hybrid_GOLD.csv"
+  },
+  "wyniki": {
+    "SP500": {
+      "n_dni": 385,
+      "cechy_TCN": {
+        "TCN_trend": {
+          "min": 2.8622,
+          "max": 2.9921,
+          "srednia": 2.9613,
+          "odch_std": 0.0229,
+          "odsetek_przy_granicy": 0.8
+        },
+        "TCN_volatility": {
+          "min": 2.6535,
+          "max": 3.0915,
+          "srednia": 2.8087,
+          "odch_std": 0.0618,
+          "odsetek_przy_granicy": 0.0
+        },
+        "TCN_momentum": {
+          "min": 1.5216,
+          "max": 2.6002,
+          "srednia": 2.1822,
+          "odch_std": 0.2484,
+          "odsetek_przy_granicy": 0.0
+        }
+      },
+      "korelacje": {
+        "TCN_trend": {
+          "nachylenie_logcen_pct": {
+            "pearson": 0.357,
+            "p_pearson": 5.02e-13,
+            "spearman": 0.13,
+            "p_spearman": 0.0109
+          },
+          "odch_std_log_zwrotow_pct": {
+            "pearson": -0.493,
+            "p_pearson": 5.08e-25,
+            "spearman": -0.394,
+            "p_spearman": 9.69e-16
+          },
+          "roc10_pct": {
+            "pearson": 0.14,
+            "p_pearson": 0.00603,
+            "spearman": 0.007,
+            "p_spearman": 0.891
+          }
+        },
+        "TCN_volatility": {
+          "nachylenie_logcen_pct": {
+            "pearson": -0.194,
+            "p_pearson": 0.000128,
+            "spearman": -0.046,
+            "p_spearman": 0.368
+          },
+          "odch_std_log_zwrotow_pct": {
+            "pearson": 0.349,
+            "p_pearson": 1.77e-12,
+            "spearman": 0.311,
+            "p_spearman": 4.54e-10
+          },
+          "roc10_pct": {
+            "pearson": -0.102,
+            "p_pearson": 0.0459,
+            "spearman": 0.026,
+            "p_spearman": 0.618
+          }
+        },
+        "TCN_momentum": {
+          "nachylenie_logcen_pct": {
+            "pearson": 0.289,
+            "p_pearson": 8.07e-09,
+            "spearman": 0.126,
+            "p_spearman": 0.0134
+          },
+          "odch_std_log_zwrotow_pct": {
+            "pearson": -0.468,
+            "p_pearson": 2.58e-22,
+            "spearman": -0.395,
+            "p_spearman": 8.44e-16
+          },
+          "roc10_pct": {
+            "pearson": 0.079,
+            "p_pearson": 0.123,
+            "spearman": -0.003,
+            "p_spearman": 0.957
+          }
+        }
+      },
+      "statystyki_referencyjne": {
+        "nachylenie_logcen_pct": {
+          "srednia": 0.0655,
+          "odch_std": 0.1632
+        },
+        "odch_std_log_zwrotow_pct": {
+          "srednia": 0.9476,
+          "odch_std": 0.527
+        },
+        "roc10_pct": {
+          "srednia": 0.678,
+          "odch_std": 2.8608
+        }
+      }
+    },
+    "WIG20": {
+      "n_dni": 383,
+      "cechy_TCN": {
+        "TCN_trend": {
+          "min": -2.4523,
+          "max": -0.2314,
+          "srednia": -1.3887,
+          "odch_std": 0.6516,
+          "odsetek_przy_granicy": 0.0
+        },
+        "TCN_volatility": {
+          "min": 1.9259,
+          "max": 2.4844,
+          "srednia": 2.26,
+          "odch_std": 0.1197,
+          "odsetek_przy_granicy": 0.0
+        },
+        "TCN_momentum": {
+          "min": 1.2913,
+          "max": 2.6095,
+          "srednia": 1.9456,
+          "odch_std": 0.3882,
+          "odsetek_przy_granicy": 0.0
+        }
+      },
+      "korelacje": {
+        "TCN_trend": {
+          "nachylenie_logcen_pct": {
+            "pearson": -0.358,
+            "p_pearson": 5.11e-13,
+            "spearman": -0.38,
+            "p_spearman": 1.27e-14
+          },
+          "odch_std_log_zwrotow_pct": {
+            "pearson": 0.042,
+            "p_pearson": 0.415,
+            "spearman": 0.249,
+            "p_spearman": 7.9e-07
+          },
+          "roc10_pct": {
+            "pearson": -0.223,
+            "p_pearson": 1.11e-05,
+            "spearman": -0.244,
+            "p_spearman": 1.28e-06
+          }
+        },
+        "TCN_volatility": {
+          "nachylenie_logcen_pct": {
+            "pearson": -0.21,
+            "p_pearson": 3.58e-05,
+            "spearman": -0.242,
+            "p_spearman": 1.65e-06
+          },
+          "odch_std_log_zwrotow_pct": {
+            "pearson": 0.195,
+            "p_pearson": 0.000123,
+            "spearman": 0.177,
+            "p_spearman": 0.000504
+          },
+          "roc10_pct": {
+            "pearson": 0.136,
+            "p_pearson": 0.0076,
+            "spearman": 0.145,
+            "p_spearman": 0.00435
+          }
+        },
+        "TCN_momentum": {
+          "nachylenie_logcen_pct": {
+            "pearson": 0.355,
+            "p_pearson": 7.94e-13,
+            "spearman": 0.382,
+            "p_spearman": 8.92e-15
+          },
+          "odch_std_log_zwrotow_pct": {
+            "pearson": -0.053,
+            "p_pearson": 0.301,
+            "spearman": -0.238,
+            "p_spearman": 2.43e-06
+          },
+          "roc10_pct": {
+            "pearson": 0.171,
+            "p_pearson": 0.000769,
+            "spearman": 0.189,
+            "p_spearman": 0.000205
+          }
+        }
+      },
+      "statystyki_referencyjne": {
+        "nachylenie_logcen_pct": {
+          "srednia": 0.0472,
+          "odch_std": 0.2076
+        },
+        "odch_std_log_zwrotow_pct": {
+          "srednia": 1.3339,
+          "odch_std": 0.3668
+        },
+        "roc10_pct": {
+          "srednia": 0.7321,
+          "odch_std": 4.0174
+        }
+      }
+    },
+    "EURUSD": {
+      "n_dni": 400,
+      "cechy_TCN": {
+        "TCN_trend": {
+          "min": -2.6612,
+          "max": -2.3523,
+          "srednia": -2.5097,
+          "odch_std": 0.0904,
+          "odsetek_przy_granicy": 0.0
+        },
+        "TCN_volatility": {
+          "min": 1.4253,
+          "max": 2.4664,
+          "srednia": 1.8355,
+          "odch_std": 0.3067,
+          "odsetek_przy_granicy": 0.0
+        },
+        "TCN_momentum": {
+          "min": -2.5879,
+          "max": -1.7433,
+          "srednia": -2.1547,
+          "odch_std": 0.2478,
+          "odsetek_przy_granicy": 0.0
+        }
+      },
+      "korelacje": {
+        "TCN_trend": {
+          "nachylenie_logcen_pct": {
+            "pearson": -0.309,
+            "p_pearson": 2.56e-10,
+            "spearman": -0.334,
+            "p_spearman": 7.4e-12
+          },
+          "odch_std_log_zwrotow_pct": {
+            "pearson": 0.078,
+            "p_pearson": 0.118,
+            "spearman": 0.138,
+            "p_spearman": 0.00555
+          },
+          "roc10_pct": {
+            "pearson": -0.232,
+            "p_pearson": 2.73e-06,
+            "spearman": -0.269,
+            "p_spearman": 4.51e-08
+          }
+        },
+        "TCN_volatility": {
+          "nachylenie_logcen_pct": {
+            "pearson": -0.334,
+            "p_pearson": 7.55e-12,
+            "spearman": -0.353,
+            "p_spearman": 3.49e-13
+          },
+          "odch_std_log_zwrotow_pct": {
+            "pearson": 0.08,
+            "p_pearson": 0.111,
+            "spearman": 0.116,
+            "p_spearman": 0.0202
+          },
+          "roc10_pct": {
+            "pearson": -0.23,
+            "p_pearson": 3.4e-06,
+            "spearman": -0.255,
+            "p_spearman": 2.47e-07
+          }
+        },
+        "TCN_momentum": {
+          "nachylenie_logcen_pct": {
+            "pearson": -0.265,
+            "p_pearson": 7.88e-08,
+            "spearman": -0.347,
+            "p_spearman": 9.72e-13
+          },
+          "odch_std_log_zwrotow_pct": {
+            "pearson": 0.097,
+            "p_pearson": 0.0523,
+            "spearman": 0.126,
+            "p_spearman": 0.0119
+          },
+          "roc10_pct": {
+            "pearson": -0.168,
+            "p_pearson": 0.000769,
+            "spearman": -0.2,
+            "p_spearman": 5.85e-05
+          }
+        }
+      },
+      "statystyki_referencyjne": {
+        "nachylenie_logcen_pct": {
+          "srednia": 0.0184,
+          "odch_std": 0.0854
+        },
+        "odch_std_log_zwrotow_pct": {
+          "srednia": 0.4502,
+          "odch_std": 0.1384
+        },
+        "roc10_pct": {
+          "srednia": 0.2114,
+          "odch_std": 1.4154
+        }
+      }
+    },
+    "BTCUSD": {
+      "n_dni": 409,
+      "cechy_TCN": {
+        "TCN_trend": {
+          "min": 2.9632,
+          "max": 2.9987,
+          "srednia": 2.9903,
+          "odch_std": 0.008,
+          "odsetek_przy_granicy": 1.0
+        },
+        "TCN_volatility": {
+          "min": 0.6396,
+          "max": 1.2832,
+          "srednia": 0.9291,
+          "odch_std": 0.1391,
+          "odsetek_przy_granicy": 0.0
+        },
+        "TCN_momentum": {
+          "min": -3.0,
+          "max": -2.999,
+          "srednia": -2.9999,
+          "odch_std": 0.0002,
+          "odsetek_przy_granicy": 1.0
+        }
+      },
+      "korelacje": {
+        "TCN_trend": {
+          "nachylenie_logcen_pct": {
+            "pearson": 0.171,
+            "p_pearson": 0.000499,
+            "spearman": 0.247,
+            "p_spearman": 4.37e-07
+          },
+          "odch_std_log_zwrotow_pct": {
+            "pearson": -0.772,
+            "p_pearson": 3.52e-82,
+            "spearman": -0.809,
+            "p_spearman": 3.65e-96
+          },
+          "roc10_pct": {
+            "pearson": -0.085,
+            "p_pearson": 0.0844,
+            "spearman": -0.04,
+            "p_spearman": 0.423
+          }
+        },
+        "TCN_volatility": {
+          "nachylenie_logcen_pct": {
+            "pearson": -0.303,
+            "p_pearson": 3.97e-10,
+            "spearman": -0.372,
+            "p_spearman": 7.46e-15
+          },
+          "odch_std_log_zwrotow_pct": {
+            "pearson": 0.727,
+            "p_pearson": 1.79e-68,
+            "spearman": 0.75,
+            "p_spearman": 4.21e-75
+          },
+          "roc10_pct": {
+            "pearson": -0.233,
+            "p_pearson": 1.88e-06,
+            "spearman": -0.219,
+            "p_spearman": 8.12e-06
+          }
+        },
+        "TCN_momentum": {
+          "nachylenie_logcen_pct": {
+            "pearson": -0.226,
+            "p_pearson": 4.05e-06,
+            "spearman": -0.279,
+            "p_spearman": 9.39e-09
+          },
+          "odch_std_log_zwrotow_pct": {
+            "pearson": 0.708,
+            "p_pearson": 2.12e-63,
+            "spearman": 0.812,
+            "p_spearman": 3.94e-97
+          },
+          "roc10_pct": {
+            "pearson": 0.024,
+            "p_pearson": 0.621,
+            "spearman": -0.025,
+            "p_spearman": 0.61
+          }
+        }
+      },
+      "statystyki_referencyjne": {
+        "nachylenie_logcen_pct": {
+          "srednia": 0.0517,
+          "odch_std": 0.4537
+        },
+        "odch_std_log_zwrotow_pct": {
+          "srednia": 2.2226,
+          "odch_std": 0.6204
+        },
+        "roc10_pct": {
+          "srednia": 0.3347,
+          "odch_std": 6.2458
+        }
+      }
+    },
+    "DAX": {
+      "n_dni": 389,
+      "cechy_TCN": {
+        "TCN_trend": {
+          "min": 2.7651,
+          "max": 2.987,
+          "srednia": 2.9323,
+          "odch_std": 0.0597,
+          "odsetek_przy_granicy": 0.599
+        },
+        "TCN_volatility": {
+          "min": 2.427,
+          "max": 3.1383,
+          "srednia": 2.7248,
+          "odch_std": 0.1498,
+          "odsetek_przy_granicy": 0.0
+        },
+        "TCN_momentum": {
+          "min": 1.4876,
+          "max": 2.8442,
+          "srednia": 2.4828,
+          "odch_std": 0.3821,
+          "odsetek_przy_granicy": 0.0
+        }
+      },
+      "korelacje": {
+        "TCN_trend": {
+          "nachylenie_logcen_pct": {
+            "pearson": 0.146,
+            "p_pearson": 0.00397,
+            "spearman": 0.096,
+            "p_spearman": 0.0597
+          },
+          "odch_std_log_zwrotow_pct": {
+            "pearson": 0.18,
+            "p_pearson": 0.000362,
+            "spearman": 0.07,
+            "p_spearman": 0.168
+          },
+          "roc10_pct": {
+            "pearson": 0.078,
+            "p_pearson": 0.125,
+            "spearman": 0.041,
+            "p_spearman": 0.422
+          }
+        },
+        "TCN_volatility": {
+          "nachylenie_logcen_pct": {
+            "pearson": -0.087,
+            "p_pearson": 0.0856,
+            "spearman": -0.031,
+            "p_spearman": 0.537
+          },
+          "odch_std_log_zwrotow_pct": {
+            "pearson": -0.113,
+            "p_pearson": 0.0262,
+            "spearman": -0.101,
+            "p_spearman": 0.0455
+          },
+          "roc10_pct": {
+            "pearson": -0.026,
+            "p_pearson": 0.615,
+            "spearman": 0.005,
+            "p_spearman": 0.92
+          }
+        },
+        "TCN_momentum": {
+          "nachylenie_logcen_pct": {
+            "pearson": 0.147,
+            "p_pearson": 0.00367,
+            "spearman": 0.096,
+            "p_spearman": 0.0572
+          },
+          "odch_std_log_zwrotow_pct": {
+            "pearson": 0.164,
+            "p_pearson": 0.00114,
+            "spearman": 0.067,
+            "p_spearman": 0.19
+          },
+          "roc10_pct": {
+            "pearson": 0.076,
+            "p_pearson": 0.132,
+            "spearman": 0.038,
+            "p_spearman": 0.449
+          }
+        }
+      },
+      "statystyki_referencyjne": {
+        "nachylenie_logcen_pct": {
+          "srednia": 0.0637,
+          "odch_std": 0.1848
+        },
+        "odch_std_log_zwrotow_pct": {
+          "srednia": 0.9663,
+          "odch_std": 0.3714
+        },
+        "roc10_pct": {
+          "srednia": 0.7627,
+          "odch_std": 3.2789
+        }
+      }
+    },
+    "NIKKEI": {
+      "n_dni": 374,
+      "cechy_TCN": {
+        "TCN_trend": {
+          "min": 2.7101,
+          "max": 2.9941,
+          "srednia": 2.9213,
+          "odch_std": 0.0468,
+          "odsetek_przy_granicy": 0.291
+        },
+        "TCN_volatility": {
+          "min": 3.8869,
+          "max": 4.8209,
+          "srednia": 4.4566,
+          "odch_std": 0.1725,
+          "odsetek_przy_granicy": 0.0
+        },
+        "TCN_momentum": {
+          "min": -0.6869,
+          "max": 0.6259,
+          "srednia": 0.0006,
+          "odch_std": 0.0971,
+          "odsetek_przy_granicy": 0.0
+        }
+      },
+      "korelacje": {
+        "TCN_trend": {
+          "nachylenie_logcen_pct": {
+            "pearson": 0.578,
+            "p_pearson": 9.32e-35,
+            "spearman": 0.5,
+            "p_spearman": 4.92e-25
+          },
+          "odch_std_log_zwrotow_pct": {
+            "pearson": -0.424,
+            "p_pearson": 9.2e-18,
+            "spearman": -0.249,
+            "p_spearman": 1.04e-06
+          },
+          "roc10_pct": {
+            "pearson": 0.387,
+            "p_pearson": 7.73e-15,
+            "spearman": 0.282,
+            "p_spearman": 2.74e-08
+          }
+        },
+        "TCN_volatility": {
+          "nachylenie_logcen_pct": {
+            "pearson": 0.566,
+            "p_pearson": 5.25e-33,
+            "spearman": 0.529,
+            "p_spearman": 2.7e-28
+          },
+          "odch_std_log_zwrotow_pct": {
+            "pearson": -0.343,
+            "p_pearson": 9.12e-12,
+            "spearman": -0.221,
+            "p_spearman": 1.57e-05
+          },
+          "roc10_pct": {
+            "pearson": 0.266,
+            "p_pearson": 1.77e-07,
+            "spearman": 0.231,
+            "p_spearman": 6.26e-06
+          }
+        },
+        "TCN_momentum": {
+          "nachylenie_logcen_pct": {
+            "pearson": 0.305,
+            "p_pearson": 1.79e-09,
+            "spearman": 0.348,
+            "p_spearman": 4.55e-12
+          },
+          "odch_std_log_zwrotow_pct": {
+            "pearson": -0.18,
+            "p_pearson": 0.000473,
+            "spearman": -0.157,
+            "p_spearman": 0.00231
+          },
+          "roc10_pct": {
+            "pearson": 0.322,
+            "p_pearson": 1.82e-10,
+            "spearman": 0.31,
+            "p_spearman": 8.61e-10
+          }
+        }
+      },
+      "statystyki_referencyjne": {
+        "nachylenie_logcen_pct": {
+          "srednia": 0.0684,
+          "odch_std": 0.2425
+        },
+        "odch_std_log_zwrotow_pct": {
+          "srednia": 1.509,
+          "odch_std": 0.8249
+        },
+        "roc10_pct": {
+          "srednia": 0.7923,
+          "odch_std": 4.549
+        }
+      }
+    },
+    "GOLD": {
+      "n_dni": 385,
+      "cechy_TCN": {
+        "TCN_trend": {
+          "min": 2.956,
+          "max": 3.0,
+          "srednia": 2.9938,
+          "odch_std": 0.0098,
+          "odsetek_przy_granicy": 1.0
+        },
+        "TCN_volatility": {
+          "min": 2.7805,
+          "max": 3.6874,
+          "srednia": 3.1213,
+          "odch_std": 0.199,
+          "odsetek_przy_granicy": 0.0
+        },
+        "TCN_momentum": {
+          "min": 1.7703,
+          "max": 2.9741,
+          "srednia": 2.5284,
+          "odch_std": 0.3323,
+          "odsetek_przy_granicy": 0.078
+        }
+      },
+      "korelacje": {
+        "TCN_trend": {
+          "nachylenie_logcen_pct": {
+            "pearson": 0.295,
+            "p_pearson": 3.64e-09,
+            "spearman": 0.275,
+            "p_spearman": 4.35e-08
+          },
+          "odch_std_log_zwrotow_pct": {
+            "pearson": 0.164,
+            "p_pearson": 0.00124,
+            "spearman": 0.183,
+            "p_spearman": 0.000315
+          },
+          "roc10_pct": {
+            "pearson": 0.106,
+            "p_pearson": 0.0375,
+            "spearman": 0.157,
+            "p_spearman": 0.00196
+          }
+        },
+        "TCN_volatility": {
+          "nachylenie_logcen_pct": {
+            "pearson": 0.369,
+            "p_pearson": 7.7e-14,
+            "spearman": 0.286,
+            "p_spearman": 1.14e-08
+          },
+          "odch_std_log_zwrotow_pct": {
+            "pearson": 0.276,
+            "p_pearson": 3.55e-08,
+            "spearman": 0.15,
+            "p_spearman": 0.00319
+          },
+          "roc10_pct": {
+            "pearson": 0.347,
+            "p_pearson": 2.42e-12,
+            "spearman": 0.291,
+            "p_spearman": 5.95e-09
+          }
+        },
+        "TCN_momentum": {
+          "nachylenie_logcen_pct": {
+            "pearson": 0.323,
+            "p_pearson": 8.51e-11,
+            "spearman": 0.284,
+            "p_spearman": 1.43e-08
+          },
+          "odch_std_log_zwrotow_pct": {
+            "pearson": 0.342,
+            "p_pearson": 5.67e-12,
+            "spearman": 0.216,
+            "p_spearman": 1.97e-05
+          },
+          "roc10_pct": {
+            "pearson": 0.107,
+            "p_pearson": 0.0365,
+            "spearman": 0.12,
+            "p_spearman": 0.019
+          }
+        }
+      },
+      "statystyki_referencyjne": {
+        "nachylenie_logcen_pct": {
+          "srednia": 0.1531,
+          "odch_std": 0.1635
+        },
+        "odch_std_log_zwrotow_pct": {
+          "srednia": 1.132,
+          "odch_std": 0.3762
+        },
+        "roc10_pct": {
+          "srednia": 1.7128,
+          "odch_std": 3.1242
+        }
+      }
+    }
+  }
+}

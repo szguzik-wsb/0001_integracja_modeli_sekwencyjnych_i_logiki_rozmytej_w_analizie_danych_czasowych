@@ -1,0 +1,13 @@
+Eksperyment 25_ga_przeniesienie_regul: przenoszalnosc bazy regul GA (S&P 500) na pozostale zbiory
+
+Metoda: bez ponownego trenowania TCN; cechy TCN z prognoz 05 (SP500, WIG20, EURUSD, BTCUSD) i 20 (DAX, NIKKEI, GOLD).
+Porownanie warstwy regul: reczna (15 regul, MF z 05) vs GA_SP500 (10 regul R1,R2,R3,R6,R7,R8,R9,R10,R11,R15 i MF
+z 19_ga_reguly_optymalizacja/wyniki.json). MAPE/RMSE/MAE, DM (GA vs reczne, dodatnia = GA lepsza), odsetek prognoz
+wzrostu, czestosc aktywacji regul (t-norma min, prog 0,1 jak w eksp. 12).
+Kontrola: baza reczna odtwarza prognozy z plikow zrodlowych (roznica 0,0%); GA na SP500 odtwarza MAPE 0,910 z eksp. 19.
+Zrodla: Mamdani, E. H., & Assilian, S. (1975). An experiment in linguistic synthesis with a fuzzy logic controller.
+International Journal of Man-Machine Studies, 7(1), 1-13. https://doi.org/10.1016/S0020-7373(75)80002-2
+Diebold, F. X., & Mariano, R. S. (1995). https://doi.org/10.1080/07350015.1995.10524599
+Implementacja: Python 3.14.7 (macOS, CPU), numpy 2.5.0, pandas 3.0.3, scipy 1.18.0, scikit-learn 1.9.0, statsmodels 0.14.6, scikit-fuzzy 0.5.0, torch 2.11.0 (wersje jak w requirements.txt).
+Reprodukowalnosc: ziarno 42 tam, gdzie wystepuje losowosc; uruchomienie: python NN_nazwa/run.py z katalogu wewnetrzne (dane w ../zewnetrzne).
+Data uruchomienia: 2026-10-17 (rewizja po recenzjach WSB Journal of Business and Finance).

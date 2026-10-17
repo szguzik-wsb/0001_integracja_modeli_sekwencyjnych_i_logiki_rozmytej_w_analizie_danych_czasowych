@@ -1,0 +1,800 @@
+{
+  "eksperyment": "Wrazliwosc strategii (eksp. 17) na koszty transakcyjne",
+  "koszty_bp": [
+    0,
+    5,
+    10,
+    20
+  ],
+  "uwaga": "koszt na transakcje jednostronna; zmiana kierunku = 2 transakcje; otwarcie i zamkniecie okresu = po 1 transakcji; buy-and-hold = 2 transakcje",
+  "wyniki": {
+    "SP500": {
+      "ARIMA": {
+        "dni": 414,
+        "zmiany_kierunku": 262,
+        "dni_long": 188,
+        "dni_short": 226,
+        "wyniki_wg_kosztu_bp": {
+          "0": {
+            "total_return_pct": 20.69,
+            "calmar_ratio": 0.7005,
+            "max_drawdown_pct": 17.32,
+            "liczba_transakcji": 526
+          },
+          "5": {
+            "total_return_pct": -7.22,
+            "calmar_ratio": -0.2244,
+            "max_drawdown_pct": 19.88,
+            "liczba_transakcji": 526
+          },
+          "10": {
+            "total_return_pct": -28.69,
+            "calmar_ratio": -0.636,
+            "max_drawdown_pct": 29.25,
+            "liczba_transakcji": 526
+          },
+          "20": {
+            "total_return_pct": -57.89,
+            "calmar_ratio": -0.7054,
+            "max_drawdown_pct": 58.03,
+            "liczba_transakcji": 526
+          }
+        },
+        "buy_hold_wg_kosztu_bp": {
+          "0": 33.11,
+          "5": 32.98,
+          "10": 32.85,
+          "20": 32.58
+        },
+        "koszt_progowy_bp_vs_buy_hold": null
+      },
+      "LSTM": {
+        "dni": 384,
+        "zmiany_kierunku": 6,
+        "dni_long": 6,
+        "dni_short": 378,
+        "wyniki_wg_kosztu_bp": {
+          "0": {
+            "total_return_pct": -15.44,
+            "calmar_ratio": -0.4259,
+            "max_drawdown_pct": 24.47,
+            "liczba_transakcji": 14
+          },
+          "5": {
+            "total_return_pct": -16.03,
+            "calmar_ratio": -0.4414,
+            "max_drawdown_pct": 24.55,
+            "liczba_transakcji": 14
+          },
+          "10": {
+            "total_return_pct": -16.62,
+            "calmar_ratio": -0.4566,
+            "max_drawdown_pct": 24.62,
+            "liczba_transakcji": 14
+          },
+          "20": {
+            "total_return_pct": -17.78,
+            "calmar_ratio": -0.4866,
+            "max_drawdown_pct": 24.77,
+            "liczba_transakcji": 14
+          }
+        },
+        "buy_hold_wg_kosztu_bp": {
+          "0": 25.68,
+          "5": 25.56,
+          "10": 25.43,
+          "20": 25.18
+        },
+        "koszt_progowy_bp_vs_buy_hold": null
+      },
+      "TCN": {
+        "dni": 384,
+        "zmiany_kierunku": 0,
+        "dni_long": 0,
+        "dni_short": 384,
+        "wyniki_wg_kosztu_bp": {
+          "0": {
+            "total_return_pct": -23.96,
+            "calmar_ratio": -0.5538,
+            "max_drawdown_pct": 29.7,
+            "liczba_transakcji": 2
+          },
+          "5": {
+            "total_return_pct": -24.03,
+            "calmar_ratio": -0.5556,
+            "max_drawdown_pct": 29.7,
+            "liczba_transakcji": 2
+          },
+          "10": {
+            "total_return_pct": -24.11,
+            "calmar_ratio": -0.5575,
+            "max_drawdown_pct": 29.7,
+            "liczba_transakcji": 2
+          },
+          "20": {
+            "total_return_pct": -24.26,
+            "calmar_ratio": -0.5612,
+            "max_drawdown_pct": 29.7,
+            "liczba_transakcji": 2
+          }
+        },
+        "buy_hold_wg_kosztu_bp": {
+          "0": 25.68,
+          "5": 25.56,
+          "10": 25.43,
+          "20": 25.18
+        },
+        "koszt_progowy_bp_vs_buy_hold": null
+      },
+      "Mamdani": {
+        "dni": 413,
+        "zmiany_kierunku": 207,
+        "dni_long": 242,
+        "dni_short": 171,
+        "wyniki_wg_kosztu_bp": {
+          "0": {
+            "total_return_pct": -23.43,
+            "calmar_ratio": -0.4737,
+            "max_drawdown_pct": 31.73,
+            "liczba_transakcji": 416
+          },
+          "5": {
+            "total_return_pct": -37.81,
+            "calmar_ratio": -0.5964,
+            "max_drawdown_pct": 42.19,
+            "liczba_transakcji": 416
+          },
+          "10": {
+            "total_return_pct": -49.5,
+            "calmar_ratio": -0.6654,
+            "max_drawdown_pct": 51.22,
+            "liczba_transakcji": 416
+          },
+          "20": {
+            "total_return_pct": -66.71,
+            "calmar_ratio": -0.7244,
+            "max_drawdown_pct": 67.48,
+            "liczba_transakcji": 416
+          }
+        },
+        "buy_hold_wg_kosztu_bp": {
+          "0": 32.93,
+          "5": 32.8,
+          "10": 32.67,
+          "20": 32.4
+        },
+        "koszt_progowy_bp_vs_buy_hold": null
+      },
+      "TCN-Mamdani": {
+        "dni": 384,
+        "zmiany_kierunku": 0,
+        "dni_long": 384,
+        "dni_short": 0,
+        "wyniki_wg_kosztu_bp": {
+          "0": {
+            "total_return_pct": 25.68,
+            "calmar_ratio": 0.8562,
+            "max_drawdown_pct": 18.9,
+            "liczba_transakcji": 2
+          },
+          "5": {
+            "total_return_pct": 25.56,
+            "calmar_ratio": 0.8522,
+            "max_drawdown_pct": 18.9,
+            "liczba_transakcji": 2
+          },
+          "10": {
+            "total_return_pct": 25.43,
+            "calmar_ratio": 0.8482,
+            "max_drawdown_pct": 18.9,
+            "liczba_transakcji": 2
+          },
+          "20": {
+            "total_return_pct": 25.18,
+            "calmar_ratio": 0.8401,
+            "max_drawdown_pct": 18.9,
+            "liczba_transakcji": 2
+          }
+        },
+        "buy_hold_wg_kosztu_bp": {
+          "0": 25.68,
+          "5": 25.56,
+          "10": 25.43,
+          "20": 25.18
+        },
+        "koszt_progowy_bp_vs_buy_hold": null
+      }
+    },
+    "WIG20": {
+      "ARIMA": {
+        "dni": 412,
+        "zmiany_kierunku": 280,
+        "dni_long": 206,
+        "dni_short": 206,
+        "wyniki_wg_kosztu_bp": {
+          "0": {
+            "total_return_pct": 21.38,
+            "calmar_ratio": 0.5546,
+            "max_drawdown_pct": 22.69,
+            "liczba_transakcji": 562
+          },
+          "5": {
+            "total_return_pct": -8.36,
+            "calmar_ratio": -0.1771,
+            "max_drawdown_pct": 29.35,
+            "liczba_transakcji": 562
+          },
+          "10": {
+            "total_return_pct": -30.82,
+            "calmar_ratio": -0.5313,
+            "max_drawdown_pct": 37.98,
+            "liczba_transakcji": 562
+          },
+          "20": {
+            "total_return_pct": -60.6,
+            "calmar_ratio": -0.6961,
+            "max_drawdown_pct": 62.38,
+            "liczba_transakcji": 562
+          }
+        },
+        "buy_hold_wg_kosztu_bp": {
+          "0": 24.98,
+          "5": 24.86,
+          "10": 24.73,
+          "20": 24.49
+        },
+        "koszt_progowy_bp_vs_buy_hold": null
+      },
+      "LSTM": {
+        "dni": 382,
+        "zmiany_kierunku": 46,
+        "dni_long": 81,
+        "dni_short": 301,
+        "wyniki_wg_kosztu_bp": {
+          "0": {
+            "total_return_pct": -13.04,
+            "calmar_ratio": -0.2684,
+            "max_drawdown_pct": 32.81,
+            "liczba_transakcji": 94
+          },
+          "5": {
+            "total_return_pct": -17.03,
+            "calmar_ratio": -0.3432,
+            "max_drawdown_pct": 33.77,
+            "liczba_transakcji": 94
+          },
+          "10": {
+            "total_return_pct": -20.85,
+            "calmar_ratio": -0.4115,
+            "max_drawdown_pct": 34.73,
+            "liczba_transakcji": 94
+          },
+          "20": {
+            "total_return_pct": -27.96,
+            "calmar_ratio": -0.5315,
+            "max_drawdown_pct": 36.6,
+            "liczba_transakcji": 94
+          }
+        },
+        "buy_hold_wg_kosztu_bp": {
+          "0": 29.69,
+          "5": 29.56,
+          "10": 29.43,
+          "20": 29.17
+        },
+        "koszt_progowy_bp_vs_buy_hold": null
+      },
+      "TCN": {
+        "dni": 382,
+        "zmiany_kierunku": 50,
+        "dni_long": 89,
+        "dni_short": 293,
+        "wyniki_wg_kosztu_bp": {
+          "0": {
+            "total_return_pct": 24.75,
+            "calmar_ratio": 0.7821,
+            "max_drawdown_pct": 20.08,
+            "liczba_transakcji": 102
+          },
+          "5": {
+            "total_return_pct": 18.55,
+            "calmar_ratio": 0.588,
+            "max_drawdown_pct": 20.2,
+            "liczba_transakcji": 102
+          },
+          "10": {
+            "total_return_pct": 12.65,
+            "calmar_ratio": 0.4022,
+            "max_drawdown_pct": 20.32,
+            "liczba_transakcji": 102
+          },
+          "20": {
+            "total_return_pct": 1.71,
+            "calmar_ratio": 0.0547,
+            "max_drawdown_pct": 20.56,
+            "liczba_transakcji": 102
+          }
+        },
+        "buy_hold_wg_kosztu_bp": {
+          "0": 29.69,
+          "5": 29.56,
+          "10": 29.43,
+          "20": 29.17
+        },
+        "koszt_progowy_bp_vs_buy_hold": null
+      },
+      "Mamdani": {
+        "dni": 411,
+        "zmiany_kierunku": 217,
+        "dni_long": 217,
+        "dni_short": 194,
+        "wyniki_wg_kosztu_bp": {
+          "0": {
+            "total_return_pct": -39.92,
+            "calmar_ratio": -0.602,
+            "max_drawdown_pct": 44.57,
+            "liczba_transakcji": 436
+          },
+          "5": {
+            "total_return_pct": -51.69,
+            "calmar_ratio": -0.6572,
+            "max_drawdown_pct": 54.76,
+            "liczba_transakcji": 436
+          },
+          "10": {
+            "total_return_pct": -61.16,
+            "calmar_ratio": -0.6952,
+            "max_drawdown_pct": 63.29,
+            "liczba_transakcji": 436
+          },
+          "20": {
+            "total_return_pct": -74.9,
+            "calmar_ratio": -0.7519,
+            "max_drawdown_pct": 76.02,
+            "liczba_transakcji": 436
+          }
+        },
+        "buy_hold_wg_kosztu_bp": {
+          "0": 25.5,
+          "5": 25.38,
+          "10": 25.25,
+          "20": 25.0
+        },
+        "koszt_progowy_bp_vs_buy_hold": null
+      },
+      "TCN-Mamdani": {
+        "dni": 382,
+        "zmiany_kierunku": 0,
+        "dni_long": 382,
+        "dni_short": 0,
+        "wyniki_wg_kosztu_bp": {
+          "0": {
+            "total_return_pct": 29.69,
+            "calmar_ratio": 1.0768,
+            "max_drawdown_pct": 17.37,
+            "liczba_transakcji": 2
+          },
+          "5": {
+            "total_return_pct": 29.56,
+            "calmar_ratio": 1.0722,
+            "max_drawdown_pct": 17.37,
+            "liczba_transakcji": 2
+          },
+          "10": {
+            "total_return_pct": 29.43,
+            "calmar_ratio": 1.0677,
+            "max_drawdown_pct": 17.37,
+            "liczba_transakcji": 2
+          },
+          "20": {
+            "total_return_pct": 29.17,
+            "calmar_ratio": 1.0587,
+            "max_drawdown_pct": 17.37,
+            "liczba_transakcji": 2
+          }
+        },
+        "buy_hold_wg_kosztu_bp": {
+          "0": 29.69,
+          "5": 29.56,
+          "10": 29.43,
+          "20": 29.17
+        },
+        "koszt_progowy_bp_vs_buy_hold": null
+      }
+    },
+    "EURUSD": {
+      "ARIMA": {
+        "dni": 429,
+        "zmiany_kierunku": 165,
+        "dni_long": 209,
+        "dni_short": 220,
+        "wyniki_wg_kosztu_bp": {
+          "0": {
+            "total_return_pct": 12.93,
+            "calmar_ratio": 1.2291,
+            "max_drawdown_pct": 6.02,
+            "liczba_transakcji": 332
+          },
+          "5": {
+            "total_return_pct": -4.35,
+            "calmar_ratio": -0.336,
+            "max_drawdown_pct": 7.67,
+            "liczba_transakcji": 332
+          },
+          "10": {
+            "total_return_pct": -18.99,
+            "calmar_ratio": -0.5964,
+            "max_drawdown_pct": 19.51,
+            "liczba_transakcji": 332
+          },
+          "20": {
+            "total_return_pct": -41.9,
+            "calmar_ratio": -0.6488,
+            "max_drawdown_pct": 42.1,
+            "liczba_transakcji": 332
+          }
+        },
+        "buy_hold_wg_kosztu_bp": {
+          "0": 9.81,
+          "5": 9.7,
+          "10": 9.59,
+          "20": 9.37
+        },
+        "koszt_progowy_bp_vs_buy_hold": 0.85
+      },
+      "LSTM": {
+        "dni": 399,
+        "zmiany_kierunku": 48,
+        "dni_long": 96,
+        "dni_short": 303,
+        "wyniki_wg_kosztu_bp": {
+          "0": {
+            "total_return_pct": -2.87,
+            "calmar_ratio": -0.2138,
+            "max_drawdown_pct": 8.53,
+            "liczba_transakcji": 98
+          },
+          "5": {
+            "total_return_pct": -7.52,
+            "calmar_ratio": -0.4532,
+            "max_drawdown_pct": 10.63,
+            "liczba_transakcji": 98
+          },
+          "10": {
+            "total_return_pct": -11.94,
+            "calmar_ratio": -0.5894,
+            "max_drawdown_pct": 13.1,
+            "liczba_transakcji": 98
+          },
+          "20": {
+            "total_return_pct": -20.18,
+            "calmar_ratio": -0.6312,
+            "max_drawdown_pct": 21.02,
+            "liczba_transakcji": 98
+          }
+        },
+        "buy_hold_wg_kosztu_bp": {
+          "0": 8.88,
+          "5": 8.77,
+          "10": 8.66,
+          "20": 8.44
+        },
+        "koszt_progowy_bp_vs_buy_hold": null
+      },
+      "TCN": {
+        "dni": 399,
+        "zmiany_kierunku": 50,
+        "dni_long": 149,
+        "dni_short": 250,
+        "wyniki_wg_kosztu_bp": {
+          "0": {
+            "total_return_pct": -1.97,
+            "calmar_ratio": -0.1162,
+            "max_drawdown_pct": 10.75,
+            "liczba_transakcji": 102
+          },
+          "5": {
+            "total_return_pct": -6.85,
+            "calmar_ratio": -0.35,
+            "max_drawdown_pct": 12.52,
+            "liczba_transakcji": 102
+          },
+          "10": {
+            "total_return_pct": -11.48,
+            "calmar_ratio": -0.5202,
+            "max_drawdown_pct": 14.25,
+            "liczba_transakcji": 102
+          },
+          "20": {
+            "total_return_pct": -20.08,
+            "calmar_ratio": -0.635,
+            "max_drawdown_pct": 20.78,
+            "liczba_transakcji": 102
+          }
+        },
+        "buy_hold_wg_kosztu_bp": {
+          "0": 8.88,
+          "5": 8.77,
+          "10": 8.66,
+          "20": 8.44
+        },
+        "koszt_progowy_bp_vs_buy_hold": null
+      },
+      "Mamdani": {
+        "dni": 428,
+        "zmiany_kierunku": 201,
+        "dni_long": 207,
+        "dni_short": 221,
+        "wyniki_wg_kosztu_bp": {
+          "0": {
+            "total_return_pct": -2.36,
+            "calmar_ratio": -0.1087,
+            "max_drawdown_pct": 12.83,
+            "liczba_transakcji": 404
+          },
+          "5": {
+            "total_return_pct": -20.22,
+            "calmar_ratio": -0.5575,
+            "max_drawdown_pct": 22.34,
+            "liczba_transakcji": 404
+          },
+          "10": {
+            "total_return_pct": -34.82,
+            "calmar_ratio": -0.6371,
+            "max_drawdown_pct": 34.97,
+            "liczba_transakcji": 404
+          },
+          "20": {
+            "total_return_pct": -56.51,
+            "calmar_ratio": -0.6851,
+            "max_drawdown_pct": 56.56,
+            "liczba_transakcji": 404
+          }
+        },
+        "buy_hold_wg_kosztu_bp": {
+          "0": 9.69,
+          "5": 9.58,
+          "10": 9.47,
+          "20": 9.25
+        },
+        "koszt_progowy_bp_vs_buy_hold": null
+      },
+      "TCN-Mamdani": {
+        "dni": 399,
+        "zmiany_kierunku": 0,
+        "dni_long": 0,
+        "dni_short": 399,
+        "wyniki_wg_kosztu_bp": {
+          "0": {
+            "total_return_pct": -8.95,
+            "calmar_ratio": -0.4049,
+            "max_drawdown_pct": 14.2,
+            "liczba_transakcji": 2
+          },
+          "5": {
+            "total_return_pct": -9.04,
+            "calmar_ratio": -0.4091,
+            "max_drawdown_pct": 14.2,
+            "liczba_transakcji": 2
+          },
+          "10": {
+            "total_return_pct": -9.13,
+            "calmar_ratio": -0.4133,
+            "max_drawdown_pct": 14.2,
+            "liczba_transakcji": 2
+          },
+          "20": {
+            "total_return_pct": -9.31,
+            "calmar_ratio": -0.4217,
+            "max_drawdown_pct": 14.2,
+            "liczba_transakcji": 2
+          }
+        },
+        "buy_hold_wg_kosztu_bp": {
+          "0": 8.88,
+          "5": 8.77,
+          "10": 8.66,
+          "20": 8.44
+        },
+        "koszt_progowy_bp_vs_buy_hold": null
+      }
+    },
+    "BTCUSD": {
+      "ARIMA": {
+        "dni": 438,
+        "zmiany_kierunku": 222,
+        "dni_long": 226,
+        "dni_short": 212,
+        "wyniki_wg_kosztu_bp": {
+          "0": {
+            "total_return_pct": -33.45,
+            "calmar_ratio": -0.5078,
+            "max_drawdown_pct": 41.13,
+            "liczba_transakcji": 446
+          },
+          "5": {
+            "total_return_pct": -46.76,
+            "calmar_ratio": -0.5797,
+            "max_drawdown_pct": 52.47,
+            "liczba_transakcji": 446
+          },
+          "10": {
+            "total_return_pct": -57.41,
+            "calmar_ratio": -0.6292,
+            "max_drawdown_pct": 61.67,
+            "liczba_transakcji": 446
+          },
+          "20": {
+            "total_return_pct": -72.75,
+            "calmar_ratio": -0.7015,
+            "max_drawdown_pct": 75.08,
+            "liczba_transakcji": 446
+          }
+        },
+        "buy_hold_wg_kosztu_bp": {
+          "0": 29.25,
+          "5": 29.12,
+          "10": 28.99,
+          "20": 28.73
+        },
+        "koszt_progowy_bp_vs_buy_hold": null
+      },
+      "LSTM": {
+        "dni": 408,
+        "zmiany_kierunku": 0,
+        "dni_long": 0,
+        "dni_short": 408,
+        "wyniki_wg_kosztu_bp": {
+          "0": {
+            "total_return_pct": -16.81,
+            "calmar_ratio": -0.2531,
+            "max_drawdown_pct": 42.44,
+            "liczba_transakcji": 2
+          },
+          "5": {
+            "total_return_pct": -16.89,
+            "calmar_ratio": -0.2544,
+            "max_drawdown_pct": 42.44,
+            "liczba_transakcji": 2
+          },
+          "10": {
+            "total_return_pct": -16.97,
+            "calmar_ratio": -0.2557,
+            "max_drawdown_pct": 42.44,
+            "liczba_transakcji": 2
+          },
+          "20": {
+            "total_return_pct": -17.14,
+            "calmar_ratio": -0.2583,
+            "max_drawdown_pct": 42.44,
+            "liczba_transakcji": 2
+          }
+        },
+        "buy_hold_wg_kosztu_bp": {
+          "0": -1.58,
+          "5": -1.67,
+          "10": -1.77,
+          "20": -1.97
+        },
+        "koszt_progowy_bp_vs_buy_hold": null
+      },
+      "TCN": {
+        "dni": 408,
+        "zmiany_kierunku": 0,
+        "dni_long": 0,
+        "dni_short": 408,
+        "wyniki_wg_kosztu_bp": {
+          "0": {
+            "total_return_pct": -16.81,
+            "calmar_ratio": -0.2531,
+            "max_drawdown_pct": 42.44,
+            "liczba_transakcji": 2
+          },
+          "5": {
+            "total_return_pct": -16.89,
+            "calmar_ratio": -0.2544,
+            "max_drawdown_pct": 42.44,
+            "liczba_transakcji": 2
+          },
+          "10": {
+            "total_return_pct": -16.97,
+            "calmar_ratio": -0.2557,
+            "max_drawdown_pct": 42.44,
+            "liczba_transakcji": 2
+          },
+          "20": {
+            "total_return_pct": -17.14,
+            "calmar_ratio": -0.2583,
+            "max_drawdown_pct": 42.44,
+            "liczba_transakcji": 2
+          }
+        },
+        "buy_hold_wg_kosztu_bp": {
+          "0": -1.58,
+          "5": -1.67,
+          "10": -1.77,
+          "20": -1.97
+        },
+        "koszt_progowy_bp_vs_buy_hold": null
+      },
+      "Mamdani": {
+        "dni": 437,
+        "zmiany_kierunku": 209,
+        "dni_long": 230,
+        "dni_short": 207,
+        "wyniki_wg_kosztu_bp": {
+          "0": {
+            "total_return_pct": -42.14,
+            "calmar_ratio": -0.4842,
+            "max_drawdown_pct": 55.88,
+            "liczba_transakcji": 420
+          },
+          "5": {
+            "total_return_pct": -53.1,
+            "calmar_ratio": -0.5532,
+            "max_drawdown_pct": 63.95,
+            "liczba_transakcji": 420
+          },
+          "10": {
+            "total_return_pct": -61.99,
+            "calmar_ratio": -0.6056,
+            "max_drawdown_pct": 70.59,
+            "liczba_transakcji": 420
+          },
+          "20": {
+            "total_return_pct": -75.04,
+            "calmar_ratio": -0.6848,
+            "max_drawdown_pct": 80.44,
+            "liczba_transakcji": 420
+          }
+        },
+        "buy_hold_wg_kosztu_bp": {
+          "0": 29.35,
+          "5": 29.22,
+          "10": 29.1,
+          "20": 28.84
+        },
+        "koszt_progowy_bp_vs_buy_hold": null
+      },
+      "TCN-Mamdani": {
+        "dni": 408,
+        "zmiany_kierunku": 0,
+        "dni_long": 0,
+        "dni_short": 408,
+        "wyniki_wg_kosztu_bp": {
+          "0": {
+            "total_return_pct": -16.81,
+            "calmar_ratio": -0.2531,
+            "max_drawdown_pct": 42.44,
+            "liczba_transakcji": 2
+          },
+          "5": {
+            "total_return_pct": -16.89,
+            "calmar_ratio": -0.2544,
+            "max_drawdown_pct": 42.44,
+            "liczba_transakcji": 2
+          },
+          "10": {
+            "total_return_pct": -16.97,
+            "calmar_ratio": -0.2557,
+            "max_drawdown_pct": 42.44,
+            "liczba_transakcji": 2
+          },
+          "20": {
+            "total_return_pct": -17.14,
+            "calmar_ratio": -0.2583,
+            "max_drawdown_pct": 42.44,
+            "liczba_transakcji": 2
+          }
+        },
+        "buy_hold_wg_kosztu_bp": {
+          "0": -1.58,
+          "5": -1.67,
+          "10": -1.77,
+          "20": -1.97
+        },
+        "koszt_progowy_bp_vs_buy_hold": null
+      }
+    }
+  }
+}

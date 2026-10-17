@@ -1,0 +1,582 @@
+{
+  "eksperyment": "Przenoszalnosc bazy regul GA (dostrojonej na S&P 500) na 7 zbiorow bez ponownego trenowania TCN",
+  "zrodla_cech": {
+    "SP500": "05_tcn_mamdani_hybrid/prognozy_SP500.csv",
+    "WIG20": "05_tcn_mamdani_hybrid/prognozy_WIG20.csv",
+    "EURUSD": "05_tcn_mamdani_hybrid/prognozy_EURUSD.csv",
+    "BTCUSD": "05_tcn_mamdani_hybrid/prognozy_BTCUSD.csv",
+    "DAX": "20_all_7datasets/prognozy_hybrid_DAX.csv",
+    "NIKKEI": "20_all_7datasets/prognozy_hybrid_NIKKEI.csv",
+    "GOLD": "20_all_7datasets/prognozy_hybrid_GOLD.csv"
+  },
+  "prog_aktywacji": 0.1,
+  "wyniki": {
+    "SP500": {
+      "reczne": {
+        "MAPE": 1.3253,
+        "RMSE": 96.080117,
+        "MAE": 79.384605,
+        "odsetek_prognoz_wzrostu": 1.0,
+        "aktywne_reguly": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "czestosc_aktywacji_powyzej_0_1": {
+          "R1": 1.0,
+          "R2": 0.0,
+          "R3": 0.0,
+          "R4": 0.0,
+          "R5": 0.0,
+          "R6": 0.0,
+          "R7": 0.0,
+          "R8": 0.0,
+          "R9": 0.0,
+          "R10": 1.0,
+          "R11": 0.0,
+          "R12": 0.0,
+          "R13": 0.0,
+          "R14": 1.0,
+          "R15": 0.0
+        },
+        "srednia_liczba_aktywnych_regul": 3.0
+      },
+      "GA_SP500": {
+        "MAPE": 0.9101,
+        "RMSE": 79.085774,
+        "MAE": 55.447563,
+        "odsetek_prognoz_wzrostu": 0.278,
+        "aktywne_reguly": [
+          1,
+          2,
+          3,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          15
+        ],
+        "czestosc_aktywacji_powyzej_0_1": {
+          "R1": 0.135,
+          "R2": 0.003,
+          "R3": 0.0,
+          "R6": 0.0,
+          "R7": 0.0,
+          "R8": 0.0,
+          "R9": 0.0,
+          "R10": 0.021,
+          "R11": 0.0,
+          "R15": 0.0
+        },
+        "srednia_liczba_aktywnych_regul": 0.16
+      },
+      "kontrola_max_roznica_vs_plik": 0.0,
+      "DM_GA_vs_reczne": {
+        "DM": 6.304,
+        "p": 7.98e-10,
+        "n": 385,
+        "konwencja": "dodatnia = baza GA ma mniejszy blad"
+      }
+    },
+    "WIG20": {
+      "reczne": {
+        "MAPE": 1.0757,
+        "RMSE": 36.879023,
+        "MAE": 28.084826,
+        "odsetek_prognoz_wzrostu": 1.0,
+        "aktywne_reguly": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "czestosc_aktywacji_powyzej_0_1": {
+          "R1": 0.0,
+          "R2": 0.0,
+          "R3": 0.0,
+          "R4": 0.0,
+          "R5": 0.0,
+          "R6": 0.431,
+          "R7": 0.0,
+          "R8": 0.258,
+          "R9": 0.0,
+          "R10": 0.0,
+          "R11": 0.0,
+          "R12": 0.0,
+          "R13": 0.0,
+          "R14": 1.0,
+          "R15": 0.0
+        },
+        "srednia_liczba_aktywnych_regul": 1.69
+      },
+      "GA_SP500": {
+        "MAPE": 1.0285,
+        "RMSE": 35.546277,
+        "MAE": 26.853249,
+        "odsetek_prognoz_wzrostu": 0.0,
+        "aktywne_reguly": [
+          1,
+          2,
+          3,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          15
+        ],
+        "czestosc_aktywacji_powyzej_0_1": {
+          "R1": 0.0,
+          "R2": 0.003,
+          "R3": 0.0,
+          "R6": 0.253,
+          "R7": 0.0,
+          "R8": 0.253,
+          "R9": 0.0,
+          "R10": 0.0,
+          "R11": 0.0,
+          "R15": 0.0
+        },
+        "srednia_liczba_aktywnych_regul": 0.51
+      },
+      "kontrola_max_roznica_vs_plik": 0.0,
+      "DM_GA_vs_reczne": {
+        "DM": 2.067,
+        "p": 0.0394,
+        "n": 383,
+        "konwencja": "dodatnia = baza GA ma mniejszy blad"
+      }
+    },
+    "EURUSD": {
+      "reczne": {
+        "MAPE": 0.3903,
+        "RMSE": 0.00584,
+        "MAE": 0.004357,
+        "odsetek_prognoz_wzrostu": 0.0,
+        "aktywne_reguly": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "czestosc_aktywacji_powyzej_0_1": {
+          "R1": 0.0,
+          "R2": 0.0,
+          "R3": 0.0,
+          "R4": 1.0,
+          "R5": 0.0,
+          "R6": 0.0,
+          "R7": 0.0,
+          "R8": 0.0,
+          "R9": 0.0,
+          "R10": 0.0,
+          "R11": 0.0,
+          "R12": 0.0,
+          "R13": 0.0,
+          "R14": 0.0,
+          "R15": 1.0
+        },
+        "srednia_liczba_aktywnych_regul": 2.0
+      },
+      "GA_SP500": {
+        "MAPE": 0.3547,
+        "RMSE": 0.005393,
+        "MAE": 0.003945,
+        "odsetek_prognoz_wzrostu": 0.0,
+        "aktywne_reguly": [
+          1,
+          2,
+          3,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          15
+        ],
+        "czestosc_aktywacji_powyzej_0_1": {
+          "R1": 0.0,
+          "R2": 0.0,
+          "R3": 0.0,
+          "R6": 0.0,
+          "R7": 0.0,
+          "R8": 0.0,
+          "R9": 0.0,
+          "R10": 0.0,
+          "R11": 0.0,
+          "R15": 1.0
+        },
+        "srednia_liczba_aktywnych_regul": 1.0
+      },
+      "kontrola_max_roznica_vs_plik": 0.0,
+      "DM_GA_vs_reczne": {
+        "DM": 8.481,
+        "p": 4.4e-16,
+        "n": 400,
+        "konwencja": "dodatnia = baza GA ma mniejszy blad"
+      }
+    },
+    "BTCUSD": {
+      "reczne": {
+        "MAPE": 1.8272,
+        "RMSE": 2360.021485,
+        "MAE": 1828.740403,
+        "odsetek_prognoz_wzrostu": 0.0,
+        "aktywne_reguly": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "czestosc_aktywacji_powyzej_0_1": {
+          "R1": 0.0,
+          "R2": 0.0,
+          "R3": 0.0,
+          "R4": 0.0,
+          "R5": 0.0,
+          "R6": 0.0,
+          "R7": 0.0,
+          "R8": 0.0,
+          "R9": 0.0,
+          "R10": 0.0,
+          "R11": 0.0,
+          "R12": 0.0,
+          "R13": 0.0,
+          "R14": 0.0,
+          "R15": 0.963
+        },
+        "srednia_liczba_aktywnych_regul": 0.96
+      },
+      "GA_SP500": {
+        "MAPE": 1.8544,
+        "RMSE": 2387.360578,
+        "MAE": 1857.004566,
+        "odsetek_prognoz_wzrostu": 0.0,
+        "aktywne_reguly": [
+          1,
+          2,
+          3,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          15
+        ],
+        "czestosc_aktywacji_powyzej_0_1": {
+          "R1": 0.0,
+          "R2": 0.0,
+          "R3": 0.0,
+          "R6": 0.0,
+          "R7": 0.0,
+          "R8": 0.0,
+          "R9": 0.0,
+          "R10": 0.0,
+          "R11": 0.0,
+          "R15": 1.0
+        },
+        "srednia_liczba_aktywnych_regul": 1.0
+      },
+      "kontrola_max_roznica_vs_plik": 0.0,
+      "DM_GA_vs_reczne": {
+        "DM": -9.426,
+        "p": 3.25e-19,
+        "n": 409,
+        "konwencja": "dodatnia = baza GA ma mniejszy blad"
+      }
+    },
+    "DAX": {
+      "reczne": {
+        "MAPE": 1.1806,
+        "RMSE": 322.039619,
+        "MAE": 257.897411,
+        "odsetek_prognoz_wzrostu": 1.0,
+        "aktywne_reguly": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "czestosc_aktywacji_powyzej_0_1": {
+          "R1": 1.0,
+          "R2": 0.0,
+          "R3": 0.0,
+          "R4": 0.0,
+          "R5": 0.0,
+          "R6": 0.0,
+          "R7": 0.0,
+          "R8": 0.0,
+          "R9": 0.0,
+          "R10": 0.974,
+          "R11": 0.0,
+          "R12": 0.0,
+          "R13": 0.0,
+          "R14": 1.0,
+          "R15": 0.0
+        },
+        "srednia_liczba_aktywnych_regul": 2.97
+      },
+      "GA_SP500": {
+        "MAPE": 1.4988,
+        "RMSE": 426.34814,
+        "MAE": 339.062844,
+        "odsetek_prognoz_wzrostu": 0.63,
+        "aktywne_reguly": [
+          1,
+          2,
+          3,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          15
+        ],
+        "czestosc_aktywacji_powyzej_0_1": {
+          "R1": 0.586,
+          "R2": 0.005,
+          "R3": 0.0,
+          "R6": 0.0,
+          "R7": 0.0,
+          "R8": 0.0,
+          "R9": 0.0,
+          "R10": 0.113,
+          "R11": 0.0,
+          "R15": 0.0
+        },
+        "srednia_liczba_aktywnych_regul": 0.7
+      },
+      "kontrola_max_roznica_vs_plik": 0.0,
+      "DM_GA_vs_reczne": {
+        "DM": -12.386,
+        "p": 6.44e-30,
+        "n": 389,
+        "konwencja": "dodatnia = baza GA ma mniejszy blad"
+      }
+    },
+    "NIKKEI": {
+      "reczne": {
+        "MAPE": 1.0838,
+        "RMSE": 647.867241,
+        "MAE": 432.229014,
+        "odsetek_prognoz_wzrostu": 0.939,
+        "aktywne_reguly": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "czestosc_aktywacji_powyzej_0_1": {
+          "R1": 0.0,
+          "R2": 0.0,
+          "R3": 0.0,
+          "R4": 0.0,
+          "R5": 0.0,
+          "R6": 0.0,
+          "R7": 0.0,
+          "R8": 0.0,
+          "R9": 0.0,
+          "R10": 1.0,
+          "R11": 0.0,
+          "R12": 0.0,
+          "R13": 0.0,
+          "R14": 0.0,
+          "R15": 0.0
+        },
+        "srednia_liczba_aktywnych_regul": 1.0
+      },
+      "GA_SP500": {
+        "MAPE": 1.0872,
+        "RMSE": 648.642617,
+        "MAE": 433.724486,
+        "odsetek_prognoz_wzrostu": 0.0,
+        "aktywne_reguly": [
+          1,
+          2,
+          3,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          15
+        ],
+        "czestosc_aktywacji_powyzej_0_1": {
+          "R1": 0.0,
+          "R2": 0.07,
+          "R3": 0.0,
+          "R6": 0.0,
+          "R7": 0.0,
+          "R8": 0.0,
+          "R9": 0.0,
+          "R10": 1.0,
+          "R11": 0.0,
+          "R15": 0.0
+        },
+        "srednia_liczba_aktywnych_regul": 1.07
+      },
+      "kontrola_max_roznica_vs_plik": 0.0,
+      "DM_GA_vs_reczne": {
+        "DM": -1.031,
+        "p": 0.303,
+        "n": 374,
+        "konwencja": "dodatnia = baza GA ma mniejszy blad"
+      }
+    },
+    "GOLD": {
+      "reczne": {
+        "MAPE": 1.1925,
+        "RMSE": 51.480696,
+        "MAE": 37.870401,
+        "odsetek_prognoz_wzrostu": 1.0,
+        "aktywne_reguly": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "czestosc_aktywacji_powyzej_0_1": {
+          "R1": 1.0,
+          "R2": 0.0,
+          "R3": 0.0,
+          "R4": 0.0,
+          "R5": 0.0,
+          "R6": 0.0,
+          "R7": 0.0,
+          "R8": 0.0,
+          "R9": 0.0,
+          "R10": 1.0,
+          "R11": 0.0,
+          "R12": 0.0,
+          "R13": 0.0,
+          "R14": 0.797,
+          "R15": 0.0
+        },
+        "srednia_liczba_aktywnych_regul": 2.8
+      },
+      "GA_SP500": {
+        "MAPE": 1.1231,
+        "RMSE": 50.948593,
+        "MAE": 36.369228,
+        "odsetek_prognoz_wzrostu": 0.616,
+        "aktywne_reguly": [
+          1,
+          2,
+          3,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          15
+        ],
+        "czestosc_aktywacji_powyzej_0_1": {
+          "R1": 0.538,
+          "R2": 0.0,
+          "R3": 0.0,
+          "R6": 0.0,
+          "R7": 0.0,
+          "R8": 0.0,
+          "R9": 0.0,
+          "R10": 0.823,
+          "R11": 0.0,
+          "R15": 0.0
+        },
+        "srednia_liczba_aktywnych_regul": 1.36
+      },
+      "kontrola_max_roznica_vs_plik": 0.0,
+      "DM_GA_vs_reczne": {
+        "DM": 0.617,
+        "p": 0.537,
+        "n": 385,
+        "konwencja": "dodatnia = baza GA ma mniejszy blad"
+      }
+    }
+  }
+}

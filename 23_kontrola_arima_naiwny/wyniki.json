@@ -1,0 +1,412 @@
+{
+  "eksperyment": "Kontrola asymetrii: ARIMA re-estymowana vs ARIMA ze stalymi parametrami vs prognoza naiwna",
+  "konwencja_DM": "statystyka dla pary 'X_vs_Y': dodatnia = X ma mniejszy blad kwadratowy (X lepszy); liczone jako DM(e_Y, e_X) po wspolnych datach",
+  "wyniki": {
+    "SP500": {
+      "parametry_ARIMA_stale": {
+        "ar.L1": -0.087129,
+        "ar.L2": 0.035429,
+        "ar.L3": -0.014405,
+        "ar.L4": -0.035077,
+        "ar.L5": 0.026838,
+        "sigma2": 1330.128044
+      },
+      "ARIMA_reestymowana": {
+        "MAPE": 0.6822,
+        "RMSE": 59.227328,
+        "MAE": 40.007869
+      },
+      "ARIMA_stale_parametry": {
+        "MAPE": 0.6797,
+        "RMSE": 58.984811,
+        "MAE": 39.876289
+      },
+      "Naiwna": {
+        "MAPE": 0.6781,
+        "RMSE": 59.467509,
+        "MAE": 39.793922
+      },
+      "DM": {
+        "TCN-Mamdani_vs_ARIMA_reestymowana": {
+          "DM": -12.9123,
+          "p": 6.28e-32,
+          "n": 385
+        },
+        "TCN-Mamdani_vs_ARIMA_stale_parametry": {
+          "DM": -12.8251,
+          "p": 1.38e-31,
+          "n": 385
+        },
+        "TCN-Mamdani_vs_Naiwna": {
+          "DM": -12.2141,
+          "p": 3.27e-29,
+          "n": 385
+        },
+        "ARIMA_stale_vs_ARIMA_reestymowana": {
+          "DM": 1.1708,
+          "p": 0.242,
+          "n": 415
+        },
+        "ARIMA_reestymowana_vs_Naiwna": {
+          "DM": 0.395,
+          "p": 0.693,
+          "n": 415
+        },
+        "ARIMA_stale_vs_Naiwna": {
+          "DM": 0.7575,
+          "p": 0.449,
+          "n": 415
+        }
+      },
+      "czas_s": 0.08
+    },
+    "WIG20": {
+      "parametry_ARIMA_stale": {
+        "ar.L1": 0.00888,
+        "ar.L2": -0.037128,
+        "ar.L3": 0.023322,
+        "ar.L4": -0.000951,
+        "ar.L5": 0.027117,
+        "sigma2": 711.941704
+      },
+      "ARIMA_reestymowana": {
+        "MAPE": 1.0166,
+        "RMSE": 35.124494,
+        "MAE": 26.455194
+      },
+      "ARIMA_stale_parametry": {
+        "MAPE": 1.0169,
+        "RMSE": 35.068568,
+        "MAE": 26.46133
+      },
+      "Naiwna": {
+        "MAPE": 1.0194,
+        "RMSE": 35.075751,
+        "MAE": 26.530654
+      },
+      "DM": {
+        "TCN-Mamdani_vs_ARIMA_reestymowana": {
+          "DM": -2.0332,
+          "p": 0.0427,
+          "n": 383
+        },
+        "TCN-Mamdani_vs_ARIMA_stale_parametry": {
+          "DM": -2.1333,
+          "p": 0.0335,
+          "n": 383
+        },
+        "TCN-Mamdani_vs_Naiwna": {
+          "DM": -2.2546,
+          "p": 0.0247,
+          "n": 383
+        },
+        "ARIMA_stale_vs_ARIMA_reestymowana": {
+          "DM": 1.1655,
+          "p": 0.244,
+          "n": 413
+        },
+        "ARIMA_reestymowana_vs_Naiwna": {
+          "DM": -0.3824,
+          "p": 0.702,
+          "n": 413
+        },
+        "ARIMA_stale_vs_Naiwna": {
+          "DM": 0.0644,
+          "p": 0.949,
+          "n": 413
+        }
+      },
+      "czas_s": 0.1
+    },
+    "EURUSD": {
+      "parametry_ARIMA_stale": {
+        "ar.L1": -0.006539,
+        "ar.L2": -0.017623,
+        "ar.L3": -0.0057,
+        "ar.L4": -0.010043,
+        "ar.L5": 0.012349,
+        "sigma2": 3.1e-05
+      },
+      "ARIMA_reestymowana": {
+        "MAPE": 0.3322,
+        "RMSE": 0.005067,
+        "MAE": 0.00368
+      },
+      "ARIMA_stale_parametry": {
+        "MAPE": 0.3319,
+        "RMSE": 0.005063,
+        "MAE": 0.003678
+      },
+      "Naiwna": {
+        "MAPE": 0.3326,
+        "RMSE": 0.005068,
+        "MAE": 0.003685
+      },
+      "DM": {
+        "TCN-Mamdani_vs_ARIMA_reestymowana": {
+          "DM": -5.768,
+          "p": 1.61e-08,
+          "n": 400
+        },
+        "TCN-Mamdani_vs_ARIMA_stale_parametry": {
+          "DM": -5.802,
+          "p": 1.34e-08,
+          "n": 400
+        },
+        "TCN-Mamdani_vs_Naiwna": {
+          "DM": -5.8137,
+          "p": 1.25e-08,
+          "n": 400
+        },
+        "ARIMA_stale_vs_ARIMA_reestymowana": {
+          "DM": 1.6051,
+          "p": 0.109,
+          "n": 430
+        },
+        "ARIMA_reestymowana_vs_Naiwna": {
+          "DM": 0.1233,
+          "p": 0.902,
+          "n": 430
+        },
+        "ARIMA_stale_vs_Naiwna": {
+          "DM": 0.6814,
+          "p": 0.496,
+          "n": 430
+        }
+      },
+      "czas_s": 0.12
+    },
+    "BTCUSD": {
+      "parametry_ARIMA_stale": {
+        "ar.L1": -0.044507,
+        "ar.L2": 0.025033,
+        "ar.L3": 0.014612,
+        "ar.L4": 0.03132,
+        "ar.L5": 0.01136,
+        "sigma2": 1146892.128245
+      },
+      "ARIMA_reestymowana": {
+        "MAPE": 1.6422,
+        "RMSE": 2190.619508,
+        "MAE": 1597.469678
+      },
+      "ARIMA_stale_parametry": {
+        "MAPE": 1.6375,
+        "RMSE": 2184.829037,
+        "MAE": 1593.131544
+      },
+      "Naiwna": {
+        "MAPE": 1.6374,
+        "RMSE": 2182.113967,
+        "MAE": 1592.606101
+      },
+      "DM": {
+        "TCN-Mamdani_vs_ARIMA_reestymowana": {
+          "DM": -4.1371,
+          "p": 4.27e-05,
+          "n": 409
+        },
+        "TCN-Mamdani_vs_ARIMA_stale_parametry": {
+          "DM": -4.3035,
+          "p": 2.11e-05,
+          "n": 409
+        },
+        "TCN-Mamdani_vs_Naiwna": {
+          "DM": -4.4208,
+          "p": 1.26e-05,
+          "n": 409
+        },
+        "ARIMA_stale_vs_ARIMA_reestymowana": {
+          "DM": 2.3475,
+          "p": 0.0193,
+          "n": 439
+        },
+        "ARIMA_reestymowana_vs_Naiwna": {
+          "DM": -1.2287,
+          "p": 0.22,
+          "n": 439
+        },
+        "ARIMA_stale_vs_Naiwna": {
+          "DM": -0.3867,
+          "p": 0.699,
+          "n": 439
+        }
+      },
+      "czas_s": 0.06
+    },
+    "DAX": {
+      "parametry_ARIMA_stale": {
+        "ar.L1": -0.01812,
+        "ar.L2": 0.021815,
+        "ar.L3": 0.009916,
+        "ar.L4": -0.000964,
+        "ar.L5": 0.020273,
+        "sigma2": 22195.854548
+      },
+      "ARIMA_reestymowana": {
+        "MAPE": 0.7462,
+        "RMSE": 216.381682,
+        "MAE": 160.246077
+      },
+      "ARIMA_stale_parametry": {
+        "MAPE": 0.7432,
+        "RMSE": 215.601175,
+        "MAE": 159.581786
+      },
+      "Naiwna": {
+        "MAPE": 0.7427,
+        "RMSE": 216.187117,
+        "MAE": 159.493577
+      },
+      "DM": {
+        "TCN-Mamdani_vs_ARIMA_reestymowana": {
+          "DM": -9.4666,
+          "p": 2.87e-19,
+          "n": 389
+        },
+        "TCN-Mamdani_vs_ARIMA_stale_parametry": {
+          "DM": -9.5333,
+          "p": 1.71e-19,
+          "n": 389
+        },
+        "TCN-Mamdani_vs_Naiwna": {
+          "DM": -9.4551,
+          "p": 3.14e-19,
+          "n": 389
+        },
+        "ARIMA_stale_vs_ARIMA_reestymowana": {
+          "DM": 2.3271,
+          "p": 0.0204,
+          "n": 419
+        },
+        "ARIMA_reestymowana_vs_Naiwna": {
+          "DM": -0.2767,
+          "p": 0.782,
+          "n": 419
+        },
+        "ARIMA_stale_vs_Naiwna": {
+          "DM": 1.0619,
+          "p": 0.289,
+          "n": 419
+        }
+      },
+      "czas_s": 0.06
+    },
+    "NIKKEI": {
+      "parametry_ARIMA_stale": {
+        "ar.L1": -0.021105,
+        "ar.L2": 0.054939,
+        "ar.L3": -0.02911,
+        "ar.L4": 0.007881,
+        "ar.L5": -0.027143,
+        "sigma2": 83240.116573
+      },
+      "ARIMA_reestymowana": {
+        "MAPE": 1.0638,
+        "RMSE": 633.803,
+        "MAE": 423.864786
+      },
+      "ARIMA_stale_parametry": {
+        "MAPE": 1.0572,
+        "RMSE": 628.075134,
+        "MAE": 421.310159
+      },
+      "Naiwna": {
+        "MAPE": 1.0519,
+        "RMSE": 629.037339,
+        "MAE": 418.92291
+      },
+      "DM": {
+        "TCN-Mamdani_vs_ARIMA_reestymowana": {
+          "DM": 0.9684,
+          "p": 0.333,
+          "n": 374
+        },
+        "TCN-Mamdani_vs_ARIMA_stale_parametry": {
+          "DM": -0.2787,
+          "p": 0.781,
+          "n": 374
+        },
+        "TCN-Mamdani_vs_Naiwna": {
+          "DM": 0.3183,
+          "p": 0.75,
+          "n": 374
+        },
+        "ARIMA_stale_vs_ARIMA_reestymowana": {
+          "DM": 1.4909,
+          "p": 0.137,
+          "n": 404
+        },
+        "ARIMA_reestymowana_vs_Naiwna": {
+          "DM": -0.9674,
+          "p": 0.334,
+          "n": 404
+        },
+        "ARIMA_stale_vs_Naiwna": {
+          "DM": 0.2774,
+          "p": 0.782,
+          "n": 404
+        }
+      },
+      "czas_s": 0.06
+    },
+    "GOLD": {
+      "parametry_ARIMA_stale": {
+        "ar.L1": -0.021978,
+        "ar.L2": -0.002581,
+        "ar.L3": 0.038861,
+        "ar.L4": -0.022751,
+        "ar.L5": 0.00234,
+        "sigma2": 218.888573
+      },
+      "ARIMA_reestymowana": {
+        "MAPE": 0.9025,
+        "RMSE": 40.451425,
+        "MAE": 28.457325
+      },
+      "ARIMA_stale_parametry": {
+        "MAPE": 0.8974,
+        "RMSE": 40.144237,
+        "MAE": 28.263722
+      },
+      "Naiwna": {
+        "MAPE": 0.896,
+        "RMSE": 40.195033,
+        "MAE": 28.214697
+      },
+      "DM": {
+        "TCN-Mamdani_vs_ARIMA_reestymowana": {
+          "DM": -5.1001,
+          "p": 5.34e-07,
+          "n": 385
+        },
+        "TCN-Mamdani_vs_ARIMA_stale_parametry": {
+          "DM": -5.3102,
+          "p": 1.86e-07,
+          "n": 385
+        },
+        "TCN-Mamdani_vs_Naiwna": {
+          "DM": -5.2844,
+          "p": 2.12e-07,
+          "n": 385
+        },
+        "ARIMA_stale_vs_ARIMA_reestymowana": {
+          "DM": 1.7813,
+          "p": 0.0756,
+          "n": 415
+        },
+        "ARIMA_reestymowana_vs_Naiwna": {
+          "DM": -1.3387,
+          "p": 0.181,
+          "n": 415
+        },
+        "ARIMA_stale_vs_Naiwna": {
+          "DM": 0.4459,
+          "p": 0.656,
+          "n": 415
+        }
+      },
+      "czas_s": 0.05
+    }
+  }
+}

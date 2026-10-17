@@ -1,0 +1,12 @@
+Eksperyment 24_korelacje_cech_tcn: zgodnosc wyjsc ekstraktora TCN z kroczacymi statystykami rynkowymi
+
+Metoda: dla kazdego dnia testowego cechy TCN (trend, zmiennosc, momentum) zapisane w prognozach modelu
+hybrydowego (05: SP500, WIG20, EURUSD, BTCUSD; 20: DAX, NIKKEI, GOLD) porownano ze statystykami z tego samego
+30-sesyjnego okna wejsciowego: nachylenie MNK log-cen [%/sesje], odchylenie standardowe dziennych log-stop zwrotu [%],
+10-sesyjna stopa zmiany ceny [%]. Korelacje Pearsona i Spearmana (scipy.stats) kazdej cechy z kazda statystyka,
+zmiennosc cech, odsetek dni przy granicy dziedziny. Definicje statystyk ustalone przed obliczeniami.
+Kontrola: kolumna Actual w plikach zrodlowych = cena dnia prognozy (okno = 30 poprzednich cen).
+Brak trenowania modeli.
+Implementacja: Python 3.14.7 (macOS, CPU), numpy 2.5.0, pandas 3.0.3, scipy 1.18.0, scikit-learn 1.9.0, statsmodels 0.14.6, scikit-fuzzy 0.5.0, torch 2.11.0 (wersje jak w requirements.txt).
+Reprodukowalnosc: ziarno 42 tam, gdzie wystepuje losowosc; uruchomienie: python NN_nazwa/run.py z katalogu wewnetrzne (dane w ../zewnetrzne).
+Data uruchomienia: 2026-10-17 (rewizja po recenzjach WSB Journal of Business and Finance).

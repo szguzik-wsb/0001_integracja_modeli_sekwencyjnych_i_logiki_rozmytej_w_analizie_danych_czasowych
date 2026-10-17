@@ -1,0 +1,65 @@
+{
+  "eksperyment": "Prognozy wielokrokowe TCN-Mamdani w strategii bezposredniej (S&P 500)",
+  "metryka": "MAPE dla ostatniego kroku horyzontu (jak w 08)",
+  "diagnostyka_rekurencji_05": {
+    "y_star_srednia_pct_skali_znorm": 1.8183,
+    "y_star_min": 1.3448,
+    "y_star_max": 1.8559,
+    "odsetek_y_star_dodatnich": 1.0,
+    "srednia_jednokrokowa_zmiana_pct_ceny": 1.2648
+  },
+  "wyniki": {
+    "h=1": {
+      "MAPE_TCN_Mamdani_bezposredni": 1.3257,
+      "MAPE_naiwna_P_t": 0.6998,
+      "n_punktow": 385,
+      "epoki_treningu": 16,
+      "odsetek_prognoz_wzrostu": 1.0,
+      "srednia_prognozowana_zmiana_pct_ceny": 1.2653,
+      "srednia_rzeczywista_zmiana_pct_ceny": 0.0659,
+      "czas_s": 11.07,
+      "MAPE_TCN_Mamdani_rekurencyjny_08": 1.3253,
+      "MAPE_ARIMA_08": 0.6822,
+      "MAPE_LSTM_bezposredni_08": 5.0969
+    },
+    "h=5": {
+      "MAPE_TCN_Mamdani_bezposredni": 1.7211,
+      "MAPE_naiwna_P_t": 1.6552,
+      "n_punktow": 381,
+      "epoki_treningu": 16,
+      "odsetek_prognoz_wzrostu": 1.0,
+      "srednia_prognozowana_zmiana_pct_ceny": 1.1081,
+      "srednia_rzeczywista_zmiana_pct_ceny": 0.3333,
+      "czas_s": 9.66,
+      "MAPE_TCN_Mamdani_rekurencyjny_08": 6.3257,
+      "MAPE_ARIMA_08": 1.6181,
+      "MAPE_LSTM_bezposredni_08": 7.1777
+    },
+    "h=10": {
+      "MAPE_TCN_Mamdani_bezposredni": 2.212,
+      "MAPE_naiwna_P_t": 2.2123,
+      "n_punktow": 376,
+      "epoki_treningu": 16,
+      "odsetek_prognoz_wzrostu": 0.973,
+      "srednia_prognozowana_zmiana_pct_ceny": 0.0009,
+      "srednia_rzeczywista_zmiana_pct_ceny": 0.6446,
+      "czas_s": 9.38,
+      "MAPE_TCN_Mamdani_rekurencyjny_08": 13.2307,
+      "MAPE_ARIMA_08": 2.1822,
+      "MAPE_LSTM_bezposredni_08": 10.2057
+    },
+    "h=30": {
+      "MAPE_TCN_Mamdani_bezposredni": 3.8224,
+      "MAPE_naiwna_P_t": 3.8223,
+      "n_punktow": 356,
+      "epoki_treningu": 16,
+      "odsetek_prognoz_wzrostu": 0.0,
+      "srednia_prognozowana_zmiana_pct_ceny": -0.0003,
+      "srednia_rzeczywista_zmiana_pct_ceny": 1.8906,
+      "czas_s": 9.28,
+      "MAPE_TCN_Mamdani_rekurencyjny_08": 48.1239,
+      "MAPE_ARIMA_08": 3.8562,
+      "MAPE_LSTM_bezposredni_08": 15.8001
+    }
+  }
+}
